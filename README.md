@@ -6,7 +6,8 @@ Projet de second semestre à EPITA Lyon.
 -> "Votre imagination est la plus belle des réalités virtuelles"
 -> fond decran anime pour lambiance graphique
 
--> jeu vidéo scénarisé de pirate
+-> jeu vidéo scénarisé de pirate :
+
     - battaile navale (lors de la phase de navigation entre les port) : . commande vocal
                         . orienter/tirer au canon
                         . deplacer le navir (clavier)
