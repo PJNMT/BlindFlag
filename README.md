@@ -26,7 +26,7 @@ Pour télécharger et installer le jeu, rendez-vous sur [notre site web](https:/
 > Conseils d'utilisation : nous vous recomandons de jouer avec un casque audio stéréo et un bon microphone.
 
 ## Contact
-Utiliser le [gestionnaire de problèmes](https://github.com/BlaBlaTutorat/Tutorat/issues) de Github
+Utiliser le [gestionnaire de problèmes](https://github.com/PJNMT/The-Blind-Pirate/issues) de Github
 
 
 
