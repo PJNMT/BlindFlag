@@ -3,7 +3,9 @@ Projet de second semestre à EPITA Lyon.
 
 
 -> Peech base : Jeu vidéo pour malvoyant
+
 -> "Votre imagination est la plus belle des réalités virtuelles"
+
 -> fond decran anime pour lambiance graphique
 
 -> jeu vidéo scénarisé de pirate :
