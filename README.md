@@ -7,7 +7,10 @@ Ce projet est réalisé dans le cadre du **Projet Informatique** de second semes
 * CSS
 
 ## The Blind Pirate
-Notre projet est donc un jeu vidéo nommé **The Blind Pirate**. C'est un **jeu vidéo orienté pour les malvoyant** (même s'il est jouable par quelqu'un qui ne l'est pas). Comme sont nom l'indique, dans ce jeu, nous jouerons un capitaine pirate aveugle, guidé par son fidèle perroquet Cocko. Il faudra gèrer correctement son batiment, son équipage et sa réputation sous peine d'une mutinerie ou même, dans le pire des cas, d'un game over. Le jeu se joue par commande vocal et au clavier.
+Notre projet est donc un jeu vidéo nommé **The Blind Pirate**. C'est un **jeu vidéo orienté pour les malvoyant** (même s'il est jouable par quelqu'un qui ne l'est pas). Le jeu se joue par commande vocal et au clavier.
+
+#### Synopsis
+Comme sont nom l'indique, dans ce jeu, nous incarnons un capitaine pirate aveugle, guidé par son fidèle perroquet Cocko, qui part à la recherche d'un immense trésor perdu. Sur votre route, plusieurs phase de gameplay vous serons proser (voir ci-après). Il faudra savoir gèrer correctement son batiment, son équipage et sa réputation pour pouvoir parvenir jusqu'au trésor temps convoité.
 
 #### Phases de Gameplay
 * Navigation en mer
