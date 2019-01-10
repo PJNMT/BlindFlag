@@ -31,4 +31,4 @@ Utiliser le [gestionnaire de problèmes](https://github.com/PJNMT/The-Blind-Pira
 
 
 
-> Et n'oubliez surtout pas: Votre imagination est la plus belle des réalités virtuelles.
+> Et surtout n'oubliez pas: Votre imagination est la plus belle des réalités.
