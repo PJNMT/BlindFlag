@@ -18,6 +18,7 @@ Comme sont nom l'indique, dans ce jeu, nous incarnons un capitaine pirate aveugl
 * Abordage
 * Mutinerie
 * Chasse aux trésors
+* Taverne
 * Chant
 * Gestion (batiment, équipage, reputation)
 
