@@ -35,14 +35,15 @@ Projet de second semestre à EPITA Lyon.
                                                                   . enigme pour gagner le tresor
                                                                       
     - bateau -> vie + niveau (en fonction de la taille/equipement/equipage)
+    - Cocko le perroquet : "Ok Cocko" ...
     - capitaine de bateau aveugle + son perroquet (qui le guide)
     - reputation en fonction de l'equipage (trop mauvaise = risque de mutinerie)
     
-    - stat (doner apr coco) : . vie du capitaine
-                              . vie de l'equipage (nombre de persone)
-                              . vie du beteau
-                              . reputaion
-                              . niveau du bateau
+    - stat (donner par Cocko) : . vie du capitaine
+                                . vie de l'equipage (nombre de persone)
+                                . vie du beteau
+                                . reputaion
+                                . niveau du bateau
                               
     - lancer la bataille navale : . plusieur sorte de bateau (marchandise/pirate/corsaire/etc)
     
