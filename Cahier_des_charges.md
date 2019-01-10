@@ -3,6 +3,8 @@
 ## Graphismes
 * Fond d'écran animé type aquarelle qui s'adapte à l'ambiance dans laquelle on se trouve dans le jeu.
 
+
+
 ## Phases de Gameplay
 
 #### Navigation en mer
@@ -46,3 +48,24 @@
 * Cocko nous guide jusqu'au trésor (*il parle*)
 * On se déplace à la voix
 * Une fois le trésor touvé, on le remporte si on arrive à repondre correctement à une enigme posé par Cocko
+
+
+
+## Site web
+* Télécharger le jeu
+* Présenter le jeu
+* Accessible au malvoyant
+
+
+
+## Répartition des tâches
+
+#### Jeanne
+
+#### Pilar
+
+#### Néphélie
+
+#### Marius
+
+#### Tao
