@@ -1,62 +1,30 @@
 # EPITA - S2 Project
-Projet de second semestre à EPITA Lyon.
+Ce projet est réaliser dans le cadre du **Projet Informatique** de second semestre à **EPITA**. Le but de celui-ci est de mettre en oeuvre les connaissances que nous avons acquises en cours, en TD et en TP, augmentées des acquis personnels nécessaires au projet et qui n'ont pas été abordé en lors des cours.
+
+#### Langages utilisés
+* C#
+* HTML
+* CSS
+
+## The Blind Pirate
+Notre projet est donc un jeu vidéo nommé **The Blind Pirate**. C'est un **jeu vidéo orienté pour les malvoyant** (même s'il est jouable par quelqu'un qui ne l'est pas). Comme sont nom l'indique, dans ce jeu, nous jouerons un capitaine pirate aveugle, guidé par son fidèle perroquet Cocko. Il faudra gèrer correctement son batiment, son équipage et sa réputation sous peine d'une mutinerie ou même, dans le pire des cas, d'un game over. Le jeu se joue par commande vocal et au clavier.
+
+#### Phases de Gameplay
+* Navigation en mer
+* Batailles navales
+* Abordage
+* Mutinerie
+* Chasse aux trésors
+* Chant
+* Gestion (batiment, équipage, reputation)
+
+## Installation
+Pour télécharger et installer le jeu, rendez-vous sur [notre site web](https://github.com/PJNMT/The-Blind-Pirate).
+> Conseils d'utilisation : nous vous recomandons de jouer avec un casque audio stéréo et un bon microphone.
+
+## Contact
+Utiliser le [gestionnaire de problèmes](https://github.com/BlaBlaTutorat/Tutorat/issues) de Github
 
 
--> Peech base : Jeu vidéo pour malvoyant
 
--> "Votre imagination est la plus belle des réalités virtuelles"
-
--> fond decran anime pour lambiance graphique
-
--> jeu vidéo scénarisé de pirate :
-
-    - battaile navale (lors de la phase de navigation entre les port) : . commande vocal
-                        . orienter/tirer au canon
-                        . deplacer le navir (clavier)
-                        . bonne ambiance sonore (canon, épée, musique, eau, vent, mouette,...)
-                        . esquiver les bouler de canon
-                        . a couvert
-                        . vie de l'equipage/batteau
-                        . gagner argent/recruter des gens
-                        . bateau couler -> xp
-                        . bateau non couler -> lancer abordage
-                        
-    - abordage/mutinerie (apres la baitaille si le bateau n'est pas couler) : . battaile contre le capitaine de navire
-                                                                              . plus on met de temps a gagner plus on perd d'equipage
-                                                                              . clavier + voix (achever capitaine)
-                                                                              . gagner or du bateau si on gagne
-                                                                              . tuer/recruter (si on a de la place)
-    
-    - jeu de chant (simon) : . differente dificulter (+ ou - de reputation)
-                             . melodie a refaire a la voix
-                             . gagne => + repuation + chanson
-                             . en mer (syrene) -> perd = moins equipage
-                                               -> gagne = argent
-    
-    - jeu de chasse au tresor (sur l'ile de la carte au tresor) : . perroquet guide jusqu'au tresor
-                                                                  . enigme pour gagner le tresor
-                                                                      
-    - bateau -> vie + niveau (en fonction de la taille/equipement/equipage)
-    - Cocko le perroquet : "Ok Cocko" ...
-    - capitaine de bateau aveugle + son perroquet (qui le guide)
-    - reputation en fonction de l'equipage (trop mauvaise = risque de mutinerie)
-    
-    - stat (donner par Cocko) : . vie du capitaine
-                                . vie de l'equipage (nombre de persone)
-                                . vie du beteau
-                                . reputaion
-                                . niveau du bateau
-                              
-    - lancer la bataille navale : . plusieur sorte de bateau (marchandise/pirate/corsaire/etc)
-    
-    - phase port : . payer equipage
-                   . ameliorer/reparer bateau
-                   . taverne (mini jeu chant + recruter)
-                   . checkpoint
-                   . achat carte au tresor (debloque une ile sur le chemin du prochain port)
-                   
-    - phase de navigation (entre les port) : . diriger par la vigie
-                                             . avertissement pour le bateau 
-                                             . chant des pirate                   
-                   
-    - vigie te guide vers la prochaine ile/port (sur le chemain on peu croiser des bateau etc)
+> Et n'oubliez surtout pas: Votre imagination est la plus belle des réalités virtuelles.
