@@ -6,7 +6,7 @@ namespace Game
     {
         static void Main()
         {
-            Console.WriteLine("The Blind Pirate");
+            Console.WriteLine("The BLind Pirate");
         }
     }
 }
