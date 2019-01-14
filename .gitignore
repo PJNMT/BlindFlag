@@ -16,3 +16,5 @@ obj
 # Rider
 .idea
 *.userprefs
+
+Game.sln.DotSettings.user
