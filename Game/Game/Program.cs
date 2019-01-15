@@ -6,7 +6,7 @@ namespace Game
     {
         static void Main()
         {
-            Console.WriteLine("Your imagination is the most beautiful reality");
+            Console.WriteLine("Your imagination  is the most beautiful reality");
         }
     }
 }
