@@ -19,7 +19,7 @@
 * Lorsque le batiment adverse atteint un certain seuil de vie, celui-ci deviens inofensif et on peut lancer la phase d'abordage
 * Si le batiment adverse coule, alors nous gagnons de l'XP et de la réputation (*le capitaine et son navire*)
 
-#### Abordage/Mutinerie
+#### Abordage/Mutinerie 
 * On se bat contre le capitaine adverse/chef des mutins
 * Le niveau de notre adversaire dépend du niveau du batiment adverse lors d'un aborage, et de notre niveau et notre réputation lors d'une mutinerie
 * Plus on met de temps à gagner contre notre adversaire plus nos membres d'équipages perdent de la vie
@@ -28,7 +28,7 @@
 * Lors d'une mutinerie, si on gagne alors on reprend le controle du navire et de l'équipage et on a le choix de massacrer une partie des mutins ou de les garder en vie (influe sur notre réputaion)
 * Si on meurt, c'est le Game Over
 
-#### Gestion (*lorsqu'on est dans un port*)
+#### Gestion (*lorsqu'on est dans un port*) 
 * Payer notre équipage (influe sur notre réputaion)
 * Améliorer notre batiment et notre équipement
 * Réparer le navire
