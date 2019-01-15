@@ -5,7 +5,7 @@
 
 
 
-## Phases de Gameplay
+## Phases de Gameplay 
 
 #### Navigation en mer
 * La vigie nous guide pour rejoindre le prochain port/île et nous avertis si un batiment est proche de nous ou si une tempête arrive.
