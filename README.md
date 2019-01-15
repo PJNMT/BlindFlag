@@ -6,7 +6,7 @@ Ce projet est réalisé dans le cadre du **Projet Informatique** de second semes
 * HTML
 * CSS
 
-## The Blind Pirate
+## BlindFlag
 Notre projet est donc un jeu vidéo nommé **BlindFlag**. C'est un **jeu vidéo orienté pour les malvoyant** (même s'il est jouable par quelqu'un qui ne l'est pas). Le jeu se joue par commande vocal et au clavier.
 
 #### Synopsis
@@ -23,11 +23,11 @@ Comme sont nom l'indique, dans ce jeu, nous incarnons un capitaine pirate aveugl
 * Gestion (batiment, équipage, reputation)
 
 ## Installation
-Pour télécharger et installer le jeu, rendez-vous sur [notre site web](https://github.com/PJNMT/The-Blind-Pirate).
+Pour télécharger et installer le jeu, rendez-vous sur [notre site web](https://github.com/PJNMT/BlindFlag).
 > Conseils d'utilisation : nous vous recomandons de jouer avec un casque audio stéréo et un bon microphone.
 
 ## Contact
-Utiliser le [gestionnaire de problèmes](https://github.com/PJNMT/The-Blind-Pirate/issues) de Github
+Utiliser le [gestionnaire de problèmes](https://github.com/PJNMT/BlindFlag/issues) de Github
 
 
 
