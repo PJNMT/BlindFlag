@@ -28,7 +28,7 @@
 * Lors d'une mutinerie, si on gagne alors on reprend le controle du navire et de l'équipage et on a le choix de massacrer une partie des mutins ou de les garder en vie (influe sur notre réputaion)
 * Si on meurt, c'est le Game Over
 
-#### Gestion (*lorsqu'on est dans un port*) 
+#### Gestion (*lorsqu'on est dans un port*)  
 * Payer notre équipage (influe sur notre réputaion)
 * Améliorer notre batiment et notre équipement
 * Réparer le navire
