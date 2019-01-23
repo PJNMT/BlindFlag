@@ -9,7 +9,7 @@ namespace Game
             this.HP = HP;
             this.Attack_pts = Attack_pts;
             this.Speed = Speed;
-            this.Nb_Crew = Crew;
+            Nb_Crew = Crew;
         }
     }
 }
