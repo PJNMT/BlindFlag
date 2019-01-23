@@ -15,6 +15,11 @@ namespace Game
 
         protected (int, int) (PosX, PosY);
 
+
+        public (int, int) GetPos()
+        {
+            return (posX, PosY);
+        }
         
         public int GetHP()
         {
