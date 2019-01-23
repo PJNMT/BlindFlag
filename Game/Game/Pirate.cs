@@ -1,9 +1,7 @@
 namespace Game
 {
     public class Pirate : Ship
-    {
-        protected bool Hostile;
-        
+    {        
         public Pirate(int Gold, int Level, int HP, int Attack_pts, int Speed, int Crew)
         {
             this.Gold = Gold;

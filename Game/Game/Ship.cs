@@ -2,6 +2,8 @@ namespace Game
 {
     public abstract class Ship
     {
+        protected bool Hostility;
+
         protected string Name;
         protected int Gold;
         
