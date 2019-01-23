@@ -38,7 +38,16 @@
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="Captain.cs" />
+        <Compile Include="Corsair.cs" />
+        <Compile Include="Galleon.cs" />
+        <Compile Include="Harbour.cs" />
+        <Compile Include="Island.cs" />
+        <Compile Include="Marines.cs" />
+        <Compile Include="Pirate.cs" />
+        <Compile Include="Place.cs" />
         <Compile Include="Program.cs" />
+        <Compile Include="Ship.cs" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
