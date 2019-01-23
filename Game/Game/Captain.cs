@@ -7,6 +7,7 @@ namespace Game
         private string Name;
         private int Money;
         
+        /*pour le combat, à voir si besoin ou non (getposx() et getposy() associés*/
         protected int PosX;
         protected int PosY;
 
