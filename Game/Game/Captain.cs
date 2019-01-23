@@ -29,6 +29,7 @@ namespace Game
         {
             return Name;
         }
+        
         public int GetPosX()
         {
             return PosX;
