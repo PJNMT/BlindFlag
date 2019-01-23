@@ -1,10 +1,8 @@
 # EPITA - S2 Project
 Ce projet est réalisé dans le cadre du **Projet Informatique** de second semestre à **EPITA**. Le but de celui-ci est de mettre en oeuvre les connaissances que nous avons acquises en cours, en TD et en TP, augmentées des acquis personnels nécessaires au projet et qui n'ont pas été abordé en lors des cours.
 
-#### Langages utilisés
+#### Langage utilisé
 * C#
-* HTML
-* CSS
 
 ## BlindFlag
 Notre projet est donc un jeu vidéo nommé **BlindFlag**. C'est un **jeu vidéo orienté pour les malvoyant** (même s'il est jouable par quelqu'un qui ne l'est pas). Le jeu se joue par commande vocal et au clavier.

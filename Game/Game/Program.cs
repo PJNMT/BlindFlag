@@ -2,11 +2,11 @@
 
 namespace Game
 {
-    class Program
+  internal class Program
+  {
+    public static void Main()
     {
-        static void Main()
-        {
-            Console.WriteLine("Your imagination  is the most beautiful reality");
-        }
+      Console.Write("BlindFlag");
     }
+  }
 }

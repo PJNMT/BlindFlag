@@ -7,6 +7,8 @@
 
 ## Phases de Gameplay
 
+https://fr.overleaf.com/9633432555rmyysnxjwrsd
+
 #### Navigation en mer
 * La vigie nous guide pour rejoindre le prochain port/île et nous avertis si un batiment est proche de nous ou si une tempête arrive.
 * Chants de pirate
