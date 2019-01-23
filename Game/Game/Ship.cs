@@ -19,6 +19,8 @@ namespace Game
         protected int PosX;
         protected int PosY;
 
+        protected bool hostile;
+
 
         public string GetName()
         {
@@ -73,6 +75,11 @@ namespace Game
         public int GetXP()
         {
             return XP;
+        }
+
+        public bool Hostile()
+        {
+            return hostile;
         }
     }
 }
