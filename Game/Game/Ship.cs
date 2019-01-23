@@ -2,6 +2,7 @@ namespace Game
 {
     public abstract class Ship
     {
+        protected string Name;
         protected int Gold;
         
         protected int Level;
@@ -16,6 +17,11 @@ namespace Game
         protected (int, int) (PosX, PosY);
 
 
+        public string GetName()
+        {
+            return Name;
+        }
+        
         public (int, int) GetPos()
         {
             return (posX, PosY);

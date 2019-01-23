@@ -4,15 +4,27 @@ namespace Game
     {
         private int HP;
         private int Reputation;
+        private string Name;
+        private int Money;
 
-        public int GetHP
+        public int GetHP()
         {
-            return this.HP;
+            return HP;
         }
         
-        public int GetReputation
+        public int GetReputation()
         {
-            return this.Reputation;
+            return Reputation;
+        }
+
+        public int GetMoney()
+        {
+            return Money;
+        }
+
+        public string GetName()
+        {
+            return Name;
         }
     
     }
