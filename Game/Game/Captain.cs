@@ -11,6 +11,18 @@ namespace Game
         protected int PosX;
         protected int PosY;
 
+        public Captain(int HP, int Reputation, string Name, int Money, int PosX, int Posy)
+        {
+            this.HP = HP;
+            this.Reputation = Reputation;
+            this.Name = Name;
+            this.Money = Money;
+            this.PosX = PosX;
+            this.PosY = Posy;
+        }
+        
+        
+
         public int GetHP()
         {
             return HP;
