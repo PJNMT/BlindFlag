@@ -14,7 +14,8 @@ namespace Game
         protected int Nb_Max_Crew;
         protected int Nb_Crew;
 
-        protected (int, int) (PosX, PosY);
+        protected int PosX;
+        protected int PosY;
 
 
         public string GetName()
@@ -22,9 +23,14 @@ namespace Game
             return Name;
         }
         
-        public (int, int) GetPos()
+        public int GetPosX()
         {
-            return (posX, PosY);
+            return PosX;
+        }
+        
+        public int GetPosY()
+        {
+            return PosY;
         }
         
         public int GetHP()

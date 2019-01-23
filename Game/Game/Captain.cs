@@ -6,6 +6,9 @@ namespace Game
         private int Reputation;
         private string Name;
         private int Money;
+        
+        protected int PosX;
+        protected int PosY;
 
         public int GetHP()
         {
@@ -25,6 +28,15 @@ namespace Game
         public string GetName()
         {
             return Name;
+        }
+        public int GetPosX()
+        {
+            return PosX;
+        }
+        
+        public int GetPosY()
+        {
+            return PosY;
         }
     
     }
