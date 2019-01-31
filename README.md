@@ -30,3 +30,10 @@ Utiliser le [gestionnaire de problèmes](https://github.com/PJNMT/BlindFlag/issu
 
 
 > Et surtout n'oubliez pas: Votre imagination est la plus belle des réalités.
+
+## Details des bâteaux en general:
+* Level 50 max
+* xp entre chaque niveau => *2 a chaque fois
+* Speed = niveau % 10
+* Equipage = 10 * (1.5 ^niveau)
+* 
