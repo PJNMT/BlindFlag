@@ -1,15 +1,25 @@
+using System;
+
 namespace Game
 {
     public class Galleon : Ship
     {
-        public Galleon(int Gold, int Level, int HP, int Attack_pts, int Speed, int Crew)
+        
+        public Galleon(string name, int level, bool hostile, int x, int y)
         {
-            this.Gold = Gold;
-            this.Level = Level;
-            this.HP = HP;
-            this.Attack_pts = Attack_pts;
-            this.Speed = Speed;
-            Nb_Crew = Crew;
+            Hostility = hostile;
+            name = name;
+            Level = level;
+            XP = 0;
+            HP = 100;
+            Attack_pts = level * 10;
+            Speed = level % 10;
+
+            Nb_Max_Crew = (int) Math.Pow((int) (10 * (1, 5f)), level);
+            Nb_Crew = Nb_Max_Crew;
+
+            PosX = x;
+            PosY = y;
         }
     }
 }

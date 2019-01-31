@@ -1,85 +1,30 @@
+using System;
+using System.Net.NetworkInformation;
+
 namespace Game
 {
     public abstract class Ship
     {
-        protected bool Hostility;
+        protected bool Hostility { get; set; }
 
-        protected string Name;
-        protected int Gold;
+        protected string Name{ get; set; }
+        protected int Gold{ get; set; }
         
-        protected int Level;
-        protected int XP;
+        protected int Level{ get; set; }
+        protected int XP{ get; set; }
         
-        protected int HP;
-        protected int Attack_pts;
-        protected int Speed;
-        protected int Nb_Max_Crew;
-        protected int Nb_Crew;
+        protected int HP{ get; set; }
+        protected int Attack_pts{ get; set; }
+        protected int Speed { get; set; };
 
-        protected int PosX;
-        protected int PosY;
+        protected int Nb_Max_Crew{ get; set; }
+        protected int Nb_Crew{ get; set; }
 
-        protected bool hostile;
+        protected int PosX{ get; set; }
+        protected int PosY{ get; set; }
 
-
-        public string GetName()
-        {
-            return Name;
-        }
         
-        public int GetPosX()
-        {
-            return PosX;
-        }
-        
-        public int GetPosY()
-        {
-            return PosY;
-        }
-        
-        public int GetHP()
-        {
-            return HP;
-        }
 
-        public int GetAttack()
-        {
-            return Attack_pts;
-        }
 
-        public int GetSpeed()
-        {
-            return Speed;
-        }
-
-        public int GetGold()
-        {
-            return Gold;
-        }
-
-        public int GetCrew()
-        {
-            return Nb_Crew;
-        }
-
-        public int GetMaxCrew()
-        {
-            return Nb_Max_Crew;
-        }
-
-        public int GetLvl()
-        {
-            return Level;
-        }
-
-        public int GetXP()
-        {
-            return XP;
-        }
-
-        public bool Hostile()
-        {
-            return hostile;
-        }
-    }
+       }
 }
