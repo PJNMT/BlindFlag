@@ -15,7 +15,7 @@ namespace Game
         
         protected int HP{ get; set; }
         protected int Attack_pts{ get; set; }
-        protected int Speed { get; set; };
+        protected int Speed { get; set; }
 
         protected int Nb_Max_Crew{ get; set; }
         protected int Nb_Crew{ get; set; }
