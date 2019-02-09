@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Captain.cs" />
+    <Compile Include="StT.cs" />
     <Compile Include="Corsair.cs" />
     <Compile Include="Galleon.cs" />
     <Compile Include="Harbour.cs" />
