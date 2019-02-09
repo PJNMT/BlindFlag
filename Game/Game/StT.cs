@@ -13,7 +13,7 @@ namespace Game
         public StT()
         {
             speech = "";            
-            Word = new GrammarBuilder(new Choices("tribord", "babord", "a", "couvert", "coco"));
+            Word = new GrammarBuilder(new Choices("tribord", "babord", "a", "couvert", "coco", "ok"));
             Word.Culture = new System.Globalization.CultureInfo("fr-FR");
             Dico = new Grammar(Word);
         }
