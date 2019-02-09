@@ -1,53 +1,27 @@
 ﻿using System;
 using System.Speech.Recognition;
 using System.Speech.Synthesis;
+using System.Threading;
 
 namespace Game
 {
     class Program
     {
-        static void recognizer_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
-        {
-            Console.WriteLine("Recognized text: " + e.Result.Text);
-        }
-
-        static void RV()
-        {
-            using (SpeechRecognitionEngine recognizer = new SpeechRecognitionEngine(new System.Globalization.CultureInfo("fr-FR")))
-            {
-                recognizer.LoadGrammar(new DictationGrammar());
-
-                recognizer.SpeechRecognized += new EventHandler<SpeechRecognizedEventArgs>(recognizer_SpeechRecognized);
-
-                recognizer.SetInputToDefaultAudioDevice();
-
-                recognizer.RecognizeAsync(RecognizeMode.Multiple);
-
-                while (true)
-                {
-                    Console.ReadLine();
-                }
-            }
-        }
-
-        static void SV(string S)
+        static void Synthesis(string S)
         {
             SpeechSynthesizer synth = new SpeechSynthesizer();
-
+            synth.SelectVoice("Microsoft Hortense Desktop");
             synth.SetOutputToDefaultAudioDevice();
-
             synth.Speak(S);
         }
 
-
-
-        static void Main(string[] args)
+        static void Main()
         {
-            SV("Bonjour les amis !");
-            RV();
+            StT speech = new StT();
+            string n = speech.GetSpeech(5000);
+            Console.WriteLine(n);
+            Synthesis(n);
         }
-  
-
     }
 
     internal class SpeechRecognizedEventArgs
