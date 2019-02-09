@@ -49,4 +49,8 @@ namespace Game
   
 
     }
+
+    internal class SpeechRecognizedEventArgs
+    {
+    }
 }
