@@ -14,7 +14,7 @@ namespace Game
             Attack_pts = level * 10;
             Speed = level % 10;
 
-            Nb_Max_Crew = (int) Math.Pow((int) (10 * (1, 5f)), level);
+            Nb_Max_Crew = (int)(Math.Pow((int)(10 * 1.5f), level));
             Nb_Crew = Nb_Max_Crew;
 
             PosX = x;

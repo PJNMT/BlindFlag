@@ -10,10 +10,10 @@ namespace Game
         private GrammarBuilder Word;
         private static Grammar Dico;
 
-        public StT()
+        public StT(Choices WordsRecognition)
         {
             speech = "";            
-            Word = new GrammarBuilder(new Choices("tribord", "babord", "a", "couvert", "coco", "ok"));
+            Word = new GrammarBuilder(WordsRecognition);
             Word.Culture = new System.Globalization.CultureInfo("fr-FR");
             Dico = new Grammar(Word);
         }
