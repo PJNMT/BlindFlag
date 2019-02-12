@@ -39,6 +39,7 @@ namespace Game
             if (Got_ShipShop)
             {
                 SShop = new ShipShop();
+                
             }
             
         }
