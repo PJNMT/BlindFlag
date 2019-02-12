@@ -2,6 +2,7 @@ namespace Game
 {
     public class Bar
     {
+        private Random r = new Random();
         protected int peoples { get; set; } 
         protected enum Choose_Action
         {
@@ -13,6 +14,7 @@ namespace Game
 
         public Bar()
         {
+            peoples = r.Next(20) + 10;
         }
     }
 }
