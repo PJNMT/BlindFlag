@@ -8,7 +8,7 @@ namespace Game
     {
         public void SoundDisplay(string file)
         {
-            SoundDisplay mélodie = new SoundDisplay("C:\\Users\\Jeanne\\Desktop\\MUTINY\\MUSIQUE\\" +file + ".wav");
+            SoundDisplay mélodie = new SoundDisplay("C:\\Users\\Jeanne\\Desktop\\MUTINY\\MUSIQUE\\" +file + ".wav");    // /!\ Jeanne, le chemin du fichier sur ton PC n'est pas le même sur tout les PC /!\
             int i = 1;
             int time;
             bool correct = true;
@@ -24,11 +24,10 @@ namespace Game
             }
         }
 
-        public bool CorrectSound(var)
+        private bool CorrectSound()
         {
-            
+            // TODO
+            throw new NotImplementedException();
         }
-        
-        
     }
 }
