@@ -21,7 +21,7 @@ Comme sont nom l'indique, dans ce jeu, nous incarnons un capitaine pirate aveugl
 * Gestion (batiment, équipage, reputation)
 
 ## Installation
-Pour télécharger et installer le jeu, rendez-vous sur [notre site web](https://github.com/PJNMT/BlindFlag).
+Pour télécharger et installer le jeu, rendez-vous sur [notre site web](blindflag.fr).
 > Conseils d'utilisation : nous vous recomandons de jouer avec un casque audio stéréo et un bon microphone.
 
 ## Contact
