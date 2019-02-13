@@ -1,13 +1,15 @@
 using System;
 using System.Media;
-   
- 
-    namespace Game
+using System.Threading;
+
+
+namespace Game
     {
         public class SoundDisplay
         {
             private string file;
             private SoundPlayer player;
+            
 
 
 
@@ -35,6 +37,19 @@ using System.Media;
                     player.Play();
                 }
             }
+            
+            public void PlaySoundTimer(int timer)
+                        {
+                            SoundDisplay mélodie = new SoundDisplay(file);
+                            loadsound();
+                            if (player.IsLoadCompleted)
+                            {
+                                player.Play();
+                                Thread.Sleep(timer);
+                            }
+                        }
+            
+            
 
             public void StopSound()
             {
