@@ -14,7 +14,7 @@ namespace Game
             synth.Speak(S);
         }
 
-        static void Main()
+        static void Main() 
         {
             StT speech = new StT(new Choices("tribord", "babord", "a", "couvert", "coco", "ok", "tous"));
             string n = speech.GetSpeech(5000);
