@@ -2,13 +2,9 @@ namespace Game
 {
     public abstract class Place
     {
-        private int Next_Place; 
+        protected int Until_Next_Place { get; set; } 
         /* nb d'evenements avant la prochaine place */
 
-        public int GetNextPlace()
-        {
-            return Next_Place;
-        }
 
     }
 }

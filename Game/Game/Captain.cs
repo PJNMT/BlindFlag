@@ -10,15 +10,17 @@ namespace Game
         /*pour le combat, à voir si besoin ou non (getposx() et getposy() associés*/
         protected int PosX;
         protected int PosY;
+        protected int PosZ;
 
-        public Captain(int HP, int Reputation, string Name, int Money, int PosX, int Posy)
+        public Captain(int HP, int Reputation, string Name, int Money, int PosX, int PosY, int PosZ)
         {
             this.HP = HP;
             this.Reputation = Reputation;
             this.Name = Name;
             this.Money = Money;
             this.PosX = PosX;
-            this.PosY = Posy;
+            this.PosY = PosY;
+            this.PosZ = PosZ; //le capitaine se baisse ou non. valeur 1 ou 0 EXCLUSIVEMENT.
         }
         
         
@@ -51,6 +53,11 @@ namespace Game
         public int GetPosY()
         {
             return PosY;
+        }
+
+        public int GetPosZ()
+        {
+            return PosZ;
         }
     
     }

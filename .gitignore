@@ -1,19 +1,7 @@
 .idea/
-__pycache__/
-/config.py
-
-
-.project
-.pydevproject
-.settings/
-
-.wsgi
-
-# Binaries
+.vs/
 bin
 obj
-
-# Rider
 .idea
 *.userprefs
 

@@ -21,7 +21,7 @@ Comme sont nom l'indique, dans ce jeu, nous incarnons un capitaine pirate aveugl
 * Gestion (batiment, équipage, reputation)
 
 ## Installation
-Pour télécharger et installer le jeu, rendez-vous sur [notre site web](https://github.com/PJNMT/BlindFlag).
+Pour télécharger et installer le jeu, rendez-vous sur [notre site web](http://blindflag.fr/).
 > Conseils d'utilisation : nous vous recomandons de jouer avec un casque audio stéréo et un bon microphone.
 
 ## Contact
@@ -30,3 +30,10 @@ Utiliser le [gestionnaire de problèmes](https://github.com/PJNMT/BlindFlag/issu
 
 
 > Et surtout n'oubliez pas: Votre imagination est la plus belle des réalités.
+
+## Details des bâteaux en general:
+* Level 50 max
+* xp entre chaque niveau => *2 a chaque fois
+* Speed = niveau % 10
+* Equipage = 10 * (1.5 ^niveau)
+* 

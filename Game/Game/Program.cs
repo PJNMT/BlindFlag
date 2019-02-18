@@ -1,12 +1,25 @@
 ﻿using System;
+using System.Speech.Recognition;
+using System.Speech.Synthesis;
 
 namespace Game
 {
-  internal class Program
-  {
-    public static void Main()
+    class Program
     {
-      Console.Write("BlindFlag");
+        static void Synthesis(string S)
+        {
+            SpeechSynthesizer synth = new SpeechSynthesizer();
+            synth.SelectVoice("Microsoft Hortense Desktop");
+            synth.SetOutputToDefaultAudioDevice();
+            synth.Speak(S);
+        }
+
+        static void Main() 
+        {
+            StT speech = new StT(new Choices("tribord", "babord", "a", "couvert", "coco", "ok", "tous"));
+            string n = speech.GetSpeech(5000);
+            Console.WriteLine(n);
+            Synthesis(n);
+        }
     }
-  }
 }

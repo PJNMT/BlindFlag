@@ -6,12 +6,14 @@ namespace Game
 
         public BlindShip()
         {
-            this.Gold = ;
-            this.Level = Level;
-            this.HP = HP;
-            this.Attack_pts = Attack_pts;
-            this.Speed = Speed;
-            Nb_Crew = Crew;
+            this.Gold = 0;
+            this.Level = 1;
+            this.HP = 100;
+            this.Attack_pts = 10;
+            this.Speed = 10;
+            Nb_Crew = 5;
+            Nb_Max_Crew = 10;
+            XP = 0;
         }
         
         
