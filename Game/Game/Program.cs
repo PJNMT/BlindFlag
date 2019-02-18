@@ -1,6 +1,4 @@
-﻿using System;
-using System.Speech.Recognition;
-using System.Speech.Synthesis;
+﻿using System.Speech.Synthesis;
 
 namespace Game
 {
