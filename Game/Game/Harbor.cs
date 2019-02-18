@@ -28,7 +28,7 @@ namespace Game
 
             if (Got_Bar)
             {
-                bar = new Bar();
+                this.bar = new Bar();
             }
 
             if (Got_OldBudy)
