@@ -44,8 +44,6 @@
     <Compile Include="StT.cs" />
     <Compile Include="Corsair.cs" />
     <Compile Include="Galleon.cs" />
-    <Compile Include="Harbour.cs" />
-    <Compile Include="Island.cs" />
     <Compile Include="Marines.cs" />
     <Compile Include="Pirate.cs" />
     <Compile Include="Place.cs" />
