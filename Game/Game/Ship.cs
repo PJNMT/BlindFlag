@@ -6,7 +6,8 @@ namespace Game
 
         protected string Name{ get; }
         public int Gold{ get; set; }
-        
+        public int Max_Gold { get; set; }
+
         protected int Level{ get; set; }
         protected int XP{ get; set; }
         
