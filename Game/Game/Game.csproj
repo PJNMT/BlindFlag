@@ -40,15 +40,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Audio.cs" />
+    <Compile Include="Bar.cs" />
+    <Compile Include="BlindShip.cs" />
     <Compile Include="Captain.cs" />
+    <Compile Include="Combat.cs" />
+    <Compile Include="Harbor.cs" />
+    <Compile Include="OldTimer.cs" />
+    <Compile Include="Place.cs" />
+    <Compile Include="ShipShop.cs" />
     <Compile Include="StT.cs" />
     <Compile Include="Corsair.cs" />
     <Compile Include="Galleon.cs" />
-    <Compile Include="Harbour.cs" />
-    <Compile Include="Island.cs" />
     <Compile Include="Marines.cs" />
     <Compile Include="Pirate.cs" />
-    <Compile Include="Place.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Ship.cs" />
     <Compile Include="Simon.cs" />

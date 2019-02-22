@@ -1,6 +1,6 @@
 namespace Game
 {
-    public class BlindShip : Ship
+    public class BlindShip
     {
         private int test;
 
@@ -15,7 +15,5 @@ namespace Game
             Nb_Max_Crew = 10;
             XP = 0;
         }
-        
-        
     }
 }

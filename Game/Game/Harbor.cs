@@ -1,14 +1,14 @@
 namespace Game
 {
-    public class Harbour : Place
+    public class Harbor : Place
     {
         protected bool Got_Bar { get; }
         protected bool Got_ShipShop{ get; }
         protected bool Got_OldBudy { get; }
 
         protected Bar bar { get; }
-        protected Shipshop SShop { get; }
-        protected OlbTimer OldBudy { get; }
+        protected ShipShop SShop { get; }
+        protected OldTimer OldBudy { get; }
         
         protected enum Choice_Arrival
         {
@@ -20,7 +20,7 @@ namespace Game
         
         }
 
-        public Harbour( bool bar = true, bool Shop = true, bool OldB = true)
+        public Harbor(bool bar = true, bool Shop = true, bool OldB = true)
         {
             Got_Bar = bar;
             Got_ShipShop = Shop;
@@ -28,7 +28,7 @@ namespace Game
 
             if (Got_Bar)
             {
-                bar = new Bar();
+                this.bar = new Bar();
             }
 
             if (Got_OldBudy)
@@ -39,11 +39,8 @@ namespace Game
             if (Got_ShipShop)
             {
                 SShop = new ShipShop();
-                
+
             }
-            
         }
-        
-        
     }
 }

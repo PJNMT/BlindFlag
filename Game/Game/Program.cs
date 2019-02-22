@@ -1,6 +1,4 @@
-﻿using System;
-using System.Speech.Recognition;
-using System.Speech.Synthesis;
+﻿using System.Speech.Synthesis;
 
 namespace Game
 {
@@ -16,10 +14,7 @@ namespace Game
 
         static void Main() 
         {
-            StT speech = new StT(new Choices("tribord", "babord", "a", "couvert", "coco", "ok", "tous"));
-            string n = speech.GetSpeech(5000);
-            Console.WriteLine(n);
-            Synthesis(n);
+            // TODO
         }
     }
 }

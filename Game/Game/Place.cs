@@ -1,10 +1,8 @@
 namespace Game
 {
-    public abstract class Place
+    public class Place
     {
         protected int Until_Next_Place { get; set; } 
-        /* nb d'evenements avant la prochaine place */
-
-
+        // nb d'evenements avant la prochaine place
     }
 }

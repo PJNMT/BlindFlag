@@ -31,7 +31,7 @@ namespace Game
             Console.WriteLine("Texte reconu: " + speech);            
         }
 
-        private static void RV(int time)
+        private static void RV(int time) // time est en secondes
         {
             using (SpeechRecognitionEngine recognizer = new SpeechRecognitionEngine(new System.Globalization.CultureInfo("fr-FR")))
             {
@@ -40,7 +40,11 @@ namespace Game
                 recognizer.SetInputToDefaultAudioDevice();
                 recognizer.RecognizeAsync(RecognizeMode.Multiple);
 
-                Thread.Sleep(time);
+                EventWaitHandle waithandler = new EventWaitHandle(false, EventResetMode.AutoReset, Guid.NewGuid().ToString()); do
+                {
+                    waithandler.WaitOne(TimeSpan.FromSeconds(1));
+                    time -= 1;
+                } while (time > 0);
             }
         }
     }

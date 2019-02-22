@@ -1,9 +1,12 @@
 namespace Game
 {
-    public class OldBudy
+    public class OldTimer
     {
         protected int Age { get; set; }
 
-        public OldBudy(){}
+        public OldTimer()
+        {
+            // TODO
+        }
     }
 }
