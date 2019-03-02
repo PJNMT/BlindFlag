@@ -42,8 +42,7 @@ namespace Game
 
         private static void recognizer_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
         {
-            speech += " " + e.Result.Text;
-            Console.WriteLine("Texte reconu: " + speech);            
+            speech += " " + e.Result.Text;            
         }
 
         private static void RV(int time) // time est en secondes
