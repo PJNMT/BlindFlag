@@ -4,6 +4,21 @@ using System.Threading;
 
 namespace Game
 {
+
+
+    /*
+     MANUEL D'UTILISATION
+
+        - Créer un nouvel objet StT : StT MyRecognitionObject = new StT(Choices("...", "...", "...", etc));
+        (les "..." dans le Choices sont les mots que le StT pourra reconnaitre)
+
+        - Lancer la reconnaissance vocale et récuperer le string : string MySpeech = MyRecognitionObject.GetSpeech(time);
+        (time est un entier qui représente le temps que vous voulez accorder au StT pour reconnaitre se que le joueur dit. /!\ time est en seconde /!\)
+    */
+
+
+
+
     class StT
     {
         private static string speech;
