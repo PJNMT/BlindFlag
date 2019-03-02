@@ -113,7 +113,7 @@ namespace Game
             }
         }
 
-        private void launch_shop(Captain captain, int status = 0) // Status initialement à 0
+        public static void launch_shop(Captain captain, int status = 0) // Status initialement à 0
         {
             // TODO
             // si status == 0 : marchand dit bonjour

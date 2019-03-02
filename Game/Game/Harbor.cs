@@ -1,3 +1,5 @@
+using System.Speech.Recognition;
+
 namespace Game
 {
     public class Harbor : Place
@@ -47,7 +49,7 @@ namespace Game
         }*/
         public Harbor(){}
         
-        private void launch_harbor(Captain captain, int status = 0) // Status initialement à 0
+        public static void launch_harbor(Captain captain, int status = 0) // Status initialement à 0
         {
             // TODO
             // si status == 0 : COCO explique l'on est au port
@@ -83,7 +85,7 @@ namespace Game
 
                     case "magasin":
                         //TODO
-                        launch_shop(captain,0)
+                        ShipShop.launch_shop(captain);
                         break;
 
                     case "butin":
