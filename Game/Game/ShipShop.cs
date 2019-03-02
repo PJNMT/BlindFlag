@@ -6,14 +6,14 @@ namespace Game
     {
         public ShipShop(){}
 
-        private void repair(int cost, Captain captain)
+        private static void repair(int cost, Captain captain)
         {
             Ship ship = captain.batiment;
             ship.Gold -= cost;
             ship.HP = ship.Max_HP;
         }
 
-        private int up_captain(Captain captain)
+        private static int up_captain(Captain captain)
         {
             StT recognition = new StT(new Choices("fusil", "épée", "quiter"));
             string choice;
@@ -56,7 +56,7 @@ namespace Game
             }
         }
 
-        private int up_ship(Captain captain)
+        private static int up_ship(Captain captain)
         {
             StT recognition = new StT(new Choices("canon", "voiles", "calle", "quartier", "quiter"));
             string choice;
