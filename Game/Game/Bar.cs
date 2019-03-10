@@ -22,10 +22,65 @@ namespace Game
             choice = recognition.GetSpeech(5);
             
             //TODO
-            //Coco donne le nombre d'équipage.
-            
-            
+            //Coco donne le nombre de membres d'équipage.
 
+            while (choice!= "quitter" || choice != "simon" || choice!="payer une tournée" || choice != "recruter") //vérifie les options proposées
+            {
+                //TODO
+                //Coco ne comprend pas, donc redemande
+                choice = recognition.GetSpeech(5);
+            }
+
+            if (choice != "quitter")
+            {
+                switch (choice)
+                {
+                    case "simon":
+                        //TODO
+                        //lancer simon
+                        break;
+                    case "payer une tournée":
+                        break;
+                    case "recruter":
+                        //TODO
+                        //lancer recrutement
+                        break;
+                
+                }
+            }
+            else if (choice == "quitter")
+            {
+                //TODO
+                //Coco: demande validation
+                choice = recognition.GetSpeech(5);
+                validation(choice);
+            }
+            else
+            {
+                launch_bar(captain, 1)
+            }
+
+        }
+        
+        private void validation(string choice)
+        {
+            StT recognition = new StT(new Choices("oui","ouais","nan","non","attends"));
+
+            if (choice == "oui"||choice == "ouais")
+            {
+                //TODO
+                //launch_harbor(captain, 1)
+            }
+            else if (choice == "non" || choice == "nan")
+            {
+                //TODO
+                //launch_bar(captain, 1)
+            }
+            else
+            {
+                //TODO
+                //launch_bar(captain, 1)
+            }
         }
 
         public Bar()
