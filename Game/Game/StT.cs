@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Speech.Recognition;
 using System.Threading;
 
@@ -24,6 +24,7 @@ namespace Game
         private static string speech;
         private GrammarBuilder Word;
         private static Grammar Dico;
+        private static bool nb;
 
         public StT(Choices WordsRecognition)
         {
@@ -31,10 +32,12 @@ namespace Game
             Word = new GrammarBuilder(WordsRecognition);
             Word.Culture = new System.Globalization.CultureInfo("fr-FR");
             Dico = new Grammar(Word);
+            nb = false;
         }
 
         public string GetSpeech(int time)
         {
+            nb = false;
             speech = "";
             RV(time);
             return speech;
@@ -42,7 +45,16 @@ namespace Game
 
         private static void recognizer_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
         {
-            speech += " " + e.Result.Text;            
+            if (nb)
+            {
+                speech += " ";
+            }
+            else
+            {
+                nb = true;
+            }
+
+            speech += e.Result.Text;
         }
 
         private static void RV(int time) // time est en secondes
