@@ -1,6 +1,6 @@
 namespace Game
 {
-    public class BlindShip
+    public class BlindShip : Ship
     {
         private int test;
 

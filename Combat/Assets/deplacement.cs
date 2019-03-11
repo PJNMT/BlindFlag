@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
+using System.Xml.Schema;
 using UnityEngine;
+using UnityEngine.Experimental.UIElements;
 
 public class deplacement : MonoBehaviour
 {
@@ -9,6 +12,15 @@ public class deplacement : MonoBehaviour
     private int y;
     private int z; //si le capitaine se baisse ou non. valeur 1 ou 0 exclusivement.
 
+    CapsuleCollider playercollider;
+    private KeyCode intputavant;
+    private KeyCode intputarrière;
+    private KeyCode intputdroit;
+    private KeyCode intputgauche;
+    
+    
+    
+    
     /*public deplacement (int posx, int posy, int posz)
     {
       this.x = posx;
@@ -20,7 +32,12 @@ public class deplacement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        intputarrière = KeyCode.W;
+        intputavant = KeyCode.Z;
+        intputdroit = KeyCode.S;
+        intputgauche = KeyCode.Q;
         
+        playercollider = gameObject.GetComponent<CapsuleCollider>();
     }
 
     // Update is called once per frame
@@ -28,31 +45,44 @@ public class deplacement : MonoBehaviour
     {
         //deplacement tourner = new deplacement(Capitaine.GetPosx,Capitaine.GetPosy,Capitaine.GetPosz);
         
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Input.GetKeyDown(intputgauche))
         {
             transform.Translate(1, 0, 1);
         }
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKeyDown(intputdroit))
         {
             transform.Translate(-1,0,-1);
         }
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(intputavant)
         {
             transform.Translate(1, 0, -1);
         }
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        if (Input.GetKeyDown(intputarrière))
         {
             transform.Translate(-1, 0, 1);
         }
-
+        
+        if (Input.GetKeyDown(KeyCode.UpArrow) && ausol())
+        {
+            transform.Translate(0, 1, 0);
+            Thread.Sleep(300);
+            transform.Translate(0,-1,0);
+        }
+        if (Input.GetKeyDown(KeyCode.UpArrow) )
+        {
+            transform.Translate(0, -1, 0);
+            Thread.Sleep(300);
+            transform.Translate(0,1,0);
+        }
     }
 
-    /*void Translate(int x, int y, int z)
+    bool ausol()
     {
-        Capitaine.posx += x;
-        Capitaine.posy += y;
-        Capitaine.posz += z;
-    }*/
+      return    Physics.CheckCapsule(playercollider.bounds.center, new Vector3(playercollider.bounds.center.x, playercollider.bounds.center.y -0.1f, playercollider.bounds.center.z), radius )
+    }
+    //radius à ajouter
+
+    
 
     
 }
