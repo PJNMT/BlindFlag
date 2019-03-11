@@ -34,15 +34,15 @@ public class deplacement : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            transform.Translate(-1,0,1);
+            transform.Translate(-1,0,-1);
+        }
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            transform.Translate(1, 0, -1);
         }
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            transform.Translate(0, -1, 0);
-        }
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            transform.Translate(0, 1, 0);
+            transform.Translate(-1, 0, 1);
         }
 
     }
