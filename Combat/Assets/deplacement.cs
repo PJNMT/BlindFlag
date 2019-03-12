@@ -53,7 +53,7 @@ public class deplacement : MonoBehaviour
         {
             transform.Translate(-1,0,-1);
         }
-        if (Input.GetKeyDown(intputavant)
+        if (Input.GetKeyDown(intputavant))
         {
             transform.Translate(1, 0, -1);
         }
@@ -62,7 +62,7 @@ public class deplacement : MonoBehaviour
             transform.Translate(-1, 0, 1);
         }
         
-        if (Input.GetKeyDown(KeyCode.UpArrow) && ausol())
+        if (Input.GetKeyDown(KeyCode.UpArrow)) //&& ausol())
         {
             transform.Translate(0, 1, 0);
             Thread.Sleep(300);
@@ -76,11 +76,11 @@ public class deplacement : MonoBehaviour
         }
     }
 
-    bool ausol()
+   /* bool ausol()
     {
       return    Physics.CheckCapsule(playercollider.bounds.center, new Vector3(playercollider.bounds.center.x, playercollider.bounds.center.y -0.1f, playercollider.bounds.center.z), radius )
     }
-    //radius à ajouter
+    //radius à ajouter*/
 
     
 
