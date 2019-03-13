@@ -1,4 +1,0 @@
-sceneSetups:
-- path: "Assets/chasseautr\xE9sor.unity"
-  isLoaded: 1
-  isActive: 1

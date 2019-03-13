@@ -30,7 +30,6 @@ namespace Game
 
             public void PlaySound()
             {
-                SoundDisplay mélodie = new SoundDisplay(file);
                 loadsound();
                 if (player.IsLoadCompleted)
                 {
@@ -40,7 +39,6 @@ namespace Game
             
             public void PlaySoundTimer(int timer)
                         {
-                            SoundDisplay mélodie = new SoundDisplay(file);
                             loadsound();
                             if (player.IsLoadCompleted)
                             {

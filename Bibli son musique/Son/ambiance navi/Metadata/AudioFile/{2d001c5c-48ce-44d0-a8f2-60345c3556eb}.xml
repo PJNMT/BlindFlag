@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{2d001c5c-48ce-44d0-a8f2-60345c3556eb}">
+        <property name="assetPath">
+            <value>bateau-tangue-SF.mp3</value>
+        </property>
+        <property name="isStreaming">
+            <value>true</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>12.617142857142857</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{8b12b0d2-fb43-4932-ac82-3432c470aa27}</destination>
+        </relationship>
+    </object>
+</objects>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{74dfc4ad-01ba-4054-ba9b-b359ffeb2bc9}">
+        <property name="assetPath">
+            <value>clapotis.mp3</value>
+        </property>
+        <property name="isStreaming">
+            <value>true</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>48</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>24.216000000000001</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{8b12b0d2-fb43-4932-ac82-3432c470aa27}</destination>
+        </relationship>
+    </object>
+</objects>
