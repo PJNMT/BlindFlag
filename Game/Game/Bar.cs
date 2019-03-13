@@ -68,18 +68,11 @@ namespace Game
 
             if (choice == "oui"||choice == "ouais")
             {
-                //TODO
-                //launch_harbor(captain, 1)
-            }
-            else if (choice == "non" || choice == "nan")
-            {
-                //TODO
-                //launch_bar(captain, 1)
+                Harbor.launch_harbor(captain, 1);
             }
             else
             {
-                //TODO
-                //launch_bar(captain, 1)
+                launch_bar(captain, 1);
             }
         }
 
