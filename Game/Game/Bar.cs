@@ -24,7 +24,7 @@ namespace Game
             //TODO
             //Coco donne le nombre de membres d'équipage.
 
-            while (choice!= "quitter" || choice != "simon" || choice!="payer une tournée" || choice != "recruter") //vérifie les options proposées
+            while (choice!= "quitter" || choice != "simon" || choice!="payer équipage" || choice != "recruter") //vérifie les options proposées
             {
                 //TODO
                 //Coco ne comprend pas, donc redemande
@@ -39,7 +39,7 @@ namespace Game
                         //TODO
                         //lancer simon
                         break;
-                    case "payer une tournée":
+                    case "payer équipage":
                         break;
                     case "recruter":
                         //TODO
