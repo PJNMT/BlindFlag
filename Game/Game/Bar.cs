@@ -40,6 +40,8 @@ namespace Game
                         //lancer simon
                         break;
                     case "payer équipage":
+                        //TODO
+                        //payer équipage
                         break;
                     case "recruter":
                         //TODO
