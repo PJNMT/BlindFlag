@@ -16,7 +16,7 @@ namespace Game
 
         public static void launch_bar(Captain captain, int statut 0)
         {
-            StT recognition = new StT(new Choices("quitter", "simon", "payer une tournée", "recruter"));
+            StT recognition = new StT(new Choices("quitter", "simon", "payer équipage", "recruter"));
             string choice;
 
             choice = recognition.GetSpeech(5);
