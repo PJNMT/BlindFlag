@@ -59,6 +59,7 @@
     <Compile Include="Assets\combat\CheckCollision.cs" />
     <Compile Include="Assets\combat\deplacement.cs" />
     <Compile Include="Assets\navi\bateauxennemis.cs" />
+    <Compile Include="Assets\navi\classes bateaux.cs" />
     <Compile Include="Assets\navi\islandposition.cs" />
     <Compile Include="Assets\navi\objetjoueur.cs" />
     <Compile Include="Assets\navi\trigger.cs" />
