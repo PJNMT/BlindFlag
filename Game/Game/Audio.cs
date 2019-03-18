@@ -1,6 +1,8 @@
 using System;
+using System.IO;
 using System.Media;
 using System.Threading;
+using System.Xml.Schema;
 
 
 namespace Game
@@ -56,5 +58,42 @@ namespace Game
 
             
         }
+
+        public class Morceau
+        {
+            private string time;
+            private string file;
+            private bool debloq;
+
+
+            public Morceau()
+            {
+                string chemin;
+                debloq = false;
+                using (StreamReader file = new StreamReader(chemin))
+                {
+                    this.file = file.ReadLine();
+                    time = file.ReadLine();
+
+                }
+            }
+
+            public string Getfile()
+            {
+                return file;
+            }
+
+            public string GetTime()
+            {
+                return time;
+            }
+            
+            public void Debloc()
+            {
+                debloq = true;
+            }
+                
+        }
+        
 
     }

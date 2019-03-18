@@ -6,21 +6,25 @@ namespace Game
 {
     public struct Simon
     {
-        public void SoundDisplay(string file)
+        public void SoundDisplay(Morceau morceau)
         {
-            SoundDisplay mélodie = new SoundDisplay("C:\\Users\\Jeanne\\Desktop\\MUTINY\\MUSIQUE\\" +file + ".wav");    // /!\ Jeanne, le chemin du fichier sur ton PC n'est pas le même sur tout les PC /!\
+            SoundDisplay mélodie = new SoundDisplay(morceau.Getfile() + ".wav");    // /!\ Jeanne, le chemin du fichier sur ton PC n'est pas le même sur tout les PC /!\
             int i = 1;
             int time;
             bool correct = true;
-            int SoundTime = Int32.Parse(file);
+            int SoundTime = Int32.Parse(morceau.GetTime());
             
             while (i<SoundTime && correct)
             {
                 time = i * 1000;
-                mélodie.PlaySound();
-                Thread.Sleep(time);
+                mélodie.PlaySoundTimer(time);
                 correct = CorrectSound();
                 i += 1;
+            }
+
+            if (i == SoundTime)
+            {
+                morceau.Debloc();
             }
         }
 
