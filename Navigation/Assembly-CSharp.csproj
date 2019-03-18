@@ -58,9 +58,10 @@
     <Compile Include="Assets\chasseautrésor\trésorrandomposition.cs" />
     <Compile Include="Assets\combat\CheckCollision.cs" />
     <Compile Include="Assets\combat\deplacement.cs" />
+    <Compile Include="Assets\navi\bateauxennemis.cs" />
     <Compile Include="Assets\navi\islandposition.cs" />
+    <Compile Include="Assets\navi\objetjoueur.cs" />
     <Compile Include="Assets\navi\trigger.cs" />
-    <Compile Include="Assets\seabattle\objet.cs" />
     <Compile Include="Assets\seabattle\shipcontroller.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/Jeanne/Desktop/MUTINY/CODE - Copie/BlindFlag/Navigation/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
