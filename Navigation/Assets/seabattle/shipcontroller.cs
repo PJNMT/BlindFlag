@@ -23,11 +23,23 @@ public class shipcontroller : MonoBehaviour
 	    Vector3 move = new Vector3();
 
 	    // Récupération des touches haut et bas
-	    if(Input.GetKey(KeyCode.UpArrow))
+	    if (Input.GetKey(KeyCode.UpArrow))
+	    {
+		    move.z += m_speed;
 		    move.x -= m_speed;
-	    if(Input.GetKey(KeyCode.DownArrow))
-		    move.x += m_speed;
+	    }
 
+	    if (Input.GetKey(KeyCode.DownArrow))
+	    {
+		    move.z -= m_speed
+		    move.x += m_speed;
+	    }
+
+	    if (move.x > 0)
+	    {
+		    move.x = 0;
+	    }
+	    
 	    // Récupération des touches gauche et droite
 	    if(Input.GetKey(KeyCode.LeftArrow))
 		    move.z -= m_speed;
