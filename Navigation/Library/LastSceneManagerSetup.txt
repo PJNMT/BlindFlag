@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/combat.unity
+- path: Assets/Scenes/navi.unity
   isLoaded: 1
   isActive: 1

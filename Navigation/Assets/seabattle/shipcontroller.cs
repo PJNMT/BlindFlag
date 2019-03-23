@@ -31,7 +31,7 @@ public class shipcontroller : MonoBehaviour
 
 	    if (Input.GetKey(KeyCode.DownArrow))
 	    {
-		    move.z -= m_speed
+		    move.z -= m_speed;
 		    move.x += m_speed;
 	    }
 
