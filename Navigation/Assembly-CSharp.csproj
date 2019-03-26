@@ -57,6 +57,7 @@
      <Compile Include="Assets\chasseautrésor\trésorrandomposition.cs" />
      <Compile Include="Assets\combat\CheckCollision.cs" />
      <Compile Include="Assets\combat\deplacement.cs" />
+     <Compile Include="Assets\combat\EnnemyControler.cs" />
      <Compile Include="Assets\navi\islandposition.cs" />
      <Compile Include="Assets\navi\trigger.cs" />
      <Compile Include="Assets\seabattle\shipcontroller.cs" />
