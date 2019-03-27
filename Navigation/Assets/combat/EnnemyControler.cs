@@ -25,7 +25,7 @@ public class EnnemyControler : MonoBehaviour
     void Update()
     {
         var newposition = Random.insideUnitCircle * 5;
-        position.Set()
+        position.Set(newposition.x, 1, newposition.y);
 
         /*float rng = random;
         while ((x_rand>5) || (z_rand>5) || (x_rand<-5) || (z_rand<-5) || (position != target.position) )
