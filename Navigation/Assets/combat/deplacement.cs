@@ -39,6 +39,7 @@ public class deplacement : MonoBehaviour
         intputdroit = KeyCode.D;
         intputgauche = KeyCode.Q;
 
+        moveSpeed = 25f;
         turnSpeed = 500f;
         
         playercollider = gameObject.GetComponent<CapsuleCollider>();
@@ -51,19 +52,19 @@ public class deplacement : MonoBehaviour
         
         if (Input.GetKeyDown(intputgauche))
         {
-            transform.Rotate(Vector3.up*turnSpeed*Time.deltaTime);
+            transform.Rotate(-Vector3.up * turnSpeed * Time.deltaTime);
         }
         if (Input.GetKeyDown(intputdroit))
         {
-            transform.Rotate(-Vector3.up*turnSpeed*Time.deltaTime);
+            transform.Rotate(Vector3.up * turnSpeed * Time.deltaTime);
         }
         if (Input.GetKeyDown(intputavant))
         {
-            transform.Translate(1, 0, 0);
+            transform.Translate(Vector3.forward*moveSpeed*Time.deltaTime);
         }
         if (Input.GetKeyDown(intputarrière))
         {
-            transform.Translate(-1, 0, 0);
+            transform.Translate(-Vector3.forward*moveSpeed*Time.deltaTime);
         }
         
         if (Input.GetKeyDown(KeyCode.UpArrow)) //&& ausol())
