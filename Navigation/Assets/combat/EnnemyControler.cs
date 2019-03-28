@@ -8,30 +8,45 @@ public class EnnemyControler : MonoBehaviour
     private float z_rand;
     Random random = new Random();
 
-    private Vector3 position;
-
     private Transform target;
     private GameObject player;
+    private int index_attente;
 
     // Start is called before the first frame update
     void Start()
     {
-        position.Set(0, 1, 0);
+        transform.position.Set(0, 1, 0);
         player = GameObject.FindWithTag("Captain");
         target = player.transform;
+        int index_attente = 0;
+    }
+
+    void ChangePosition()
+    {
+        var newposition = Random.insideUnitCircle * 5;
+        transform.position.Set(newposition.x, 1, newposition.y);
+        Debug.Log(newposition);
     }
 
     // Update is called once per frame
     void Update()
     {
-        var newposition = Random.insideUnitCircle * 5;
-        position.Set(newposition.x, 1, newposition.y);
-
-        /*float rng = random;
-        while ((x_rand>5) || (z_rand>5) || (x_rand<-5) || (z_rand<-5) || (position != target.position) )
+        if(Vector3.Distance(target.position,transform.position)<1)
         {
-            x_rand = 
-            position.Set(x_rand, 0, z_rand);
-        }*/
+            Debug.Log(index_attente);
+            if(index_attente==3)
+            {
+                ChangePosition();
+                index_attente = 0;
+            }
+            index_attente += 1;
+            //attaque
+            //ou attendre attaque ?
+        }
+
+        //FIXME
+        //Trouver un moyen de retarder le déplacement de l'IA
+        //Gerer les stats des deux personnages
+        //Gerer les attaques des deux personnages
     }
 }
