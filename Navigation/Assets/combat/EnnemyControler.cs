@@ -24,17 +24,15 @@ public class EnnemyControler : MonoBehaviour
     void ChangePosition()
     {
         var newposition = Random.insideUnitCircle * 5;
-        transform.position.Set(newposition.x, 1, newposition.y);
-        Debug.Log(newposition);
+        transform.position = new Vector3(newposition.x, 1, newposition.y);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Vector3.Distance(target.position,transform.position)<1)
+        if(Vector3.Distance(target.position,transform.position)<1.5)
         {
-            Debug.Log(index_attente);
-            if(index_attente==3)
+            if(index_attente==5000)
             {
                 ChangePosition();
                 index_attente = 0;
