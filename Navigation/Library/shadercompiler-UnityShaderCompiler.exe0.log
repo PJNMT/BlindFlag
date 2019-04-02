@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Base path: D:/Unity/Editor/Data
 Cmd: initializeCompiler
 Cmd: initializeCompiler
@@ -5,6 +6,9 @@ Cmd: initializeCompiler
 Cmd: initializeCompiler
 Cmd: initializeCompiler
 Cmd: initializeCompiler
+=======
+Base path: C:/Program Files/Unity/Editor/Data
+>>>>>>> efa75129faa22bceb1d89b7ce759609e042d15a2
 Cmd: initializeCompiler
 Cmd: initializeCompiler
 Cmd: initializeCompiler
