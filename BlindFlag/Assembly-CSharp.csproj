@@ -64,6 +64,7 @@
     <Compile Include="Assets\Music_Recognition.cs" />
     <Compile Include="Assets\navi\islandposition.cs" />
     <Compile Include="Assets\navi\trigger.cs" />
+    <Compile Include="Assets\Recognition.cs" />
     <Compile Include="Assets\seabattle\shipcontroller.cs" />
     <Compile Include="Assets\seabattle\test_rv.cs" />
     <Compile Include="Assets\UnityMainThreadDispatcher.cs" />

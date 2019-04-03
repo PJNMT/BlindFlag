@@ -4,28 +4,49 @@ using UnityEngine;
 
 public class Music_Recognition : MonoBehaviour
 {
-    public float RmsValue;
-    public float DbValue;
-    public float PitchValue;
+    public  float RmsValue;
+    public  float DbValue;
+    public  float PitchValue;
 
     private const int QSamples = 1024;
     private const float RefValue = 0.1f;
     private const float Threshold = 0.02f;
 
-    float[] _samples;
-    private float[] _spectrum;
-    private float _fSample;
+    static float[] _samples;
+    private  float[] _spectrum;
+    private  float _fSample;
 
-    private Dictionary<string, float> music_reference = new Dictionary<string, float>();
-    private Dictionary<string, float> base_reference = new Dictionary<string, float>();
+    private  Dictionary<string, float> music_reference = new Dictionary<string, float>();
+    private  Dictionary<string, float> base_reference = new Dictionary<string, float>();
 
-    string note;
-    float high;
-    int pow;
+     string note;
+     float high;
+     int pow;
 
-    float music_note;
+    float user;
+     bool b;
+
+     float music_note;
 
     void Start()
+    {
+        start_recognition();
+    }
+
+    // A modifier en fonction de ce qu'on veut faire
+    void Update()
+    {
+        user = AnalyzeSound();
+        b = Is_right(user, "Do_3", 0.5f);
+
+        if (b)
+        {
+            transform.Translate(Random.Range(-50, 50f), 0, Random.Range(-50f, 50f));
+        }
+    }
+
+
+    void start_recognition()
     {
         _samples = new float[QSamples];
         _spectrum = new float[QSamples];
@@ -35,7 +56,7 @@ public class Music_Recognition : MonoBehaviour
         base_reference.Add("Mi_", 41.20f); base_reference.Add("Fa_", 43.65f); base_reference.Add("Fa#_", 46.25f); base_reference.Add("Sol_", 49.00f);
         base_reference.Add("Sol#_", 51.91f); base_reference.Add("La_", 55.00f); base_reference.Add("La#_", 58.27f); base_reference.Add("Si_", 61.74f);
 
-        foreach (var reference in base_reference)       // create the table with the corespondance between the hertz value and the note
+        foreach (var reference in base_reference)       // Créer la table de correspondance entre les notes et la fréquence en Hertz
         {
             note = reference.Key;
             high = reference.Value;
@@ -50,54 +71,44 @@ public class Music_Recognition : MonoBehaviour
 
     }
 
-    void Update()
-    {
-        music_note = AnalyzeSound();
-        bool is_right = Is_right_note(music_note, "Do_4", 0.5f); // example of utilisation
-
-        if (is_right)
-        {
-            transform.Translate(Random.Range(-10, 10f), 0, Random.Range(-10f, 10f)); // What happen whe nit's the right note
-        }
-    }
-
-    bool Is_right_note(float note_user, string note, float limit)
+    bool Is_right(float note_user, string note, float limit)
     {
         return music_reference[note] + limit >= note_user && note_user >= music_reference[note] - limit;
     }
 
     float AnalyzeSound()
     {
-        GetComponent<AudioSource>().GetOutputData(_samples, 0); // fill array with samples
+        GetComponent<AudioSource>().GetOutputData(_samples, 0);
         int i;
         float sum = 0;
         for (i = 0; i < QSamples; i++)
         {
-            sum += _samples[i] * _samples[i]; // sum squared samples
+            sum += _samples[i] * _samples[i];
         }
-        RmsValue = Mathf.Sqrt(sum / QSamples); // rms = square root of average
-        DbValue = 20 * Mathf.Log10(RmsValue / RefValue); // calculate dB
-        if (DbValue < -160) DbValue = -160; // clamp it to -160dB min
-                                            // get sound spectrum
+        RmsValue = Mathf.Sqrt(sum / QSamples);
+        DbValue = 20 * Mathf.Log10(RmsValue / RefValue);
+        if (DbValue < -160) DbValue = -160;
+
         GetComponent<AudioSource>().GetSpectrumData(_spectrum, 0, FFTWindow.BlackmanHarris);
         float maxV = 0;
         var maxN = 0;
         for (i = 0; i < QSamples; i++)
-        { // find max 
+        {
             if (!(_spectrum[i] > maxV) || !(_spectrum[i] > Threshold))
                 continue;
 
             maxV = _spectrum[i];
-            maxN = i; // maxN is the index of max
+            maxN = i;
         }
-        float freqN = maxN; // pass the index to a float variable
+        float freqN = maxN;
         if (maxN > 0 && maxN < QSamples - 1)
-        { // interpolate index using neighbours
+        {
             var dL = _spectrum[maxN - 1] / _spectrum[maxN];
             var dR = _spectrum[maxN + 1] / _spectrum[maxN];
             freqN += 0.5f * (dR * dR - dL * dL);
         }
-        PitchValue = freqN * (_fSample / 2) / QSamples; // convert index to frequency
+
+        PitchValue = freqN * (_fSample / 2) / QSamples;
 
         return PitchValue;
     }

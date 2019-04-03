@@ -68,7 +68,7 @@ namespace Recognition
 
                     StT Recognizer = new StT(KeyWords);
 
-                    string text = Recognizer.GetSpeech(time_s);
+                    Recognizer.GetSpeech(time_s);
                 }
             }            
         }

@@ -29,6 +29,7 @@ namespace Recognition
         private GrammarBuilder Word;
         private static Grammar Dico;
         private static bool nb;
+
         private static TcpClient tcpclnt;
         private static ASCIIEncoding asen;
         private static Stream stm;
@@ -37,13 +38,29 @@ namespace Recognition
         public StT(Choices WordsRecognition)
         {
             speech = "";
+
             Word = new GrammarBuilder(WordsRecognition);
             Word.Culture = new System.Globalization.CultureInfo("fr-FR");
             Dico = new Grammar(Word);
-            tcpclnt = new TcpClient();       
-            asen = new ASCIIEncoding();
-            tcpclnt.Connect("localhost", 8052);
-            stm = tcpclnt.GetStream();
+
+            try
+            {
+                tcpclnt = new TcpClient();
+                asen = new ASCIIEncoding();
+
+                tcpclnt.Connect("localhost", 8052);
+                Console.WriteLine("Connecting.....");
+
+                stm = tcpclnt.GetStream();                
+                Console.WriteLine("Connected");
+
+                Console.WriteLine();
+                Console.WriteLine("Parlez...");
+            }
+            catch (Exception x)
+            {
+                throw x;
+            }
         }
 
         public string GetSpeech(int time)
@@ -58,21 +75,24 @@ namespace Recognition
         {
             speech = e.Result.Text;
             Console.WriteLine(speech);
+
             try
             {
-                
-                Console.WriteLine("Connecting.....");
-
-                
-
-                Console.WriteLine("Connected");
-                
-                
                 ba = asen.GetBytes(speech);
                 Console.WriteLine("Transmitting.....");
 
                 stm.Write(ba, 0, ba.Length);
+                Console.WriteLine("Done!");
 
+                int wait = 2;
+
+                EventWaitHandle waithandler = new EventWaitHandle(false, EventResetMode.AutoReset, Guid.NewGuid().ToString()); do
+                {
+                    waithandler.WaitOne(TimeSpan.FromSeconds(1));
+                    wait -= 1;
+                } while (wait > 0);
+
+                Console.WriteLine();
                 Console.WriteLine("Parlez...");
             }
 
@@ -85,14 +105,15 @@ namespace Recognition
         private static void RV(int time) // time est en secondes
         {
             using (SpeechRecognitionEngine recognizer = new SpeechRecognitionEngine(new System.Globalization.CultureInfo("fr-FR")))
-            {            
+            {
+
+                recognizer.LoadGrammar(Dico);
+                recognizer.SpeechRecognized += recognizer_SpeechRecognized;
+                recognizer.SetInputToDefaultAudioDevice();
+                recognizer.RecognizeAsync(RecognizeMode.Multiple);
+
                 if (!nb)
                 {
-                    recognizer.LoadGrammar(Dico);
-                    recognizer.SpeechRecognized += recognizer_SpeechRecognized;
-                    recognizer.SetInputToDefaultAudioDevice();
-                    recognizer.RecognizeAsync(RecognizeMode.Multiple);
-
                     EventWaitHandle waithandler = new EventWaitHandle(false, EventResetMode.AutoReset, Guid.NewGuid().ToString()); do
                     {
                         waithandler.WaitOne(TimeSpan.FromSeconds(1));
@@ -101,18 +122,13 @@ namespace Recognition
                 }
                 else
                 {
-                    recognizer.LoadGrammar(Dico);
-                    recognizer.SpeechRecognized += recognizer_SpeechRecognized;
-                    recognizer.SetInputToDefaultAudioDevice();
-                    recognizer.RecognizeAsync(RecognizeMode.Multiple);
-
                     EventWaitHandle waithandler = new EventWaitHandle(false, EventResetMode.AutoReset, Guid.NewGuid().ToString()); do
                     {
                         waithandler.WaitOne(TimeSpan.FromSeconds(1));
-                    } while (speech != "quitter");
-
-                    tcpclnt.Close();
+                    } while (true);
                 }
+
+                tcpclnt.Close();
             }
         }
     }
