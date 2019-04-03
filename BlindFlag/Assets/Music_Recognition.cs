@@ -53,7 +53,7 @@ public class Music_Recognition : MonoBehaviour
     void Update()
     {
         music_note = AnalyzeSound();
-        bool is_right = Is_right_note(music_note, "Do_3", 0.5f); // example of utilisation
+        bool is_right = Is_right_note(music_note, "Do_4", 0.5f); // example of utilisation
 
         if (is_right)
         {

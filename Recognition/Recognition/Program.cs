@@ -69,11 +69,6 @@ namespace Recognition
                     StT Recognizer = new StT(KeyWords);
 
                     string text = Recognizer.GetSpeech(time_s);
-
-                    using (StreamWriter myWriter = new StreamWriter("result.txt"))
-                    {
-                        myWriter.WriteLine(text);
-                    }
                 }
             }            
         }

@@ -2,6 +2,9 @@
 using System.IO;
 using System.Speech.Recognition;
 using System.Threading;
+using System.Net;
+using System.Text;
+using System.Net.Sockets;
 
 namespace Recognition
 {
@@ -26,6 +29,10 @@ namespace Recognition
         private GrammarBuilder Word;
         private static Grammar Dico;
         private static bool nb;
+        private static TcpClient tcpclnt;
+        private static ASCIIEncoding asen;
+        private static Stream stm;
+        private static byte[] ba;
 
         public StT(Choices WordsRecognition)
         {
@@ -33,42 +40,59 @@ namespace Recognition
             Word = new GrammarBuilder(WordsRecognition);
             Word.Culture = new System.Globalization.CultureInfo("fr-FR");
             Dico = new Grammar(Word);
-            nb = false;
+            tcpclnt = new TcpClient();       
+            asen = new ASCIIEncoding();
+            tcpclnt.Connect("localhost", 8052);
+            stm = tcpclnt.GetStream();
         }
 
         public string GetSpeech(int time)
         {
-            nb = false;
             speech = "";
+            nb = time == 0;
             RV(time);
             return speech;
         }
 
         private static void recognizer_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
         {
-            if (nb)
+            speech = e.Result.Text;
+            Console.WriteLine(speech);
+            try
             {
-                speech += " ";
-            }
-            else
-            {
-                nb = true;
+                
+                Console.WriteLine("Connecting.....");
+
+                
+
+                Console.WriteLine("Connected");
+                
+                
+                ba = asen.GetBytes(speech);
+                Console.WriteLine("Transmitting.....");
+
+                stm.Write(ba, 0, ba.Length);
+
+                Console.WriteLine("Parlez...");
             }
 
-            speech += e.Result.Text;
+            catch (Exception x)
+            {
+                throw x;
+            }
         }
 
         private static void RV(int time) // time est en secondes
         {
             using (SpeechRecognitionEngine recognizer = new SpeechRecognitionEngine(new System.Globalization.CultureInfo("fr-FR")))
-            {
-                recognizer.LoadGrammar(Dico);
-                recognizer.SpeechRecognized += recognizer_SpeechRecognized;
-                recognizer.SetInputToDefaultAudioDevice();
-                recognizer.RecognizeAsync(RecognizeMode.Multiple);
-
-                if (time > 0)
+            {            
+                if (!nb)
                 {
+                    recognizer.LoadGrammar(Dico);
+                    recognizer.SpeechRecognized += recognizer_SpeechRecognized;
+                    recognizer.SetInputToDefaultAudioDevice();
+                    recognizer.RecognizeAsync(RecognizeMode.Multiple);
+
                     EventWaitHandle waithandler = new EventWaitHandle(false, EventResetMode.AutoReset, Guid.NewGuid().ToString()); do
                     {
                         waithandler.WaitOne(TimeSpan.FromSeconds(1));
@@ -77,14 +101,17 @@ namespace Recognition
                 }
                 else
                 {
+                    recognizer.LoadGrammar(Dico);
+                    recognizer.SpeechRecognized += recognizer_SpeechRecognized;
+                    recognizer.SetInputToDefaultAudioDevice();
+                    recognizer.RecognizeAsync(RecognizeMode.Multiple);
+
                     EventWaitHandle waithandler = new EventWaitHandle(false, EventResetMode.AutoReset, Guid.NewGuid().ToString()); do
                     {
                         waithandler.WaitOne(TimeSpan.FromSeconds(1));
-                        using (StreamWriter myWriter = new StreamWriter("result.txt"))
-                        {
-                            myWriter.WriteLine(speech);
-                        }
-                    } while (true);
+                    } while (speech != "quitter");
+
+                    tcpclnt.Close();
                 }
             }
         }
