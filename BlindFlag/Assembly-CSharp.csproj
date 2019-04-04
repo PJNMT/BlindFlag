@@ -68,7 +68,6 @@
     <Compile Include="Assets\seabattle\shipcontroller.cs" />
     <Compile Include="Assets\seabattle\test_rv.cs" />
     <Compile Include="Assets\UnityMainThreadDispatcher.cs" />
-    <None Include="Assets\result.txt" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>D:/USER/Desktop/BlindFlag/BlindFlag/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
