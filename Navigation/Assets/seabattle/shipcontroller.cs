@@ -25,4 +25,24 @@ public class shipcontroller : MonoBehaviour
         
         		
     }
+	
+	private void OnTriggerEnter(Collider other)
+	{
+		if (other.gameObject.name == "IslandTrigger")
+		{
+            
+			Debug.Log("PIPIPIPI");
+
+			//SceneManager.LoadScene("chasseautrésor");
+		}
+		
+		if (other.gameObject.name == "HarborTrigger")
+		{
+            
+			Debug.Log("PIPIPIPI");
+
+			//SceneManager.LoadScene("chasseautrésor");
+		}
+		
+	}
 }

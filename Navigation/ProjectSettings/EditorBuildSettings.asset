@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/navi.unity
+    guid: aa4114db0a68d3046a5a8c457b848da5
   m_configObjects: {}

@@ -21,7 +21,8 @@ public class trigger : MonoBehaviour
     {
         if (other.gameObject.name == "Ship")
         {
-            SceneManager.LoadScene("chasseautrésor");
+            Debug.Log("Trigger");
+            //SceneManager.LoadScene("chasseautrésor");
         }
     }
 }

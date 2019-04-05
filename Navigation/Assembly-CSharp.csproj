@@ -63,15 +63,6 @@
     <Compile Include="Assets\Port\Enter_shop.cs" />
     <Compile Include="Assets\Port\move.cs" />
     <Compile Include="Assets\seabattle\shipcontroller.cs" />
-    <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/mariu/Desktop/BlindFlag/Navigation/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>C:/Users/mariu/Desktop/BlindFlag/Navigation/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>C:/Users/mariu/Desktop/BlindFlag/Navigation/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>C:/Users/mariu/Desktop/BlindFlag/Navigation/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
