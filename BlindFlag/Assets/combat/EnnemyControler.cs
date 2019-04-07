@@ -10,7 +10,7 @@ public class EnnemyControler : MonoBehaviour
 
     private Transform target;
     private GameObject player;
-    private int index_attente;
+    private bool hivar = true;
 
     // Start is called before the first frame update
     void Start()
@@ -25,25 +25,27 @@ public class EnnemyControler : MonoBehaviour
     {
         var newposition = Random.insideUnitCircle * 5;
         transform.position = new Vector3(newposition.x, 1, newposition.y);
+        hivar = false;
+    }
+    
+    IEnumerator ChangeIAposition()
+    {
+        if (hivar == true)
+        {
+            ChangePosition();
+            yield return new WaitForSeconds(120f);
+            hivar = true;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Vector3.Distance(target.position,transform.position)<1.5)
+        if (Vector3.Distance(target.position, target.position)<2)
         {
-            if(index_attente==5000)
-            {
-                ChangePosition();
-                index_attente = 0;
-            }
-            index_attente += 1;
-            //attaque
-            //ou attendre attaque ?
+            StartCoroutine("ChangeIAposition");
         }
-
         //FIXME
-        //Trouver un moyen de retarder le déplacement de l'IA
         //Gerer les stats des deux personnages
         //Gerer les attaques des deux personnages
     }
