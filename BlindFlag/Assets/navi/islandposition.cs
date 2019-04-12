@@ -15,6 +15,8 @@ public class islandposition : MonoBehaviour
 
 
         transform.Translate(x, 1f, z);
+
+        AssetBundle bundle = AssetBundle.LoadFromFile("Blinflag\\Blind");
     }
 
     // Update is called once per frame

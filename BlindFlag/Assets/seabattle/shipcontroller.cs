@@ -1,12 +1,17 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class shipcontroller : MonoBehaviour
 {
 	public float moveSpeed = 20f;
 	public float turnSpeed = 50f;
+	public bool loadport = false;
+	public bool loadtresor = true;
+	public bool loadbattle = false;
 	
 	// Update is called once per frame
     void Update()
@@ -31,18 +36,36 @@ public class shipcontroller : MonoBehaviour
 		if (other.gameObject.name == "IslandTrigger")
 		{
             
-			Debug.Log("PIPIPIPI");
+			if (loadtresor)
+			{
+				loadtresor = false;
+				SceneManager.LoadScene("chasseautrésor");
+			}
 
-			//SceneManager.LoadScene("chasseautrésor");
+			if (loadport)
+			{
+				loadport = false;
+				SceneManager.LoadScene("port");
+			}
+
+			if (loadbattle)
+			{
+				loadbattle = false;
+				SceneManager.LoadScene("seabattle");
+			}
+
+			SceneManager.UnloadSceneAsync("navi");
 		}
 		
-		if (other.gameObject.name == "HarborTrigger")
+		/*if (other.gameObject.name == "HarborTrigger")
 		{
             
 			Debug.Log("PIPIPIPI");
 
-			//SceneManager.LoadScene("chasseautrésor");
-		}
+			
+			SceneManager.LoadScene("port",LoadSceneMode.Additive);
+			SceneManager.UnloadSceneAsync("navi");
+		}*/
 		
 	}
 }
