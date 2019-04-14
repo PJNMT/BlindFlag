@@ -57,7 +57,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\chasseautrésor\cubecontroller.cs" />
+    <Compile Include="Assets\chasseautresor\cubecontroller.cs" />
     <Compile Include="Assets\combat\CheckCollision.cs" />
     <Compile Include="Assets\combat\deplacement.cs" />
     <Compile Include="Assets\combat\EnnemyControler.cs" />
@@ -65,8 +65,9 @@
     <Compile Include="Assets\navi\islandposition.cs" />
     <Compile Include="Assets\navi\trigger.cs" />
     <Compile Include="Assets\Recognition.cs" />
+    <Compile Include="Assets\seabattle\Cannonball_controller.cs" />
+    <Compile Include="Assets\seabattle\Fire_RV.cs" />
     <Compile Include="Assets\seabattle\shipcontroller.cs" />
-    <Compile Include="Assets\seabattle\test_rv.cs" />
     <Compile Include="Assets\UnityMainThreadDispatcher.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>D:/USER/Desktop/BlindFlag/BlindFlag/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>

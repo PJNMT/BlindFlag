@@ -18,22 +18,31 @@ public class Recognition : MonoBehaviour
     static Thread tcpListenerThread;
     static TcpClient connectedTcpClient;
 
+    static Process myProcess;
+
     static string speech;
     static Function treatment;
+
+    static string datetime;
+
+    static bool loop;
     
     public static void start_recognition(int time_s, string KeyWords, Function f)
     {
         try
         {
             treatment = f;
+            
+            datetime = DateTime.Today.ToShortTimeString();
+            loop = true;
 
             // lancement de Recognition.exe
-            Process myProcess = new Process();
+            myProcess = new Process();
             
-            myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Normal;
             myProcess.StartInfo.CreateNoWindow = true;
             
-            myProcess.StartInfo.FileName = "Recognition.exe";
+            myProcess.StartInfo.FileName = "D:\\USER\\Desktop\\BlindFlag\\Recognition\\Recognition\\bin\\Debug\\Recognition.exe";
             myProcess.StartInfo.Arguments = "recognition " + time_s + " " + KeyWords;
             myProcess.EnableRaisingEvents = true;
 
@@ -60,7 +69,7 @@ public class Recognition : MonoBehaviour
             tcpListener.Start();
 
             Byte[] bytes = new Byte[1024];
-            while (true)
+            while (loop)
             {
                 using (connectedTcpClient = tcpListener.AcceptTcpClient())
                 {					
