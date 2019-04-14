@@ -406,6 +406,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 20
   turnSpeed: 50
+  loadport: 0
+  loadtresor: 1
+  loadbattle: 0
 --- !u!114 &1083053675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -874,6 +877,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.83
+      objectReference: {fileID: 0}
+    - target: {fileID: 4112057990288694183, guid: 82a4d3f7a519aa244bc7a573a83fe8f8,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 637
+      objectReference: {fileID: 0}
+    - target: {fileID: 1047173517547220987, guid: 82a4d3f7a519aa244bc7a573a83fe8f8,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 637
+      objectReference: {fileID: 0}
+    - target: {fileID: 6253304030489375864, guid: 82a4d3f7a519aa244bc7a573a83fe8f8,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 638
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82a4d3f7a519aa244bc7a573a83fe8f8, type: 3}

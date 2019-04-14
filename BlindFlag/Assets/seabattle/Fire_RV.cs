@@ -21,25 +21,27 @@ public class Fire_RV : MonoBehaviour
         {
             if (Fire_RV.Dico_1.Contains(words[0]) && Fire_RV.Dico_2.Contains(words[1]))
             {
-            
-                Vector3 cannonball_pos = new Vector3(2f, 2f, 2f);
-                UnityMainThreadDispatcher.Instance().Enqueue(() => cannonball_pos = transform.position);
-                UnityMainThreadDispatcher.Instance().Enqueue(() => cannonball_pos.y = 2);
+
+                Vector3 cannonball_pos = new Vector3(0f, 0f, 0f);
+                Quaternion cannonball_rot = new Quaternion();
+                UnityMainThreadDispatcher.Instance().Enqueue(() => cannonball_rot = transform.rotation);
                 
                 switch (words[1])
                 {
                     case "tribord":
                     case "droite":
-                        UnityMainThreadDispatcher.Instance().Enqueue(() => cannonball_pos.z += 5);
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => cannonball_pos = transform.Find("Cannon_T").position);
                         break;
 
                     case "babord":
                     case "gauche":
-                        UnityMainThreadDispatcher.Instance().Enqueue(() => cannonball_pos.z -= 5);
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => cannonball_pos = transform.Find("Cannon_B").position);
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => cannonball_rot = Quaternion.LookRotation(-transform.forward, Vector3.up));
                         break;
                 }
                 
-                UnityMainThreadDispatcher.Instance().Enqueue(() => Instantiate(Cannonball, cannonball_pos, transform.rotation));
+                UnityMainThreadDispatcher.Instance().Enqueue(() => cannonball_pos.y = 2);
+                UnityMainThreadDispatcher.Instance().Enqueue(() => Instantiate(Cannonball, cannonball_pos, cannonball_rot));
             }
 
             Fire_RV.speech = "";
