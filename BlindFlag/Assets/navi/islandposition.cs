@@ -10,11 +10,13 @@ public class islandposition : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        float x = Random.Range(-70.0f, 70.0f);
-        float z = Random.Range(-70.0f, 70.0f);
+        float x = Random.Range(-300.0f, 300.0f);
+        float z = Random.Range(-300.0f, 300.0f);
 
 
         transform.Translate(x, 1f, z);
+
+        AssetBundle bundle = AssetBundle.LoadFromFile("Blinflag\\Blind");
     }
 
     // Update is called once per frame
