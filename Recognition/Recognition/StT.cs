@@ -57,9 +57,9 @@ namespace Recognition
                 Console.WriteLine();
                 Console.WriteLine("Parlez...");
             }
-            catch (Exception x)
+            catch
             {
-                throw x;
+                Environment.Exit(0);
             }
         }
 
@@ -95,10 +95,9 @@ namespace Recognition
                 Console.WriteLine();
                 Console.WriteLine("Parlez...");
             }
-
-            catch (Exception x)
+            catch
             {
-                throw x;
+                Environment.Exit(0);
             }
         }
 

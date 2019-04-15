@@ -4,15 +4,25 @@ using UnityEngine;
 
 public class Receive_damage : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public float life = 100f;
+    public float damage_CB = 5f;
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.gameObject.name == "Cannonball(Clone)")
+        {
+            Debug.Log("touche");
+            Destroy(other.gameObject, 0f);
+            life -= damage_CB;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if (life <= 0) Destroy(this.gameObject, 0f);
+    }
+
+    void Start()
+    {
+        life = 100f;
     }
 }
