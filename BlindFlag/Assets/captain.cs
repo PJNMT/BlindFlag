@@ -20,7 +20,7 @@ public class captain : MonoBehaviour
         protected int HP{ get; set; }
         protected int Reputation{ get; set; }
         private string Name{ get; set; }
-        protected int Money{ get; set; }
+        public int Money{ get; set; }
 
         protected int Lvl{ get; set; }
         public Ship batiment { get; set; }
@@ -32,7 +32,7 @@ public class captain : MonoBehaviour
         protected int PosY{ get; set; }
         protected int PosZ{ get; set; } // le capitaine se baisse ou non. valeur 1 ou 0 EXCLUSIVEMENT.
 
-        public void Captain(string Name, int Lvl, Ship batiment, int PosX, int PosY, int PosZ)
+        public void  Captain(string Name, int Lvl, Ship batiment, int PosX, int PosY, int PosZ)
         {
             this.Name = Name;
             this.Lvl = Lvl;

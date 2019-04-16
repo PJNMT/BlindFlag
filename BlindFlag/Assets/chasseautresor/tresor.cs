@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 
@@ -28,6 +29,7 @@ public class tresor : MonoBehaviour
     void Update()
     {
         OnTriggerEnter(gameObject.GetComponent<Collider>());
+        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -60,7 +62,10 @@ public class tresor : MonoBehaviour
             {
                 _path.Add(_enigma._number);
                 //dire si c'est la bonne réponse !!
-               
+                
+                
+                
+                BlindPirate.Gagneror(or);
             }
         }
 
