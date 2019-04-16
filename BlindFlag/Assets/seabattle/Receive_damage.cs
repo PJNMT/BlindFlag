@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 
 public class Receive_damage : MonoBehaviour
@@ -14,6 +15,11 @@ public class Receive_damage : MonoBehaviour
             Destroy(other.gameObject, 0f);
             life -= damage_CB;
         }
+    }
+
+    private void Destroy(object gameObject, float f)
+    {
+        throw new System.NotImplementedException();
     }
 
     private void Update()
