@@ -1,5 +1,0 @@
-1:On me trouve 2 fois dans l'année, une fois dans la semaine, mais pas dans le jour. Qui suis-je ?:Lettre:La lettre N:200
-2:Un père et un fils ont à eux deux 36 ans. Sachant que le père a 30 ans de plus que le fils, quel âge a le fils ?: :Il a 3 ans:500
-3:Je suis immobile pendant la vie et je me promène durant ma mort. Qui suis-je ?:Je ne suis pas humain:Une feuille:500
-4:Plus j'ai de gardiens moins je suis gardé. Moins j'ai de gardiens plus je suis gardé. Qui suis-je ?:On l'emportera dans sa tombe:Un secret:300
-5:J'ai 2 pieds, 6 jambes, 8 bras, 2 têtes et un oeil, qui suis-je ?: :Une menteuse:400

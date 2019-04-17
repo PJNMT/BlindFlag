@@ -21,7 +21,7 @@ public class tresor : MonoBehaviour
         float z = Random.Range(-10.0f, 10.0f);
 
 
-        transform.Translate(x, 1f, z);
+        transform.Translate(x, 0f, z);
       
     }
 
@@ -34,7 +34,7 @@ public class tresor : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "BlindPirate")
+        if (other.gameObject.name == "You")
         {
             //On cherche une enigme aléatoire pas encore rencontré
             int a = Search();      
@@ -61,7 +61,7 @@ public class tresor : MonoBehaviour
             if (Console.ReadLine() == "good answer")
             {
                 _path.Add(_enigma._number);
-                //dire si c'est la bonne réponse !!
+                Synthesis.synthesis("Vous avez gagné " + or + "pièces d'or");
                 BlindShip_Stat.Money += or;
             }
         }
@@ -72,7 +72,7 @@ public class tresor : MonoBehaviour
     {
         using (StreamReader lire = new StreamReader(_enigmefile))
         {
-            float nb = Random.Range(0.0f, 100f);
+            float nb = Random.Range(0.0f, 4f);
 
             foreach (int occu in _path)
             {
@@ -115,12 +115,12 @@ public class tresor : MonoBehaviour
 
     static void SpeakEnigma(Enigma enigma)
     {
-        
+        Synthesis.synthesis(enigma._enigme);
     }
 
     static void SpeakIndice(Enigma enigma)
     {
-        
+        Synthesis.synthesis(enigma._indice);
     }
     
     void Answertreatement(string reponse)
