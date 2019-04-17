@@ -57,15 +57,6 @@ public class shipcontroller : MonoBehaviour
 			SceneManager.UnloadSceneAsync("navi");
 		}
 		
-		/*if (other.gameObject.name == "HarborTrigger")
-		{
-            
-			Debug.Log("PIPIPIPI");
-
-			
-			SceneManager.LoadScene("port",LoadSceneMode.Additive);
-			SceneManager.UnloadSceneAsync("navi");
-		}*/
 		
 	}
 }
