@@ -62,10 +62,7 @@ public class tresor : MonoBehaviour
             {
                 _path.Add(_enigma._number);
                 //dire si c'est la bonne réponse !!
-                
-                
-                
-                BlindPirate.Gagneror(or);
+                BlindShip_Stat.Money += or;
             }
         }
 

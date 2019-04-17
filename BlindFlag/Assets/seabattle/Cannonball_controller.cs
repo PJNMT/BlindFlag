@@ -17,6 +17,5 @@ public class Cannonball_controller : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name == "sea") Debug.Log("Plouf");
-        if (other.gameObject.name == "Enemy" || other.gameObject.name == "BlindPirate") Debug.Log("Boom");
     }
 }
