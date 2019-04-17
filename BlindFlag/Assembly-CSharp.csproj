@@ -71,6 +71,7 @@
     <Compile Include="Assets\seabattle\Cannonball_controller.cs" />
     <Compile Include="Assets\seabattle\Fire_RV.cs" />
     <Compile Include="Assets\seabattle\shipcontroller.cs" />
+    <Compile Include="Assets\Synthesis.cs" />
     <Compile Include="Assets\tavene\simon.cs" />
     <Compile Include="Assets\UnityMainThreadDispatcher.cs" />
     <Compile Include="Assets\Vigie.cs" />

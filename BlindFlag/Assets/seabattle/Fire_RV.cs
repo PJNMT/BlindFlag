@@ -93,6 +93,8 @@ public class Fire_RV : MonoBehaviour
             "tribord",
             "droite"
         };
+
+        Synthesis.synthesis("bonjour les amis!");
         
         Recognition.Function Fire_RV = Fire;
         

@@ -28,17 +28,17 @@ namespace Recognition
         public static void Main(string[] args)
         {
             int len = args.Length;
+            
+            if (len < 1) throw new Exception("Forgot arguments");
 
             if (args[0] == "synthesis")
             {
-                if (len > 2)
+                string voice = "";
+                for (int i = 1; i < len; i++)
                 {
-                    throw new Exception("Too many arguments (args.Length > 2)");
+                    voice += args[i] + " ";
                 }
-                else
-                {
-                    Synthesis(args[1]);
-                }
+                Synthesis(voice);
             }
             else if (args[0] == "recognition")
             {
