@@ -415,6 +415,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Cannonball: {fileID: 2467059016201137446, guid: a5b3e391c0a670d4ab5809c4ac56862a,
     type: 3}
+--- !u!114 &1083053676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1083053672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a76bbd1507c3e54bb841b85e27248fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1083053679
 MonoBehaviour:
   m_ObjectHideFlags: 0

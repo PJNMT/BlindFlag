@@ -84,7 +84,7 @@ namespace Recognition
                 stm.Write(ba, 0, ba.Length);
                 Console.WriteLine("Done!");
 
-                int wait = 2;
+                int wait = 1;
 
                 EventWaitHandle waithandler = new EventWaitHandle(false, EventResetMode.AutoReset, Guid.NewGuid().ToString()); do
                 {
