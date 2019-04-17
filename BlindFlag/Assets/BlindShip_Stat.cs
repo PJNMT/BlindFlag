@@ -51,7 +51,7 @@ public class BlindShip_Stat : MonoBehaviour
     {
         Lvl += 1;
         SetStat();
-        Damage += 10;
+        Damage += 3;
         Shield += 5;
     }
 
@@ -67,11 +67,12 @@ public class BlindShip_Stat : MonoBehaviour
 
         Max_Crew = Lvl * 2;
 
-        Max_Damage = Lvl * 15;
+        Max_Damage = Lvl * 6;
 
         Max_Shield = Lvl * 10;
     }
-    
+
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name == "Cannonball_E(Clone)")
@@ -80,5 +81,15 @@ public class BlindShip_Stat : MonoBehaviour
             Destroy(other.gameObject, 0f);
             HP -= AI_enemy.Damage;
         }
+    }
+    
+    
+    
+    private void OnGUI()
+    {
+        GUI.Box(new Rect(25, 10, 150, 25), "BlindShip's STATS");
+        GUI.Box(new Rect(25, 36, 150, 25), "HP: " + HP + " / " + Max_HP);
+        GUI.Box(new Rect(25, 62, 150, 25), "Lvl: " + Lvl);
+        GUI.Box(new Rect(25, 88, 150, 25), "XP: " + XP + " / " + Max_XP);
     }
 }
