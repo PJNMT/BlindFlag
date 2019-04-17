@@ -15,7 +15,7 @@ public class Synthesis : MonoBehaviour
         myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
         myProcess.StartInfo.CreateNoWindow = true;
             
-        myProcess.StartInfo.FileName = "D:\\USER\\Desktop\\BlindFlag\\Recognition\\Recognition\\bin\\Debug\\Recognition.exe";
+        myProcess.StartInfo.FileName = "Recognition.exe";
         myProcess.StartInfo.Arguments = "synthesis " + text;
         myProcess.EnableRaisingEvents = true;
 

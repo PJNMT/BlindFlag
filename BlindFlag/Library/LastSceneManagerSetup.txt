@@ -1,8 +1,4 @@
 sceneSetups:
-<<<<<<< HEAD
 - path: Assets/Scenes/seabattle.unity
-=======
-- path: Assets/Scenes/Port.unity
->>>>>>> 3b363da2f626b220933a337442fcb5c94ccbfd37
   isLoaded: 1
   isActive: 1
