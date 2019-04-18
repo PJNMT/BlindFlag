@@ -21,7 +21,7 @@ public class BlindShip_Stat : MonoBehaviour
     private static int Max_Damage;
 
     public static int Crew;
-    private static int Max_Crew;
+    public static int Max_Crew;
 
     public static int Shield;
     private static int Max_Shield;
