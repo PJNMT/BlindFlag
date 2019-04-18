@@ -45,7 +45,7 @@ public class shipcontroller : MonoBehaviour
 			if (loadport)
 			{
 				loadport = false;
-				SceneManager.LoadScene("port");
+				SceneManager.LoadScene("Port");
 			}
 
 			if (loadbattle)

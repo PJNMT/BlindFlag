@@ -193,6 +193,7 @@ GameObject:
   - component: {fileID: 406203090}
   - component: {fileID: 406203089}
   - component: {fileID: 406203092}
+  - component: {fileID: 406203088}
   m_Layer: 0
   m_Name: island
   m_TagString: Untagged
@@ -200,6 +201,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &406203088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 406203087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb92e848336b53e449268897d0c95749, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name_: Nothing bro
 --- !u!23 &406203089
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -431,10 +445,30 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 112
       objectReference: {fileID: 0}
+    - target: {fileID: 2529557257790309068, guid: 82a4d3f7a519aa244bc7a573a83fe8f8,
+        type: 3}
+      propertyPath: loadbattle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2529557257790309068, guid: 82a4d3f7a519aa244bc7a573a83fe8f8,
+        type: 3}
+      propertyPath: loadtresor
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2529557257790309068, guid: 82a4d3f7a519aa244bc7a573a83fe8f8,
+        type: 3}
+      propertyPath: loadport
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3936442707114211479, guid: 82a4d3f7a519aa244bc7a573a83fe8f8,
         type: 3}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6329713232581199237, guid: 82a4d3f7a519aa244bc7a573a83fe8f8,
+        type: 3}
+      propertyPath: m_Radius
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1199874356078927547, guid: 82a4d3f7a519aa244bc7a573a83fe8f8,
         type: 3}
@@ -449,16 +483,6 @@ PrefabInstance:
     - target: {fileID: 6323771903232433103, guid: 82a4d3f7a519aa244bc7a573a83fe8f8,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2529557257790309068, guid: 82a4d3f7a519aa244bc7a573a83fe8f8,
-        type: 3}
-      propertyPath: loadbattle
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2529557257790309068, guid: 82a4d3f7a519aa244bc7a573a83fe8f8,
-        type: 3}
-      propertyPath: loadtresor
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
