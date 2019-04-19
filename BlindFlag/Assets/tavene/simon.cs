@@ -84,7 +84,7 @@ public class simon : MonoBehaviour
     
 }
 
-    void Play(AudioSource audio, int i)
+    void Play(AudioSource audio, int i)     //joue le morceau un certain temps puis attend 1sec
     {
         audio.Play();
         Thread.Sleep(1000*i);
