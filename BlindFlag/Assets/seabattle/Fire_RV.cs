@@ -75,6 +75,8 @@ public class Fire_RV : MonoBehaviour
 
             Fire_RV.speech = "";
         }
+        
+        else if (!Fire_RV.Dico_1.Contains(words[0])) Fire_RV.speech = "";
     }
 
     void Start()
