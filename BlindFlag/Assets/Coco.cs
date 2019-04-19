@@ -7,7 +7,7 @@ public class Coco : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Recognition.Function Traitement = this.Traitement;
+        Recognition.Function Traitement = TraitementCoco;
         Recognition.start_recognition(0,"coco", Traitement);
     }
 
@@ -17,7 +17,7 @@ public class Coco : MonoBehaviour
         
     }
 
-    void Traitement(string input)
+    void TraitementCoco(string input)
     {
         switch (input)
         {

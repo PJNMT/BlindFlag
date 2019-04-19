@@ -10,7 +10,7 @@ public class Vigie : MonoBehaviour
     {
 
         
-        if (other.GetComponent(typeof(WhatToSay)) )
+       /* if (other.GetComponent(typeof(WhatToSay)) )
         {
             trucAdire = other.name + " vers ";
             
@@ -25,15 +25,15 @@ public class Vigie : MonoBehaviour
         
         
             if(derriere) trucAdire += " le sud "/*derriere.ToString()*/;
-            if(babord) trucAdire += " l'ouest "/*babord.ToString()*/;
-            if(tribord) trucAdire += " l'est "/*tribord.ToString()*/;
-            if(devant) trucAdire += " le nord "/*devant.ToString()*/;
+            //if(babord) trucAdire += " l'ouest "/*babord.ToString()*/;
+           // if(tribord) trucAdire += " l'est "/*tribord.ToString()*/;
+           // if(devant) trucAdire += " le nord "/*devant.ToString()*/;
         
-            Debug.Log(trucAdire);
-            Synthesis.synthesis(trucAdire);
-            trucAdire = other.name + " vers ";
+           // Debug.Log(trucAdire);
+            //Synthesis.synthesis(trucAdire);
+            //trucAdire = other.name + " vers ";
 
-        }
+       // }
         
         
 
