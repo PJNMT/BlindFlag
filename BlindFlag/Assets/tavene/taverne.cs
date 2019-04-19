@@ -28,6 +28,7 @@ public class taverne : MonoBehaviour
            case "boire":
            case "payer":
                BlindShip_Stat.Money -= 20;
+               BlindCaptain_Stat.Reputation += 10;
                //AudioSource.PlayClipAtPoint();  enthousiasme des pirates
             break;
            

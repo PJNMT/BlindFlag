@@ -1,6 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Transactions;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Music_Recognition : MonoBehaviour
 {
@@ -34,16 +37,18 @@ public class Music_Recognition : MonoBehaviour
     }
 
     // A modifier en fonction de ce qu'on veut faire
-    void Update()
+   /*void Update()
     {
+        
         user = AnalyzeSound();
-        b = Is_right(user, "Do_3", 0.5f);
+        b = Is_right(user, "Do_", 1f);
 
-        if (b)
+        if (!b)
         {
-            transform.Translate(Random.Range(-50, 50f), 0, Random.Range(-50f, 50f));
+            Synthesis.synthesis("Vous êtes nul capitaine !");
+            
         }
-    }
+    }*/
 
 
     void start_recognition()
@@ -71,12 +76,21 @@ public class Music_Recognition : MonoBehaviour
 
     }
 
-    bool Is_right(float note_user, string note, float limit)
+    public bool Is_right(float note_user, string note, float limit)
     {
-        return music_reference[note] + limit >= note_user && note_user >= music_reference[note] - limit;
+        float notefloat = base_reference[note];
+        for (int i = 0; i < 8; i++)
+        {
+            double a = notefloat * Math.Pow(2, i);
+            if (note_user <= a +limit  && note_user >= a- limit)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
-    float AnalyzeSound()
+    public float AnalyzeSound()
     {
         GetComponent<AudioSource>().GetOutputData(_samples, 0);
         int i;
