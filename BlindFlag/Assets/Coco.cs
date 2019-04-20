@@ -19,6 +19,7 @@ public class Coco : MonoBehaviour
 
     void TraitementCoco(string input)
     {
+        Recognition.stop_recognition();
         switch (input)
         {
              case   "coco":
