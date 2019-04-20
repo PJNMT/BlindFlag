@@ -19,12 +19,13 @@ public class Coco : MonoBehaviour
 
     void TraitementCoco(string input)
     {
+        Synthesis.synthesis("coco activé");
         Recognition.stop_recognition();
         switch (input)
         {
              case   "coco":
                  Recognition.Function Demande = this.Demande;
-                 Recognition.start_recognition(10, "statistiques stats bateau vie niveau sauver sauvegarder enregistrer quitter réputation", Demande);
+                 Recognition.start_recognition(20, "statistiques stats bateau vie niveau sauver sauvegarder enregistrer quitter réputation", Demande);
                  break;
         }
     }
