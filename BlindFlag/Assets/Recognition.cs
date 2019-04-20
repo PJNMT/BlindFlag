@@ -60,6 +60,12 @@ public class Recognition : MonoBehaviour
         }
     }
 
+    public static void stop_recognition()
+    {
+        myProcess.Close();
+        tcpListenerThread.Abort();
+    }
+
     private static void ListenForIncommingRequests()
     {
         try

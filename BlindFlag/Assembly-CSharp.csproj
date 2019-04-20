@@ -64,6 +64,7 @@
     <Compile Include="Assets\Recognition.cs" />
     <Compile Include="Assets\Scenes\ChasseAuTresor\cubecontroller.cs" />
     <Compile Include="Assets\Scenes\ChasseAuTresor\tresor.cs" />
+    <Compile Include="Assets\Scenes\Combat\captainattack.cs" />
     <Compile Include="Assets\Scenes\Combat\CheckCollision.cs" />
     <Compile Include="Assets\Scenes\Combat\deplacement.cs" />
     <Compile Include="Assets\Scenes\Combat\EnnemyControler.cs" />
