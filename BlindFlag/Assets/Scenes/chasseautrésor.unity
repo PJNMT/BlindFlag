@@ -382,6 +382,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_speed: 0.5
+  x: 0
+  z: 0
 --- !u!1001 &1109077999
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -397,12 +399,12 @@ PrefabInstance:
     - target: {fileID: 3273055287566686424, guid: 536548e4e904b8d4596f690b5da6065d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.3900003
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3273055287566686424, guid: 536548e4e904b8d4596f690b5da6065d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.7200003
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3273055287566686424, guid: 536548e4e904b8d4596f690b5da6065d,
         type: 3}
@@ -502,7 +504,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1578644279}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 2

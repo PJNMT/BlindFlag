@@ -13,12 +13,15 @@ public class tresor : MonoBehaviour
     private Enigma _enigma;
     private static string _enigmefile = "enigme.txt";
     private int or;
+
+    private float x;
+    private float z;
     
     // Place le trésor aléatoirement sur la map
     void Start()
     {
-        float x = Random.Range(-10.0f, 10.0f);
-        float z = Random.Range(-10.0f, 10.0f);
+         x = Random.Range(-10.0f, 10.0f);
+         z = Random.Range(-10.0f, 10.0f);
 
 
         transform.Translate(x, 0f, z);
@@ -141,6 +144,11 @@ public class tresor : MonoBehaviour
               Console.WriteLine("correct answer");
               break;
         }
+    }
+    
+    public float[] Getposition()
+    {
+        return new[] {x, z};
     }
 
 }

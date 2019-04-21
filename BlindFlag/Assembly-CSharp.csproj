@@ -62,11 +62,12 @@
     <Compile Include="Assets\Music_Recognition.cs" />
     <Compile Include="Assets\Recognition.cs" />
     <Compile Include="Assets\Scenes\ChasseAuTresor\cubecontroller.cs" />
+    <Compile Include="Assets\Scenes\ChasseAuTresor\cubeindicator.cs" />
     <Compile Include="Assets\Scenes\ChasseAuTresor\tresor.cs" />
     <Compile Include="Assets\Scenes\Combat\captainattack.cs" />
-    <Compile Include="Assets\Scenes\Combat\CheckCollision.cs" />
     <Compile Include="Assets\Scenes\Combat\deplacement.cs" />
     <Compile Include="Assets\Scenes\Combat\EnnemyControler.cs" />
+    <Compile Include="Assets\Scenes\Combat\Tir.cs" />
     <Compile Include="Assets\Scenes\Navigation\islandposition.cs" />
     <Compile Include="Assets\Scenes\Port\change_scene.cs" />
     <Compile Include="Assets\Scenes\Port\Enter_shop.cs" />
@@ -87,6 +88,7 @@
     <Compile Include="Assets\Vigie.cs" />
     <Compile Include="Assets\WhatToSay.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
+<<<<<<< HEAD
       <HintPath>D:/USER/Desktop/BlindFlag/BlindFlag/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
@@ -100,6 +102,21 @@
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
       <HintPath>D:/USER/Desktop/BlindFlag/BlindFlag/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+=======
+      <HintPath>D:/BlindFlag/BlindFlag/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.PackageManagerUI.Editor">
+      <HintPath>D:/BlindFlag/BlindFlag/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.CollabProxy.Editor">
+      <HintPath>D:/BlindFlag/BlindFlag/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>D:/BlindFlag/BlindFlag/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Analytics.DataPrivacy">
+      <HintPath>D:/BlindFlag/BlindFlag/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+>>>>>>> a749b9f69f0068d183cc7d5fd63d42df002843e2
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>D:/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -303,6 +320,7 @@
       <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
+<<<<<<< HEAD
       <HintPath>D:/USER/Desktop/BlindFlag/BlindFlag/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
@@ -310,6 +328,15 @@
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
       <HintPath>D:/USER/Desktop/BlindFlag/BlindFlag/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
+=======
+      <HintPath>D:/BlindFlag/BlindFlag/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Analytics.StandardEvents">
+      <HintPath>D:/BlindFlag/BlindFlag/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Analytics.Tracker">
+      <HintPath>D:/BlindFlag/BlindFlag/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
+>>>>>>> a749b9f69f0068d183cc7d5fd63d42df002843e2
     </Reference>
     <Reference Include="netstandard">
       <HintPath>D:/Unity/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
