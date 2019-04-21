@@ -12,7 +12,7 @@ public class EnnemyControler : MonoBehaviour
     private GameObject player;
     private bool do_changepos = true;
     private int rand_attack;
-    private int IA_damage;
+
     private int HP;
     private bool do_attack = true;
 
