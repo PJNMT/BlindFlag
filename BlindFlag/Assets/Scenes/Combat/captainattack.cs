@@ -13,7 +13,7 @@ public class captainattack : MonoBehaviour
     private static int Money;
 
     private int IA_lvl;
-    private int IA_atk;
+    public static int IA_atk;
     private int IA_HP;
     
     private bool do_swordok=true;
@@ -40,6 +40,7 @@ public class captainattack : MonoBehaviour
         Money = (IA_lvl * 1000) / Random.Range(2, 50);
 
         IA_HP = IA_lvl * 100;
+        IA_atk = IA_lvl * 3;
 
     }
     

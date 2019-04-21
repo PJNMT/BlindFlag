@@ -7,18 +7,18 @@ public class EnnemyControler : MonoBehaviour
     private float x_rand;
     private float z_rand;
     Random random = new Random();
-
+    private int IA_damage;
     private Transform target;
     private GameObject player;
     private bool do_changepos = true;
     private int rand_attack;
-
     private int HP;
     private bool do_attack = true;
 
     // Start is called before the first frame update
     void Start()
     {
+        IA_damage = captainattack.IA_atk;
         transform.position.Set(0, 1, 0);
         HP = BlindCaptain_Stat.HP;
         player = GameObject.FindWithTag("Captain");
