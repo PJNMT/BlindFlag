@@ -27,17 +27,17 @@ public class captainattack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gun_atk = BlindCaptain_Stat.GunDamage;
+        gun_atk = BlindCaptain_Stat.GunDamage; //initialise stats capitaine
         saber_atk = BlindCaptain_Stat.SwordDamage;
         lvl = BlindCaptain_Stat.Lvl;
 
-        if (lvl < 6) IA_lvl = Random.Range(1, lvl);
+        if (lvl < 6) IA_lvl = Random.Range(1, lvl); //Determine niveau aleatoire IA
         else IA_lvl = Random.Range(lvl - 5, lvl + 5);
 
-        XP = (IA_lvl * 100) / Random.Range(2, 10);
+        XP = (IA_lvl * 100) / Random.Range(2, 10); //determine XP et Money to earn
         Money = (IA_lvl * 1000) / Random.Range(2, 50);
 
-        IA_HP = IA_lvl * 100;
+        IA_HP = IA_lvl * 100; //determine stats IA
         IA_atk = IA_lvl * 3;
 
     }
@@ -52,7 +52,7 @@ public class captainattack : MonoBehaviour
 
     private void OnCollisionStay(Collision other)
     {
-        if (other.gameObject.name == "Ennemy")
+        if (other.gameObject.name == "Ennemy") //verifie que le sabre est bien dans la zone ennemy
         {
             if (do_swordok && Input.GetKeyDown(swordatk))
             {
@@ -62,16 +62,15 @@ public class captainattack : MonoBehaviour
         }
     }
 
-    void Dead()
+    void Dead() //give money and xp to capitain
     {
         BlindCaptain_Stat.XP += XP;
         BlindShip_Stat.Money += Money;
-        Destroy(gameObject,0f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (IA_HP <= 0) Dead();
+        if (IA_HP <= 0) Dead(); //check if IA dead or no
     }
 }
