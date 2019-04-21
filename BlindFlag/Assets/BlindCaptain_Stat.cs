@@ -16,10 +16,10 @@ public class BlindCaptain_Stat : MonoBehaviour
     private static int Max_Lvl = 50;
 
     public static int GunDamage;
-    private static int Max_GunDamage;
+    public static int Max_GunDamage;
     
     public static int SwordDamage;
-    private static int Max_SwordDamage;
+    public static int Max_SwordDamage;
 
     public static int Reputation;
     public static string Name;

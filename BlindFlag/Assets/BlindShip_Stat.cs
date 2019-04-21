@@ -6,10 +6,10 @@ using UnityEngine.SceneManagement;
 public class BlindShip_Stat : MonoBehaviour
 {
     public static int Money;
-    private static int Max_Money;
+    public static int Max_Money;
 
     public static int HP;
-    private static int Max_HP;
+    public static int Max_HP;
     
     public static int Lvl;
     private static int Max_Lvl = 50;
@@ -18,7 +18,7 @@ public class BlindShip_Stat : MonoBehaviour
     private static int Max_XP;
     
     public static int Damage;
-    private static int Max_Damage;
+    public static int Max_Damage;
 
     public static int Crew;
     public static int Max_Crew;
