@@ -60,6 +60,7 @@
     <Compile Include="Assets\Music_Recognition.cs" />
     <Compile Include="Assets\Recognition.cs" />
     <Compile Include="Assets\Scenes\ChasseAuTresor\cubecontroller.cs" />
+    <Compile Include="Assets\Scenes\ChasseAuTresor\cubeindicator.cs" />
     <Compile Include="Assets\Scenes\ChasseAuTresor\tresor.cs" />
     <Compile Include="Assets\Scenes\Combat\captainattack.cs" />
     <Compile Include="Assets\Scenes\Combat\CheckCollision.cs" />
