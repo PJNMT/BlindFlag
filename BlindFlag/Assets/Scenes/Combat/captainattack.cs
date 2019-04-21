@@ -8,12 +8,17 @@ public class captainattack : MonoBehaviour
     private int saber_atk;
     private int HP;
 
+    private int IA_atk;
+    private int IA_HP;
+
     // Start is called before the first frame update
     void Start()
     {
         gun_atk = BlindCaptain_Stat.GunDamage;
         saber_atk = BlindCaptain_Stat.SwordDamage;
         HP = BlindCaptain_Stat.HP;
+
+
     }
 
     // Update is called once per frame
