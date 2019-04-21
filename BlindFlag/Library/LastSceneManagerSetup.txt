@@ -1,8 +1,4 @@
 sceneSetups:
-<<<<<<< HEAD
-- path: Assets/Scenes/ShipShop.unity
-=======
-- path: Assets/Scenes/navi.unity
->>>>>>> ec6a0e9ab4c3222297ab46c4d3d2de65bbe5207d
+- path: "Assets/Scenes/chasseautr\xE9sor.unity"
   isLoaded: 1
   isActive: 1
