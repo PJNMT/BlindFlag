@@ -68,6 +68,7 @@
     <Compile Include="Assets\Scenes\Combat\captainattack.cs" />
     <Compile Include="Assets\Scenes\Combat\deplacement.cs" />
     <Compile Include="Assets\Scenes\Combat\EnnemyControler.cs" />
+    <Compile Include="Assets\Scenes\Combat\Tir.cs" />
     <Compile Include="Assets\Scenes\Navigation\islandposition.cs" />
     <Compile Include="Assets\Scenes\Port\change_scene.cs" />
     <Compile Include="Assets\Scenes\Port\Enter_shop.cs" />

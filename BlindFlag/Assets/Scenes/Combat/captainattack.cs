@@ -1,11 +1,13 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Experimental.UIElements.GraphView;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class captainattack : MonoBehaviour
 {
-    private int gun_atk;
+    public static int gun_atk;
     private int saber_atk;
     private int lvl;
 
@@ -14,21 +16,17 @@ public class captainattack : MonoBehaviour
 
     private int IA_lvl;
     public static int IA_atk;
-    private int IA_HP;
+    public static int IA_HP;
     
     private bool do_swordok=true;
-    private bool do_gunok=true;
+    public static bool do_gunok=true;
 
-    private KeyCode swordatk;
-    private KeyCode gunatk;
+    public static KeyCode swordatk = KeyCode.Space;
+    public static KeyCode gunatk = KeyCode.KeypadEnter;
 
     // Start is called before the first frame update
     void Start()
     {
-        
-        swordatk = KeyCode.Space;
-        gunatk = KeyCode.KeypadEnter;
-        
         gun_atk = BlindCaptain_Stat.GunDamage;
         saber_atk = BlindCaptain_Stat.SwordDamage;
         lvl = BlindCaptain_Stat.Lvl;
@@ -44,14 +42,6 @@ public class captainattack : MonoBehaviour
 
     }
     
-    IEnumerator launch_gun() //imite le temps de recharge d'une arme
-    {
-        IA_HP -= gun_atk;
-        Debug.Log(IA_HP);
-        yield return new WaitForSeconds(10f);
-        do_gunok = true;
-    }
-
     IEnumerator launch_sword() //imite le temps qu'il faut à l'arme pour revenir
     {
         IA_HP -= saber_atk;
@@ -64,11 +54,6 @@ public class captainattack : MonoBehaviour
     {
         if (other.gameObject.name == "Ennemy")
         {
-            if (do_gunok && Input.GetKeyDown(gunatk))
-            {
-                do_gunok = false;
-                StartCoroutine("launch_gun");
-            }
             if (do_swordok && Input.GetKeyDown(swordatk))
             {
                 do_swordok = false;

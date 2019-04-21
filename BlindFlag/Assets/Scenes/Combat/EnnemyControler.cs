@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class EnnemyControler : MonoBehaviour
 {
@@ -23,6 +25,26 @@ public class EnnemyControler : MonoBehaviour
         HP = BlindCaptain_Stat.HP;
         player = GameObject.FindWithTag("Captain");
         target = player.transform;
+    }
+
+    IEnumerator launch_gun() //imite le temps de recharge d'une arme
+    {
+        captainattack.IA_HP -= captainattack.gun_atk;
+        Debug.Log(captainattack.IA_HP);
+        yield return new WaitForSeconds(10f);
+        captainattack.do_gunok = true;
+    }
+    
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.name == "Projectile")
+        {
+            if (captainattack.do_gunok)
+            {
+                captainattack.do_gunok = false;
+                StartCoroutine("launch_gun");
+            }
+        }
     }
 
     void ChangePosition() //changement de position aleatoire IA
