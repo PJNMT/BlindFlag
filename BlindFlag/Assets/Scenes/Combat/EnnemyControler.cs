@@ -10,43 +10,65 @@ public class EnnemyControler : MonoBehaviour
 
     private Transform target;
     private GameObject player;
-    private bool hivar = true;
+    private bool do_changepos = true;
+    private int rand_attack;
+    private int IA_damage;
+    private int HP;
+    private bool do_attack = true;
 
     // Start is called before the first frame update
     void Start()
     {
         transform.position.Set(0, 1, 0);
+        HP = BlindCaptain_Stat.HP;
         player = GameObject.FindWithTag("Captain");
         target = player.transform;
-        int index_attente = 0;
     }
 
-    void ChangePosition()
+    void ChangePosition() //changement de position aleatoire IA
     {
         var newposition = Random.insideUnitCircle * 5;
         transform.position = new Vector3(newposition.x, 1, newposition.y);
-        hivar = false;
+        do_changepos = false;
     }
     
     IEnumerator ChangeIAposition()
     {
-        if (hivar == true)
+        if (do_changepos)
         {
             ChangePosition();
             yield return new WaitForSeconds(120f);
-            hivar = true;
+            do_changepos = true;
+        }
+    }
+
+    void IA_attack() //attaque de IA
+    {
+        rand_attack = Random.Range(0, 1);
+        if (rand_attack == 1) HP -= IA_damage;
+        do_attack = false;
+    }
+
+    IEnumerator IA_Damage()
+    {
+        if (do_attack)
+        {
+            IA_attack();
+            yield return new WaitForSeconds(20f);
+            do_attack = true;
         }
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (HP < 0) BlindCaptain_Stat.Dead();
+
         if (Vector3.Distance(target.position, target.position)<2)
         {
             StartCoroutine("ChangeIAposition");
+            StartCoroutine("IA_attack");
         }
-        //FIXME
-        //Gerer les stats des deux personnages
-        //Gerer les attaques des deux personnages
     }
+
 }
