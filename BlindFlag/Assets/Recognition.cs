@@ -62,7 +62,8 @@ public class Recognition : MonoBehaviour
 
     public static void stop_recognition()
     {
-        myProcess.Close();
+        myProcess.Kill();
+        tcpListener.Stop();
         tcpListenerThread.Abort();
     }
 

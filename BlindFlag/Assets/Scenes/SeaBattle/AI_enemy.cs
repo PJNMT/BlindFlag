@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Experimental.UIElements;
+using UnityEngine.SceneManagement;
 
 public class AI_enemy : MonoBehaviour
 {
@@ -46,19 +47,30 @@ public class AI_enemy : MonoBehaviour
     void Update()
     {
         if (HP <= 0) Dead();
-
+        
+        Vector3 LocPos = BlindShip.InverseTransformPoint(transform.position);
         float distance = Vector3.Distance(BlindShip.position, transform.position);
-        
-        FaceTarget();
-        
-        if (distance > FireRadius) transform.Rotate(0, 90, 0);
-        else
+
+        if (HP > 10 * Lvl)
         {
-            if (BlindShip.position.z > transform.position.z) Fire(true);
-            else if (BlindShip.position.z < transform.position.z) Fire(false);
+            FaceTarget();
+
+            if (distance > FireRadius) transform.Rotate(0, 90, 0);
+            else
+            {
+                if (LocPos.z >= transform.position.z) Fire(false);
+                else if (LocPos.z < transform.position.z) Fire(true);
+            }
+
+            transform.Translate(Vector3.left * 15 * Time.deltaTime);
         }
-        transform.Translate(Vector3.left * 15 * Time.deltaTime);
-        
+        else if (distance <= 30)
+        {
+            Destroy(BlindShip, 0f);
+            Destroy(transform, 0f);
+            SceneManager.LoadScene("combat");
+        }
+
     }
 
     void Fire(bool tribord)
@@ -151,6 +163,8 @@ public class AI_enemy : MonoBehaviour
         BlindShip_Stat.Money += Money;
         BlindShip_Stat.XP += XP;
         Destroy(gameObject, 0f);
+        Destroy(BlindShip, 0f);
+        SceneManager.LoadScene("navi");
     }
     
     
