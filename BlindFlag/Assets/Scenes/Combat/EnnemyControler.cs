@@ -62,7 +62,7 @@ public class EnnemyControler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (HP < 0) BlindCaptain_Stat.Dead();
+        if (HP <= 0) BlindCaptain_Stat.Dead();
 
         if (Vector3.Distance(target.position, target.position)<2)
         {
