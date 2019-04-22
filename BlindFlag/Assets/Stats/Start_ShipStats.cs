@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Start_ShipStats : MonoBehaviour
 {
+    
     void Start()
     {
         BlindShip_Stat.Lvl = 0;
