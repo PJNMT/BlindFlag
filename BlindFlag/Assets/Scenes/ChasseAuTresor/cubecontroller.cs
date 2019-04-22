@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class cubecontroller : MonoBehaviour
 {
-	public float m_speed = 0.5f;
+	public float m_speed = 0.1f;
 	public float x;
 	public float z;
 	
@@ -13,7 +13,7 @@ public class cubecontroller : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.position = new Vector3(2f, 0f, 0f);
+        transform.position = new Vector3(20.5f, 1f, 48f);
 	    x = 2;
 	    z = 0;
     }

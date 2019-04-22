@@ -9,6 +9,8 @@ public class cubeindicator : MonoBehaviour
 {
     private float[] tresorposition;
     private cubecontroller cube;
+    public AudioClip[] indications;
+    public AudioSource a;
 
     private float x;
     private float z;
@@ -17,8 +19,12 @@ public class cubeindicator : MonoBehaviour
     void Start()
     {
         cube = GetComponent(typeof(cubecontroller)) as cubecontroller;
-         tresor tresor = GetComponent(typeof(tresor)) as tresor;
-         tresorposition = tresor.Getposition();
+        tresor tresor = GetComponent(typeof(tresor)) as tresor;
+        tresorposition = tresor.Getposition();
+        
+        transform.position = new Vector3(25.5f,2f,48f);
+        indications = new AudioClip[2];
+        a = gameObject.GetComponent(typeof(AudioSource)) as AudioSource;
     }
 
     // Update is called once per frame
@@ -32,14 +38,16 @@ public class cubeindicator : MonoBehaviour
         {
             if (Math.Abs(cube.x - x) > 15 || Math.Abs(cube.z - z) > 15)
             {
-                Synthesis.synthesis("Vous êtes trop loin");
+                a.clip = indications[1];
+                a.Play();
             }
             else
             {
                 if (Math.Abs(cube.x - x) < 5 || Math.Abs(cube.z - z) < 5)
                 {
                     Move();
-                    Synthesis.synthesis("C'est par ici !");
+                    a.clip = indications[0];
+                    a.Play();
                 }
                 else
                 {

@@ -25,6 +25,8 @@ public class Coco : MonoBehaviour
         {
              case   "coco":
                  Recognition.Function Demande = this.Demande;
+                 Synthesis.synthesis("Menu coco : statistiques, options, sauver ou quitter ");
+                 
                  Recognition.start_recognition(20, "statistiques stats bateau vie niveau sauver sauvegarder enregistrer quitter réputation", Demande);
                  break;
         }
