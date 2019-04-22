@@ -84,7 +84,7 @@ public class EnnemyControler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (HP <= 0) BlindCaptain_Stat.Dead(); //check if capitain dead or no
+        /*if (HP <= 0) BlindCaptain_Stat.Dead(); //check if capitain dead or no*/
 
         if (Vector3.Distance(target.position, target.position)<2) //check if capitaine close to ennemy and if yes, launch attack and coroutine to change position
         {

@@ -39,7 +39,7 @@ public class deplacement : MonoBehaviour
         intputdroit = KeyCode.D;
         intputgauche = KeyCode.Q;
 
-        moveSpeed = 25f;
+        moveSpeed = 10f;
         turnSpeed = 500f;
         
         playercollider = gameObject.GetComponent<CapsuleCollider>();
@@ -50,19 +50,19 @@ public class deplacement : MonoBehaviour
     {
         //deplacement tourner = new deplacement(Capitaine.GetPosx,Capitaine.GetPosy,Capitaine.GetPosz);
         
-        if (Input.GetKeyDown(intputgauche))
+        if (Input.GetKey(intputgauche))
         {
             transform.Rotate(-Vector3.up * turnSpeed * Time.deltaTime);
         }
-        if (Input.GetKeyDown(intputdroit))
+        if (Input.GetKey(intputdroit))
         {
             transform.Rotate(Vector3.up * turnSpeed * Time.deltaTime);
         }
-        if (Input.GetKeyDown(intputavant))
+        if (Input.GetKey(intputavant))
         {
             transform.Translate(Vector3.forward*moveSpeed*Time.deltaTime);
         }
-        if (Input.GetKeyDown(intputarrière))
+        if (Input.GetKey(intputarrière))
         {
             transform.Translate(-Vector3.forward*moveSpeed*Time.deltaTime);
         }

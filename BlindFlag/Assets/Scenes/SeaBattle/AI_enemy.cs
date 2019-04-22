@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Experimental.UIElements;
-<<<<<<< HEAD
+
 using UnityEngine.SceneManagement;
-=======
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Experimental.UIElements;
->>>>>>> a749b9f69f0068d183cc7d5fd63d42df002843e2
+
 
 public class AI_enemy : MonoBehaviour
 {

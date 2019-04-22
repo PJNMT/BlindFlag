@@ -71,6 +71,6 @@ public class captainattack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (IA_HP <= 0) Dead(); //check if IA dead or no
+        /*if (IA_HP <= 0) Dead(); //check if IA dead or no*/
     }
 }
