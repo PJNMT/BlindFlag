@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Threading;
 using UnityEngine;
 
@@ -10,11 +11,14 @@ public class     simon : MonoBehaviour
 {
     
     private bool correct;
-    private Morceau _morceau;
     private static Music_Recognition _musicRecognition = new Music_Recognition();
 
     private AudioSource audio;
     private int mise;
+    public AudioClip[] musics;
+
+    private string chemintxt;
+    private List<string> notes;
     
     
    
@@ -26,16 +30,7 @@ public class     simon : MonoBehaviour
         
         audio = new AudioSource();
 
-        using (StreamReader file = new StreamReader("morceauxsimon.txt"))
-        {
-
-            for (int j = 0; j < _morceau.notes.Count; j++)
-            {
-                file.ReadLine();
-            }
-
-            _morceau = new Morceau(file.Read());
-        }
+        audio.clip = musics[0];
 
         correct = true;
         Synthesis.synthesis("Combien voulez vous parrier à ce jeu ? vinGt, trente cinquante ou cent ?");
@@ -50,16 +45,16 @@ public class     simon : MonoBehaviour
     {
         int i = 0;
         
-        using (StreamReader file2 = new StreamReader(_morceau.chemintxt))
+        using (StreamReader file2 = new StreamReader(chemintxt))
             {
-                while (i < _morceau.GetTime())
+                while (i < (int)audio.clip.length)
                 {
-                    _morceau.notes.Add(file2.Read()+file2.Read()+file2.Read()+"");      //ajoute la nouvelle note
+                    notes.Add(file2.Read()+file2.Read()+file2.Read()+"");      //ajoute la nouvelle note
                     
                     //joue l'audio
                     Play(audio,i);
                     
-                    foreach (string note in _morceau.notes)
+                    foreach (string note in notes)
                     {
                         correct = _musicRecognition.Is_right(_musicRecognition.AnalyzeSound(), note, 1.5f);    //Vérifie que chaque note est juste
                         
@@ -76,10 +71,12 @@ public class     simon : MonoBehaviour
                 }
             }
         
-        if (i == _morceau.GetTime())
+        if (i == (int)audio.clip.length)
         {
             Synthesis.synthesis("Vous êtes vraiment le meilleur à ce jeu capitaine !");   //si le joueur won, il remporte 4 fois sa mise
-            _morceau.Debloc();
+            musics.Take(0);
+            musics.Append(audio.clip);
+            
             BlindShip_Stat.Money += mise*4;
         }
     
@@ -115,57 +112,5 @@ public class     simon : MonoBehaviour
 
 }
 
-public class Morceau
-{
-    private int nb;
-    private int time;
-    private string file = "morceauxsimon.txt";      //contient les 
-    private string chemin;
-    private bool debloq;
-    
-    public List<string> notes;
-    public string chemintxt;
-
-
-        public Morceau(int nb)
-        {
-            debloq = false;
-            using (StreamReader file = new StreamReader(this.file))       // crée l'objet morceau à partir de son numéro
-            {
-                for (int i = 0; i < nb; i++)                      //
-                {
-                    Console.ReadLine();
-                }
-                string[] lecture = file.ReadLine().Split('*');
-                time = int.Parse(lecture[1]);
-                nb = int.Parse(lecture[0]);
-                chemin = lecture[2];
-                chemintxt = lecture[3];
-                notes = new List<string>();
-
-            }
-        }
-
-        public string GetChemin()
-        {
-            return chemin;
-        }
-
-        public int GetTime()
-        {
-            return time;
-        }
-            
-        public void Debloc()
-        {
-            debloq = true;
-            using (StreamWriter écrire = new StreamWriter(file))
-            {
-                
-                écrire.WriteLine("Debloc");
-            }
-        }
-                
-    } 
     
 
