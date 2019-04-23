@@ -6,7 +6,7 @@ using System.IO;
 using System.Threading;
 using UnityEngine;
 
-public class simon : MonoBehaviour
+public class     simon : MonoBehaviour
 {
     
     private bool correct;
