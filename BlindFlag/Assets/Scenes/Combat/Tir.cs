@@ -7,14 +7,26 @@ public class Tir : MonoBehaviour
 
     public GameObject Projectile;
     public int Force = 50;
-
+    /*public AudioClip tir;
+    public AudioClip recharge;*/
+    
+    IEnumerator launch_gun() //imite le temps de recharge d'une arme
+    {
+        Debug.Log(captainattack.IA_HP); //Debug
+        yield return new WaitForSeconds(10f);
+        captainattack.do_gunok = true;
+    }
+    
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(captainattack.gunatk))
+        if (Input.GetKeyDown(captainattack.gunatk) && captainattack.do_gunok)
         {
             GameObject Bullet = Instantiate(Projectile, transform.position, Quaternion.identity); //create a new bullet
             Bullet.GetComponent<Rigidbody>().velocity = transform.TransformDirection(Vector3.forward) * Force; //apply a force on it
+            
+            captainattack.do_gunok = false;
+            StartCoroutine("launch_gun");
         }
     }
 }

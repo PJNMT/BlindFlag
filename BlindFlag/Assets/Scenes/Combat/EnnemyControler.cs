@@ -26,24 +26,12 @@ public class EnnemyControler : MonoBehaviour
         player = GameObject.FindWithTag("Captain"); //defini player comme target
         target = player.transform;
     }
-
-    IEnumerator launch_gun() //imite le temps de recharge d'une arme
-    {
-        captainattack.IA_HP -= captainattack.gun_atk;
-        Debug.Log(captainattack.IA_HP); //Debug
-        yield return new WaitForSeconds(10f);
-        captainattack.do_gunok = true;
-    }
     
     private void OnCollisionEnter(Collision other) //verifie si un projectile entre dans collider zone ennemy
     {
         if (other.gameObject.name == "Projectile")
         {
-            if (captainattack.do_gunok)
-            {
-                captainattack.do_gunok = false;
-                StartCoroutine("launch_gun");
-            }
+            captainattack.IA_HP -= captainattack.gun_atk;
         }
     }
 
