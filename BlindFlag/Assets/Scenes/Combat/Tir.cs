@@ -11,7 +11,7 @@ public class Tir : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(captainattack.gunatk))
+        if (Input.GetKey(captainattack.gunatk))
         {
             GameObject Bullet = Instantiate(Projectile, transform.position, Quaternion.identity); //create a new bullet
             Bullet.GetComponent<Rigidbody>().velocity = transform.TransformDirection(Vector3.forward) * Force; //apply a force on it
