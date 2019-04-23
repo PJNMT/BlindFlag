@@ -22,7 +22,7 @@ public class     simon : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Recognition.stop_recognition();
+        //Recognition.stop_recognition();
         
         audio = new AudioSource();
 
