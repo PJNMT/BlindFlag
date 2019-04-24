@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Net;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
@@ -52,12 +53,23 @@ public class tresor : MonoBehaviour
             SpeakEnigma(_enigma);
             string lecturetraitement;
             
+            bool continuer = false;
+            
             do
             {
-                Recognition.start_recognition(20000,"repeats "+_enigma._answer+" indice", Traitement);  //Reconnait tant qu'une réponse est attendue
+                Recognition.start_recognition(60,"repeats "+_enigma._answer+" indice", Traitement);  //Reconnait tant qu'une réponse est attendue
                 lecturetraitement = Console.ReadLine();
+                if (lecturetraitement == "")
+                {
+                    Synthesis.synthesis("Voulez vous encore réfléchir ? Appuyer sur Espace");
+                    if (Input.GetKey(KeyCode.Space))
+                    {
+                        continuer = true;
+                    }
+                    
+                }
 
-            } while (lecturetraitement== "repeat" || lecturetraitement == "indice");
+            } while ((lecturetraitement== "repeat" || lecturetraitement == "indice")  && continuer);
 
             
             //récupération de l'issue de la réponse
@@ -65,7 +77,7 @@ public class tresor : MonoBehaviour
             {
                 _path.Add(_enigma._number);
                 Synthesis.synthesis("Vous avez gagné " + or + "pièces d'or");
-                BlindShip_Stat.Money += or;
+                //BlindShip_Stat.Money += or;
             }
         }
 

@@ -18,9 +18,9 @@ public class cubeindicator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        cube = GetComponent(typeof(cubecontroller)) as cubecontroller;
-        tresor tresor = GetComponent(typeof(tresor)) as tresor;
-        tresorposition = tresor.Getposition();
+       cubecontroller cube = GameObject.FindObjectOfType<cubecontroller>();
+      tresor tresor = GameObject.FindObjectOfType<tresor>();
+      tresorposition = tresor.Getposition();
         
         transform.position = new Vector3(25.5f,2f,48f);
         indications = new AudioClip[2];
