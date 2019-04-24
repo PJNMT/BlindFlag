@@ -1,47 +1,34 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class Coco : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        Recognition.Function Traitement = TraitementCoco;
-        Recognition.start_recognition(0,"coco", Traitement);
-    }
+{  
+    public static string speech;
+    public static string[] Dico_1;
+    public static string[] Dico_2;
 
-    // Update is called once per frame
-    void Update()
+    public GameObject Cannonball;
+    void Cocotraitement(string word)
     {
+        Coco.speech = Coco.speech + word + " ";
+        string[] words = Coco.speech.Split(' ');
         
-    }
+        Debug.Log(Coco.speech);
 
-    void TraitementCoco(string input)
-    {
-        Synthesis.synthesis("coco activé");
-        Recognition.stop_recognition();
-        switch (input)
+        if (words.Length > 2)
         {
-             case   "coco":
-                 Recognition.Function Demande = this.Demande;
-                 Synthesis.synthesis("Menu coco : statistiques, options, sauver ou quitter ");
-                 
-                 Recognition.start_recognition(20, "statistiques stats bateau vie niveau sauver sauvegarder enregistrer quitter réputation", Demande);
-                 break;
-        }
-    }
+            if ((Coco.Dico_1).Contains(words[0]) && Coco.Dico_2.Contains(words[1]))
+            {
 
-
-    void Demande(string input)
-    {
-        switch (input)
-        {
-             case   "statistique":
-             case "stat":
+                switch (words[1])
+                {
+                case   "statistique":
+                case "stat":
                  Synthesis.synthesis("Quelle statistique veut tu connaitre ? ton niveau, tes XP, HP, les statistiques de ton navire," +
                                      "tes points de dommages à l'épée ou au pistolet ou tes points de réputation ?");
-                 Recognition.start_recognition(10,"vie HP XP experience bateau navire épée sabre pistolet dommage réputation niveau", Demande);
                  break;
              
              
@@ -91,25 +78,43 @@ public class Coco : MonoBehaviour
                  break;
              
              case "quitter":
-                 Synthesis.synthesis("Tu es sur que tu veux quitter sans sauvegarder ?");
-                 Recognition.Function Reponse = ReponseQuittersanssauver;
-                 Recognition.start_recognition(10, "oui non", Reponse);
+                 Synthesis.synthesis("Tu es sur que tu veux quitter sans sauvegarder ? Si oui appuyer sur Espace");
+                 if (Input.GetKey(KeyCode.Space))
+                 {
+                     //Scripte de save
+                 }
                  break;
+                }
+                
+                
+                
+            }
+
+            Coco.speech = "";
         }
         
+        else if (!Coco.Dico_1.Contains(words[0])) Coco.speech = "";
+    }
+    
+    void Start()
+    {
+        speech = "";
+        Dico_1 = new[]
+        {
+            "Coco",
+            
+        };
+        Dico_2 = new[]
+        {
+            "statistiques", "stats", "bateau", "vie", "HP", "XP", "niveau", "sauver",
+            "sauvegarder", "enregistrer", "quitter", "réputation", "navire", "experience","experience"
+        };
+        
+        Recognition.Function Coco = Cocotraitement;
+        
+        Recognition.start_recognition(0, "statistiques stats bateau vie HP XP niveau sauver sauvegarder" +
+                                         "enregistrer quitter réputation navire experience experience", Coco);
     }
 
-    void ReponseQuittersanssauver(string input)
-    {
-        switch (input)
-        {
-                case "oui":
-                    Application.Quit(1);
-                    break;
-                case "non":
-                    //TODO: Ajouter script save
-                    Application.Quit(0);
-                    break;
-        }
-    }
+   
 }

@@ -654,6 +654,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ec153f1383f4364a8244884984b1470, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Cannonball: {fileID: 0}
+--- !u!114 &974435674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 974435670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9bfd0b5c6e9436408ab14f503f2bba7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 10
+  turnSpeed: 50
+  loadport: 0
+  loadtresor: 1
+  loadbattle: 0
 --- !u!4 &2041509471 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1224520436687627579, guid: 82a4d3f7a519aa244bc7a573a83fe8f8,
