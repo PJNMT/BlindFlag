@@ -6,23 +6,23 @@ using UnityEngine.SceneManagement;
 
 public class BlindCaptain_Stat : MonoBehaviour
 {
-    public static int HP;
-    private static int Max_HP;
-    
-    public static int XP;
-    private static int Max_XP;
-    
-    public static int Lvl;
+    public static int Lvl = 1;
     private static int Max_Lvl = 50;
-
-    public static int GunDamage;
-    public static int Max_GunDamage;
     
-    public static int SwordDamage;
-    public static int Max_SwordDamage;
+    public static int HP = Lvl * 100;
+    public static int Max_HP = Lvl * 100;
+    
+    public static int XP = 0;
+    public static int Max_XP = Lvl * 100;
 
-    public static int Reputation;
-    public static string Name;
+    public static int GunDamage = 40;
+    public static int Max_GunDamage = Lvl * 40;
+    
+    public static int SwordDamage = 15;
+    public static int Max_SwordDamage = Lvl * 15;
+
+    public static int Reputation = 0;
+    public static string Name = "BlindPirate";
 
     private void Update()
     {
@@ -56,7 +56,6 @@ public class BlindCaptain_Stat : MonoBehaviour
 
     public static void Dead()
     {
-        Recognition.stop_recognition();
         SetStat();
         BlindShip_Stat.SetStat();
         BlindShip_Stat.Money -= BlindShip_Stat.Money / 5;

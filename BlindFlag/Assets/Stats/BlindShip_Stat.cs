@@ -5,26 +5,26 @@ using UnityEngine.SceneManagement;
 
 public class BlindShip_Stat : MonoBehaviour
 {
-    public static int Money;
-    public static int Max_Money;
-
-    public static int HP = 100;
-    public static int Max_HP;
-    
-    public static int Lvl;
+    public static int Lvl = 1;
     private static int Max_Lvl = 50;
     
-    public static int XP;
-    public static int Max_XP;
+    public static int Money = 0;
+    public static int Max_Money = Lvl * 1000;
+
+    public static int HP = Lvl * 100;
+    public static int Max_HP = Lvl * 100;
     
-    public static int Damage;
-    public static int Max_Damage;
+    public static int XP = 0;
+    public static int Max_XP = Lvl * 100;
+    
+    public static int Damage = 6;
+    public static int Max_Damage = Lvl * 10;
 
-    public static int Crew;
-    public static int Max_Crew;
+    public static int Crew = 2;
+    public static int Max_Crew = Lvl * 2;
 
-    public static int Shield;
-    private static int Max_Shield;
+    public static int Shield = 10;
+    private static int Max_Shield = Lvl * 10;
 
     private static GameObject BlindShip;
 
