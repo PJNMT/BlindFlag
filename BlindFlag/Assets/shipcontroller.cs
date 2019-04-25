@@ -27,12 +27,16 @@ public class shipcontroller : MonoBehaviour
         
         		
     }
-	
-	
+
+	private double Distance(GameObject O_O)
+	{
+		return Math.Sqrt(Math.Pow(O_O.transform.position.x - transform.position.x, 2)) +
+		       Math.Pow(O_O.transform.position.z - transform.position.z, 2);
+	}
 	
 	private void OnTriggerEnter(Collider other)
 	{
-		if (other.gameObject.name == "island")
+		if (other.gameObject.name == "island" && 30>Distance(other.gameObject))
 		{
             
 			if (other.tag == "L'ile au trésor")
