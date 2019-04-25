@@ -3,7 +3,13 @@ guid: effbbc18acdbc024b8b2d4b325989f36
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - sabre1: {instanceID: 0}
+  - sabre2: {instanceID: 0}
+  - sabre3: {instanceID: 0}
+  - sabre4: {instanceID: 0}
+  - degainer: {fileID: 8300000, guid: 4d7cc91f4aa5a234381552f8c609c062, type: 3}
+  - death_ennemy: {fileID: 8300000, guid: 76bc0a745a14cc140ab23e069727db5c, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

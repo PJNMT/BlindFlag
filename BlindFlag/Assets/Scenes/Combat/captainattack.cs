@@ -8,7 +8,7 @@ using Random = UnityEngine.Random;
 public class captainattack : MonoBehaviour
 {
     public static int gun_atk;
-    private int saber_atk;
+    public static int saber_atk;
     private int lvl;
 
     private static int XP;
@@ -17,9 +17,8 @@ public class captainattack : MonoBehaviour
     private int IA_lvl;
     public static int IA_atk;
     public static int IA_HP;
-    
-    private bool do_swordok=true;
-    public static bool do_gunok=true;
+
+    public AudioClip death_ennemy;
 
     public static KeyCode swordatk = KeyCode.Space;
     public static KeyCode gunatk = KeyCode.KeypadEnter;
@@ -27,7 +26,7 @@ public class captainattack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gun_atk = BlindCaptain_Stat.GunDamage; //initialise stats capitaine
+        /*gun_atk = BlindCaptain_Stat.GunDamage; //initialise stats capitaine
         saber_atk = BlindCaptain_Stat.SwordDamage;
         lvl = BlindCaptain_Stat.Lvl;
 
@@ -38,39 +37,30 @@ public class captainattack : MonoBehaviour
         Money = (IA_lvl * 1000) / Random.Range(2, 50);
 
         IA_HP = IA_lvl * 100; //determine stats IA
-        IA_atk = IA_lvl * 3;
+        IA_atk = IA_lvl * 3;*/
 
-    }
-    
-    IEnumerator launch_sword() //imite le temps qu'il faut à l'arme pour revenir
-    {
-        IA_HP -= saber_atk;
-        Debug.Log(IA_HP);
-        yield return new WaitForSeconds(1f);
-        do_swordok = true;
-    }
+        gun_atk = 10; //pr tests
+        saber_atk = 5;
 
-    private void OnCollisionStay(Collision other)
-    {
-        if (other.gameObject.name == "Ennemy") //verifie que le sabre est bien dans la zone ennemy
-        {
-            if (do_swordok && Input.GetKeyDown(swordatk))
-            {
-                do_swordok = false;
-                StartCoroutine("launch_sword");
-            }
-        }
+        IA_HP = 20;
+        IA_atk = 10;
+
+        Money = 50;
+        XP = 50;
+
     }
 
     void Dead() //give money and xp to capitain
     {
         BlindCaptain_Stat.XP += XP;
         BlindShip_Stat.Money += Money;
+        GetComponent<AudioSource>().PlayOneShot(death_ennemy);
+        Destroy(gameObject, 0);
     }
 
     // Update is called once per frame
     void Update()
     {
-        /*if (IA_HP <= 0) Dead(); //check if IA dead or no*/
+        if (IA_HP <= 0) Dead(); //check if IA dead or no
     }
 }
