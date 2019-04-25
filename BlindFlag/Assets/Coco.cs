@@ -7,7 +7,7 @@ using System.Linq;
 public class Coco : MonoBehaviour
 {  
     public static string speech;
-    public static string coco;
+    public static string[] Dico_1;
     public static string[] Dico_2;
 
     void Cocotraitement(string word)
@@ -15,12 +15,12 @@ public class Coco : MonoBehaviour
         Coco.speech = Coco.speech + word + " ";
         string[] words = Coco.speech.Split(' ');
         
-        Debug.Log(Coco.speech);
+        Debug.Log(word);
 
         if (words.Length > 2)
         {
             Synthesis.synthesis("Coco activé");
-            if ((words[0] == coco) && Coco.Dico_2.Contains(words[1]))
+            if ((Coco.Dico_1.Contains(words[0])) && Coco.Dico_2.Contains(words[1]))
             {
 
                 switch (words[1])
@@ -75,7 +75,7 @@ public class Coco : MonoBehaviour
              case "sauver":
              case "sauvegarder":
              case "enregistrer":
-                 //TODO: Ajouter le script de save !
+                 //script save
                  break;
              
              case "quitter":
@@ -85,21 +85,25 @@ public class Coco : MonoBehaviour
                      //Scripte de save
                  }
                  break;
+             default:
+                 Synthesis.synthesis("Je n'ai aps compris ce que vous vouliez, Capitaine");
+                 break;
                 }
-                
-                
-                
             }
 
             Coco.speech = "";
         }
         
-        else if (Coco.coco != word) Coco.speech = "";
+        else if (!Coco.Dico_1.Contains(words[0])) Coco.speech = "";
     }
     
     void Start()
     {
         speech = "";
+        Dico_1 = new[]
+        {
+            "Ok", "Coco"
+        };
         
         Dico_2 = new[]
         {
