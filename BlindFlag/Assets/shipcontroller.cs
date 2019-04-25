@@ -9,9 +9,6 @@ public class shipcontroller : MonoBehaviour
 {
 	public float moveSpeed = 10f;
 	public float turnSpeed = 50f;
-	public bool loadport = false;
-	public bool loadtresor = true;
-	public bool loadbattle = false;
 	
 	// Update is called once per frame
     void Update()
@@ -31,27 +28,22 @@ public class shipcontroller : MonoBehaviour
         		
     }
 	
+	
+	
 	private void OnTriggerEnter(Collider other)
 	{
-		if (other.gameObject.name == "IslandTrigger")
+		if (other.gameObject.name == "island")
 		{
             
-			if (loadtresor)
+			if (other.tag == "L'ile au trésor")
 			{
-				loadtresor = false;
+				
 				SceneManager.LoadScene("chasseautrésor");
 			}
 
-			if (loadport)
+			if (other.tag == "Le port")
 			{
-				loadport = false;
 				SceneManager.LoadScene("Port");
-			}
-
-			if (loadbattle)
-			{
-				loadbattle = false;
-				SceneManager.LoadScene("seabattle");
 			}
 
 			SceneManager.UnloadSceneAsync("navi");

@@ -45,6 +45,7 @@ public class move : MonoBehaviour
         
     }
 
+    
 
     private void PouC(string msg)
     {
@@ -54,10 +55,9 @@ public class move : MonoBehaviour
                     SceneManager.LoadScene("navi");
                     foreach (GameObject o in SceneManager.GetSceneByName("navi").GetRootGameObjects())
                     {
-                        if (o.name == "Ship")
+                        if (o.name == "island")
                         {
-                            o.GetComponent<shipcontroller>().loadtresor = false;
-                            o.GetComponent<shipcontroller>().loadport = true;
+                            o.tag = "Le port";
                             break;
                         }
                         
@@ -70,10 +70,9 @@ public class move : MonoBehaviour
                     SceneManager.LoadScene("navi");
                     foreach (GameObject o in SceneManager.GetSceneByName("navi").GetRootGameObjects())
                     {
-                        if (o.name == "Ship")
+                        if (o.name == "island")
                         {
-                            o.GetComponent<shipcontroller>().loadtresor = !false;
-                            o.GetComponent<shipcontroller>().loadport = !true;
+                            o.tag = "L'ile au trésor";
                             break;
                         }
                         
