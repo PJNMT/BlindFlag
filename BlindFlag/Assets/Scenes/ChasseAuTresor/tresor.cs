@@ -32,13 +32,12 @@ public class tresor : MonoBehaviour
    void OnTriggerEnter(Collider other)
     {
         Debug.Log(other.name);
-        if (other.gameObject.name == "You")
+        if (other.name == "You")
         {
-            //On cherche une enigme aléatoire pas encore rencontré
-            int a = Search();      
+            Synthesis.synthesis("Vous avez trouvez le trésor capitaine ! Mais serez vous répondre à cette énigme");
             
             //crée l'objet enigme choisit et _enigma prends sa valeur
-            Generateenigme(a);                                       
+            Generateenigme();                                       
             
             //Reconnaissance de la réponse du joueur
             Recognition.Function Traitement = Answertreatement;
@@ -77,36 +76,15 @@ public class tresor : MonoBehaviour
 
     }
     
-    private int Search()
-    {
-        using (StreamReader lire = new StreamReader(_enigmefile))
-        {
-            float nb = Random.Range(0.0f, 4f);
-
-            foreach (int occu in _path)
-            {
-                if ((int)nb == occu)
-                {
-                    Search();
-                }
-            }
-
-            return (int) nb;
-
-        }
-    }
-
     
-        
-    void Generateenigme(int nb)
+    void Generateenigme()
     {
         using (StreamReader read = new StreamReader(_enigmefile))
         {
-            
-            while (read.Read()-48 != nb)
+
+            for (int i = 0; i < _path.Count; i++)
             {
-                read.ReadLine();
-                
+               read.ReadLine();
             }
             _enigma = gameObject.AddComponent<Enigma>();
 
@@ -114,9 +92,10 @@ public class tresor : MonoBehaviour
             string[] division = lecture.Split(':');
 
             _enigma._enigme = division[0];
-            _enigma._indice = division[1];
-            _enigma._answer = division[2];
-            or = int.Parse(division[3]);
+            _enigma._enigme = division[1];
+            _enigma._indice = division[2];
+            _enigma._answer = division[3];
+            or = int.Parse(division[4]);
 
         }
     
@@ -174,14 +153,6 @@ public  class Enigma : MonoBehaviour
         _answer = answer;
 
     }
-
-    private void Start()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    private void Update()
-    {
-        throw new System.NotImplementedException();
-    }
+    
+    
 }
