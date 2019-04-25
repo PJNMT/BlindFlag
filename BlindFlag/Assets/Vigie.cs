@@ -7,6 +7,15 @@ public class Vigie : MonoBehaviour
 {
     private Dictionary<GameObject, string> ObjetsVus;
     public List<string> Tags;
+
+    private enum direction
+    {
+        devant = 0,
+        tribord = 1,
+        babord = 3,
+        derrière = 2
+    }
+    
     
     private void Start()
     {
@@ -26,6 +35,24 @@ public class Vigie : MonoBehaviour
         
     }
 
+    private direction Direction(GameObject TwT)
+    {
+        float alpha = this.transform.eulerAngles.y;
+        if (TwT.transform.position.x < transform.position.x + 30* Mathf.Sin(alpha) &&
+            TwT.transform.position.z < transform.position.z + 30*Mathf.Cos(alpha)) 
+            return direction.babord;
+        if (TwT.transform.position.x < transform.position.x + 30* Mathf.Sin(alpha) &&
+            TwT.transform.position.z >= transform.position.z + 30*Mathf.Cos(alpha)) 
+            return direction.devant;
+        if (TwT.transform.position.x >= transform.position.x + 30* Mathf.Sin(alpha) &&
+            TwT.transform.position.z < transform.position.z + 30*Mathf.Cos(alpha)) 
+            return direction.derrière;
+        /*if (TwT.transform.position.x >= transform.position.x + 30* Mathf.Sin(alpha) &&
+            TwT.transform.position.z >= transform.position.z + 30*Mathf.Cos(alpha))*/
+        return direction.tribord;
+        
+    }
+    
     private void OnTriggerExit(Collider other)
     {
         if (ObjetsVus.ContainsKey(other.gameObject))
@@ -36,8 +63,6 @@ public class Vigie : MonoBehaviour
             
             ObjetsVus.Remove(other.gameObject);
         }
-            
-             
     }
 }
 
