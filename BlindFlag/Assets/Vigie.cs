@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
@@ -29,7 +30,7 @@ public class Vigie : MonoBehaviour
     {
         /*if(!Tags.Contains(other.tag)) return;*/
         
-        Debug.Log(other.tag + " enter");
+        Debug.Log(other.tag + " enter" + Direction(other.gameObject));
         ObjetsVus.Add(other.gameObject,other.tag);
         
         
@@ -38,20 +39,13 @@ public class Vigie : MonoBehaviour
 
     private direction Direction(GameObject TwT)
     {
-        float alpha = this.transform.eulerAngles.y;
-        if (TwT.transform.position.x < transform.position.x + 30* Mathf.Sin(alpha) &&
-            TwT.transform.position.z < transform.position.z + 30*Mathf.Cos(alpha)) 
-            return direction.babord;
-        if (TwT.transform.position.x < transform.position.x + 30* Mathf.Sin(alpha) &&
-            TwT.transform.position.z >= transform.position.z + 30*Mathf.Cos(alpha)) 
-            return direction.devant;
-        if (TwT.transform.position.x >= transform.position.x + 30* Mathf.Sin(alpha) &&
-            TwT.transform.position.z < transform.position.z + 30*Mathf.Cos(alpha)) 
-            return direction.derrière;
-        /*if (TwT.transform.position.x >= transform.position.x + 30* Mathf.Sin(alpha) &&
-            TwT.transform.position.z >= transform.position.z + 30*Mathf.Cos(alpha))*/
-        return direction.tribord;
         
+    }
+    
+    private double Distance(GameObject O_O)
+    {
+        return Math.Sqrt(Math.Pow(O_O.transform.position.x - transform.position.x, 2)+
+                         Math.Pow(O_O.transform.position.z - transform.position.z, 2));
     }
     
     private void OnTriggerExit(Collider other)
@@ -59,8 +53,8 @@ public class Vigie : MonoBehaviour
         if (ObjetsVus.ContainsKey(other.gameObject))
         {
             //J'ai perdu 'other' de vu
-            Synthesis.synthesis("J'ai perdu " + other.name + " de vue");
-            
+            //Synthesis.synthesis("J'ai perdu " + other.name + " de vue");
+            Debug.Log("perdu " + other.tag);
             
             ObjetsVus.Remove(other.gameObject);
         }
