@@ -72,6 +72,7 @@ public class EnnemyControler : MonoBehaviour
         rand_attack = Random.Range(0, 1); //determine if IA attack or no (attack every 20sec)
         if (rand_attack == 1) HP -= IA_damage;
         do_attack = false;
+        Debug.Log("CaptHP = " + HP);
     }
 
     IEnumerator IA_Damage() //coroutine set as the IA attack every 20sec
@@ -79,7 +80,7 @@ public class EnnemyControler : MonoBehaviour
         if (do_attack)
         {
             IA_attack();
-            yield return new WaitForSeconds(20f);
+            yield return new WaitForSeconds(5f);
             do_attack = true;
         }
     }
@@ -87,7 +88,7 @@ public class EnnemyControler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if (HP <= 0) BlindCaptain_Stat.Dead(); //check if capitain dead or no*/
+        if (HP <= 0) BlindCaptain_Stat.Dead(); //check if capitain dead or no
 
         if (Vector3.Distance(target.position, target.position) < 2) //check if capitaine close to ennemy and if yes, launch attack and coroutine to change position
         {

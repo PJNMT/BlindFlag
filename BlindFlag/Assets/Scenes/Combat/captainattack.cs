@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Experimental.UIElements.GraphView;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class captainattack : MonoBehaviour
@@ -26,7 +27,7 @@ public class captainattack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        /*gun_atk = BlindCaptain_Stat.GunDamage; //initialise stats capitaine
+        gun_atk = BlindCaptain_Stat.GunDamage; //initialise stats capitaine
         saber_atk = BlindCaptain_Stat.SwordDamage;
         lvl = BlindCaptain_Stat.Lvl;
 
@@ -37,16 +38,7 @@ public class captainattack : MonoBehaviour
         Money = (IA_lvl * 1000) / Random.Range(2, 50);
 
         IA_HP = IA_lvl * 100; //determine stats IA
-        IA_atk = IA_lvl * 3;*/
-
-        gun_atk = 10; //pr tests
-        saber_atk = 5;
-
-        IA_HP = 20;
-        IA_atk = 10;
-
-        Money = 50;
-        XP = 50;
+        IA_atk = IA_lvl * 3;
 
     }
 
@@ -55,7 +47,7 @@ public class captainattack : MonoBehaviour
         BlindCaptain_Stat.XP += XP;
         BlindShip_Stat.Money += Money;
         GetComponent<AudioSource>().PlayOneShot(death_ennemy);
-        Destroy(gameObject, 0);
+        SceneManager.LoadScene("navi");
     }
 
     // Update is called once per frame

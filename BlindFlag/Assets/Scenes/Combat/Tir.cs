@@ -29,6 +29,8 @@ public class Tir : MonoBehaviour
             GameObject Bullet = Instantiate(Projectile, transform.position, Quaternion.identity); //create a new bullet
             Bullet.GetComponent<Rigidbody>().velocity = transform.TransformDirection(Vector3.forward) * Force; //apply a force on it      
 
+            Destroy(Bullet, 5f);
+
             do_gunok = false;
             StartCoroutine("launch_gun");
         }
