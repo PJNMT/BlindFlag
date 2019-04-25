@@ -8,6 +8,8 @@ TagManager:
   - Ile
   - Ennemy
   - Visible
+  - "L'ile au tr\xE9sor"
+  - Le port
   layers:
   - Default
   - TransparentFX
