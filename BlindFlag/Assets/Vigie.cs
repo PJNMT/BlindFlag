@@ -15,10 +15,10 @@ public class Vigie : MonoBehaviour
     
     private enum direction
     {
-        devant = 0,
-        tribord = 1,
-        babord = 3,
-        derrière = 2
+        AuNord = 0,
+        AlEst = 1,
+        AlOuest = 3,
+        AuSud = 2
     }
     
     
@@ -29,7 +29,7 @@ public class Vigie : MonoBehaviour
         
         foreach (GameObject o in SceneManager.GetSceneByName("navi").GetRootGameObjects())
         {
-            if (o.tag == "player")
+            if (o.tag == "player" || o.name == "Ship")
             {
                 player = o.gameObject;
                 break;
@@ -52,16 +52,16 @@ public class Vigie : MonoBehaviour
 
     private direction Direction(GameObject TwT)
     {
-        if (Distance(TwT, 0, -30) >= Distance(TwT, 40, 0) && Distance(TwT, 0, -30) >= Distance(TwT, -40, 0))
-            return direction.babord;
-        if (Distance(TwT, 0, 30) >= Distance(TwT, 40, 0) && Distance(TwT, 0, 30) >= Distance(TwT, -40, 0))
-            return direction.tribord;
-        if (Distance(TwT, 0, 30) < Distance(TwT, -40, 0) && Distance(TwT, 0, -30) < Distance(TwT, -40, 0))
-            return direction.devant;
+        if (Distance(TwT, 0, -100) >= Distance(TwT, 100, 0) && Distance(TwT, 0, -100) >= Distance(TwT, -100, 0))
+            return direction.AlOuest;
+        if (Distance(TwT, 0, 100) >= Distance(TwT, 100, 0) && Distance(TwT, 0, 100) >= Distance(TwT, -100, 0))
+            return direction.AlEst;
+        if (Distance(TwT, 0, 100) < Distance(TwT, -100, 0) && Distance(TwT, 0, -100) < Distance(TwT, -100, 0))
+            return direction.AuNord;
         
         
 
-        return direction.derrière;
+        return direction.AuSud;
     }
      
     private double Distance(GameObject oO,int x, int z)
