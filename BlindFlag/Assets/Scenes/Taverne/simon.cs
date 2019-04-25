@@ -33,7 +33,7 @@ public class     simon : MonoBehaviour
         audio.clip = musics[0];
 
         correct = true;
-        Synthesis.synthesis("Combien voulez vous parrier à ce jeu ? vinGt, trente cinquante ou cent ?");
+        Synthesis.synthesis("Combien voulez vous parier à ce jeu ? vinGt, trente cinquante ou cent ?");
         Recognition.start_recognition(10,"trente cinquante cent vinGt", Traitement);
 
         Jeu();

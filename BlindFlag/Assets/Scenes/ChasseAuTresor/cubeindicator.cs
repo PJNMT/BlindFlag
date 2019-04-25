@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading;
 using UnityEngine;
@@ -23,8 +24,10 @@ public class cubeindicator : MonoBehaviour
       tresorposition = tresor.Getposition();
         
         transform.position = new Vector3(25.5f,2f,48f);
+        x = 25.5f;
+        z = 48f;
         indications = new AudioClip[2];
-        a = gameObject.GetComponent(typeof(AudioSource)) as AudioSource;
+        a = GameObject.FindObjectOfType<AudioSource>();
     }
 
     // Update is called once per frame
