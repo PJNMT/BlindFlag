@@ -2,13 +2,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
+using JetBrains.Annotations;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Vigie : MonoBehaviour
 {
     private Dictionary<GameObject, string> ObjetsVus;
     public List<string> Tags;
+    private GameObject player;
 
+    
     private enum direction
     {
         devant = 0,
@@ -23,6 +27,15 @@ public class Vigie : MonoBehaviour
         ObjetsVus = new Dictionary<GameObject, string>();
         Tags = new List<string>(){"Ennemy","Ile","Visible"};
         
+        foreach (GameObject o in SceneManager.GetSceneByName("navi").GetRootGameObjects())
+        {
+            if (o.tag == "player")
+            {
+                player = o.gameObject;
+                break;
+            }
+                        
+        }
     }
 
 
@@ -39,13 +52,22 @@ public class Vigie : MonoBehaviour
 
     private direction Direction(GameObject TwT)
     {
+        if (Distance(TwT, 0, -30) >= Distance(TwT, 40, 0) && Distance(TwT, 0, -30) >= Distance(TwT, -40, 0))
+            return direction.babord;
+        if (Distance(TwT, 0, 30) >= Distance(TwT, 40, 0) && Distance(TwT, 0, 30) >= Distance(TwT, -40, 0))
+            return direction.tribord;
+        if (Distance(TwT, 0, 30) < Distance(TwT, -40, 0) && Distance(TwT, 0, -30) < Distance(TwT, -40, 0))
+            return direction.devant;
         
+        
+
+        return direction.derrière;
     }
-    
-    private double Distance(GameObject O_O)
+     
+    private double Distance(GameObject oO,int x, int z)
     {
-        return Math.Sqrt(Math.Pow(O_O.transform.position.x - transform.position.x, 2)+
-                         Math.Pow(O_O.transform.position.z - transform.position.z, 2));
+        return Math.Sqrt(Math.Pow(oO.transform.position.x - player.transform.position.x + x, 2)+
+                         Math.Pow(oO.transform.position.z - player.transform.position.z + z, 2));
     }
     
     private void OnTriggerExit(Collider other)
