@@ -8,56 +8,60 @@ public class cubecontroller : MonoBehaviour
 	public float m_speed = 0.1f;
 	public float x;
 	public float z;
+
+	public bool sedeplacer = true;
 	
 	
-    // Start is called before the first frame update
-    void Start()
-    {
-        transform.position = new Vector3(20.5f, 1f, 48f);
-	    x = 2;
-	    z = 0;
-    }
+	// Start is called before the first frame update
+	void Start()
+	{
+		transform.position = new Vector3(20.5f, 1f, 48f);
+		x = 2;
+		z = 0;
+	}
 
-    // Update is called once per frame
-    void Update()
-    {
-	    /*if (Input.GetKey(KeyCode.Space))
-	    {
-		    m_speed = 1f;
-	    }*/ // ne fonctionne pas passe à travers les murs
-	    Vector3 move = new Vector3();
+	// Update is called once per frame
+	void Update()
+	{
 
-	    // Récupération des touches haut et bas
-	    if (Input.GetKey(KeyCode.UpArrow))
-	    {
-		    move.x += m_speed;
-		    x += m_speed;
-	    }
+		if (sedeplacer)
+		{
+			Vector3 move = new Vector3();
 
-	    if (Input.GetKey(KeyCode.DownArrow))
-	    {
-		    move.x -= m_speed;
-		    x -= m_speed;
-	    }
+			// Récupération des touches haut et bas
+			if (Input.GetKey(KeyCode.UpArrow))
+			{
+				move.x += m_speed;
+				x += m_speed;
+			}
 
-	    // Récupération des touches gauche et droite
-	    if (Input.GetKey(KeyCode.LeftArrow))
-	    {
-		    move.z -= m_speed;
-		    z -= m_speed;
-	    }
+			if (Input.GetKey(KeyCode.DownArrow))
+			{
+				move.x -= m_speed;
+				x -= m_speed;
+			}
 
-	    if (Input.GetKey(KeyCode.RightArrow))
-	    {
-		    move.z += m_speed;
-		    z += m_speed;
-	    }
+			// Récupération des touches gauche et droite
+			if (Input.GetKey(KeyCode.LeftArrow))
+			{
+				move.z -= m_speed;
+				z -= m_speed;
+			}
 
-	    // On applique le mouvement à l'objet
-	    transform.position += move;
+			if (Input.GetKey(KeyCode.RightArrow))
+			{
+				move.z += m_speed;
+				z += m_speed;
+			}
+
+			// On applique le mouvement à l'objet
+			transform.position += move;
+		}
+	    
+	    
         
         		
-    }
+	}
 
 	
 }

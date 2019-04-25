@@ -208,7 +208,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 493114048}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -299,7 +299,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 565397385}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -495,7 +495,7 @@ MonoBehaviour:
   indications:
   - {fileID: 8300000, guid: 157e271707e7de148b2541159be7c717, type: 3}
   - {fileID: 8300000, guid: 54b7dc658e5afc44582f77e33ae6ab39, type: 3}
-  a: {fileID: 0}
+  a: {fileID: 668501963}
 --- !u!65 &668501965
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -589,6 +589,7 @@ MonoBehaviour:
   m_speed: 0.5
   x: 0
   z: 0
+  sedeplacer: 1
 --- !u!114 &876822801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -608,6 +609,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3273055287566686425, guid: 536548e4e904b8d4596f690b5da6065d,
         type: 3}
       propertyPath: m_Name
@@ -676,10 +681,9 @@ PrefabInstance:
     - target: {fileID: 751309636503779467, guid: 536548e4e904b8d4596f690b5da6065d,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 751309636503779467, guid: 536548e4e904b8d4596f690b5da6065d, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 536548e4e904b8d4596f690b5da6065d, type: 3}
 --- !u!1 &1578644279
 GameObject:
@@ -900,6 +904,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bfaa108d3917694d876f6f8182c192b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _enigma: {fileID: 0}
+  repeter: 0
+  rightanswer: 0
 --- !u!1 &1634753536
 GameObject:
   m_ObjectHideFlags: 0
@@ -1019,7 +1026,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1709790845}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -1110,7 +1117,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1981141923}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
@@ -11,10 +12,13 @@ using Random = UnityEngine.Random;
 public class tresor : MonoBehaviour
 {
     private static List<int> _path= new List<int>();
-    private Enigma _enigma;
+    public Enigma _enigma;
     private static string _enigmefile = "enigme.txt";
     private int or;
 
+    public bool repeter = false;
+    public bool rightanswer = false;
+    
     private float x;
     private float z;
     
@@ -25,24 +29,28 @@ public class tresor : MonoBehaviour
          z = Random.Range(-10.0f, 10.0f);
 
 
-        transform.Translate(x, 0f, z);
+        transform.Translate(x, 1f, z);
+        
+        //crée l'objet enigme choisit et _enigma prends sa valeur
+        Generateenigme();
+        Debug.Log(_enigma._enigme);
       
     }
 
    void OnTriggerEnter(Collider other)
     {
         Debug.Log(other.name);
-        if (other.name == "You")
+        if (other.name == "You" || other.name == "speakenigma" || other.name == "Sphere")
         {
-            Synthesis.synthesis("Vous avez trouvez le trésor capitaine ! Mais serez vous répondre à cette énigme");
-            
-            //crée l'objet enigme choisit et _enigma prends sa valeur
-            Generateenigme();                                       
+            FindObjectOfType<cubecontroller>().sedeplacer = false;
+            Synthesis.synthesis("Vous avez trouvez le trésor capitaine ! Mais saurez vous répondre à cette énigme ?");
+            Thread.Sleep(6000);
             
             //Reconnaissance de la réponse du joueur
             Recognition.Function Traitement = Answertreatement;
             
             //Dis l'énigme au joueur
+            Debug.Log("speakenigma");
             SpeakEnigma(_enigma);
             string lecturetraitement;
             
@@ -50,27 +58,35 @@ public class tresor : MonoBehaviour
             
             do
             {
-                Recognition.start_recognition(60,"repeats "+_enigma._answer+" indice", Traitement);  //Reconnait tant qu'une réponse est attendue
-                lecturetraitement = Console.ReadLine();
-                if (lecturetraitement == "")
+                Recognition.start_recognition(30,"repeats "+_enigma._answer+" indice", Traitement);  //Reconnait tant qu'une réponse est attendue
+                
+                if (!repeter)
                 {
-                    Synthesis.synthesis("Voulez vous encore réfléchir ? Appuyer sur Espace");
+                    Synthesis.synthesis("Voulez vous encore réfléchir ? Si oui, appuyer sur espace, si non appuyer sur Entrée");
+                    Thread.Sleep(6000);
                     if (Input.GetKey(KeyCode.Space))
                     {
-                        continuer = true;
+                        repeter = true;
                     }
+                    if (Input.GetKey(KeyCode.KeypadEnter))
+                    {
+                        break;
+                    }
+                    
                     
                 }
 
-            } while ((lecturetraitement== "repeat" || lecturetraitement == "indice")  && continuer);
+            } while (repeter);
 
+            _path.Add(_enigma._number);
             
             //récupération de l'issue de la réponse
-            if (Console.ReadLine() == "good answer")
+            if (rightanswer)
             {
-                _path.Add(_enigma._number);
+                
                 Synthesis.synthesis("Vous avez gagné " + or + "pièces d'or");
-                //BlindShip_Stat.Money += or;
+                Thread.Sleep(3000);
+                BlindShip_Stat.Money += or;
             }
         }
 
@@ -103,30 +119,32 @@ public class tresor : MonoBehaviour
 
     static void SpeakEnigma(Enigma enigma)
     {
+        //Recognition.stop_recognition();
         Synthesis.synthesis(enigma._enigme);
+        Thread.Sleep(10000);
     }
 
     static void SpeakIndice(Enigma enigma)
     {
+        //Recognition.stop_recognition();
         Synthesis.synthesis(enigma._indice);
+        Thread.Sleep(2000);
     }
     
     void Answertreatement(string reponse)
     {
-        Console.Clear();
         switch (reponse)
         {
           case "repeats":
               tresor.SpeakEnigma(_enigma);
-              Console.WriteLine("repeat");
+              repeter = true;
               break;
           case "indice":
               tresor.SpeakIndice(_enigma);
-              Console.WriteLine("indice");
               break;
              
           default:
-              Console.WriteLine("correct answer");
+              rightanswer = true;
               break;
         }
     }
