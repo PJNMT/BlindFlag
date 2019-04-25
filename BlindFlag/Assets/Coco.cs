@@ -7,10 +7,9 @@ using System.Linq;
 public class Coco : MonoBehaviour
 {  
     public static string speech;
-    public static string[] Dico_1;
+    public static string coco;
     public static string[] Dico_2;
 
-    public GameObject Cannonball;
     void Cocotraitement(string word)
     {
         Coco.speech = Coco.speech + word + " ";
@@ -20,7 +19,8 @@ public class Coco : MonoBehaviour
 
         if (words.Length > 2)
         {
-            if ((Coco.Dico_1).Contains(words[0]) && Coco.Dico_2.Contains(words[1]))
+            Synthesis.synthesis("Coco activé");
+            if ((words[0] == coco) && Coco.Dico_2.Contains(words[1]))
             {
 
                 switch (words[1])
@@ -50,6 +50,7 @@ public class Coco : MonoBehaviour
              
              case "vie":
              case "HP":
+                 Synthesis.synthesis("vie");
                  Synthesis.synthesis("Tu as " + BlindCaptain_Stat.HP + " point de vie." + "Ton bateau à " + BlindShip_Stat.HP);
                  break;
              
@@ -93,17 +94,13 @@ public class Coco : MonoBehaviour
             Coco.speech = "";
         }
         
-        else if (!Coco.Dico_1.Contains(words[0])) Coco.speech = "";
+        else if (Coco.coco != word) Coco.speech = "";
     }
     
     void Start()
     {
         speech = "";
-        Dico_1 = new[]
-        {
-            "Coco",
-            
-        };
+        
         Dico_2 = new[]
         {
             "statistiques", "stats", "bateau", "vie", "HP", "XP", "niveau", "sauver",
@@ -112,7 +109,7 @@ public class Coco : MonoBehaviour
         
         Recognition.Function Coco = Cocotraitement;
         
-        Recognition.start_recognition(0, "statistiques stats bateau vie HP XP niveau sauver sauvegarder" +
+        Recognition.start_recognition(0, "Ok Coco statistiques stats bateau vie HP XP niveau sauver sauvegarder" +
                                          "enregistrer quitter réputation navire experience experience", Coco);
     }
 

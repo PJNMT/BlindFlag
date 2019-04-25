@@ -29,15 +29,9 @@ public class tresor : MonoBehaviour
       
     }
 
-    // Cherche si le le capitaine à trouvé le trésor
-    void Update()
+   void OnTriggerEnter(Collider other)
     {
-        OnTriggerEnter(gameObject.GetComponent<Collider>());
-        
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
+        Debug.Log(other.name);
         if (other.gameObject.name == "You")
         {
             //On cherche une enigme aléatoire pas encore rencontré

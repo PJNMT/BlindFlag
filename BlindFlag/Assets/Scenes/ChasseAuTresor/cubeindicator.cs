@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Numerics;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading;
 using UnityEngine;
+
 
 public class cubeindicator : MonoBehaviour
 {
@@ -19,8 +19,10 @@ public class cubeindicator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       cubecontroller cube = GameObject.FindObjectOfType<cubecontroller>();
-      tresor tresor = GameObject.FindObjectOfType<tresor>();
+      GameObject player = GameObject.FindGameObjectWithTag("Player");
+      cube = player.GetComponent<cubecontroller>();                   //Récupère le controller de l'objet joueur
+        
+      tresor tresor = GameObject.FindObjectOfType<tresor>();          //Trouve l'objet trésor
       tresorposition = tresor.Getposition();
         
         transform.position = new Vector3(25.5f,2f,48f);
@@ -58,7 +60,6 @@ public class cubeindicator : MonoBehaviour
                 }
             }
         }
-
 
     }
 
