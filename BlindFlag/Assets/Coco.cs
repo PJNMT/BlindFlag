@@ -23,6 +23,7 @@ public class Coco : MonoBehaviour
             Synthesis.synthesis("Coco activé");
             if ((Coco.Dico_1.Contains(words[0])) && Coco.Dico_2.Contains(words[1]))
             {
+                Debug.Log(word[1]);
 
                 switch (words[1])
                 {

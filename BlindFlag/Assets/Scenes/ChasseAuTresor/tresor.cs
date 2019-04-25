@@ -63,6 +63,7 @@ public class tresor : MonoBehaviour
                 if (!repeter)
                 {
                     Synthesis.synthesis("Voulez vous encore réfléchir ? Si oui, appuyer sur espace, si non appuyer sur Entrée");
+                    Thread.Sleep(6000);
                     if (Input.GetKey(KeyCode.Space))
                     {
                         repeter = true;
@@ -84,6 +85,7 @@ public class tresor : MonoBehaviour
             {
                 
                 Synthesis.synthesis("Vous avez gagné " + or + "pièces d'or");
+                Thread.Sleep(3000);
                 BlindShip_Stat.Money += or;
             }
         }
@@ -119,12 +121,14 @@ public class tresor : MonoBehaviour
     {
         //Recognition.stop_recognition();
         Synthesis.synthesis(enigma._enigme);
+        Thread.Sleep(10000);
     }
 
     static void SpeakIndice(Enigma enigma)
     {
         //Recognition.stop_recognition();
         Synthesis.synthesis(enigma._indice);
+        Thread.Sleep(2000);
     }
     
     void Answertreatement(string reponse)
