@@ -30,8 +30,8 @@ public class shipcontroller : MonoBehaviour
 
 	private double Distance(GameObject O_O)
 	{
-		return Math.Sqrt(Math.Pow(O_O.transform.position.x - transform.position.x, 2)) +
-		       Math.Pow(O_O.transform.position.z - transform.position.z, 2);
+		return Math.Sqrt(Math.Pow(O_O.transform.position.x - transform.position.x, 2)+
+		       Math.Pow(O_O.transform.position.z - transform.position.z, 2));
 	}
 	
 	private void OnTriggerEnter(Collider other)

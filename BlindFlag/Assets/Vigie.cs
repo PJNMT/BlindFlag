@@ -27,8 +27,9 @@ public class Vigie : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(!Tags.Contains(other.tag)) return;
+        /*if(!Tags.Contains(other.tag)) return;*/
         
+        Debug.Log(other.tag + " enter");
         ObjetsVus.Add(other.gameObject,other.tag);
         
         
