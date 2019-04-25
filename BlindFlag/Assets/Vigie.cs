@@ -38,7 +38,7 @@ public class Vigie : MonoBehaviour
             ObjetsVus.Remove(other.gameObject);
         }
             
-            
+             
     }
 }
 
