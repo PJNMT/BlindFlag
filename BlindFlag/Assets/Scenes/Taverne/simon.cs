@@ -15,9 +15,9 @@ public class     simon : MonoBehaviour
 
     private AudioSource audio;
     private int mise;
-    public AudioClip[] musics;
+    public AudioClip[] musics = new AudioClip[1];
 
-    private string chemintxt;
+    private string chemintxt = "morceauxsimon.txt";
     private List<string> notes;
     
     
@@ -27,8 +27,8 @@ public class     simon : MonoBehaviour
     void Start()
     {
         //Recognition.stop_recognition();
-        
-        audio = new AudioSource();
+
+        audio = gameObject.GetComponent<AudioSource>();
 
         audio.clip = musics[0];
 

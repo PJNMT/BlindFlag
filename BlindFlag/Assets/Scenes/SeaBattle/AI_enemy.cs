@@ -28,6 +28,8 @@ public class AI_enemy : MonoBehaviour
     public GameObject Cannonball;
 
     private int time;
+    
+    public AudioClip boom;
 
     
     // Start is called before the first frame update
@@ -94,37 +96,61 @@ public class AI_enemy : MonoBehaviour
 
             Quaternion cannonball_rot = new Quaternion();
 
+            GameObject cannon;
+
             if (tribord)
             {
-                UnityMainThreadDispatcher.Instance()
-                    .Enqueue(() => cannonball_pos_1 = transform.Find("Cannon_T (0)").position);
-                UnityMainThreadDispatcher.Instance()
-                    .Enqueue(() => cannonball_pos_2 = transform.Find("Cannon_T (1)").position);
-                UnityMainThreadDispatcher.Instance()
-                    .Enqueue(() => cannonball_pos_3 = transform.Find("Cannon_T (2)").position);
-                UnityMainThreadDispatcher.Instance()
-                    .Enqueue(() => cannonball_pos_4 = transform.Find("Cannon_T (3)").position);
-                UnityMainThreadDispatcher.Instance()
-                    .Enqueue(() => cannonball_pos_5 = transform.Find("Cannon_T (4)").position);
-                UnityMainThreadDispatcher.Instance()
-                    .Enqueue(() => cannonball_pos_6 = transform.Find("Cannon_T (5)").position);
+                cannon = transform.Find("Cannon_T (0)").gameObject;
+                UnityMainThreadDispatcher.Instance().Enqueue(() => cannonball_pos_1 = cannon.transform.position);
+                cannon.GetComponent<AudioSource>().Play();
+                        
+                cannon = transform.Find("Cannon_T (1)").gameObject;
+                UnityMainThreadDispatcher.Instance().Enqueue(() => cannonball_pos_2 = cannon.transform.position);
+                cannon.GetComponent<AudioSource>().Play();
+                        
+                cannon = transform.Find("Cannon_T (2)").gameObject;
+                UnityMainThreadDispatcher.Instance().Enqueue(() => cannonball_pos_3 = cannon.transform.position);
+                cannon.GetComponent<AudioSource>().Play();
+                        
+                cannon = transform.Find("Cannon_T (3)").gameObject;
+                UnityMainThreadDispatcher.Instance().Enqueue(() => cannonball_pos_4 = cannon.transform.position);
+                cannon.GetComponent<AudioSource>().Play();
+                        
+                cannon = transform.Find("Cannon_T (4)").gameObject;
+                UnityMainThreadDispatcher.Instance().Enqueue(() => cannonball_pos_5 = cannon.transform.position);
+                cannon.GetComponent<AudioSource>().Play();
+                        
+                cannon = transform.Find("Cannon_T (5)").gameObject;
+                UnityMainThreadDispatcher.Instance().Enqueue(() => cannonball_pos_6 = cannon.transform.position);
+                cannon.GetComponent<AudioSource>().Play();
 
                 UnityMainThreadDispatcher.Instance().Enqueue(() => cannonball_rot = transform.rotation);
             }
             else
             {
-                UnityMainThreadDispatcher.Instance()
-                    .Enqueue(() => cannonball_pos_1 = transform.Find("Cannon_B (0)").position);
-                UnityMainThreadDispatcher.Instance()
-                    .Enqueue(() => cannonball_pos_2 = transform.Find("Cannon_B (1)").position);
-                UnityMainThreadDispatcher.Instance()
-                    .Enqueue(() => cannonball_pos_3 = transform.Find("Cannon_B (2)").position);
-                UnityMainThreadDispatcher.Instance()
-                    .Enqueue(() => cannonball_pos_4 = transform.Find("Cannon_B (3)").position);
-                UnityMainThreadDispatcher.Instance()
-                    .Enqueue(() => cannonball_pos_5 = transform.Find("Cannon_B (4)").position);
-                UnityMainThreadDispatcher.Instance()
-                    .Enqueue(() => cannonball_pos_6 = transform.Find("Cannon_B (5)").position);
+                cannon = transform.Find("Cannon_B (0)").gameObject;
+                UnityMainThreadDispatcher.Instance().Enqueue(() => cannonball_pos_1 = cannon.transform.position);
+                cannon.GetComponent<AudioSource>().Play();
+                        
+                cannon = transform.Find("Cannon_B (1)").gameObject;
+                UnityMainThreadDispatcher.Instance().Enqueue(() => cannonball_pos_2 = cannon.transform.position);
+                cannon.GetComponent<AudioSource>().Play();
+                        
+                cannon = transform.Find("Cannon_B (2)").gameObject;
+                UnityMainThreadDispatcher.Instance().Enqueue(() => cannonball_pos_3 = cannon.transform.position);
+                cannon.GetComponent<AudioSource>().Play();
+                        
+                cannon = transform.Find("Cannon_B (3)").gameObject;
+                UnityMainThreadDispatcher.Instance().Enqueue(() => cannonball_pos_4 = cannon.transform.position);
+                cannon.GetComponent<AudioSource>().Play();
+                        
+                cannon = transform.Find("Cannon_B (4)").gameObject;
+                UnityMainThreadDispatcher.Instance().Enqueue(() => cannonball_pos_5 = cannon.transform.position);
+                cannon.GetComponent<AudioSource>().Play();
+                        
+                cannon = transform.Find("Cannon_B (5)").gameObject;
+                UnityMainThreadDispatcher.Instance().Enqueue(() => cannonball_pos_6 = cannon.transform.position);
+                cannon.GetComponent<AudioSource>().Play();
 
                 UnityMainThreadDispatcher.Instance().Enqueue(() =>
                     cannonball_rot = Quaternion.LookRotation(-transform.forward, Vector3.up));
@@ -182,6 +208,8 @@ public class AI_enemy : MonoBehaviour
         {
             Debug.Log("vous l'avez touche");
             HP -= BlindShip_Stat.Damage;
+            other.gameObject.GetComponent<AudioSource>().clip = boom;
+            other.gameObject.GetComponent<AudioSource>().PlayDelayed(boom.length);
             Destroy(other.gameObject, 0f);
         }
     }
