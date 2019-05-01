@@ -13,7 +13,6 @@ public class shipcontroller : MonoBehaviour
 	// Update is called once per frame
     void Update()
     {
-
 	    if (Input.GetKey(KeyCode.UpArrow)) moveSpeed += 1f; //on augmente la vitesse ou on la baisse
 	    if (Input.GetKey(KeyCode.DownArrow)) moveSpeed -= 1f;
 	    if(Input.GetKey(KeyCode.LeftArrow)) transform.Rotate(Vector3.up, -turnSpeed * Time.deltaTime);
@@ -22,11 +21,7 @@ public class shipcontroller : MonoBehaviour
 
 	    if (moveSpeed < 0f) moveSpeed = 0f;
 	    transform.Translate(Vector3.left * moveSpeed * Time.deltaTime); //on avance en f° du temps
-	    
-	   
-        
-        		
-    }
+	}
 
 	private double Distance(GameObject O_O)
 	{
@@ -39,13 +34,13 @@ public class shipcontroller : MonoBehaviour
 		if (other.gameObject.name == "island" && 30>Distance(other.gameObject))
 		{
             
-			if (other.tag == "L'ile au trésor")
+			if (other.tag == "Ile au trésor")
 			{
 				
 				SceneManager.LoadScene("chasseautrésor");
 			}
 
-			if (other.tag == "Le port")
+			if (other.tag == "Port")
 			{
 				SceneManager.LoadScene("Port");
 			}

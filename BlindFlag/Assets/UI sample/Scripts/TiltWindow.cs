@@ -10,7 +10,7 @@ public class TiltWindow : MonoBehaviour
 
 	void Start ()
 	{
-		mTrans = transform;
+		mTrans = transform; 
 		mStart = mTrans.localRotation;
 	}
 

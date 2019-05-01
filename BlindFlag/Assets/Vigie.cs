@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using JetBrains.Annotations;
 using UnityEngine;
@@ -12,22 +13,38 @@ public class Vigie : MonoBehaviour
     public List<string> Tags;
     private GameObject player;
 
+    public static string speech;
+    public static string[] Dico_1;
+    public static string[] Dico_2;
+    
+    
     
     private enum direction
     {
-        AuNord = 0,
-        AlEst = 1,
-        AlOuest = 3,
-        AuSud = 2
+        Derriere = 0,
+        ATribord = 1,
+        ABabord = 3,
+        DroitDevant = 2
     }
+    
     
     
     private void Start()
     {
-        ObjetsVus = new Dictionary<GameObject, string>();
-        Tags = new List<string>(){"Ennemy","Ile","Visible"};
+        speech = "";
+        Dico_1 = new[] {"vigie", "baba"};
+        Dico_2 = new[] {"Ile", "Ennemy", "Vois", "Bateau"};
         
-        foreach (GameObject o in SceneManager.GetSceneByName("navi").GetRootGameObjects())
+        ObjetsVus = new Dictionary<GameObject, string>();
+        Tags = new List<string>(){"Ennemy","Ile","Visible","Port","Ile au trésor"};
+
+        
+        Recognition.Function IlVoit = JeVois;
+        
+        Recognition.start_recognition(0, "vigie baba Ile Ennemy Vois Bateau", IlVoit);
+
+        
+      /*  foreach (GameObject o in SceneManager.GetSceneByName("navi").GetRootGameObjects())
         {
             if (o.tag == "player" || o.name == "Ship")
             {
@@ -35,39 +52,52 @@ public class Vigie : MonoBehaviour
                 break;
             }
                         
-        }
+        } */
     }
 
 
     private void OnTriggerEnter(Collider other)
     {
         /*if(!Tags.Contains(other.tag)) return;*/
-        
-        Debug.Log(other.tag + " enter" + Direction(other.gameObject));
-        ObjetsVus.Add(other.gameObject,other.tag);
-        
-        
-        
+
+        if (Tags.Contains(other.tag))
+        {
+            Synthesis.synthesis(other.tag + " en vue " + Direction(other.gameObject));
+            Debug.Log(other.tag + " en vue " + Direction(other.gameObject));
+            ObjetsVus.Add(other.gameObject, other.tag);
+        }
+
+
     }
 
     private direction Direction(GameObject TwT)
     {
-        if (Distance(TwT, 0, -100) >= Distance(TwT, 100, 0) && Distance(TwT, 0, -100) >= Distance(TwT, -100, 0))
-            return direction.AlOuest;
-        if (Distance(TwT, 0, 100) >= Distance(TwT, 100, 0) && Distance(TwT, 0, 100) >= Distance(TwT, -100, 0))
-            return direction.AlEst;
-        if (Distance(TwT, 0, 100) < Distance(TwT, -100, 0) && Distance(TwT, 0, -100) < Distance(TwT, -100, 0))
-            return direction.AuNord;
-        
-        
+        double ang = (GetComponentInParent<Transform>().eulerAngles.y);
+        while (ang < -180){ang += 360;}
+        while (ang > 180){ang -= 360;}
 
-        return direction.AuSud;
+        ang =  ((ang / 180)*Math.PI);
+        
+        double ddr = Distance(TwT, ang - Math.PI/2);
+        double ddv = Distance(TwT, ang + Math.PI / 2);
+        double dbb = Distance(TwT, ang + Math.PI);
+        double dtb = Distance(TwT, ang);
+
+        double min = Math.Min(Math.Min(ddr, ddv), Math.Min(dbb, dtb));
+        
+        if (min == dbb)
+            return direction.ABabord;
+        if (min == dtb)
+            return direction.ATribord;
+        if (min == ddv)
+            return direction.Derriere;
+        return direction.DroitDevant;
     }
      
-    private double Distance(GameObject oO,int x, int z)
+    private double Distance(GameObject oO, double ang,int x = 100)
     {
-        return Math.Sqrt(Math.Pow(oO.transform.position.x - player.transform.position.x + x, 2)+
-                         Math.Pow(oO.transform.position.z - player.transform.position.z + z, 2));
+        return Math.Sqrt(Math.Pow((oO.transform.position.x - GetComponentInParent<Transform>().position.x - x*Math.Sin(ang)), 2)+
+                         Math.Pow((oO.transform.position.z - GetComponentInParent<Transform>().position.z - x*Math.Cos(ang)), 2));
     }
     
     private void OnTriggerExit(Collider other)
@@ -80,6 +110,67 @@ public class Vigie : MonoBehaviour
             
             ObjetsVus.Remove(other.gameObject);
         }
+    }
+
+    void JeVois(string word)
+    {
+        speech = speech + word + " ";
+        string[] words = speech.Split(' ');
+        
+        Debug.Log(speech);
+
+        if (words.Length > 2)
+        {
+            if (Dico_1.Contains(words[0]) && Dico_2.Contains(words[1]))
+            {
+
+                Synthesis.synthesis("oui Cap'tain"); 
+                
+                switch (words[1])
+                {
+                    case "Vois":
+                        foreach (KeyValuePair<GameObject,string> pair in ObjetsVus)
+                        {
+                            UnityMainThreadDispatcher.Instance().Enqueue(() => Synthesis.synthesis(pair.Value + " en vue " + Direction(pair.Key.gameObject)));
+
+                        }
+                        break;
+                    
+                    case "Ennemy":
+                    case "Bateau":
+
+                        foreach (KeyValuePair<GameObject,string> objetsVu in ObjetsVus)
+                        {
+                            if (objetsVu.Value == "Ennemy")
+                            {
+                                UnityMainThreadDispatcher.Instance().Enqueue(() => Synthesis.synthesis(objetsVu.Value + " en vue " + Direction(objetsVu.Key.gameObject)));
+
+                            }
+                        }
+                        break;
+
+                    case "Ile":
+                        Debug.Log("ok captain");
+                        foreach (KeyValuePair<GameObject,string> objetsVu in ObjetsVus)
+                        {
+                            if ((objetsVu.Value == "Port" || objetsVu.Value == "Ile au trésor"))
+                            {
+                                Debug.Log("ok captain");
+                                UnityMainThreadDispatcher.Instance().Enqueue(() => Synthesis.synthesis(objetsVu.Value + " en vue " + Direction(objetsVu.Key.gameObject)));
+
+                            }
+                        }
+                        
+                        break;
+                }
+            }
+
+            speech = "";
+        }
+        
+        else if (!Dico_1.Contains(words[0])) speech = "";
+    
+        
     }
 }
 
