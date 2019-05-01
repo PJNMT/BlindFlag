@@ -33,7 +33,7 @@ public class Vigie : MonoBehaviour
     {
         speech = "";
         Dico_1 = new[] {"vigie", "baba"};
-        Dico_2 = new[] {"Ile", "Ennemy", "Vois", "Bateau"};
+        Dico_2 = new[] {"Ile", "Ennemy", "Vois", "Bateau"}; 
         
         ObjetsVus = new Dictionary<GameObject, string>();
         Tags = new List<string>(){"Ennemy","Ile","Visible","Port","Ile au trésor"};
