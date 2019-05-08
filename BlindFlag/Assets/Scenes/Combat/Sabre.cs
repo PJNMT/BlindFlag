@@ -11,13 +11,14 @@ public class Sabre : MonoBehaviour
     public AudioClip sabre4;
     public AudioClip degainer;
 
+    public bool does_degainer = true;
+
     private bool do_swordok = true;
 
     // Start is called before the first frame update
     void Start()
     {
         Sons = new[] { sabre1, sabre2, sabre3, sabre4 };
-
     }
 
     void OnCollisionStay(Collision other)
@@ -46,6 +47,10 @@ public class Sabre : MonoBehaviour
 
     void Update()
     {
-
+        if (does_degainer)
+        {
+            GetComponent<AudioSource>().PlayOneShot(degainer);
+            does_degainer = false;
+        }
     }
 }
