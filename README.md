@@ -1,4 +1,4 @@
-# EPITA - S2 Project
+﻿# EPITA - S2 Project
 Ce projet est réalisé dans le cadre du **Projet Informatique** de second semestre à **EPITA**. Le but de celui-ci est de mettre en oeuvre les connaissances que nous avons acquises en cours, en TD et en TP, augmentées des acquis personnels nécessaires au projet et qui n'ont pas été abordé en lors des cours.
 
 #### Langage utilisé
@@ -29,11 +29,4 @@ Utiliser le [gestionnaire de problèmes](https://github.com/PJNMT/BlindFlag/issu
 
 
 
-> Et surtout n'oubliez pas: Votre imagination est la plus belle des réalités.
-
-## Details des bâteaux en general:
-* Level 50 max
-* xp entre chaque niveau => *2 a chaque fois
-* Speed = niveau % 10
-* Equipage = 10 * (1.5 ^niveau)
-* 
+> Et surtout n'oubliez pas: Votre imagination est la plus belle des réalités. 

@@ -47,12 +47,5 @@ public class shipcontroller : MonoBehaviour
 
 			SceneManager.UnloadSceneAsync("navi");
 		}
-		
-		if (other.gameObject.name == "Cannonball_E(Clone)")
-		{
-			Debug.Log("on est touche");
-			Destroy(other.gameObject, 0f);
-			BlindShip_Stat.HP -= AI_enemy.Damage;
-		}
 	}
 }

@@ -15,7 +15,7 @@ using UnityEngine.Experimental.UIElements;
 
 public class AI_enemy : MonoBehaviour
 {
-    private static int HP;
+    public static int HP;
     private static int Money;
     private static int XP;
     private static int Lvl;
@@ -28,8 +28,6 @@ public class AI_enemy : MonoBehaviour
     public GameObject Cannonball;
 
     private int time;
-    
-    public AudioClip boom;
 
     
     // Start is called before the first frame update
@@ -102,27 +100,21 @@ public class AI_enemy : MonoBehaviour
             {
                 cannon = transform.Find("Cannon_T (0)").gameObject;
                 UnityMainThreadDispatcher.Instance().Enqueue(() => cannonball_pos_1 = cannon.transform.position);
-                cannon.GetComponent<AudioSource>().Play();
                         
                 cannon = transform.Find("Cannon_T (1)").gameObject;
                 UnityMainThreadDispatcher.Instance().Enqueue(() => cannonball_pos_2 = cannon.transform.position);
-                cannon.GetComponent<AudioSource>().Play();
                         
                 cannon = transform.Find("Cannon_T (2)").gameObject;
                 UnityMainThreadDispatcher.Instance().Enqueue(() => cannonball_pos_3 = cannon.transform.position);
-                cannon.GetComponent<AudioSource>().Play();
                         
                 cannon = transform.Find("Cannon_T (3)").gameObject;
                 UnityMainThreadDispatcher.Instance().Enqueue(() => cannonball_pos_4 = cannon.transform.position);
-                cannon.GetComponent<AudioSource>().Play();
                         
                 cannon = transform.Find("Cannon_T (4)").gameObject;
                 UnityMainThreadDispatcher.Instance().Enqueue(() => cannonball_pos_5 = cannon.transform.position);
-                cannon.GetComponent<AudioSource>().Play();
                         
                 cannon = transform.Find("Cannon_T (5)").gameObject;
                 UnityMainThreadDispatcher.Instance().Enqueue(() => cannonball_pos_6 = cannon.transform.position);
-                cannon.GetComponent<AudioSource>().Play();
 
                 UnityMainThreadDispatcher.Instance().Enqueue(() => cannonball_rot = transform.rotation);
             }
@@ -130,27 +122,21 @@ public class AI_enemy : MonoBehaviour
             {
                 cannon = transform.Find("Cannon_B (0)").gameObject;
                 UnityMainThreadDispatcher.Instance().Enqueue(() => cannonball_pos_1 = cannon.transform.position);
-                cannon.GetComponent<AudioSource>().Play();
                         
                 cannon = transform.Find("Cannon_B (1)").gameObject;
                 UnityMainThreadDispatcher.Instance().Enqueue(() => cannonball_pos_2 = cannon.transform.position);
-                cannon.GetComponent<AudioSource>().Play();
                         
                 cannon = transform.Find("Cannon_B (2)").gameObject;
                 UnityMainThreadDispatcher.Instance().Enqueue(() => cannonball_pos_3 = cannon.transform.position);
-                cannon.GetComponent<AudioSource>().Play();
                         
                 cannon = transform.Find("Cannon_B (3)").gameObject;
                 UnityMainThreadDispatcher.Instance().Enqueue(() => cannonball_pos_4 = cannon.transform.position);
-                cannon.GetComponent<AudioSource>().Play();
                         
                 cannon = transform.Find("Cannon_B (4)").gameObject;
                 UnityMainThreadDispatcher.Instance().Enqueue(() => cannonball_pos_5 = cannon.transform.position);
-                cannon.GetComponent<AudioSource>().Play();
                         
                 cannon = transform.Find("Cannon_B (5)").gameObject;
                 UnityMainThreadDispatcher.Instance().Enqueue(() => cannonball_pos_6 = cannon.transform.position);
-                cannon.GetComponent<AudioSource>().Play();
 
                 UnityMainThreadDispatcher.Instance().Enqueue(() =>
                     cannonball_rot = Quaternion.LookRotation(-transform.forward, Vector3.up));
@@ -200,20 +186,6 @@ public class AI_enemy : MonoBehaviour
         Destroy(BlindShip, 0f);
         SceneManager.LoadScene("navi");
     }
-    
-    
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.name == "Cannonball(Clone)")
-        {
-            Debug.Log("vous l'avez touche");
-            HP -= BlindShip_Stat.Damage;
-            other.gameObject.GetComponent<AudioSource>().clip = boom;
-            other.gameObject.GetComponent<AudioSource>().PlayDelayed(boom.length);
-            Destroy(other.gameObject, 0f);
-        }
-    }
-    
     
     
     private void OnGUI()

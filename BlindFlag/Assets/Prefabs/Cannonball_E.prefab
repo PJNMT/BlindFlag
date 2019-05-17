@@ -109,6 +109,7 @@ MonoBehaviour:
   moveSpeed: 200
   vect: {x: 0, y: 0, z: 1}
   plouf: {fileID: 8300000, guid: 5ae67311366da2a4ea1506bcf95ea0cf, type: 3}
+  boom: {fileID: 8300000, guid: f7a946d5d294dae448a851d875ad7610, type: 3}
 --- !u!54 &7443451741652651749
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -135,8 +136,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
+  m_audioClip: {fileID: 8300000, guid: 2c844fdf4abce8045976cc18d71ebeec, type: 3}
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
