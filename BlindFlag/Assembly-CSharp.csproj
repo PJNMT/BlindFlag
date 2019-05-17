@@ -77,7 +77,6 @@
     <Compile Include="Assets\Scenes\SeaBattle\AI_enemy.cs" />
     <Compile Include="Assets\Scenes\SeaBattle\Cannonball_controller.cs" />
     <Compile Include="Assets\Scenes\SeaBattle\Fire_RV.cs" />
-    <Compile Include="Assets\Scenes\SeaBattle\Sound.cs" />
     <Compile Include="Assets\Scenes\ShipShop\ShipShop.cs" />
     <Compile Include="Assets\Scenes\Taverne\simon.cs" />
     <Compile Include="Assets\Scenes\Taverne\taverne.cs" />

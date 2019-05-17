@@ -41,7 +41,7 @@ public class Vigie : MonoBehaviour
         
         Recognition.Function IlVoit = JeVois;
         
-        Recognition.start_recognition(0, "vigie baba Ile Ennemy Vois Bateau", IlVoit);
+        Recognition.start_recognition(0, "vigie baba Ile Ennemy Vois Bateau", IlVoit); // TODO il ne faut pas executer cette ligne lorsqu'on est en battaile navale !!!
 
         
       /*  foreach (GameObject o in SceneManager.GetSceneByName("navi").GetRootGameObjects())
