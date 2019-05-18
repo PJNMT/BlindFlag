@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Save : MonoBehaviour
 {
@@ -133,7 +134,7 @@ public class Save : MonoBehaviour
 
     public static void LoadGame()
     {
-        try
+        if (IsThereASave())
         {
             using (StreamReader MyReader = new StreamReader(SavePath))
             {
@@ -158,11 +159,9 @@ public class Save : MonoBehaviour
 
                 BlindShip_Stat.SceneLoad =
                     (SceneLoad == 0 || SceneLoad == 1 || SceneLoad == 5 || SceneLoad == 7) ? 0 : 2;
+                
+                SceneManager.LoadScene((BlindShip_Stat.SceneLoad == 0 ? "navi" : "Port"));
             }
-        }
-        catch
-        {
-            return;
         }
     }
 
