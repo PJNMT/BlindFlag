@@ -23,8 +23,6 @@ public class Recognition : MonoBehaviour
     static string speech;
     static Function treatment;
 
-    static string datetime;
-
     static bool loop;
     
     public static void start_recognition(int time_s, string KeyWords, Function f)
@@ -33,7 +31,6 @@ public class Recognition : MonoBehaviour
         {
             treatment = f;
             
-            datetime = DateTime.Today.ToShortTimeString();
             loop = true;
 
             // lancement de Recognition.exe
