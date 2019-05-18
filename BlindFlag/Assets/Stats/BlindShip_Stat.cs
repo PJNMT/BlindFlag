@@ -25,6 +25,8 @@ public class BlindShip_Stat : MonoBehaviour
 
     public static int Shield = 10;
     private static int Max_Shield = Lvl * 10;
+    
+    public static int SceneLoad = 0; // 0: Navigation, 1: SeaBattle, 2: Port, 3: Taverne, 4: Simon, 5: Combat, 6: ShipShop, 7: ChasseAuTresor  
 
     private static GameObject BlindShip;
 
@@ -69,7 +71,7 @@ public class BlindShip_Stat : MonoBehaviour
 
         Max_Crew = Lvl * 2;
 
-        Max_Damage = Lvl * 6;
+        Max_Damage = Lvl * 10;
 
         Max_Shield = Lvl * 10;
     }

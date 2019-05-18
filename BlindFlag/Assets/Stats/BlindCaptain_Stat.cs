@@ -41,7 +41,7 @@ public class BlindCaptain_Stat : MonoBehaviour
         GunDamage += 30;
     }
 
-    static void SetStat()
+    public static void SetStat()
     {
         XP = 0;
         Max_XP = Lvl * 100;
