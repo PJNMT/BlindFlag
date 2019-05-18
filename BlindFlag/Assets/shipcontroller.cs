@@ -38,11 +38,13 @@ public class shipcontroller : MonoBehaviour
 			{
 				
 				SceneManager.LoadScene("chasseautrésor");
+				BlindShip_Stat.SceneLoad = 7;
 			}
 
 			if (other.tag == "Port")
 			{
 				SceneManager.LoadScene("Port");
+				BlindShip_Stat.SceneLoad = 2;
 			}
 
 			SceneManager.UnloadSceneAsync("navi");

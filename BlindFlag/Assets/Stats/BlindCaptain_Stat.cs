@@ -60,6 +60,9 @@ public class BlindCaptain_Stat : MonoBehaviour
         BlindShip_Stat.SetStat();
         BlindShip_Stat.Money -= BlindShip_Stat.Money / 5;
         BlindShip_Stat.Dead();
+        Scene S = SceneManager.GetActiveScene();
         SceneManager.LoadScene("navi");
+        BlindShip_Stat.SceneLoad = 0;
+        SceneManager.UnloadSceneAsync(S);
     }
 }
