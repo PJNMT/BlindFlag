@@ -10,7 +10,7 @@ public class taverne : MonoBehaviour
         Synthesis.synthesis("Que voulez-vous faire Captaine ? Offrir une tournée générale à ces pirates, chercher de nouvelles recrues ou leur montrer qui est le meilleur chanteur " +
                             "de chansons pirates de toutes les Caraïbes ?");
         Recognition.Function Traitement = this.Traitement;
-        Recognition.start_recognition(10, "chanson chanter jouer boire simon payer tournée recruter recrue", Traitement);
+        Recognition.start_recognition(Traitement, "chanson chanter jouer boire simon payer tournée recruter recrue", 10);
     }
 
     // Update is called once per frame

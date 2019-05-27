@@ -18,7 +18,7 @@ public class ShipShop : MonoBehaviour
         Synthesis.synthesis("Votre fortune s'éléve à " + BlindShip_Stat.Money + " lingots d'or.");
         Thread.Sleep(2000);
         Synthesis.synthesis("Que voulez-vous faire ?" + " " + MainSentence);
-        Recognition.start_recognition(Time, WordList, func);
+        Recognition.start_recognition(func, WordList, Time);
     }
     
     private static void launch_shop(int status = 0) // Status initialement à 0

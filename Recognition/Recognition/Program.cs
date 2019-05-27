@@ -28,6 +28,7 @@ namespace Recognition
         public static void Main(string[] args)
         {
             int len = args.Length;
+            StT Recognizer;
             
             if (len < 1) throw new Exception("Forgot arguments");
 
@@ -41,10 +42,11 @@ namespace Recognition
                 Synthesis(voice);
             }
             else if (args[0] == "recognition")
-            {
+            { 
                 if (len < 3)
                 {
-                    throw new Exception("Nothing to recognize (args.Length < 3)");
+                    Recognizer = new StT();
+                    Recognizer.GetSpeech(0);
                 }
                 else
                 {
@@ -66,7 +68,7 @@ namespace Recognition
                         KeyWords.Add(args[i]);
                     }
 
-                    StT Recognizer = new StT(KeyWords);
+                    Recognizer = new StT(KeyWords);
 
                     Recognizer.GetSpeech(time_s);
                 }

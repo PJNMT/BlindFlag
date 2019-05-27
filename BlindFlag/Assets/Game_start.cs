@@ -16,7 +16,7 @@ public class Game_start : MonoBehaviour
         
         Synthesis.synthesis("Bonjour capitaine, voulez vous continuez votre aventure ou bien commencer une nouvelle légende");
         
-        Recognition.start_recognition(20,"nouvelle continuer commencer",react);
+        Recognition.start_recognition(react,"nouvelle continuer commencer", 20);
     }
 
 

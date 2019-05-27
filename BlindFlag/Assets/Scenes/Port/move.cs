@@ -16,7 +16,7 @@ public class move : MonoBehaviour
     {
         Synthesis.synthesis("Ou voulez vous aller Capitaine ? A la taverne ? Au magasin ? ou bien voulez vous repartir ?");
         Recognition.Function F1 = choix;
-        Recognition.start_recognition(20,"taverne magasin quitter",F1);
+        Recognition.start_recognition(F1,"taverne magasin quitter", 20);
     }
 
 
@@ -35,7 +35,7 @@ public class move : MonoBehaviour
                 case "quitter":
                     Synthesis.synthesis("Voulez vous allez au prochain port ou chercher un trésor ?");
                     Recognition.Function F2 = PouC;
-                    Recognition.start_recognition(20,"trésor port",F2);
+                    Recognition.start_recognition(F2,"trésor port", 20);
                     break;
                     
                     

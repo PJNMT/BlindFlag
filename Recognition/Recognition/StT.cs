@@ -3,6 +3,7 @@ using System.IO;
 using System.Speech.Recognition;
 using System.Threading;
 using System.Net;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Net.Sockets;
 
@@ -28,20 +29,31 @@ namespace Recognition
         private static string speech;
         private GrammarBuilder Word;
         private static Grammar Dico;
-        private static bool nb;
+        private static int mode;
 
         private static TcpClient tcpclnt;
         private static ASCIIEncoding asen;
         private static Stream stm;
         private static byte[] ba;
 
-        public StT(Choices WordsRecognition)
+        private static int WaitTime;
+
+        public StT(Choices WordsRecognition = null)
         {
             speech = "";
 
-            Word = new GrammarBuilder(WordsRecognition);
-            Word.Culture = new System.Globalization.CultureInfo("fr-FR");
-            Dico = new Grammar(Word);
+            if (WordsRecognition != null)
+            {
+                Word = new GrammarBuilder(WordsRecognition);
+                Word.Culture = new System.Globalization.CultureInfo("fr-FR");
+                Dico = new Grammar(Word);
+            }
+            else
+            {
+                Dico = new DictationGrammar();
+                WaitTime = 5;
+                Word = null;
+            }
 
             try
             {
@@ -63,17 +75,18 @@ namespace Recognition
             }
         }
 
-        public string GetSpeech(int time)
+        public void GetSpeech(int time)
         {
             speech = "";
-            nb = time == 0;
+            mode = (time == 0) ? 0 : 1;
+            mode = (Word == null) ? 2 : mode;
             RV(time);
-            return speech;
         }
 
         private static void recognizer_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
         {
             speech = e.Result.Text;
+            WaitTime = 5;
             Console.WriteLine(speech);
 
             try
@@ -111,7 +124,7 @@ namespace Recognition
                 recognizer.SetInputToDefaultAudioDevice();
                 recognizer.RecognizeAsync(RecognizeMode.Multiple);
 
-                if (!nb)
+                if (mode == 1)
                 {
                     EventWaitHandle waithandler = new EventWaitHandle(false, EventResetMode.AutoReset, Guid.NewGuid().ToString()); do
                     {
@@ -119,12 +132,20 @@ namespace Recognition
                         time -= 1;
                     } while (time > 0);
                 }
-                else
+                else if (mode == 0)
                 {
                     EventWaitHandle waithandler = new EventWaitHandle(false, EventResetMode.AutoReset, Guid.NewGuid().ToString()); do
                     {
                         waithandler.WaitOne(TimeSpan.FromSeconds(1));
                     } while (true);
+                }
+                else
+                {
+                    EventWaitHandle waithandler = new EventWaitHandle(false, EventResetMode.AutoReset, Guid.NewGuid().ToString()); do
+                    {
+                        waithandler.WaitOne(TimeSpan.FromSeconds(1));
+                        WaitTime -= 1;
+                    } while (WaitTime > 0); 
                 }
 
                 tcpclnt.Close();

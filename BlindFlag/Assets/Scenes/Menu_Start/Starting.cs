@@ -16,7 +16,7 @@ public class Starting : MonoBehaviour
         StartCoroutine(PlayVideo());
         Synthesis.synthesis("Bienvenue capitaine ! Vous voici dans l'Univers de BlindFlag. Voici vos commandes : continuer, commencer, options, quitter. Je vous écoute.");
         Recognition.Function Traitement = this.Traitement;
-        Recognition.start_recognition(10, "continuer commencer options quitter", Traitement);
+        Recognition.start_recognition(Traitement, "continuer commencer options quitter", 10);
     }
 
     IEnumerator PlayVideo()
@@ -37,7 +37,7 @@ public class Starting : MonoBehaviour
     {
         Synthesis.synthesis("Je n'ai pas compris votre demande. Voici vos commandes : continuer, commencer, options, quitter. Je vous écoute.");
         Recognition.Function Traitement = this.Traitement;
-        Recognition.start_recognition(10, "continuer commencer options quitter", Traitement);
+        Recognition.start_recognition(Traitement, "continuer commencer options quitter", 10);
     }
 
     // Update is called once per frame

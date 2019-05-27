@@ -58,7 +58,7 @@ public class tresor : MonoBehaviour
             
             do
             {
-                Recognition.start_recognition(30,"repeats "+_enigma._answer+" indice", Traitement);  //Reconnait tant qu'une réponse est attendue
+                Recognition.start_recognition(Traitement,"repeats "+_enigma._answer+" indice", 30);  //Reconnait tant qu'une réponse est attendue
                 
                 if (!repeter)
                 {

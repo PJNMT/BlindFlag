@@ -137,9 +137,9 @@ public class Coco : MonoBehaviour
         
         Recognition.Function Coco = Cocotraitement;
         
-        Recognition.start_recognition(0, "Ok Coco statistiques stats bateau vie HP XP niveau sauver sauvegarder" +
+        Recognition.start_recognition(Coco, "Ok Coco statistiques stats bateau vie HP XP niveau sauver sauvegarder" +
                                          "enregistrer quitter réputation navire experience experience gueule ferme pute salope" +
-                                         "connasse enculé grosse", Coco);
+                                         "connasse enculé grosse");
     }
 
    

@@ -24,8 +24,8 @@ public class Recognition : MonoBehaviour
     static Function treatment;
 
     static bool loop;
-    
-    public static void start_recognition(int time_s, string KeyWords, Function f)
+
+    public static void start_recognition(Function f, string KeyWords = "", int time_s = 0)
     {
         try
         {
@@ -40,7 +40,7 @@ public class Recognition : MonoBehaviour
             myProcess.StartInfo.CreateNoWindow = true;
             
             myProcess.StartInfo.FileName = "Recognition.exe";
-            myProcess.StartInfo.Arguments = "recognition " + time_s + " " + KeyWords;
+            myProcess.StartInfo.Arguments = "recognition " + time_s + ((KeyWords != "") ? " " + KeyWords : "");
             myProcess.EnableRaisingEvents = true;
 
             myProcess.Start();

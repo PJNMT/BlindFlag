@@ -34,7 +34,7 @@ public class     simon : MonoBehaviour
 
         correct = true;
         Synthesis.synthesis("Combien voulez vous parier à ce jeu ? vinGt, trente cinquante ou cent ?");
-        Recognition.start_recognition(10,"trente cinquante cent vinGt", Traitement);
+        Recognition.start_recognition(Traitement,"trente cinquante cent vinGt", 10);
 
         Jeu();
         
