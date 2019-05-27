@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using System.Threading;
+using static UnityEngine.Time;
 
 public class Coco : MonoBehaviour
 {  
     public static string speech;
-    public static string[] Dico_1;
-    public static string[] Dico_2;
+    
 
     void Cocotraitement(string word)
     {
@@ -122,10 +122,6 @@ public class Coco : MonoBehaviour
     void Start()
     {
         speech = "";
-        Dico_1 = new[]
-        {
-            "Ok", "Coco"
-        };
         
         Dico_2 = new[]
         {
@@ -136,10 +132,16 @@ public class Coco : MonoBehaviour
         };
         
         Recognition.Function Coco = Cocotraitement;
-        
-        Recognition.start_recognition(Coco, "Ok Coco statistiques stats bateau vie HP XP niveau sauver sauvegarder" +
-                                         "enregistrer quitter réputation navire experience experience gueule ferme pute salope" +
-                                         "connasse enculé grosse");
+
+        Recognition.start_recognition(Coco);
+    }
+
+    void Traitement(string mot)
+    {
+        if (mot == "Ok Coco")
+        {
+            Time.timeScale() = 0f;
+        }
     }
 
    

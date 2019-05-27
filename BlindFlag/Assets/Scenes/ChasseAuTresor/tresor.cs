@@ -16,7 +16,7 @@ public class tresor : MonoBehaviour
     private static string _enigmefile = "enigme.txt";
     private int or;
 
-    public bool repeter = false;
+    public bool continuer = false;
     public bool rightanswer = false;
     
     private float x;
@@ -58,32 +58,16 @@ public class tresor : MonoBehaviour
             
             do
             {
-                Recognition.start_recognition(Traitement,"repeats "+_enigma._answer+" indice", 30);  //Reconnait tant qu'une réponse est attendue
-                
-                if (!repeter)
-                {
-                    Synthesis.synthesis("Voulez vous encore réfléchir ? Si oui, appuyer sur espace, si non appuyer sur Entrée");
-                    Thread.Sleep(6000);
-                    if (Input.GetKey(KeyCode.Space))
-                    {
-                        repeter = true;
-                    }
-                    if (Input.GetKey(KeyCode.KeypadEnter))
-                    {
-                        break;
-                    }
-                    
-                    
-                }
-
-            } while (repeter);
+                Recognition.start_recognition(Traitement);  //Reconnait tant qu'une réponse est attendue
+             
+            } while (continuer);
 
             _path.Add(_enigma._number);
             
             //récupération de l'issue de la réponse
             if (rightanswer)
             {
-                
+              
                 Synthesis.synthesis("Vous avez gagné " + or + "pièces d'or");
                 Thread.Sleep(3000);
                 BlindShip_Stat.Money += or;
@@ -133,19 +117,38 @@ public class tresor : MonoBehaviour
     
     void Answertreatement(string reponse)
     {
-        switch (reponse)
+        string[] decoupe = reponse.Split(' ');
+        
+        if (reponse == _enigma._answer)
         {
-          case "repeats":
-              tresor.SpeakEnigma(_enigma);
-              repeter = true;
-              break;
-          case "indice":
-              tresor.SpeakIndice(_enigma);
-              break;
-             
-          default:
-              rightanswer = true;
-              break;
+            rightanswer = true;
+            return;
+
+        }
+        else
+        {
+            foreach (string mot in decoupe)
+            {
+
+                if (mot == "répète")
+                {
+                    tresor.SpeakEnigma(_enigma);
+                    break;
+                }
+
+                if (mot == "indice")
+                {
+                    tresor.SpeakIndice(_enigma);
+                    break;
+                }
+
+                if (reponse == "chat")
+                {
+                    continuer = false;
+                }
+
+
+            }
         }
     }
     

@@ -15,7 +15,7 @@ public class     simon : MonoBehaviour
 
     private AudioSource audio;
     private int mise;
-    public AudioClip[] musics = new AudioClip[1];
+    public AudioClip[] music;
 
     private string chemintxt = "morceauxsimon.txt";
     private List<string> notes;
