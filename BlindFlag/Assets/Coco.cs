@@ -118,7 +118,7 @@ public class Coco : MonoBehaviour
             Debug.Log("coco activé");
             Recognition.stop_recognition();
             
-            //UnityMainThreadDispatcher.Instance().Enqueue((() => Paused()));
+            UnityMainThreadDispatcher.Instance().Enqueue((() => Paused()));
             
             Recognition.Function AnswerCoco = Answertraitement;
             Debug.Log("nouvelle reco");
