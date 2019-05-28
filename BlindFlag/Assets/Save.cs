@@ -129,6 +129,11 @@ public class Save : MonoBehaviour
             MyWriter.WriteLine(gamma_encode(BlindCaptain_Stat.Reputation));
 
             MyWriter.WriteLine((gamma_encode(BlindShip_Stat.SceneLoad)));
+
+            foreach (var k in BlindCaptain_Stat.Tuto)
+            {
+                MyWriter.WriteLine((k.Value == false) ? 0 : 1);
+            }
         }
     }
 
@@ -161,6 +166,20 @@ public class Save : MonoBehaviour
                     (SceneLoad == 0 || SceneLoad == 1 || SceneLoad == 5 || SceneLoad == 7) ? 0 : 2;
                 
                 SceneManager.LoadScene((BlindShip_Stat.SceneLoad == 0 ? "navi" : "Port"));
+
+                string[] S = MyReader.ReadToEnd().Split(' ', '\t', '\r', '\n');
+                
+                BlindCaptain_Stat.Tuto = new Dictionary<string, bool>()
+                {
+                    {"Navigation", (S[0] == "0" ? false : true)},
+                    {"SeaBattle", (S[1] == "0" ? false : true)},
+                    {"Port", (S[2] == "0" ? false : true)},
+                    {"ChasseAuTresor", (S[3] == "0" ? false : true)},
+                    {"Taverne", (S[4] == "0" ? false : true)},
+                    {"ShipShop", (S[5] == "0" ? false : true)},
+                    {"Simon", (S[6] == "0" ? false : true)},
+                    {"Combat", (S[7] == "0" ? false : true)},
+                };
             }
         }
     }
@@ -172,7 +191,7 @@ public class Save : MonoBehaviour
             using (StreamReader MyReader = new StreamReader(SavePath))
             {
                 List<string> save = MyReader.ReadToEnd().Split(' ', '\t', '\r', '\n').Where(e => e != "").ToList();
-                return save.Count == 14;
+                return save.Count == 22;
             }
         }
         catch

@@ -87,7 +87,14 @@ public class Recognition : MonoBehaviour
 
                             speech = Encoding.ASCII.GetString(incommingData);
 
-                            treatment(speech); // Fonction de traitement
+                            if (speech != "ENDOFTRANSMITION")
+                            {
+                                treatment(speech); // Fonction de traitement
+                            }
+                            else
+                            {
+                                stop_recognition();
+                            }
                         }
                     }
                 }

@@ -23,6 +23,18 @@ public class BlindCaptain_Stat : MonoBehaviour
 
     public static int Reputation = 0;
     public static string Name = "BlindPirate";
+    
+    public static Dictionary<string, bool> Tuto = new Dictionary<string, bool>()
+    {
+        {"Navigation", false},
+        {"SeaBattle", false},
+        {"Port", false},
+        {"ChasseAuTresor", false},
+        {"Taverne", false},
+        {"ShipShop", false},
+        {"Simon", false},
+        {"Combat", false},
+    };
 
     private void Update()
     {

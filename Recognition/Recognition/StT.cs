@@ -83,15 +83,11 @@ namespace Recognition
             RV(time);
         }
 
-        private static void recognizer_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
+        private static void Transmition(string str)
         {
-            speech = e.Result.Text;
-            WaitTime = 5;
-            Console.WriteLine(speech);
-
             try
             {
-                ba = asen.GetBytes(speech);
+                ba = asen.GetBytes(str);
                 Console.WriteLine("Transmitting.....");
 
                 stm.Write(ba, 0, ba.Length);
@@ -99,7 +95,9 @@ namespace Recognition
 
                 int wait = 1;
 
-                EventWaitHandle waithandler = new EventWaitHandle(false, EventResetMode.AutoReset, Guid.NewGuid().ToString()); do
+                EventWaitHandle waithandler =
+                    new EventWaitHandle(false, EventResetMode.AutoReset, Guid.NewGuid().ToString());
+                do
                 {
                     waithandler.WaitOne(TimeSpan.FromSeconds(1));
                     wait -= 1;
@@ -111,6 +109,23 @@ namespace Recognition
             catch
             {
                 Environment.Exit(0);
+            }
+        }
+
+        private static void recognizer_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
+        {
+            if (mode != 2)
+            {
+                speech = e.Result.Text;
+                Console.WriteLine(speech);
+
+                Transmition(speech);
+            }
+            else
+            {
+                speech += e.Result.Text + " ";
+                Console.WriteLine(speech);
+                WaitTime = 5;
             }
         }
 
@@ -145,9 +160,12 @@ namespace Recognition
                     {
                         waithandler.WaitOne(TimeSpan.FromSeconds(1));
                         WaitTime -= 1;
-                    } while (WaitTime > 0); 
+                    } while (WaitTime > 0);
+                    
+                    Transmition(speech);
                 }
-
+                
+                Transmition("ENDOFTRANSMITION");
                 tcpclnt.Close();
             }
         }

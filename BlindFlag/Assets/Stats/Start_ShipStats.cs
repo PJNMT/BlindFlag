@@ -13,5 +13,6 @@ public class Start_ShipStats : MonoBehaviour
         BlindShip_Stat.Damage = 0;
         BlindShip_Stat.Shield = 0;
         BlindShip_Stat.GetLVL();
+        BlindShip_Stat.SceneLoad = 0;
     }
 }
