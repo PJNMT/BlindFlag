@@ -56,6 +56,7 @@
   <ItemGroup>
     <Compile Include="Assets\Coco.cs" />
     <Compile Include="Assets\Game_start.cs" />
+    <Compile Include="Assets\mover.cs" />
     <Compile Include="Assets\Music_Recognition.cs" />
     <Compile Include="Assets\Recognition.cs" />
     <Compile Include="Assets\Save.cs" />
@@ -328,13 +329,13 @@
       <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
-      <HintPath>C:/Users/Jeanne/Desktop/MUTINY/BlindFlag/BlindFlag/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
+      <HintPath>C:/Users/mariu/Desktop/BlindFlag/BlindFlag/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>C:/Users/Jeanne/Desktop/MUTINY/BlindFlag/BlindFlag/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/mariu/Desktop/BlindFlag/BlindFlag/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>C:/Users/Jeanne/Desktop/MUTINY/BlindFlag/BlindFlag/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
+      <HintPath>C:/Users/mariu/Desktop/BlindFlag/BlindFlag/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:/Program Files/Unity/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
