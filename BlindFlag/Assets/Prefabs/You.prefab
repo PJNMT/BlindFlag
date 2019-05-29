@@ -275,7 +275,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!114 &6789106206460977379
 MonoBehaviour:
@@ -289,6 +289,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c6906fd76fef4b49b6b86e8b5436bd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level: {fileID: 0}
+  gundamage: {fileID: 0}
+  sworddamage: {fileID: 0}
 --- !u!81 &751309636503779467
 AudioListener:
   m_ObjectHideFlags: 0

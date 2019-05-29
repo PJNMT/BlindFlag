@@ -24,7 +24,7 @@ public class islandposition : MonoBehaviour
         float z = 0;
         if (rz > 0) z = Random.Range(TailleMap/2, 200f);
         else z = Random.Range(-TailleMap/2, -200f);
-        transform.Translate(x, 1f, z);
+        transform.position = new Vector3(x, 1f, z);
         
         
     }

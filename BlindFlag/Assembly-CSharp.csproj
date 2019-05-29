@@ -74,6 +74,7 @@
     <Compile Include="Assets\Scenes\Menu_Start\QuitOnClick.cs" />
     <Compile Include="Assets\Scenes\Menu_Start\Starting.cs" />
     <Compile Include="Assets\Scenes\Navigation\islandposition.cs" />
+    <Compile Include="Assets\Scenes\Navigation\Mover_IA.cs" />
     <Compile Include="Assets\Scenes\Port\change_scene.cs" />
     <Compile Include="Assets\Scenes\Port\Enter_shop.cs" />
     <Compile Include="Assets\Scenes\Port\move.cs" />

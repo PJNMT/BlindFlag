@@ -40,7 +40,8 @@ public class AI_enemy : MonoBehaviour
             if (BlindShip_LVL < 6) Lvl = Random.Range(1, Lvl);
             else Lvl = Random.Range(BlindShip_LVL - 5, BlindShip_LVL + 5);
         }
-        
+
+        if (Lvl > 50) Lvl = 50;
 
         Damage = Lvl * 3;
         
