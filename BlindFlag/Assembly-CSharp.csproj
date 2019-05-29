@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Coco.cs" />
+    <Compile Include="Assets\CocoVigie.cs" />
     <Compile Include="Assets\Game_start.cs" />
     <Compile Include="Assets\mover.cs" />
     <Compile Include="Assets\Music_Recognition.cs" />
