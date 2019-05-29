@@ -1,5 +1,36 @@
-1:On me trouve 2 fois dans l'année, une fois dans la semaine, mais pas dans le jour. Qui suis-je ?:Lettre:La lettre N:200
-2:Un père et un fils ont à eux deux 36 ans. Sachant que le père a 30 ans de plus que le fils, quel âge a le fils ?: :Il a 3 ans:500
-3:Je suis immobile pendant la vie et je me promène durant ma mort. Qui suis-je ?:Je ne suis pas humain:Une feuille:500
-4:Plus j'ai de gardiens moins je suis gardé. Moins j'ai de gardiens plus je suis gardé. Qui suis-je ?:On l'emportera dans sa tombe:Un secret:300
-5:J'ai 2 pieds, 6 jambes, 8 bras, 2 têtes et un oeil, qui suis-je ?: :Une menteuse:400
+1 : On me trouve 2 fois dans l'année, une fois dans la semaine, mais pas dans le jour. Qui suis-je ?:Lettre:La lettre N:200
+2 : Un père et un fils ont à eux deux 36 ans. Sachant que le père a 30 ans de plus que le fils, quel âge a le fils ?: :Il a 3 ans:500
+3 : Je suis immobile pendant la vie et je me promène durant ma mort. Qui suis-je ?:Je ne suis pas humain:Une feuille:500
+4 : Plus j'ai de gardiens moins je suis gardé. Moins j'ai de gardiens plus je suis gardé. Qui suis-je ?:On l'emportera dans sa tombe:Un secret:300
+5 : J'ai 2 pieds, 6 jambes, 8 bras, 2 têtes et un oeil, qui suis-je ?: :Une menteuse:400
+9 : Quelle est la plus intelligente : la blonde, la rousse ou la brune ? : rousse : 1101011010110101010010
+10 :  Au cirque on ne l’utilise pas pour jouer avec le pied.  : un ballon : 10
+11 : On monte dessus mais ce n’est ni une chaise, ni un tabouret. : balance :
+12 : C’est la friandise préférée des otaries. : boîte de sardines :
+13 : Les clowns les portent toujours trop grandes. : chaussures :
+14 : À table on le levait souvent à la santé du seigneur. : verre :
+15 : Ceux des princesses étaient très pointus. : chapeau :
+16 : Il en fallait beaucoup pour éclairer le château le soir. : bougie :
+17 : Pendant la fête il dansait lourdement pour amuser les invités. : ours en peluche :
+18 : Les bébés kangourous y vivent pendant de longs mois. : poche d’un vêtement :
+19 : S’il a froid aux pattes, il doit en mettre mille. : chaussette :
+20 : Je suis tout doux, je dors tout l’hiver dans une grotte. : ours en peluche :
+21 : C’est la nourriture préférée des perroquets. : sachet de pipas :
+22 : A voile et en papier. : bateau en papier :
+23 : Un pirate en a toujours une. : boucle d’oreille :
+24 : Tu te vois dedans et tu peux faire des signaux avec. : miroir :
+25 : Il n’y a pas que les femmes qui en mettent sur la tête. : foulard : 
+26 : Les fantômes méticuleux le repassent tous les jours. : drap : 
+27 :Les sorcières ne s’en servent pas pour faire le ménage. : balai :
+28 : Je suis tout petit mais je fais reculer Dracula. : ail :
+29 : Je suis indispensable pour circuler dans un souterrain. : bougeoir :
+30 : On l’attache quand l’avion décolle. : ceinture :
+31 : Je n’ai pas de tête et deux bras tout mous. : pull :
+32 : J’aime m’allonger au bord de la mer. : serviette de bain :
+33 : On m’attrape avec des baguettes. : un sachet rempli de riz :
+34 : Je ne mords jamais malgré mes nombreuses dents. : peigne : 
+35 : J’ai toujours bonne mine. : crayon :
+36 : J’ai absorbé l’eau salée pendant ma vie, maintenant j’absorbe de l’eau douce. (une éponge naturelle)
+37 : Je n’arrête jamais durant la journée et la nuit je me repose sur le sol la langue tirée. (une chaussure de basket)
+38 : Je pleure quand on me tourne la tête. : un robinet :
+40 : Je ne peux pas marcher, j’ai pourtant un dos et quatre pieds. : chaise : 
