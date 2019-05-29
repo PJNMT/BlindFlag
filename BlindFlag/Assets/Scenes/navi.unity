@@ -362,7 +362,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 406203087}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalPosition: {x: 807, y: 2, z: 0}
   m_LocalScale: {x: 50, y: 2, z: 50}
   m_Children: []
   m_Father: {fileID: 0}
@@ -551,7 +551,7 @@ PrefabInstance:
     - target: {fileID: 8052481464271246533, guid: 82a4d3f7a519aa244bc7a573a83fe8f8,
         type: 3}
       propertyPath: m_UseGravity
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8052481464271246533, guid: 82a4d3f7a519aa244bc7a573a83fe8f8,
         type: 3}
@@ -885,7 +885,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1956598810}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 5
@@ -971,7 +971,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1956598810}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc2e89012bcafcd47907116348fe16d3, type: 3}
+  m_Script: {fileID: 11500000, guid: 1518b26023323bb479f341ed1be93ac1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &2041509471 stripped
