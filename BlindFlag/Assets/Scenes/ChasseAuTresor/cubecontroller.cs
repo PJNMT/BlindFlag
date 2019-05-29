@@ -20,7 +20,7 @@ public class cubecontroller : MonoBehaviour
 		x = 2;
 		z = 0;
 
-		_audioSource = gameObject.GetComponent<AudioSource>();
+		_audioSource = this.GetComponent<AudioSource>();
 	}
 
 	// Update is called once per frame

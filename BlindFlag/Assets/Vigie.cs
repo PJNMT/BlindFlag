@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 
 public class Vigie : MonoBehaviour
 {
-    private Dictionary<GameObject, string> ObjetsVus;
+    public Dictionary<GameObject, string> ObjetsVus;
     public List<string> Tags;
     private GameObject player;
 
@@ -19,7 +19,7 @@ public class Vigie : MonoBehaviour
     
     
     
-    private enum direction
+    public enum direction
     {
         Derriere = 0,
         ATribord = 1,
@@ -38,13 +38,13 @@ public class Vigie : MonoBehaviour
         ObjetsVus = new Dictionary<GameObject, string>();
         Tags = new List<string>(){"Ennemy","Ile","Visible","Port","Ile au trésor"};
 
-        
+       /* 
         Recognition.Function IlVoit = JeVois;
         
         Recognition.start_recognition(IlVoit, "vigie baba Ile Ennemy Vois Bateau"); // TODO il ne faut pas executer cette ligne lorsqu'on est en battaile navale !!!
 
         
-      /*  foreach (GameObject o in SceneManager.GetSceneByName("navi").GetRootGameObjects())
+        foreach (GameObject o in SceneManager.GetSceneByName("navi").GetRootGameObjects())
         {
             if (o.tag == "player" || o.name == "Ship")
             {
@@ -70,7 +70,7 @@ public class Vigie : MonoBehaviour
 
     }
 
-    private direction Direction(GameObject TwT)
+    public direction Direction(GameObject TwT)
     {
         double ang = (GetComponentInParent<Transform>().eulerAngles.y);
         while (ang < -180){ang += 360;}
@@ -112,7 +112,7 @@ public class Vigie : MonoBehaviour
         }
     }
 
-    void JeVois(string word)
+   /* void JeVois(string word)
     {
         speech = speech + word + " ";
         string[] words = speech.Split(' ');
@@ -171,6 +171,6 @@ public class Vigie : MonoBehaviour
         else if (!Dico_1.Contains(words[0])) speech = "";
     
         
-    }
+    }*/
 }
 

@@ -17,6 +17,8 @@ public class cubeindicator : MonoBehaviour
     private float z;
 
     private bool sedeplacer;
+    public int soundtimer;
+    public int maxtimer;
     
         
     // Start is called before the first frame update
@@ -31,6 +33,7 @@ public class cubeindicator : MonoBehaviour
         a = this.GetComponent<AudioSource>();
 
         sedeplacer = true;
+        soundtimer = maxtimer;
     }
 
 
@@ -74,23 +77,40 @@ public class cubeindicator : MonoBehaviour
         
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        a.clip = indications[0];
-        a.Play();
-    }
-
+    
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(player.position.x - x);
-        if (player.position.x - x >  15 || Math.Abs(player.position.z - z) > 15)
+        if (sedeplacer)
         {
-            a.clip = indications[1];
-            a.Play();
-                
+
+
+            if (soundtimer < 0)
+            {
+
+
+                Debug.Log(player.position.x - x);
+                if (player.position.x - x > 15 || Math.Abs(player.position.z - z) > 15)
+                {
+                    a.clip = indications[1];
+                    a.Play();
+
+                }
+                else
+                {
+                    a.clip = indications[0];
+                    a.Play();
+                }
+
+                soundtimer = maxtimer;
+            }
+            else
+            {
+                soundtimer -= 1;
+            }
+
         }
-            
+
     }
 
 

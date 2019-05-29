@@ -134,6 +134,7 @@ public class Coco : MonoBehaviour
             quit = false;
             Recognition.Function OkCoco = TraitementCoco;
             Recognition.start_recognition(OkCoco,"Coco",0); 
+            Play();
         }
 
     }
@@ -148,9 +149,14 @@ public class Coco : MonoBehaviour
        
     }
 
-    public void Paused()
+    public static void Paused()
     {
         Time.timeScale = 0.0f;
+    }
+
+    public static void Play()
+    {
+        Time.timeScale = 1f;
     }
    
 }
