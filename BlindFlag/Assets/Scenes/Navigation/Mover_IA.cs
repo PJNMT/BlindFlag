@@ -51,7 +51,7 @@ public class Mover_IA : MonoBehaviour
     {
         if (decteted)
         {
-            
+             
         }
         else
         {
