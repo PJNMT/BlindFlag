@@ -38,9 +38,6 @@ public class deplacement : MonoBehaviour
         intputavant = KeyCode.Z;
         intputdroit = KeyCode.D;
         intputgauche = KeyCode.Q;
-
-        moveSpeed = 10f;
-        turnSpeed = 500f;
         
         playercollider = gameObject.GetComponent<CapsuleCollider>();
     }

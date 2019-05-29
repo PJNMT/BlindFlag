@@ -37,7 +37,7 @@ public class Sabre : MonoBehaviour
     IEnumerator launch_sword() //imite le temps qu'il faut à l'arme pour revenir
     {
         captainattack.IA_HP -= captainattack.saber_atk;
-        Debug.Log("IA_HP =" + captainattack.IA_HP);
+        /*Debug.Log("IA_HP =" + captainattack.IA_HP);*/
 
         int randomsond = Random.Range(0, Sons.Length);
         GetComponent<AudioSource>().PlayOneShot(Sons[randomsond]);

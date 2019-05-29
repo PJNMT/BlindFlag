@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 3dd7b76c55e327a4aad5274930557cb2
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - plancher: {fileID: 8300000, guid: e83e1df7b723f0a47b3f37e26fa3e4a6, type: 3}
+  - mouettes: {fileID: 8300000, guid: 8b8fb7236529f644889c02d1cca3c7f8, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

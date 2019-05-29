@@ -39,7 +39,7 @@ public class EnnemyControler : MonoBehaviour
 
     private void OnCollisionEnter(Collision other) //verifie si un projectile entre dans collider zone ennemy
     {
-        Debug.Log(other.gameObject.name +"collide with ennemy");
+        /*Debug.Log(other.gameObject.name +"collide with ennemy");*/
         if (other.gameObject.name == "Projectile(Clone)")
         {
             captainattack.IA_HP -= captainattack.gun_atk;
@@ -72,7 +72,7 @@ public class EnnemyControler : MonoBehaviour
         rand_attack = Random.Range(0, 1); //determine if IA attack or no (attack every 20sec)
         if (rand_attack == 1) HP -= IA_damage;
         do_attack = false;
-        Debug.Log("CaptHP = " + HP);
+        /*Debug.Log("CaptHP = " + HP);*/
     }
 
     IEnumerator IA_Damage() //coroutine set as the IA attack every 20sec

@@ -14,7 +14,7 @@ public class Tir : MonoBehaviour
 
     IEnumerator launch_gun() //imite le temps de recharge d'une arme
     {
-        Debug.Log("IA_HP =" + captainattack.IA_HP); //Debug
+        /*Debug.Log("IA_HP =" + captainattack.IA_HP); //Debug*/
         GetComponent<AudioSource>().PlayOneShot(recharge);
         yield return new WaitForSeconds(10f);
         do_gunok = true;
