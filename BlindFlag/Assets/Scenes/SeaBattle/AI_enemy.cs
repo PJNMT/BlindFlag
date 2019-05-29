@@ -18,7 +18,7 @@ public class AI_enemy : MonoBehaviour
     public static int HP;
     private static int Money;
     private static int XP;
-    private static int Lvl;
+    public static int Lvl = -1;
     public static int Damage;
     private static int BlindShip_LVL;
 
@@ -27,6 +27,7 @@ public class AI_enemy : MonoBehaviour
     private Transform BlindShip;
     public GameObject Cannonball;
 
+    
     private int time;
 
     
@@ -34,9 +35,12 @@ public class AI_enemy : MonoBehaviour
     void Start()
     {
         BlindShip_LVL = BlindShip_Stat.Lvl;
+        if (Lvl > 0)
+        {
+            if (BlindShip_LVL < 6) Lvl = Random.Range(1, Lvl);
+            else Lvl = Random.Range(BlindShip_LVL - 5, BlindShip_LVL + 5);
+        }
         
-        if (BlindShip_LVL < 6) Lvl = Random.Range(1, Lvl);
-        else Lvl = Random.Range(BlindShip_LVL - 5, BlindShip_LVL + 5);
 
         Damage = Lvl * 3;
         
