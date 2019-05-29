@@ -1,36 +1,54 @@
-1 : On me trouve 2 fois dans l'année, une fois dans la semaine, mais pas dans le jour. Qui suis-je ?:Lettre:La lettre N:200
-2 : Un père et un fils ont à eux deux 36 ans. Sachant que le père a 30 ans de plus que le fils, quel âge a le fils ?: :Il a 3 ans:500
-3 : Je suis immobile pendant la vie et je me promène durant ma mort. Qui suis-je ?:Je ne suis pas humain:Une feuille:500
-4 : Plus j'ai de gardiens moins je suis gardé. Moins j'ai de gardiens plus je suis gardé. Qui suis-je ?:On l'emportera dans sa tombe:Un secret:300
-5 : J'ai 2 pieds, 6 jambes, 8 bras, 2 têtes et un oeil, qui suis-je ?: :Une menteuse:400
-9 : Quelle est la plus intelligente : la blonde, la rousse ou la brune ? : rousse : 1101011010110101010010
-10 :  Au cirque on ne l’utilise pas pour jouer avec le pied.  : un ballon : 10
-11 : On monte dessus mais ce n’est ni une chaise, ni un tabouret. : balance :
-12 : C’est la friandise préférée des otaries. : boîte de sardines :
-13 : Les clowns les portent toujours trop grandes. : chaussures :
-14 : À table on le levait souvent à la santé du seigneur. : verre :
-15 : Ceux des princesses étaient très pointus. : chapeau :
-16 : Il en fallait beaucoup pour éclairer le château le soir. : bougie :
-17 : Pendant la fête il dansait lourdement pour amuser les invités. : ours en peluche :
-18 : Les bébés kangourous y vivent pendant de longs mois. : poche d’un vêtement :
-19 : S’il a froid aux pattes, il doit en mettre mille. : chaussette :
-20 : Je suis tout doux, je dors tout l’hiver dans une grotte. : ours en peluche :
-21 : C’est la nourriture préférée des perroquets. : sachet de pipas :
-22 : A voile et en papier. : bateau en papier :
-23 : Un pirate en a toujours une. : boucle d’oreille :
-24 : Tu te vois dedans et tu peux faire des signaux avec. : miroir :
-25 : Il n’y a pas que les femmes qui en mettent sur la tête. : foulard : 
-26 : Les fantômes méticuleux le repassent tous les jours. : drap : 
+1:On me trouve 2 fois dans l'année, une fois dans la semaine, mais pas dans le jour. Qui suis-je ?:Lettre:La lettre N:200
+2:Un père et un fils ont à eux deux 36 ans. Sachant que le père a 30 ans de plus que le fils, quel âge a le fils ?: :Il a 3 ans:500
+3:Je suis immobile pendant la vie et je me promène durant ma mort. Qui suis-je ?:Je ne suis pas humain:Une feuille:500
+4:Plus j'ai de gardiens moins je suis gardé. Moins j'ai de gardiens plus je suis gardé. Qui suis-je ?:On l'emportera dans sa tombe:Un secret:300
+5:J'ai 2 pieds, 6 jambes, 8 bras, 2 têtes et un oeil, qui suis-je ?: :Une menteuse:400
+6:J'ai quelque chose dans ma poche mais ma poche est vide. Qu'est-ce que c'est ?: Abimé: Un trou:300
+7:Le temps que vous ne savez pas ce que je suis, Je reste ce que je suis. Qui suis je ?:Qui donne à réfléchir: Une enigme:300
+8:Qu'est-ce qui sert à s'asseoir, dormir et se brosser les dents?:C'est plus d'un objet:Une chaise, un lit et une brosse à dents
+9:Quelle est la plus intelligente : la blonde, la rousse ou la brune ? : rousse : 1101011010110101010010
+10:Au cirque on ne l’utilise pas pour jouer avec le pied.  : un ballon : 10
+11:On monte dessus mais ce n’est ni une chaise, ni un tabouret. : balance :
+12 :C’est la friandise préférée des otaries. : boîte de sardines :
+13 :Les clowns les portent toujours trop grandes. : chaussures :
+14 :À table on le levait souvent à la santé du seigneur. : verre :
+15 :Ceux des princesses étaient très pointus. : chapeau :
+16 :Il en fallait beaucoup pour éclairer le château le soir. : bougie :
+17 :Pendant la fête il dansait lourdement pour amuser les invités. : ours en peluche :
+18 :Les bébés kangourous y vivent pendant de longs mois. : poche d’un vêtement :
+19 :S’il a froid aux pattes, il doit en mettre mille. : chaussette :
+20 :Je suis tout doux, je dors tout l’hiver dans une grotte. : ours en peluche :
+21 :C’est la nourriture préférée des perroquets. : sachet de pipas :
+22 :A voile et en papier. : bateau en papier :
+23 :Un pirate en a toujours une. : boucle d’oreille :
+24 :Tu te vois dedans et tu peux faire des signaux avec. : miroir :
+25 :Il n’y a pas que les femmes qui en mettent sur la tête. : foulard : 
+26 :Les fantômes méticuleux le repassent tous les jours. : drap : 
 27 :Les sorcières ne s’en servent pas pour faire le ménage. : balai :
-28 : Je suis tout petit mais je fais reculer Dracula. : ail :
-29 : Je suis indispensable pour circuler dans un souterrain. : bougeoir :
-30 : On l’attache quand l’avion décolle. : ceinture :
-31 : Je n’ai pas de tête et deux bras tout mous. : pull :
-32 : J’aime m’allonger au bord de la mer. : serviette de bain :
-33 : On m’attrape avec des baguettes. : un sachet rempli de riz :
-34 : Je ne mords jamais malgré mes nombreuses dents. : peigne : 
-35 : J’ai toujours bonne mine. : crayon :
-36 : J’ai absorbé l’eau salée pendant ma vie, maintenant j’absorbe de l’eau douce. (une éponge naturelle)
-37 : Je n’arrête jamais durant la journée et la nuit je me repose sur le sol la langue tirée. (une chaussure de basket)
-38 : Je pleure quand on me tourne la tête. : un robinet :
-40 : Je ne peux pas marcher, j’ai pourtant un dos et quatre pieds. : chaise : 
+28 :Je suis tout petit mais je fais reculer Dracula. : ail :
+29 :Je suis indispensable pour circuler dans un souterrain. : bougeoir :
+30 :On l’attache quand l’avion décolle. : ceinture :
+31 :Je n’ai pas de tête et deux bras tout mous. : pull :
+32 :J’aime m’allonger au bord de la mer. : serviette de bain :
+33 :On m’attrape avec des baguettes. : un sachet rempli de riz :
+34 :Je ne mords jamais malgré mes nombreuses dents. : peigne : 
+35 :J’ai toujours bonne mine. : crayon :
+36 :J’ai absorbé l’eau salée pendant ma vie, maintenant j’absorbe de l’eau douce. (une éponge naturelle)
+37 :Je n’arrête jamais durant la journée et la nuit je me repose sur le sol la langue tirée. (une chaussure de basket)
+38 :Je pleure quand on me tourne la tête. : un robinet :
+40 :Je ne peux pas marcher, j’ai pourtant un dos et quatre pieds. : chaise : 
+41:Qu'est ce qui s'allonge et rétrécit en même temps ?:C'est relatif:le temps
+42:Qu'est ce qui est plus grand que la Tour Eiffel, mais infiniment moins lourd ?:Toujours sous la Tour Eiffel:Son ombre:300
+43:Plus je suis cassée, moins j'ai de trous. Qui suis-je?:Je sers a pêcher:Filet:150
+44:Quand je sèche, je me mouille. Qui suis-je ?:On m'utilise pour sécher:Une serviette:500
+45:Plus j'ai de gardiens moins je suis gardé. Qui suis-je ?:Quelque chose quón raconte:Un secret:200
+46:Je suis le premier à la ligne d'arrivée mais je ne suis pas le vainqueur. Qui suis-je ?:Pensez aux différents sens du mot "suis":Le deuxième:300
+47:Quand je suis frais je suis chaud.Qui suis-je ?:On me mange:Le pain:200
+48:Lorsqu'on a besoin de moi on me jette et lorsque je deviens inutile on me reprend. Qui-suis-je ?:Vous devriez en avoir dans votre bateau:Une ancre:250
+49:J'ai une serrure mais pas de porte. Qui suis-je ?Si je suis la tu ne pourras pas ouvrir la porte:Un cadenas:300
+50:On me trouve 3 fois dans l'année et pourtant 1 fois par semaine. Qui suis-je ?:Pensez aux mois et aux jours:La lettre j:500
+51:On me prend sans me toucher, qui suis-je ?:Je suis interdite par fois dans les mussées.:Une photo:300
+52:où peut-on trouver le dimanche avant le samedi ?:Pensez à comment on écrit ces mots:Dictionnaire:600
+53:Quel mot de 6 lettres comporte 5 voyelles différentes ?:Peut etre penser a Coco vous aidera...:Oiseau:400
+54:Je suis partout, mais on ne peut jamais m'atteindre. Qui suis-je?:Au loin:L'horizon:300
+
