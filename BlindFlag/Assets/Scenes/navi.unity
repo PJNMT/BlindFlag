@@ -258,6 +258,21 @@ PrefabInstance:
       propertyPath: m_Mass
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6789106206460977379, guid: 536548e4e904b8d4596f690b5da6065d,
+        type: 3}
+      propertyPath: sworddamage
+      value: 
+      objectReference: {fileID: 8300000, guid: b6c5dcf6de81b574fbe2919cd66a677f, type: 3}
+    - target: {fileID: 6789106206460977379, guid: 536548e4e904b8d4596f690b5da6065d,
+        type: 3}
+      propertyPath: gundamage
+      value: 
+      objectReference: {fileID: 8300000, guid: c4e54785fb0e72844a4dc3a2bc369c71, type: 3}
+    - target: {fileID: 6789106206460977379, guid: 536548e4e904b8d4596f690b5da6065d,
+        type: 3}
+      propertyPath: level
+      value: 
+      objectReference: {fileID: 8300000, guid: 32830974076351a46838b74ae47949ba, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 536548e4e904b8d4596f690b5da6065d, type: 3}
 --- !u!1 &406203087
@@ -777,6 +792,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activated: 0
   quit: 0
+--- !u!114 &974435672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 974435670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17424c0856e535b489bcd557d3a657c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: {fileID: 8300000, guid: 471941562e13a0b4dbb1b6aa63990ec1, type: 3}
+  crew: {fileID: 8300000, guid: 7c581f6780af14f4db0296ea4288d7f2, type: 3}
+  damage: {fileID: 8300000, guid: 2c844fdf4abce8045976cc18d71ebeec, type: 3}
+  money: {fileID: 8300000, guid: 6e218717436268c418be5e209e0e00ab, type: 3}
 --- !u!114 &974435674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -818,7 +849,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1028395073}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9ec153f1383f4364a8244884984b1470, type: 3}
   m_Name: 

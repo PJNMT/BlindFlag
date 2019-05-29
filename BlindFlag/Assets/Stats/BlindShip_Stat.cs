@@ -26,6 +26,15 @@ public class BlindShip_Stat : MonoBehaviour
     public static int Shield = 10;
     private static int Max_Shield = Lvl * 10;
     
+    [SerializeField]
+    private AudioClip level;
+    [SerializeField]
+    private AudioClip crew;
+    [SerializeField]
+    private AudioClip damage;
+    [SerializeField]
+    private AudioClip money;
+    
     public static int SceneLoad = 0; // 0: Navigation, 1: SeaBattle, 2: Port, 3: Taverne, 4: Simon, 5: Combat, 6: ShipShop, 7: ChasseAuTresor  
 
     private static GameObject BlindShip;
@@ -75,4 +84,48 @@ public class BlindShip_Stat : MonoBehaviour
 
         Max_Shield = Lvl * 10;
     }
+
+    public void AddStat(AudioSource audioSource, string stat)
+    {
+        audioSource.clip = level;
+        audioSource.Play();
+        switch (stat)
+        {
+            case "level":
+                Lvl += 1;
+                Synthesis.synthesis("Votre bateau a gagné 1 niveau");
+                SetStat();
+                break;
+            case "XP":
+                XP += 100;
+                Synthesis.synthesis("Votre bateau a gagné 100 XP");
+                break;
+            case "HP":
+                HP = Max_HP;
+                Synthesis.synthesis("Vos HP sont à leur maximum, Capitaine, votre bateau est comme neuf !");
+                break;
+        }
+    }
+    
+    public void Adddamage(AudioSource audioSource, int added)
+    {
+        audioSource.clip = damage;
+        audioSource.Play();
+        Damage += added;
+    }
+    
+    public void AddCrew(AudioSource audioSource, int added)
+    {
+        audioSource.clip = crew;
+        audioSource.Play();
+        Crew += added;
+    }
+    
+    public void AddMoney(AudioSource audioSource, int added)
+    {
+        audioSource.clip = money;
+        audioSource.Play();
+        Money += added;
+    }
 }
+

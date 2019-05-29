@@ -24,9 +24,12 @@ public class BlindCaptain_Stat : MonoBehaviour
     public static int Reputation = 0;
     public static string Name = "BlindPirate";
     
-    public static AudioClip level;
-    public static AudioClip gundamage;
-    public static AudioClip sworddamage;
+    [SerializeField]
+    private AudioClip level;
+    [SerializeField]
+    private AudioClip gundamage;
+    [SerializeField]
+    private AudioClip sworddamage;
     
     public static Dictionary<string, bool> Tuto = new Dictionary<string, bool>()
     {
@@ -82,7 +85,7 @@ public class BlindCaptain_Stat : MonoBehaviour
         SceneManager.UnloadSceneAsync(S);
     }
     
-    public static void AddStat(AudioSource audioSource, string stat)
+   public void AddStat(AudioSource audioSource, string stat)
     {
         audioSource.clip = level;
         audioSource.Play();
@@ -108,14 +111,14 @@ public class BlindCaptain_Stat : MonoBehaviour
         
     }
 
-    public static void AddSworddamage(AudioSource audioSource, int added)
+    public void AddSworddamage(AudioSource audioSource, int added)
     {
         audioSource.clip = sworddamage;
         audioSource.Play();
         SwordDamage += added;
     }
     
-    public static void AddGundamage(AudioSource audioSource, int added)
+    public void AddGundamage(AudioSource audioSource, int added)
     {
         audioSource.clip = gundamage;
         audioSource.Play();
