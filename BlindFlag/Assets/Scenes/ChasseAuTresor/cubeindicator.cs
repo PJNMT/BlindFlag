@@ -8,86 +8,89 @@ using UnityEngine;
 
 public class cubeindicator : MonoBehaviour
 {
-    private float[] tresorposition;
-    private cubecontroller cube;
     public AudioClip[] indications;
     public AudioSource a;
 
+    public Transform tresor;
+    public Transform player;
     private float x;
     private float z;
+
+    private bool sedeplacer;
+    
         
     // Start is called before the first frame update
     void Start()
     {
-      GameObject player = GameObject.FindGameObjectWithTag("Player");
-      cube = player.GetComponent<cubecontroller>();                   //Récupère le controller de l'objet joueur
+        //Récupère le controller de l'objet joueur
+        // et la position du trésor dans UNITY
         
-      tresor tresor = GameObject.FindObjectOfType<tresor>();          //Trouve l'objet trésor
-      tresorposition = tresor.Getposition();
+        transform.position = new Vector3(41f,2f,0f);
+        x = 41f;
+        z = 0f;
+        a = this.GetComponent<AudioSource>();
+
+        sedeplacer = true;
+    }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log(sedeplacer);
         
-        transform.position = new Vector3(25.5f,2f,48f);
-        x = 25.5f;
-        z = 48f;
-        indications = new AudioClip[2];
-        a = GameObject.FindObjectOfType<AudioSource>();
+        
+        if (other.gameObject.name == "tresor")
+        {
+            sedeplacer = false;
+        }
+        
+        
+        else
+        {
+            if (sedeplacer)
+            {
+                Debug.Log(x);
+                Debug.Log(tresor.position.x);
+                if (this.x > tresor.position.x + 5)
+                {
+                    x -= 5f;
+                    transform.position = new Vector3(x, 2f, z);
+                }
+                
+                
+                else
+                {
+                    
+                    if (this.z > tresor.position.z)
+                    { z -= 5f;}
+                    else
+                    { z += 5f; }
+
+                    transform.position = new Vector3(x, 2f, z);
+                }
+            }
+        }
+        
+        
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        a.clip = indications[0];
+        a.Play();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (x > tresorposition[0] - 3 && x<tresorposition[0]+3 && z > tresorposition[1] - 3 && z<tresorposition[1]+3)
+        Debug.Log(player.position.x - x);
+        if (player.position.x - x >  15 || Math.Abs(player.position.z - z) > 15)
         {
-            transform.position = new Vector3(tresorposition[0], 0f, tresorposition[1]);
+            a.clip = indications[1];
+            a.Play();
+                
         }
-        else
-        {
-            if (Math.Abs(cube.x - x) > 15 || Math.Abs(cube.z - z) > 15)
-            {
-                a.clip = indications[1];
-                a.Play();
-            }
-            else
-            {
-                if (Math.Abs(cube.x - x) < 5 || Math.Abs(cube.z - z) < 5)
-                {
-                    Move();
-                    a.clip = indications[0];
-                    a.Play();
-                }
-                else
-                {
-                    Thread.Sleep(3000);
-                }
-            }
-        }
-
-    }
-
-
-    void Move()
-    {
-        if (x < tresorposition[0])
-        {
-            x += 10;
-        }
-        else
-        {
-            if (x > tresorposition[0])
-            {
-                x -= 10;
-            }
-            else
-            {
-                if (z < tresorposition[0])
-                {
-                    z += 10;
-                }
-                else
-                {
-                    z -= 10;
-                }
-            }
-        }
+            
     }
 
 

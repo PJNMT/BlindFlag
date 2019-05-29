@@ -5,19 +5,22 @@ using UnityEngine;
 
 public class cubecontroller : MonoBehaviour
 {
-	public float m_speed = 0.1f;
-	public float x;
-	public float z;
+	public float m_speed = 0.005f;
+	private float x;
+	private float z;
 
 	public bool sedeplacer = true;
+	public AudioSource _audioSource;
 	
 	
 	// Start is called before the first frame update
 	void Start()
 	{
-		transform.position = new Vector3(20.5f, 1f, 48f);
+		transform.position = new Vector3(46f, 1f, 0f);
 		x = 2;
 		z = 0;
+
+		_audioSource = gameObject.GetComponent<AudioSource>();
 	}
 
 	// Update is called once per frame
@@ -31,14 +34,16 @@ public class cubecontroller : MonoBehaviour
 			// Récupération des touches haut et bas
 			if (Input.GetKey(KeyCode.UpArrow))
 			{
-				move.x += m_speed;
-				x += m_speed;
+				move.x -= m_speed;
+				x -= m_speed;
+				_audioSource.Play();
 			}
 
 			if (Input.GetKey(KeyCode.DownArrow))
 			{
-				move.x -= m_speed;
-				x -= m_speed;
+				move.x += m_speed;
+				x += m_speed;
+				_audioSource.Play();
 			}
 
 			// Récupération des touches gauche et droite
@@ -46,16 +51,21 @@ public class cubecontroller : MonoBehaviour
 			{
 				move.z -= m_speed;
 				z -= m_speed;
+				_audioSource.Play();
 			}
 
 			if (Input.GetKey(KeyCode.RightArrow))
 			{
 				move.z += m_speed;
 				z += m_speed;
+				_audioSource.Play();
 			}
 
 			// On applique le mouvement à l'objet
 			transform.position += move;
+			
+
+		
 		}
 	    
 	    

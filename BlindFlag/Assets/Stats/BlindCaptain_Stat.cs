@@ -24,6 +24,10 @@ public class BlindCaptain_Stat : MonoBehaviour
     public static int Reputation = 0;
     public static string Name = "BlindPirate";
     
+    public static AudioClip level;
+    public static AudioClip gundamage;
+    public static AudioClip sworddamage;
+    
     public static Dictionary<string, bool> Tuto = new Dictionary<string, bool>()
     {
         {"Navigation", false},
@@ -77,4 +81,45 @@ public class BlindCaptain_Stat : MonoBehaviour
         BlindShip_Stat.SceneLoad = 0;
         SceneManager.UnloadSceneAsync(S);
     }
+    
+    public static void AddStat(AudioSource audioSource, string stat)
+    {
+        audioSource.clip = level;
+        audioSource.Play();
+        switch (stat)
+        {
+            case  "level":
+                Lvl += 1;
+                Synthesis.synthesis("Vous avez gagné 1 niveau");
+                break;
+            case "reputation":
+                Reputation += 5;
+                Synthesis.synthesis("Vous avez gagné 5 points de réputation");
+                break;
+            case "XP":
+                XP += 100;
+                Synthesis.synthesis("Vous avez gagné 100 XP");
+                break;
+            case "HP":
+                HP = Max_HP;
+                Synthesis.synthesis("Vos HP sont à leur maximum, Capitaine, vous êtes en pleine forme !");
+                break;
+        }
+        
+    }
+
+    public static void AddSworddamage(AudioSource audioSource, int added)
+    {
+        audioSource.clip = sworddamage;
+        audioSource.Play();
+        SwordDamage += added;
+    }
+    
+    public static void AddGundamage(AudioSource audioSource, int added)
+    {
+        audioSource.clip = gundamage;
+        audioSource.Play();
+        GunDamage += added;
+    }
 }
+

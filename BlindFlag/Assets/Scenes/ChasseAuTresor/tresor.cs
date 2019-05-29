@@ -19,17 +19,17 @@ public class tresor : MonoBehaviour
     public bool continuer = false;
     public bool rightanswer = false;
     
-    private float x;
-    private float z;
+    public float x;
+    public float z;
     
     // Place le trésor aléatoirement sur la map
     void Start()
     {
-         x = Random.Range(-10.0f, 10.0f);
-         z = Random.Range(-10.0f, 10.0f);
+         x = Random.Range(-34f, 13f);
+         z = Random.Range(-46f, 36f);
 
 
-        transform.Translate(x, 1f, z);
+        transform.position = new Vector3(x, 1f, z);
         
         //crée l'objet enigme choisit et _enigma prends sa valeur
         Generateenigme();
@@ -50,16 +50,17 @@ public class tresor : MonoBehaviour
             Recognition.Function Traitement = Answertreatement;
             
             //Dis l'énigme au joueur
-            Debug.Log("speakenigma");
             SpeakEnigma(_enigma);
             string lecturetraitement;
             
-            bool continuer = false;
+            bool continuer = true;
             
             do
             {
+                Debug.Log("start");
                 Recognition.start_recognition(Traitement);  //Reconnait tant qu'une réponse est attendue
-             
+                
+                
             } while (continuer);
 
             _path.Add(_enigma._number);
@@ -122,6 +123,7 @@ public class tresor : MonoBehaviour
         if (reponse == _enigma._answer)
         {
             rightanswer = true;
+            continuer = false;
             return;
 
         }
@@ -145,10 +147,13 @@ public class tresor : MonoBehaviour
                 if (reponse == "chat")
                 {
                     continuer = false;
+                    return;
                 }
 
 
             }
+            
+            continuer = true;
         }
     }
     
