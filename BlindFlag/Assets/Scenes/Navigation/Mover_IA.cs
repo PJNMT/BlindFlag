@@ -51,7 +51,30 @@ public class Mover_IA : MonoBehaviour
     {
         if (decteted)
         {
-             
+            if (type == BoatType.Marchand)
+            {
+                //s'enfuit
+                
+            }
+            else if (type == BoatType.Marines)
+            {
+                //s'approche
+                
+            }
+            else
+            {
+                if (Random.Range(0,1)<=0)
+                {
+                    //bateau s'approche
+                    
+                }
+                else
+                {
+                    //bateau s'enfuit
+                    
+                }
+            }
+            
         }
         else
         {
