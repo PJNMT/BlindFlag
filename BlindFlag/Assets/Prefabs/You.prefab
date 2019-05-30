@@ -289,9 +289,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c6906fd76fef4b49b6b86e8b5436bd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: {fileID: 0}
-  gundamage: {fileID: 0}
-  sworddamage: {fileID: 0}
+  level: {fileID: 8300000, guid: 471941562e13a0b4dbb1b6aa63990ec1, type: 3}
+  gundamage: {fileID: 8300000, guid: c95ad211d9d7874418032ee770b2d54c, type: 3}
+  sworddamage: {fileID: 8300000, guid: b6c5dcf6de81b574fbe2919cd66a677f, type: 3}
 --- !u!81 &751309636503779467
 AudioListener:
   m_ObjectHideFlags: 0
