@@ -12,8 +12,6 @@ public class Coco : MonoBehaviour
     public static bool TutoON;
     public bool activated;
     public bool quit;
-    
-    static WindowsMicrophoneMuteLibrary.WindowsMicMute micMute;
 
     
     void Answertraitement(string word)
@@ -25,7 +23,7 @@ public class Coco : MonoBehaviour
                    
                     Synthesis.synthesis("Blindcaptain niveau" + BlindCaptain_Stat.Lvl);
                     Thread.Sleep(2000);
-                    micMute.MuteMic();
+                    //micMute.MuteMic();
                     Thread.Sleep(5000);
                     break;
 
@@ -40,7 +38,6 @@ public class Coco : MonoBehaviour
                                         BlindShip_Stat.HP + " H P" + "et peut causer"
                                         + BlindShip_Stat.Damage + " point de dommage." + " Enfin, il a "
                                         + BlindShip_Stat.Shield + " point de capacité de défense");
-                    micMute.MuteMic();
                     Sleep(15000);
                     break;
 
@@ -91,14 +88,12 @@ public class Coco : MonoBehaviour
                    quit = true;
                    break;
             }
-
-        micMute.UnMuteMic();
+           
         if (!quit)
         {
             
             Synthesis.synthesis("Voulez vous autre chose capitaine ?"); 
         }
-
     }
     
     void Start()
@@ -115,7 +110,6 @@ public class Coco : MonoBehaviour
         Recognition.start_recognition(OkCoco,"Coco",0);
 
         quit = true;
-        micMute = new WindowsMicrophoneMuteLibrary.WindowsMicMute();
     }
 
     private void Update()

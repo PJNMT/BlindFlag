@@ -15,13 +15,10 @@ namespace Scenes
         
         
     public bool pauseCoco;
-        
-   static WindowsMicrophoneMuteLibrary.WindowsMicMute micMute;
     
     
     void Answertraitement(string word)
     {
-        micMute.MuteMic();
         Debug.Log(word);
         if (pauseCoco)
         {
@@ -39,26 +36,26 @@ namespace Scenes
                 case "navire":
 
                     Synthesis.synthesis(" Tu as un bateau niveau " + BlindShip_Stat.Lvl +
-                                        " avec " + BlindShip_Stat.Crew + " homme d'Èquipage.  " +
+                                        " avec " + BlindShip_Stat.Crew + " homme d'√©quipage.  " +
                                         " Il peut contenir au maximum "
                                         + BlindShip_Stat.Max_Crew + "matelots.   " +
-                                        " Ton bateau possËde " + BlindShip_Stat.XP + " X P " +
+                                        " Ton bateau poss√®de " + BlindShip_Stat.XP + " X P " +
                                         BlindShip_Stat.HP + " H P" + "et peut causer"
                                         + BlindShip_Stat.Damage + " point de dommage." + " Enfin, il a "
-                                        + BlindShip_Stat.Shield + " point de capacitÈ de dÈfense");
+                                        + BlindShip_Stat.Shield + " point de capacit√© de d√©fense");
                     Thread.Sleep(15000);
                     break;
 
 
                 case "vie":
                 case "HP":
-                    Synthesis.synthesis("Tu as " + BlindCaptain_Stat.HP + " point de vie." + "Ton bateau ‡ " +
+                    Synthesis.synthesis("Tu as " + BlindCaptain_Stat.HP + " point de vie." + "Ton bateau √† " +
                                         BlindShip_Stat.HP);
                     Thread.Sleep(4000);
                     break;
 
-                case "rÈputation":
-                    Synthesis.synthesis("Tu as " + BlindCaptain_Stat.Reputation + " point de rÈputation.");
+                case "r√©putation":
+                    Synthesis.synthesis("Tu as " + BlindCaptain_Stat.Reputation + " point de r√©putation.");
                     Thread.Sleep(3000);
                     break;
 
@@ -68,9 +65,9 @@ namespace Scenes
                     Thread.Sleep(3000);
                     break;
 
-                case "ÈpÈe":
+                case "√©p√©e":
                 case "sabre":
-                    Synthesis.synthesis("Tu as " + BlindCaptain_Stat.SwordDamage + " point de dommmage ‡ l'ÈpÈe.");
+                    Synthesis.synthesis("Tu as " + BlindCaptain_Stat.SwordDamage + " point de dommmage √† l'√©p√©e.");
                     break;
 
                 case "pistolet":
@@ -134,7 +131,7 @@ namespace Scenes
                     Debug.Log("ok captain");
                     foreach (KeyValuePair<GameObject, string> objetsVu in baba.ObjetsVus)
                     {
-                        if ((objetsVu.Value == "Port" || objetsVu.Value == "Ile au trÈsor"))
+                        if ((objetsVu.Value == "Port" || objetsVu.Value == "Ile au tr√©sor"))
                         {
                             Debug.Log("ok captain");
                             UnityMainThreadDispatcher.Instance().Enqueue(() =>
@@ -163,7 +160,7 @@ namespace Scenes
         if (TutoON)
         {
             Synthesis.synthesis("Je suis Coco, votre assistant euh votre perroquet Capitaine ! Vous pouvez me demander vos statistiques de Capitaine" +
-                                "celles de votre navire. Je peux Ègalement vous proposer de sauvegarder votre partie ou aller au menu options sonores"
+                                "celles de votre navire. Je peux √©galement vous proposer de sauvegarder votre partie ou aller au menu options sonores"
                                 + "Allez y testez moi !");
             TutoON = false;
         }
@@ -174,7 +171,6 @@ namespace Scenes
         baba = GameObject.FindObjectOfType<Vigie>();
 
         quit = false;
-        micMute = new WindowsMicrophoneMuteLibrary.WindowsMicMute();
 
     }
 
@@ -183,16 +179,16 @@ namespace Scenes
         if (activated)
         {
             
-            Debug.Log("demande detectÈ");
+            Debug.Log("demande detect√©");
             Recognition.stop_recognition();
             
             Recognition.Function AnswerCoco = Answertraitement;
             Debug.Log("nouvelle reco");
             //micMute.UnMuteMic();
-            Recognition.start_recognition(AnswerCoco, "non rien merci niveau bateau navire HP vie XP rÈputation ÈpÈe sabre pistolet" +
+            Recognition.start_recognition(AnswerCoco, "non rien merci niveau bateau navire HP vie XP r√©putation √©p√©e sabre pistolet" +
                                                       "sauver sauvegarder quitter Ennemy Ile Vois Bateau ", 0);
             activated = false;
-            Debug.Log("dÈsactivÈ");
+            Debug.Log("d√©sactiv√©");
         }
 
         if (quit)
@@ -219,7 +215,7 @@ namespace Scenes
         if (mot == "Coco")
         {
             
-            UnityMainThreadDispatcher.Instance().Enqueue(() =>Synthesis.synthesis("Coco ActivÈ"));
+            UnityMainThreadDispatcher.Instance().Enqueue(() =>Synthesis.synthesis("Coco Activ√©"));
             activated = true;
             
             //micMute.MuteMic();
