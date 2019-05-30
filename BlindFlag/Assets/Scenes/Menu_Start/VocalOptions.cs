@@ -6,10 +6,13 @@ using UnityEngine.Audio;
 public class VocalOptions : MonoBehaviour
 {
     public AudioMixer audioMixer;
+    public static bool is_menu = false;
 
     private float setlvl;
 
     private string barremixer;
+
+    private Coco coco;
     // Start is called before the first frame update
     void Start()
     {
@@ -51,8 +54,16 @@ public class VocalOptions : MonoBehaviour
                 Recognition.start_recognition(Traitement3, "plus moins augmenter diminuer", 10);
                 break;
             case "quitter":
-                GameObject.Find("MainMenuPanel").SetActive(true);
-                GameObject.Find("OptionPanel").SetActive(false);
+                if (is_menu)
+                {
+                    GameObject.Find("MainMenuPanel").SetActive(true);
+                    GameObject.Find("OptionPanel").SetActive(false);
+                    is_menu = false;
+                }
+                else
+                {
+                    coco.enabled = true;
+                }
                 break;
             default:
                 Restart();

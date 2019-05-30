@@ -40,8 +40,6 @@ public class Bruitsbateau : MonoBehaviour
             StartCoroutine(soundmouettes());
         }
 
-        Debug.Log(player.transform.position);
-
         if (!(lastplay == player.transform.position) && do_plancher)
         {
             do_plancher = false;

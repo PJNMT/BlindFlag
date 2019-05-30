@@ -8,7 +8,6 @@ public class EnnemyControler : MonoBehaviour
 {
     private float x_rand;
     private float z_rand;
-    private int IA_damage;
     private Transform target;
     public GameObject player;
     private bool do_changepos = true;
@@ -28,13 +27,11 @@ public class EnnemyControler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        IA_damage = captainattack.IA_atk;
         transform.position.Set(0, 1, 0); //place ennemy vers le centre du palteau
-        /*HP = BlindCaptain_Stat.HP;*/
+        HP = BlindCaptain_Stat.HP;
 
         target = player.transform;
         Sons = new[] { Atk_IA1, Atk_IA2, Atk_IA3};
-        HP = 200; //prtests
     }
 
     private void OnCollisionEnter(Collision other) //verifie si un projectile entre dans collider zone ennemy
@@ -69,10 +66,11 @@ public class EnnemyControler : MonoBehaviour
     {
         rand_soundatk = Random.Range(0, Sons.Length);
         GetComponent<AudioSource>().PlayOneShot(Sons[rand_soundatk]);
-        rand_attack = Random.Range(0, 1); //determine if IA attack or no (attack every 20sec)
-        if (rand_attack == 1) HP -= IA_damage;
+        rand_attack = Random.Range(0, 2); //determine if IA attack or no (attack every 20sec)
+        if (rand_attack == 1) HP -= captainattack.IA_atk;
         do_attack = false;
-        /*Debug.Log("CaptHP = " + HP);*/
+        Debug.Log("CaptHP = " + HP);
+
     }
 
     IEnumerator IA_Damage() //coroutine set as the IA attack every 20sec
@@ -90,9 +88,9 @@ public class EnnemyControler : MonoBehaviour
     {
         if (HP <= 0) BlindCaptain_Stat.Dead(); //check if capitain dead or no
 
-        if (Vector3.Distance(target.position, target.position) < 2) //check if capitaine close to ennemy and if yes, launch attack and coroutine to change position
+        if (Vector3.Distance(transform.position, target.position) < 5) //check if capitaine close to ennemy and if yes, launch attack and coroutine to change position
         {
-            StartCoroutine("IA_attack");
+            StartCoroutine(IA_Damage());
         }
         StartCoroutine("ChangeIAposition");
     }
