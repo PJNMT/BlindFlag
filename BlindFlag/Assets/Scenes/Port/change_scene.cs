@@ -10,13 +10,14 @@ public class change_scene : MonoBehaviour
         if (other.gameObject.name == "Ship-Shop")
         {
             SceneManager.LoadScene("ShipShop");
+            BlindShip_Stat.SceneLoad = 6;
             SceneManager.UnloadSceneAsync("Port");
         }
 
         if (other.gameObject.name == "Bar")
         {
-            Debug.Log("papap");
             SceneManager.LoadScene("taverne");
+            BlindShip_Stat.SceneLoad = 3;
             SceneManager.UnloadSceneAsync("Port");
         }
 		
