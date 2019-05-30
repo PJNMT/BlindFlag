@@ -14,7 +14,7 @@ public class mouette : MonoBehaviour
     void Update()
     {
         
-        transform.Rotate(Vector3.up, 100 * Time.deltaTime);
-        transform.Translate(Vector3.left * 5 * Time.deltaTime); //on avance en f° du temps
+        transform.Rotate(Vector3.up, 20 * Time.deltaTime);
+        transform.Translate(Vector3.left * 10 * Time.deltaTime); //on avance en f° du temps
     }
 }
