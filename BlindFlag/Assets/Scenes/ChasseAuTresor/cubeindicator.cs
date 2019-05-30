@@ -11,8 +11,8 @@ public class cubeindicator : MonoBehaviour
     public AudioClip[] indications;
     public AudioSource a;
 
-    public Transform tresor;
-    public Transform player;
+    public tresor tresor;
+    public cubecontroller player;
     private float x;
     private float z;
 
@@ -26,10 +26,13 @@ public class cubeindicator : MonoBehaviour
     {
         //Récupère le controller de l'objet joueur
         // et la position du trésor dans UNITY
+
+        tresor = FindObjectOfType<tresor>();
+        player = FindObjectOfType<cubecontroller>();
         
-        transform.position = new Vector3(41f,2f,0f);
-        x = 41f;
-        z = 0f;
+        transform.position = new Vector3(50f,2f,10f);
+        x = 50f;
+        z = 10f;
         a = this.GetComponent<AudioSource>();
 
         sedeplacer = true;
@@ -39,8 +42,6 @@ public class cubeindicator : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(sedeplacer);
-        
         
         if (other.gameObject.name == "tresor")
         {
@@ -53,21 +54,20 @@ public class cubeindicator : MonoBehaviour
             if (sedeplacer)
             {
                 Debug.Log(x);
-                Debug.Log(tresor.position.x);
-                if (this.x > tresor.position.x + 5)
+                Debug.Log(tresor.transform.position.x);
+                if (this.z+5 < tresor.transform.position.z)
                 {
-                    x -= 5f;
+                    z += 5f;
                     transform.position = new Vector3(x, 2f, z);
                 }
                 
                 
                 else
                 {
-                    
-                    if (this.z > tresor.position.z)
-                    { z -= 5f;}
+                    if (this.x-5 > tresor.transform.position.x)
+                    { x -= 5f;}
                     else
-                    { z += 5f; }
+                    { x += 5f; }
 
                     transform.position = new Vector3(x, 2f, z);
                 }
@@ -89,8 +89,8 @@ public class cubeindicator : MonoBehaviour
             {
 
 
-                Debug.Log(player.position.x - x);
-                if (player.position.x - x > 15 || Math.Abs(player.position.z - z) > 15)
+                Debug.Log(player.transform.position.x - x);
+                if (player.transform.position.x - x > 15 || Math.Abs(player.transform.position.z - z) > 15)
                 {
                     a.clip = indications[1];
                     a.Play();

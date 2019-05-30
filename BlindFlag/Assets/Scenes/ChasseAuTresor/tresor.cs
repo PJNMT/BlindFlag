@@ -25,8 +25,8 @@ public class tresor : MonoBehaviour
     // Place le trésor aléatoirement sur la map
     void Start()
     {
-         x = Random.Range(-34f, 13f);
-         z = Random.Range(-46f, 36f);
+         x = Random.Range(2f, 98f);
+         z = Random.Range(30f, 98f);
 
 
         transform.position = new Vector3(x, 1f, z);

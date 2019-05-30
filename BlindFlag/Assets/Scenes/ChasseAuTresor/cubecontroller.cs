@@ -5,22 +5,43 @@ using UnityEngine;
 
 public class cubecontroller : MonoBehaviour
 {
-	public float m_speed = 0.005f;
+	public float m_speed;
+	public int t_speed;
 	private float x;
 	private float z;
 
+	private KeyCode inputdroit;
+	private KeyCode inputgauche;
+	private KeyCode inputavant;
+	private KeyCode inputarrière;
+
+	private KeyCode inputRotatedroite;
+	private KeyCode inputRotategauche;
+
+	
+	
+
 	public bool sedeplacer = true;
 	public AudioSource _audioSource;
-	
+
+	void Touches()
+	{
+		inputdroit = KeyCode.RightArrow;
+	  inputgauche = KeyCode.LeftArrow;
+		inputavant = KeyCode.UpArrow;
+		inputarrière = KeyCode.DownArrow;
+	}
 	
 	// Start is called before the first frame update
 	void Start()
 	{
-		transform.position = new Vector3(46f, 1f, 0f);
+		transform.position = new Vector3(50f, 1f, 5f);
 		x = 2;
 		z = 0;
 
 		_audioSource = this.GetComponent<AudioSource>();
+		Touches();
+		
 	}
 
 	// Update is called once per frame
@@ -34,38 +55,29 @@ public class cubecontroller : MonoBehaviour
 			// Récupération des touches haut et bas
 			if (Input.GetKey(KeyCode.UpArrow))
 			{
-				move.x -= m_speed;
-				x -= m_speed;
-				_audioSource.Play();
+				transform.Translate(Vector3.forward*m_speed*Time.deltaTime);
 			}
 
 			if (Input.GetKey(KeyCode.DownArrow))
 			{
-				move.x += m_speed;
-				x += m_speed;
-				_audioSource.Play();
+				transform.Translate(-Vector3.forward*m_speed*Time.deltaTime);
+				
 			}
 
 			// Récupération des touches gauche et droite
 			if (Input.GetKey(KeyCode.LeftArrow))
 			{
-				move.z -= m_speed;
-				z -= m_speed;
-				_audioSource.Play();
+				
+				transform.Rotate(-Vector3.up * t_speed * Time.deltaTime);
+				
 			}
 
 			if (Input.GetKey(KeyCode.RightArrow))
 			{
-				move.z += m_speed;
-				z += m_speed;
-				_audioSource.Play();
+				transform.Rotate(Vector3.up * t_speed * Time.deltaTime);
+				
 			}
 
-			// On applique le mouvement à l'objet
-			transform.position += move;
-			
-
-		
 		}
 	    
 	    
