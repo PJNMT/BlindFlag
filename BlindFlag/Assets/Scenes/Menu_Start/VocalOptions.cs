@@ -1,9 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class VocalOptions : MonoBehaviour
 {
+    public AudioMixer audioMixer;
+
+    private float setlvl;
+
+    private string barremixer;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,24 +28,58 @@ public class VocalOptions : MonoBehaviour
     // Update is called once per frame
     void Traitement(string input)
     {
+        string GroupMix = "";
+        
         switch(input)
         {
-            /*case "son":
-                SettingsMenu.SetLevel(setlvl + 10);
+            case "son":
+                barremixer = "SoundVol";
+                Synthesis.synthesis("Voulez-vous augmenter ou diminuer le son?");
+                Recognition.Function Traitement1 = this.Traitementplusmoins;
+                Recognition.start_recognition(Traitement1, "plus moins augmenter diminuer", 10);
                 break;
             case "musique":
-            //start a new game
+                barremixer = "MusicVol";
+                Synthesis.synthesis("Voulez-vous augmenter ou diminuer la musique?");
+                Recognition.Function Traitement2 = this.Traitementplusmoins;
+                Recognition.start_recognition(Traitement2, "plus moins augmenter diminuer", 10);
+                break;
             case "voix":
-            //lance le menu option
+                barremixer = "VoicesVol";
+                Synthesis.synthesis("Voulez-vous augmenter ou diminuer le son?");
+                Recognition.Function Traitement3 = this.Traitementplusmoins;
+                Recognition.start_recognition(Traitement3, "plus moins augmenter diminuer", 10);
+                break;
             case "quitter":
                 GameObject.Find("MainMenuPanel").SetActive(true);
                 GameObject.Find("OptionPanel").SetActive(false);
-                VocalPrincipal.Start();
                 break;
             default:
                 Restart();
-                break;*/
+                break;
 
+        }
+    }
+
+    void Traitementplusmoins(string input)
+    {
+        switch (input)
+        {
+            case "plus":
+            case"augmenter":
+                audioMixer.GetFloat(barremixer, out setlvl);
+                audioMixer.SetFloat(barremixer, setlvl + 0.1f);
+                break;
+            case "moins":
+            case "diminuer":
+                audioMixer.GetFloat(barremixer, out setlvl);
+                audioMixer.SetFloat(barremixer, setlvl + 0.1f);
+                break;
+            default:
+                Synthesis.synthesis("Je n'ai pas compris. Voulez-vous augmenter ou diminuer le son?");
+                Recognition.Function Traitement3 = this.Traitementplusmoins;
+                Recognition.start_recognition(Traitement3, "plus moins augmenter diminuer", 10);
+                break;
         }
     }
 }
