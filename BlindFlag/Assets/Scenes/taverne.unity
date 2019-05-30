@@ -287,7 +287,7 @@ GameObject:
   - component: {fileID: 478245353}
   - component: {fileID: 478245352}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -300,7 +300,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 478245351}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 4d8ad0f83aa4fa042b6dde05f38d19a3, type: 3}
@@ -476,7 +476,7 @@ PrefabInstance:
     - target: {fileID: 3273055287566686424, guid: 536548e4e904b8d4596f690b5da6065d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.83
+      value: 2.43
       objectReference: {fileID: 0}
     - target: {fileID: 3273055287566686424, guid: 536548e4e904b8d4596f690b5da6065d,
         type: 3}
@@ -511,7 +511,7 @@ PrefabInstance:
     - target: {fileID: 3273055287566686424, guid: 536548e4e904b8d4596f690b5da6065d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3273055287566686424, guid: 536548e4e904b8d4596f690b5da6065d,
         type: 3}
@@ -543,28 +543,13 @@ GameObject:
   - component: {fileID: 1118835838}
   - component: {fileID: 1118835837}
   - component: {fileID: 1118835836}
-  - component: {fileID: 1118835835}
   m_Layer: 0
-  m_Name: Simon
+  m_Name: Table 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1118835835
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1118835834}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a217943d2fe9bf04684d64cfe29d4577, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  musics:
-  - {fileID: 8300000, guid: 894b8540f3b32ce478b07d5a84a19a07, type: 3}
 --- !u!82 &1118835836
 AudioSource:
   m_ObjectHideFlags: 0
@@ -572,7 +557,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1118835834}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 4d8ad0f83aa4fa042b6dde05f38d19a3, type: 3}
@@ -743,8 +728,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1992667853}
   - component: {fileID: 1992667852}
+  - component: {fileID: 1992667855}
+  - component: {fileID: 1992667854}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Simon (empty object)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -761,7 +748,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -770,7 +757,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 3.5202637
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -858,8 +845,35 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &1992667854
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1992667851}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 3.394947
+  m_Center: {x: 0.8002769, y: 1.6376525, z: -0.07130742}
+--- !u!114 &1992667855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1992667851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a217943d2fe9bf04684d64cfe29d4577, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musics:
+  - {fileID: 8300000, guid: 894b8540f3b32ce478b07d5a84a19a07, type: 3}
 --- !u!1 &2066121395
 GameObject:
   m_ObjectHideFlags: 0
@@ -874,7 +888,7 @@ GameObject:
   - component: {fileID: 2066121397}
   - component: {fileID: 2066121396}
   m_Layer: 0
-  m_Name: Sphere (1)
+  m_Name: Table 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -887,7 +901,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2066121395}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a8128558ecbcfc34782f47aaf5e726e3, type: 3}
@@ -1066,6 +1080,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a1b78db9508d7d45867424aca44898a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _audioSources: []
 --- !u!114 &2069634253
 MonoBehaviour:
   m_ObjectHideFlags: 0
