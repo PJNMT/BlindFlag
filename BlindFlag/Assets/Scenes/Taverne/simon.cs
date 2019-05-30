@@ -14,7 +14,7 @@ public class     simon : MonoBehaviour
 {
     
     private bool correct;
-    //private static Music_Recognition _musicRecognition;
+    private static Music_Recognition _musicRecognition;
 
     private AudioSource audio;
     private int mise;
@@ -37,6 +37,7 @@ public class     simon : MonoBehaviour
         taverne = gameObject.GetComponent<taverne>();
         activated = false;
 
+        _musicRecognition = gameObject.AddComponent<Music_Recognition>();
 
         //Jeu();
 
@@ -58,8 +59,20 @@ public class     simon : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        
+
         if (other.gameObject.name == "You")
+        {
+
+
+            correct = _musicRecognition.Is_right(_musicRecognition.AnalyzeSound(), "La_", 1.5f);
+            if (correct)
+            {
+                Debug.Log("ok");
+            }
+        }
+
+
+        /*if (other.gameObject.name == "You")
         {
             
             audio = this.GetComponent<AudioSource>();
@@ -74,13 +87,9 @@ public class     simon : MonoBehaviour
             Debug.Log("début");
 
             StartCoroutine(Play(i));
-            while (i<3)
-            {
-                Play(i);
-                i += 1;
-            }
+             
             
-        }
+        }*/
     }
 
     /*void Jeu()
@@ -162,15 +171,24 @@ public class     simon : MonoBehaviour
     
     IEnumerator Play(int i)
     {
-        Debug.Log("on play");
-        UnityMainThreadDispatcher.Instance().Enqueue(() => this.audio.Play());
+        i = 1;
+        while (i <= (int) audio.clip.length)
+        {
+            Debug.Log("on play");
+            this.audio.Play();
 
-        //Wait for 2 seconds
-        yield return new WaitForSeconds(i);
-        Debug.Log("waintin");
+            //Wait for i seconds
+            yield return new WaitForSeconds(i);
+            Debug.Log("waintin");
 
-        UnityMainThreadDispatcher.Instance().Enqueue(() =>this.audio.Stop());
-        Debug.Log("stop");
+            this.audio.Stop();
+            Debug.Log("stop");
+            i += 1;
+        }
+        Debug.Log(i);
+        Debug.Log(audio.clip.length);
+
+       
     }
 
 }
