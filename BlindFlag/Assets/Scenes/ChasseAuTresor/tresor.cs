@@ -47,7 +47,7 @@ public class tresor : MonoBehaviour
             Thread.Sleep(6000);
             
             //Reconnaissance de la réponse du joueur
-            Recognition.Function Traitement = Answertreatement;
+            Recognition.Function Traitement = Optionstreatement;
             
             //Dis l'énigme au joueur
             SpeakEnigma(_enigma);
@@ -55,14 +55,25 @@ public class tresor : MonoBehaviour
             
             bool continuer = true;
             
-            do
-            {
-                Debug.Log("start");
-                Recognition.start_recognition(Traitement);  //Reconnait tant qu'une réponse est attendue
-                
-                
-            } while (continuer);
+            Debug.Log("start");
+            Recognition.start_recognition(Traitement, "chat indice aide répète répéter",0);
 
+            while (continuer)
+            {
+                if (Input.GetKey(KeyCode.Space))
+                {
+                    Recognition.Function Traitement2 = Answertraitement;
+                    Recognition.stop_recognition();
+                    Recognition.start_recognition(Traitement2);  //Reconnait si une réponse est attendue
+                    Thread.Sleep(10000);
+                    
+                    Recognition.stop_recognition();
+                    Recognition.start_recognition(Traitement, "chat indice aide répète répéter",0);
+                    
+                }
+            }
+            
+            
             _path.Add(_enigma._number);
             
             //récupération de l'issue de la réponse
@@ -71,7 +82,7 @@ public class tresor : MonoBehaviour
               
                 Synthesis.synthesis("Vous avez gagné " + or + "pièces d'or");
                 Thread.Sleep(3000);
-                BlindShip_Stat.Money += or;
+                //BlindShip_Stat.AddMoney(new AudioSource(), or);
             }
         }
 
@@ -116,50 +127,53 @@ public class tresor : MonoBehaviour
         Thread.Sleep(2000);
     }
     
-    void Answertreatement(string reponse)
+    void Optionstreatement(string input)
     {
-        string[] decoupe = reponse.Split(' ');
-        
-        if (reponse == _enigma._answer)
+       switch (input)
         {
-            rightanswer = true;
-            continuer = false;
-            return;
-
-        }
-        else
-        {
-            foreach (string mot in decoupe)
+            case "répète":
+            case "répéter":
             {
-
-                if (mot == "répète")
-                {
-                    tresor.SpeakEnigma(_enigma);
-                    break;
-                }
-
-                if (mot == "indice")
-                {
-                    tresor.SpeakIndice(_enigma);
-                    break;
-                }
-
-                if (reponse == "chat")
-                {
-                    continuer = false;
-                    return;
-                }
-
-
+                tresor.SpeakEnigma(_enigma);
+                continuer = true;
+                break;
             }
-            
-            continuer = true;
+
+            case "indice":
+            case "aide":
+            {
+               tresor.SpeakIndice(_enigma);
+                continuer = true;
+                break;
+            }
+
+            case "chat":
+            {
+               continuer = false;
+               break;
+            }
+        }            
+        
+    }
+
+    void Answertraitement(string input)
+    {
+        if (input == _enigma._answer)
+        {
+            continuer = false;
+            rightanswer = true;
+
         }
     }
     
     public float[] Getposition()
     {
         return new[] {x, z};
+    }
+
+    private void Lauch_reco(Recognition.Function treatement,string input, int time)
+    {
+        Recognition.start_recognition(treatement,input,time);
     }
 
 }
