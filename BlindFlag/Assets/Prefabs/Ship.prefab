@@ -20885,6 +20885,7 @@ GameObject:
   - component: {fileID: 1224520436687627579}
   - component: {fileID: 8052481464271246533}
   - component: {fileID: 3936442707114211479}
+  - component: {fileID: 3274776168541942752}
   m_Layer: 0
   m_Name: Ship
   m_TagString: Untagged
@@ -20949,6 +20950,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 27.328388, y: 23.109158, z: 6.239974}
   m_Center: {x: -1.0804386, y: 11.054579, z: -0.2318033}
+--- !u!114 &3274776168541942752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3520984929483116966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17424c0856e535b489bcd557d3a657c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: {fileID: 8300000, guid: 471941562e13a0b4dbb1b6aa63990ec1, type: 3}
+  crew: {fileID: 8300000, guid: 7c581f6780af14f4db0296ea4288d7f2, type: 3}
+  damage: {fileID: 8300000, guid: 2c844fdf4abce8045976cc18d71ebeec, type: 3}
+  money: {fileID: 8300000, guid: 6e218717436268c418be5e209e0e00ab, type: 3}
 --- !u!1 &3527155112047783112
 GameObject:
   m_ObjectHideFlags: 0
