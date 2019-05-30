@@ -9,6 +9,7 @@ using System.Text;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading.Tasks;
+using Debug = UnityEngine.Debug;
 
 public class Recognition : MonoBehaviour
 {
@@ -17,6 +18,11 @@ public class Recognition : MonoBehaviour
     static TcpListener tcpListener;
     static Thread tcpListenerThread;
     static TcpClient connectedTcpClient;
+    
+    private static TcpClient tcpclnt;
+    private static ASCIIEncoding asen;
+    private static Stream stm;
+    private static byte[] ba;
 
     static Process myProcess;
 
@@ -24,8 +30,6 @@ public class Recognition : MonoBehaviour
     static Function treatment;
 
     static bool loop;
-
-    static WindowsMicrophoneMuteLibrary.WindowsMicMute micMute;
 
     public static void start_recognition(Function f, string KeyWords = "", int time_s = 0)
     {
@@ -38,8 +42,8 @@ public class Recognition : MonoBehaviour
             // lancement de Recognition.exe
             myProcess = new Process();
 
-            myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Normal;
-            myProcess.StartInfo.CreateNoWindow = false;
+            myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            myProcess.StartInfo.CreateNoWindow = true;
 
             myProcess.StartInfo.FileName = "Recognition.exe";
             myProcess.StartInfo.Arguments = "recognition " + time_s + ((KeyWords != "") ? " " + KeyWords : "");
@@ -52,8 +56,12 @@ public class Recognition : MonoBehaviour
             tcpListenerThread.IsBackground = true;
             tcpListenerThread.Start();
 
-
-            //micMute = new WindowsMicrophoneMuteLibrary.WindowsMicMute();
+            
+            
+            tcpclnt = new TcpClient();
+            asen = new ASCIIEncoding();
+            tcpclnt.Connect("localhost", 8051);
+            stm = tcpclnt.GetStream();
         }
 
         catch (Exception e)
@@ -61,10 +69,23 @@ public class Recognition : MonoBehaviour
             throw e;
         }
     }
+    
+    private static void Transmition(string str)
+    {
+        try
+        {
+            ba = asen.GetBytes(str);
+            stm.Write(ba, 0, ba.Length);
+            Debug.Log("envoie mute/unmute");
+        }
+        catch
+        {
+            Environment.Exit(0);
+        }
+    }
 
     public static void stop_recognition()
     {
-        //micMute.UnMuteMic();
         myProcess.Kill();
         tcpListener.Stop();
         tcpListenerThread.Abort();
@@ -72,45 +93,34 @@ public class Recognition : MonoBehaviour
 
     private static void ListenForIncommingRequests()
     {
-        try
+        // création du serveur TCP
+        tcpListener = new TcpListener(IPAddress.Parse("127.0.0.1"), 8052);
+        tcpListener.Start();
+
+        Byte[] bytes = new Byte[1024];
+        while (loop)
         {
-            // création du serveur TCP
-            tcpListener = new TcpListener(IPAddress.Parse("127.0.0.1"), 8052);
-            tcpListener.Start();
-
-            Byte[] bytes = new Byte[1024];
-            while (loop)
+            using (connectedTcpClient = tcpListener.AcceptTcpClient())
             {
-                using (connectedTcpClient = tcpListener.AcceptTcpClient())
+                using (NetworkStream stream = connectedTcpClient.GetStream())
                 {
-                    using (NetworkStream stream = connectedTcpClient.GetStream())
+                    int length;
+                    while ((length = stream.Read(bytes, 0, bytes.Length)) != 0)
                     {
-                        int length;
-                        while ((length = stream.Read(bytes, 0, bytes.Length)) != 0)
+                        var incommingData = new byte[length];
+                        Array.Copy(bytes, 0, incommingData, 0, length);
+
+                        speech = Encoding.ASCII.GetString(incommingData);
+
+                        if (speech != "ENDOFTRANSMITION")
                         {
-                            var incommingData = new byte[length];
-                            Array.Copy(bytes, 0, incommingData, 0, length);
-
-                            speech = Encoding.ASCII.GetString(incommingData);
-
-                            if (speech != "ENDOFTRANSMITION")
-                            {
-                                //micMute.MuteMic();
-                                treatment(speech); // Fonction de traitement
-                                //micMute.UnMuteMic();
-                            }
-                            else
-                            {
-                                stop_recognition();
-                            }
+                            Transmition("Mute");
+                            treatment(speech); // Fonction de traitement
+                            Transmition("UnMute");
                         }
                     }
                 }
             }
-        }
-        catch (Exception e)
-        {
-            throw e;
         }
     }
 }

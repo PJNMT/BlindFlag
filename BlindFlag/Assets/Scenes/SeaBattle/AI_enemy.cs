@@ -18,7 +18,7 @@ public class AI_enemy : MonoBehaviour
     public static int HP;
     private static int Money;
     private static int XP;
-    public static int Lvl = -1;
+    public static int Lvl;
     public static int Damage;
     private static int BlindShip_LVL;
 
@@ -35,13 +35,13 @@ public class AI_enemy : MonoBehaviour
     void Start()
     {
         BlindShip_LVL = BlindShip_Stat.Lvl;
-        if (Lvl > 0)
+        if (BlindShip_LVL > 0)
         {
             if (BlindShip_LVL < 6) Lvl = Random.Range(1, Lvl);
             else Lvl = Random.Range(BlindShip_LVL - 5, BlindShip_LVL + 5);
         }
 
-        if (Lvl > 50) Lvl = 50;
+        if (BlindShip_LVL > 50) Lvl = 50;
 
         Damage = Lvl * 3;
         
@@ -185,6 +185,7 @@ public class AI_enemy : MonoBehaviour
 
     void Dead()
     {
+        Recognition.stop_recognition();
         BlindShip_Stat.Money += Money;
         BlindShip_Stat.XP += XP;
         Destroy(gameObject, 0f);

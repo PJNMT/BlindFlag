@@ -26,6 +26,10 @@ namespace Recognition
 
     class StT
     {
+        static TcpListener tcpListener;
+        static Thread tcpListenerThread;
+        static TcpClient connectedTcpClient;
+        
         private static string speech;
         private GrammarBuilder Word;
         private static Grammar Dico;
@@ -37,6 +41,8 @@ namespace Recognition
         private static byte[] ba;
 
         private static int WaitTime;
+        
+        static WindowsMicrophoneMuteLibrary.WindowsMicMute micMute;
 
         public StT(Choices WordsRecognition = null)
         {
@@ -54,6 +60,8 @@ namespace Recognition
                 WaitTime = 5;
                 Word = null;
             }
+            
+            micMute = new WindowsMicrophoneMuteLibrary.WindowsMicMute();
 
             try
             {
@@ -68,10 +76,46 @@ namespace Recognition
 
                 Console.WriteLine();
                 Console.WriteLine("Parlez...");
+                
+                
+                tcpListenerThread = new Thread(new ThreadStart(ListenForIncommingRequests));
+                tcpListenerThread.IsBackground = true;
+                tcpListenerThread.Start();
             }
             catch
             {
                 Environment.Exit(0);
+            }
+        }
+        
+        private static void ListenForIncommingRequests()
+        {
+            // création du serveur TCP
+            tcpListener = new TcpListener(IPAddress.Parse("127.0.0.1"), 8051);
+            tcpListener.Start();
+
+            Byte[] bytes = new Byte[1024];
+            while (true)
+            {
+                using (connectedTcpClient = tcpListener.AcceptTcpClient())
+                {
+                    using (NetworkStream stream = connectedTcpClient.GetStream())
+                    {
+                        int length;
+                        while ((length = stream.Read(bytes, 0, bytes.Length)) != 0)
+                        {
+                            var incommingData = new byte[length];
+                            Array.Copy(bytes, 0, incommingData, 0, length);
+
+                            speech = Encoding.ASCII.GetString(incommingData);
+
+                            if (speech == "Mute") micMute.MuteMic();
+                            else micMute.UnMuteMic();
+                            
+                            Console.WriteLine("MUTE/UNMUTE");
+                        }
+                    }
+                }
             }
         }
 

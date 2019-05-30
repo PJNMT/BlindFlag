@@ -82,9 +82,6 @@
     <Compile Include="Assets\Scenes\Port\change_scene.cs" />
     <Compile Include="Assets\Scenes\Port\Enter_shop.cs" />
     <Compile Include="Assets\Scenes\Port\mouette.cs" />
-    <Compile Include="Assets\Scenes\Port\mouette_1.cs" />
-    <Compile Include="Assets\Scenes\Port\mouette_2.cs" />
-    <Compile Include="Assets\Scenes\Port\mouette_3.cs" />
     <Compile Include="Assets\Scenes\Port\move.cs" />
     <Compile Include="Assets\Scenes\SeaBattle\AI_enemy.cs" />
     <Compile Include="Assets\Scenes\SeaBattle\Cannonball_controller.cs" />
@@ -141,19 +138,19 @@
     <None Include="Assets\Prefabs\Bibli son musique\Son\ambiance navi\Metadata\Return\{4788dacf-0623-408c-a0ef-28f8da445534}.xml" />
     <None Include="Assets\Prefabs\Bibli son musique\Son\ambiance navi\Metadata\EncodingSetting\{46117498-bed9-4711-a99c-17a8a7bd463b}.xml" />
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/mariu/Desktop/BlindFlag/BlindFlag/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Users/Jeanne/Desktop/MUTINY/BlindFlag/BlindFlag/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>C:/Users/mariu/Desktop/BlindFlag/BlindFlag/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>C:/Users/Jeanne/Desktop/MUTINY/BlindFlag/BlindFlag/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>C:/Users/mariu/Desktop/BlindFlag/BlindFlag/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>C:/Users/Jeanne/Desktop/MUTINY/BlindFlag/BlindFlag/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/mariu/Desktop/BlindFlag/BlindFlag/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/Jeanne/Desktop/MUTINY/BlindFlag/BlindFlag/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
-      <HintPath>C:/Users/mariu/Desktop/BlindFlag/BlindFlag/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+      <HintPath>C:/Users/Jeanne/Desktop/MUTINY/BlindFlag/BlindFlag/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -357,22 +354,22 @@
       <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="CoreAudioApi">
-      <HintPath>C:/Users/mariu/Desktop/BlindFlag/BlindFlag/Assets/packages/CoreAudioApi.dll</HintPath>
+      <HintPath>C:/Users/Jeanne/Desktop/MUTINY/BlindFlag/BlindFlag/Assets/packages/CoreAudioApi.dll</HintPath>
     </Reference>
     <Reference Include="MixerNativeLibrary">
-      <HintPath>C:/Users/mariu/Desktop/BlindFlag/BlindFlag/Assets/packages/MixerNativeLibrary.dll</HintPath>
+      <HintPath>C:/Users/Jeanne/Desktop/MUTINY/BlindFlag/BlindFlag/Assets/packages/MixerNativeLibrary.dll</HintPath>
     </Reference>
     <Reference Include="WindowsMicrophoneMuteLibrary">
-      <HintPath>C:/Users/mariu/Desktop/BlindFlag/BlindFlag/Assets/packages/WindowsMicrophoneMuteLibrary.dll</HintPath>
+      <HintPath>C:/Users/Jeanne/Desktop/MUTINY/BlindFlag/BlindFlag/Assets/packages/WindowsMicrophoneMuteLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
-      <HintPath>C:/Users/mariu/Desktop/BlindFlag/BlindFlag/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
+      <HintPath>C:/Users/Jeanne/Desktop/MUTINY/BlindFlag/BlindFlag/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>C:/Users/mariu/Desktop/BlindFlag/BlindFlag/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/Jeanne/Desktop/MUTINY/BlindFlag/BlindFlag/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>C:/Users/mariu/Desktop/BlindFlag/BlindFlag/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
+      <HintPath>C:/Users/Jeanne/Desktop/MUTINY/BlindFlag/BlindFlag/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:/Program Files/Unity/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>

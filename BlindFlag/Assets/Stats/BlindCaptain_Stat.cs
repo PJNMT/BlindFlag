@@ -75,6 +75,7 @@ public class BlindCaptain_Stat : MonoBehaviour
 
     public static void Dead()
     {
+        Recognition.stop_recognition();
         SetStat();
         BlindShip_Stat.SetStat();
         BlindShip_Stat.Money -= BlindShip_Stat.Money / 5;
