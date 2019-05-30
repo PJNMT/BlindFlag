@@ -18,7 +18,7 @@ public class move : MonoBehaviour
     {
         this.GetComponentInChildren<AudioSource>().mute = true;
 
-        
+
         moveSpeed = 0f;
     }
     /*scene = "";
@@ -110,7 +110,6 @@ private void PouC(string msg)
                             o.tag = "Le port";
                             break;
                         }
-
                     }
 
                     BlindShip_Stat.SceneLoad = 0;
@@ -125,7 +124,6 @@ private void PouC(string msg)
                             o.tag = "L'ile au trésor";
                             break;
                         }
-
                     }
 
                     BlindShip_Stat.SceneLoad = 0;
@@ -136,12 +134,8 @@ private void PouC(string msg)
         }
 
 
-
-
         moveSpeed = 0f;
         transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
-
-
 
 
         // if (Input.GetKey(KeyCode.UpArrow)) moveSpeed += 1f; //on augmente la vitesse ou on la baisse
@@ -150,14 +144,12 @@ private void PouC(string msg)
         {
             Debug.Log("bite");
             this.GetComponentInChildren<AudioSource>().mute = false;
-
-            
         }
 
         if (Input.GetKey(KeyCode.RightArrow)) this.GetComponentInChildren<AudioSource>().mute = true;
-            
-            //transform.Rotate(Vector3.up, turnSpeed * Time.deltaTime); //on tourne en f° du temps et non de l'update
-            // if (Input.GetKey(KeyCode.Space)) moveSpeed += 1f;
+
+        //transform.Rotate(Vector3.up, turnSpeed * Time.deltaTime); //on tourne en f° du temps et non de l'update
+        // if (Input.GetKey(KeyCode.Space)) moveSpeed += 1f;
 
         if (moveSpeed < 0f) moveSpeed = 0f;
         transform.Translate(Vector3.left * moveSpeed * Time.deltaTime); //on avance en f° du temps
@@ -173,19 +165,15 @@ private void PouC(string msg)
             mov.x = 0.1f;
         }
 */
+    }
 
-
-
-        }
-
-        private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.name == "Ship-Shop")
         {
-            if (other.gameObject.name == "Ship-Shop")
-            {
+            Debug.Log("PIPIPIPI");
 
-                Debug.Log("PIPIPIPI");
-
-                //SceneManager.LoadScene("chasseautrésor");
-            }
+            //SceneManager.LoadScene("chasseautrésor");
         }
     }
+}
