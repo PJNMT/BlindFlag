@@ -53,7 +53,7 @@ public class Recognition : MonoBehaviour
             tcpListenerThread.Start();
 
 
-            micMute = new WindowsMicrophoneMuteLibrary.WindowsMicMute();
+            //micMute = new WindowsMicrophoneMuteLibrary.WindowsMicMute();
         }
 
         catch (Exception e)
@@ -64,7 +64,7 @@ public class Recognition : MonoBehaviour
 
     public static void stop_recognition()
     {
-        micMute.UnMuteMic();
+        //micMute.UnMuteMic();
         myProcess.Kill();
         tcpListener.Stop();
         tcpListenerThread.Abort();
@@ -95,9 +95,9 @@ public class Recognition : MonoBehaviour
 
                             if (speech != "ENDOFTRANSMITION")
                             {
-                                micMute.MuteMic();
+                                //micMute.MuteMic();
                                 treatment(speech); // Fonction de traitement
-                                micMute.UnMuteMic();
+                                //micMute.UnMuteMic();
                             }
                             else
                             {

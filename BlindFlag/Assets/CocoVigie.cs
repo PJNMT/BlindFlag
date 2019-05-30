@@ -12,11 +12,16 @@ namespace Scenes
     public static bool TutoON;
     public bool activated;
     public bool quit;
+        
+        
     public bool pauseCoco;
+        
+   static WindowsMicrophoneMuteLibrary.WindowsMicMute micMute;
     
     
     void Answertraitement(string word)
     {
+        micMute.MuteMic();
         Debug.Log(word);
         if (pauseCoco)
         {
@@ -26,6 +31,7 @@ namespace Scenes
                 case "niveau":
 
                     Synthesis.synthesis("Blindcaptain niveau" + BlindCaptain_Stat.Lvl);
+                    
                     Thread.Sleep(5000);
                     break;
 
@@ -143,9 +149,10 @@ namespace Scenes
             }
         }
         
+       //micMute.UnMuteMic(); 
        if (!quit)
         {
-            UnityMainThreadDispatcher.Instance().Enqueue(() => Synthesis.synthesis("Voulez vous autre chose capitaine ?")); 
+            Synthesis.synthesis("Voulez vous autre chose capitaine ?"); 
         }
 
     }
@@ -162,11 +169,12 @@ namespace Scenes
         }
         
         Recognition.Function OkCoco = Traitement_Call;
-        Recognition.start_recognition(OkCoco,"Coco bab vigie",0);
+        Recognition.start_recognition(OkCoco,"Coco baba vigie",0);
 
         baba = GameObject.FindObjectOfType<Vigie>();
 
         quit = false;
+        micMute = new WindowsMicrophoneMuteLibrary.WindowsMicMute();
 
     }
 
@@ -180,6 +188,7 @@ namespace Scenes
             
             Recognition.Function AnswerCoco = Answertraitement;
             Debug.Log("nouvelle reco");
+            //micMute.UnMuteMic();
             Recognition.start_recognition(AnswerCoco, "non rien merci niveau bateau navire HP vie XP réputation épée sabre pistolet" +
                                                       "sauver sauvegarder quitter Ennemy Ile Vois Bateau ", 0);
             activated = false;
@@ -206,18 +215,23 @@ namespace Scenes
 
     void Traitement_Call(string mot)
     {
+        
         if (mot == "Coco")
         {
+            
             UnityMainThreadDispatcher.Instance().Enqueue(() =>Synthesis.synthesis("Coco Activé"));
             activated = true;
             
+            //micMute.MuteMic();
             UnityMainThreadDispatcher.Instance().Enqueue((() => Coco.Paused()));
             pauseCoco = true;
         }
 
-        if (mot == "baba" || mot == "vigie")
+       if (mot == "baba" || mot == "vigie")
         {
+            //micMute.MuteMic();
             UnityMainThreadDispatcher.Instance().Enqueue(() =>Synthesis.synthesis("Oui Capitaine ?"));
+            Debug.Log("baba");
             activated = true;
         }
        
