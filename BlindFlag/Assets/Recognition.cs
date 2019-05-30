@@ -25,20 +25,22 @@ public class Recognition : MonoBehaviour
 
     static bool loop;
 
+    static WindowsMicrophoneMuteLibrary.WindowsMicMute micMute;
+
     public static void start_recognition(Function f, string KeyWords = "", int time_s = 0)
     {
         try
         {
             treatment = f;
-            
+
             loop = true;
 
             // lancement de Recognition.exe
             myProcess = new Process();
-            
-            myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-            myProcess.StartInfo.CreateNoWindow = true;
-            
+
+            myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Normal;
+            myProcess.StartInfo.CreateNoWindow = false;
+
             myProcess.StartInfo.FileName = "Recognition.exe";
             myProcess.StartInfo.Arguments = "recognition " + time_s + ((KeyWords != "") ? " " + KeyWords : "");
             myProcess.EnableRaisingEvents = true;
@@ -49,6 +51,9 @@ public class Recognition : MonoBehaviour
             tcpListenerThread = new Thread(new ThreadStart(ListenForIncommingRequests));
             tcpListenerThread.IsBackground = true;
             tcpListenerThread.Start();
+
+
+            micMute = new WindowsMicrophoneMuteLibrary.WindowsMicMute();
         }
 
         catch (Exception e)
@@ -59,6 +64,7 @@ public class Recognition : MonoBehaviour
 
     public static void stop_recognition()
     {
+        micMute.UnMuteMic();
         myProcess.Kill();
         tcpListener.Stop();
         tcpListenerThread.Abort();
@@ -76,10 +82,10 @@ public class Recognition : MonoBehaviour
             while (loop)
             {
                 using (connectedTcpClient = tcpListener.AcceptTcpClient())
-                {					
+                {
                     using (NetworkStream stream = connectedTcpClient.GetStream())
                     {
-                        int length; 						
+                        int length;
                         while ((length = stream.Read(bytes, 0, bytes.Length)) != 0)
                         {
                             var incommingData = new byte[length];
@@ -89,7 +95,9 @@ public class Recognition : MonoBehaviour
 
                             if (speech != "ENDOFTRANSMITION")
                             {
+                                micMute.MuteMic();
                                 treatment(speech); // Fonction de traitement
+                                micMute.UnMuteMic();
                             }
                             else
                             {
