@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,6 +9,7 @@ public class VocalPrincipal : MonoBehaviour
     private VocalOptions vocal;
 
     private Start_ShipStats shipstats;
+    public GameObject Optionpanel;
 
     private Start_CaptainStats captstats;
     // Start is called before the first frame update
@@ -16,6 +18,7 @@ public class VocalPrincipal : MonoBehaviour
         vocal = GetComponent<VocalOptions>();
         Synthesis.synthesis("Bienvenue capitaine ! Vous voici dans l'Univers de BlindFlag. Voici vos commandes : continuer, commencer, options, quitter. Je vous écoute.");
         Recognition.Function Traitement = this.Traitement;
+        Thread.Sleep(7000);
         Recognition.start_recognition(Traitement, "continuer commencer options quitter parametre parametres", 20);
     }
 
@@ -37,7 +40,7 @@ public class VocalPrincipal : MonoBehaviour
                 Save.LoadGame();
                 break;
             case "commencer":
-                SceneManager.LoadScene(7);
+                UnityMainThreadDispatcher.Instance().Enqueue(() => SceneManager.LoadScene(7));
                 shipstats.enabled = true;
                 captstats.enabled = true;
                 break;
@@ -45,10 +48,9 @@ public class VocalPrincipal : MonoBehaviour
             case "options":
             case "parametres":
             case "parametre":
-                GameObject.Find("MainMenuPanel").SetActive(false);
-                GameObject.Find("OptionPanel").SetActive(true);
+                UnityMainThreadDispatcher.Instance().Enqueue(() => Optionpanel.SetActive(true));
                 VocalOptions.is_menu = true;
-                vocal.enabled = true;
+                UnityMainThreadDispatcher.Instance().Enqueue(() => GameObject.Find("MainMenuPanel").SetActive(false));
                 break;
             case "quitter":
                 QuitOnClick.Quit();
