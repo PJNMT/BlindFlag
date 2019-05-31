@@ -20,7 +20,7 @@ public class Mover_IA : MonoBehaviour
     {
         Marines = 0,
         Pirate,
-        Marchand,
+        Marchand, 
         Corsaire
     }
     
