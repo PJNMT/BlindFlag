@@ -2,6 +2,8 @@
 .vs/
 bin
 obj
+Library
+Library/
 .idea
 *.userprefs
 
