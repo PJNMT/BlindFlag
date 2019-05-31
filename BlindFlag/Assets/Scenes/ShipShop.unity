@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -176,8 +176,8 @@ MonoBehaviour:
   YourSwordCantBeUp: {fileID: 8300000, guid: 40c9d0f95ac658d4b9a160d83ac868d0, type: 3}
   YouDontHaveEngougthGold: {fileID: 8300000, guid: 321f448b7a5c06045a0d1953e4da0ea5,
     type: 3}
-  WhatDoUWantToDo_2: {fileID: 8300000, guid: 0608b1fa7585ebf49a5e81f60e9d6b0f, type: 3}
-  OkCaptaine: {fileID: 8300000, guid: 9517df0145c270d4cadb347a3dd26c0b, type: 3}
+  WhatDoUWantToDo_2: {fileID: 8300000, guid: a816a747c986aa04b9c6e7c9b306b9c5, type: 3}
+  OkCaptaine: {fileID: 8300000, guid: a89ee686df5dfe942be1fb3c033b0943, type: 3}
   Repaire: {fileID: 8300000, guid: f777227eb27e79d40b873fd6b9b3234d, type: 3}
   Taverne: {fileID: 1257577265}
   Street: {fileID: 900343517}

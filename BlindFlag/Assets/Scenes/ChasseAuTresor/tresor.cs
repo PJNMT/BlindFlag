@@ -66,13 +66,6 @@ public class tresor : MonoBehaviour
             continuer = true;
             StartCoroutine(Reco());
 
-            if (rightanswer)
-            {
-                Debug.Log("fin de la reco");
-                BlindShip_Stat.Money += or;
-                Synthesis.synthesis("Vous avez gagnai capitaine !");
-            }
-
         }
 
     }
@@ -82,6 +75,14 @@ public class tresor : MonoBehaviour
         if (Input.GetKey(KeyCode.Space))
         {
             recooptions = false;
+        }
+
+        if (rightanswer)
+        {
+            Recognition.stop_recognition();
+            Debug.Log("fin de la reco");
+            BlindShip_Stat.Money += or;
+            Synthesis.synthesis("Vous avez gagnai capitaine !");
         }
     }
 
@@ -95,6 +96,7 @@ public class tresor : MonoBehaviour
 
             yield return new WaitWhile(() => recooptions);
 
+            Debug.Log("Waitin for answer...");
             Recognition.Function Traitement2 = Answertraitement;
             Recognition.start_recognition(Traitement2);
 
