@@ -18,7 +18,8 @@ public class Mover_IA : MonoBehaviour
     {
         Marines = 0,
         Pirate,
-        Marchand
+        Marchand,
+        Corsaire
     }
     
     // Start is called before the first frame update
