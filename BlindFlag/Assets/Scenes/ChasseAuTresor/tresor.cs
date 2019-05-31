@@ -16,8 +16,11 @@ public class tresor : MonoBehaviour
     private static string _enigmefile = "enigme.txt";
     private int or;
 
-    public bool continuer = false;
-    public bool rightanswer = false;
+    public bool continuer;
+    public bool recooptions;
+    public bool rightanswer;
+    public static bool indice;
+    
     
     public float x;
     public float z;
@@ -28,64 +31,75 @@ public class tresor : MonoBehaviour
          x = Random.Range(2f, 98f);
          z = Random.Range(30f, 98f);
 
-
-        transform.position = new Vector3(x, 1f, z);
+          transform.position = new Vector3(0,0,20);
+        //transform.position = new Vector3(x, 1f, z);
         
         //crée l'objet enigme choisit et _enigma prends sa valeur
         Generateenigme();
         Debug.Log(_enigma._enigme);
-      
+
+        continuer = true;
+        recooptions = true;
+        rightanswer = false;
+        indice = false;
+
     }
 
    void OnTriggerEnter(Collider other)
     {
         Debug.Log(other.name);
-        if (other.name == "You" || other.name == "speakenigma" || other.name == "Sphere")
+        if (other.name == "You" || other.name == "Sphere")
         {
             FindObjectOfType<cubecontroller>().sedeplacer = false;
             Synthesis.synthesis("Vous avez trouvez le trésor capitaine ! Mais saurez vous répondre à cette énigme ?");
             Thread.Sleep(6000);
             
-            //Reconnaissance de la réponse du joueur
-            Recognition.Function Traitement = Optionstreatement;
-            
             //Dis l'énigme au joueur
-            SpeakEnigma(_enigma);
-            string lecturetraitement;
+            Synthesis.synthesis(_enigma._enigme);
+            Thread.Sleep(10000);
             
-            bool continuer = true;
             
-            Debug.Log("start");
-            Recognition.start_recognition(Traitement, "chat indice aide répète répéter",0);
+            //Ajoute l'énigme comme déjà jouée
+           _path.Add(_enigma._number); 
+            
+            //Commence LA coroutine de reco vocale
+            continuer = true;
+            StartCoroutine(Reco());
 
-            while (continuer)
-            {
-                if (Input.GetKey(KeyCode.Space))
-                {
-                    Recognition.Function Traitement2 = Answertraitement;
-                    Recognition.stop_recognition();
-                    Recognition.start_recognition(Traitement2);  //Reconnait si une réponse est attendue
-                    Thread.Sleep(10000);
-                    
-                    Recognition.stop_recognition();
-                    Recognition.start_recognition(Traitement, "chat indice aide répète répéter",0);
-                    
-                }
-            }
-            
-            
-            _path.Add(_enigma._number);
-            
-            //récupération de l'issue de la réponse
             if (rightanswer)
             {
-              
-                Synthesis.synthesis("Vous avez gagné " + or + "pièces d'or");
-                Thread.Sleep(3000);
-                //BlindShip_Stat.AddMoney(new AudioSource(), or);
+                Debug.Log("fin de la reco");
+                BlindShip_Stat.Money += or;
+                Synthesis.synthesis("Vous avez gagné capitaine !");
             }
+
         }
 
+    }
+    
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.Space))
+        {
+            recooptions = false;
+        }
+    }
+
+    IEnumerator Reco()
+    {
+        while (continuer)
+        {
+            Debug.Log("Waiting for options answer....");
+            Recognition.Function Traitement = Optionstreatement;
+            Recognition.start_recognition(Traitement, "chat indice aide répète répéter réentendre énigme", 0);
+
+            yield return new WaitWhile(() => recooptions);
+
+            Recognition.Function Traitement2 = Answertraitement;
+            Recognition.start_recognition(Traitement2);
+
+            Debug.Log("Donne ta réponse Wolila !");
+        }
     }
     
     
@@ -115,26 +129,32 @@ public class tresor : MonoBehaviour
 
     static void SpeakEnigma(Enigma enigma)
     {
-        //Recognition.stop_recognition();
         Synthesis.synthesis(enigma._enigme);
         Thread.Sleep(10000);
     }
 
     static void SpeakIndice(Enigma enigma)
     {
-        //Recognition.stop_recognition();
-        Synthesis.synthesis(enigma._indice);
-        Thread.Sleep(2000);
+        if (!indice)
+        {
+            Synthesis.synthesis(enigma._indice);
+            Thread.Sleep(2000);
+        }
+        
     }
     
     void Optionstreatement(string input)
     {
+        Debug.Log(input);
        switch (input)
         {
             case "répète":
             case "répéter":
+            case "réentendre":
+            case "énigme":
             {
-                tresor.SpeakEnigma(_enigma);
+                Synthesis.synthesis(_enigma._enigme);
+                Thread.Sleep(10000);
                 continuer = true;
                 break;
             }
@@ -149,7 +169,9 @@ public class tresor : MonoBehaviour
 
             case "chat":
             {
-               continuer = false;
+                Synthesis.synthesis("Vous abandonnez si tôt capitaine ? Dommage...");
+                rightanswer = false;
+                continuer = false;
                break;
             }
         }            
@@ -158,6 +180,7 @@ public class tresor : MonoBehaviour
 
     void Answertraitement(string input)
     {
+        Debug.Log(input);
         if (input == _enigma._answer)
         {
             continuer = false;
@@ -166,16 +189,6 @@ public class tresor : MonoBehaviour
         }
     }
     
-    public float[] Getposition()
-    {
-        return new[] {x, z};
-    }
-
-    private void Lauch_reco(Recognition.Function treatement,string input, int time)
-    {
-        Recognition.start_recognition(treatement,input,time);
-    }
-
 }
 
 public  class Enigma : MonoBehaviour
