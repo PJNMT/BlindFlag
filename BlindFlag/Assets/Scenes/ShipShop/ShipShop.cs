@@ -22,9 +22,13 @@ namespace Scenes.Scenes.ShipShop
         public AudioClip Repaire;
 
         private AudioSource Audio;
+        public GameObject Taverne;
+        public GameObject Street;
         
         void Start()
         {
+            Taverne.GetComponent<AudioSource>().Play();
+            Street.GetComponent<AudioSource>().Play();
             Audio = GetComponent<AudioSource>();
             Launch(true, "raiparer amailiorer aiquipement quitter partir");
         }
