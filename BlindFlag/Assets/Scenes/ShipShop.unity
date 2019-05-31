@@ -112,6 +112,24 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &19447791 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3273055287566686425, guid: 536548e4e904b8d4596f690b5da6065d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1277520767}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &19447799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19447791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5a936a2761283c4bb8afc05f0420df0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &47343595
 GameObject:
   m_ObjectHideFlags: 0
@@ -149,7 +167,7 @@ MonoBehaviour:
   WhatDoUWantToDo_1: {fileID: 8300000, guid: f8180a96130c53a4aaa2971a30b7bc02, type: 3}
   GoodBye: {fileID: 8300000, guid: d08afcd4b04f2e141ba0e88043ea34e4, type: 3}
   Hello: {fileID: 8300000, guid: e8435111ac42ad642b6c3340d9d21adf, type: 3}
-  Enter: {fileID: 0}
+  Enter: {fileID: 8300000, guid: d91c1f1771c576a4491f0cda2b767944, type: 3}
   Gold: {fileID: 8300000, guid: d7221e49b60106240b73206983cc2cd2, type: 3}
   WhatDoUWantToDo: {fileID: 8300000, guid: 3e0546ed0cd40bf47a783365f7abb1a5, type: 3}
   CannonCantBeUp: {fileID: 8300000, guid: 0842ce6c27834e0468096f2b67bf3bd5, type: 3}
@@ -158,8 +176,8 @@ MonoBehaviour:
   YourSwordCantBeUp: {fileID: 8300000, guid: 40c9d0f95ac658d4b9a160d83ac868d0, type: 3}
   YouDontHaveEngougthGold: {fileID: 8300000, guid: 321f448b7a5c06045a0d1953e4da0ea5,
     type: 3}
-  WhatDoUWantToDo_2: {fileID: 0}
-  OkCaptaine: {fileID: 0}
+  WhatDoUWantToDo_2: {fileID: 8300000, guid: 0608b1fa7585ebf49a5e81f60e9d6b0f, type: 3}
+  OkCaptaine: {fileID: 8300000, guid: 9517df0145c270d4cadb347a3dd26c0b, type: 3}
   Repaire: {fileID: 8300000, guid: f777227eb27e79d40b873fd6b9b3234d, type: 3}
   Taverne: {fileID: 1257577265}
   Street: {fileID: 900343517}
@@ -268,7 +286,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 10
+  MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -740,9 +758,9 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c9b203ed26ebe3247be43ff1ebad0cc2, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.25
+  m_Volume: 0.4
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1201,9 +1219,9 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 23fa80a32c9594a48b59994b1947996d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.25
+  m_Volume: 0.4
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1382,7 +1400,7 @@ PrefabInstance:
     - target: {fileID: 3273055287566686424, guid: 536548e4e904b8d4596f690b5da6065d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3273055287566686424, guid: 536548e4e904b8d4596f690b5da6065d,
         type: 3}

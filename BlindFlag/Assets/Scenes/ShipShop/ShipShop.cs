@@ -38,11 +38,9 @@ namespace Scenes.Scenes.ShipShop
             if (enter)
             {
                 UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(Enter));
-                UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.volume = 0.5f);
-                UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) Enter.length * 1000));
+                UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) Enter.length * 1000 + 500));
                 
                 UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(Hello));
-                UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.volume = 1f);
                 UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) Hello.length * 1000 + 500));
             }
             
@@ -55,16 +53,13 @@ namespace Scenes.Scenes.ShipShop
             UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(Gold));
             UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) Gold.length * 1000 + 500));
             
-            UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(WhatDoUWantToDo));
-            UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) WhatDoUWantToDo.length * 1000 + 500));
-
             Recognition.Function Func;
-            
-            UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(WhatDoUWantToDo));
-            UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) WhatDoUWantToDo.length * 1000 + 500));
 
             if (WDUWTD)
             {
+                UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(WhatDoUWantToDo));
+                UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) WhatDoUWantToDo.length * 1000 + 500));
+                
                 UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(WhatDoUWantToDo_1));
                 UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) WhatDoUWantToDo_1.length * 1000 + 500));
                 Func = MainFunc;
@@ -79,9 +74,9 @@ namespace Scenes.Scenes.ShipShop
             UnityMainThreadDispatcher.Instance().Enqueue(() => Recognition.start_recognition(Func, WordList));
         }
         
-        private void repair()
+        private void repair() 
         {
-            int cost = (BlindShip_Stat.HP / BlindShip_Stat.Max_HP) * 1000 * BlindShip_Stat.Lvl;
+            int cost = (int) ((BlindShip_Stat.Max_HP / (float) BlindShip_Stat.HP) * 10);
             
             if (cost <= BlindShip_Stat.Money)
             {
@@ -102,41 +97,35 @@ namespace Scenes.Scenes.ShipShop
         {
             UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(GoodBye));
             UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) GoodBye.length * 1000 + 500));
+            UnityMainThreadDispatcher.Instance().Enqueue(() => Recognition.stop_recognition());
             UnityMainThreadDispatcher.Instance().Enqueue(() => SceneManager.LoadScene("Port"));
         }
 
         private void MainFunc(string speech)
         {
-            UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(OkCaptaine));
-            UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) OkCaptaine.length * 1000 + 500));
-            
             if (speech != "quitter" && speech != "partir")
             {
+                UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(OkCaptaine));
+                UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) OkCaptaine.length * 1000 + 500));
+                
                 switch (speech)
                 {
                     case "raiparer":
                         repair();
+                        Launch(true, "raiparer amailiorer aiquipement quitter partir");
                         break;
 
                     case "aiquipement":
                     case "amailiorer":
                         Launch(false, "cannon capacitai calle quartier aiquipage sabre aipai pistolet fusil rien");
-                        // Que voulez-vous améliorer ?
-                        // Vos canons, la capicité de votre calle, les quartiers de votre équipage, votre sabre ou votre fusil ?
-                        // Ou bien alors ne rien faire ?
                         break;
                 }
-                
-                Launch(true, "raiparer amailiorer aiquipement quitter partir");
             }
             else Quit();
         }
 
         private void SecondFunc(string speech)
         {
-            UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(OkCaptaine));
-            UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) OkCaptaine.length * 1000 + 500));
-            
             int cost = 0;
         
             if (speech != "rien")
@@ -144,11 +133,14 @@ namespace Scenes.Scenes.ShipShop
                 switch (speech)
                 {
                     case "canon":
-                        if (BlindShip_Stat.Damage != BlindShip_Stat.Max_Damage)
+                        if (BlindShip_Stat.Damage < BlindShip_Stat.Max_Damage)
                         {
                             cost = (BlindShip_Stat.Damage / BlindShip_Stat.Max_Damage) * 1000 * BlindShip_Stat.Lvl;
                             if (cost <= BlindShip_Stat.Money)
                             {
+                                UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(OkCaptaine));
+                                UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) OkCaptaine.length * 1000 + 500));
+                                
                                 BlindShip_Stat.Money -= cost;
                                 BlindShip_Stat.Damage += 3;
                             }
@@ -170,6 +162,9 @@ namespace Scenes.Scenes.ShipShop
                         cost = (BlindShip_Stat.Money / BlindShip_Stat.Max_Money) * 1000 * BlindShip_Stat.Lvl;
                         if (cost <= BlindShip_Stat.Money)
                         {
+                            UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(OkCaptaine));
+                            UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) OkCaptaine.length * 1000 + 500));
+                            
                             BlindShip_Stat.Money -= cost;
                             BlindShip_Stat.Max_Money += 500;
                         }
@@ -185,6 +180,9 @@ namespace Scenes.Scenes.ShipShop
                         cost = (BlindShip_Stat.Crew / BlindShip_Stat.Max_Crew) * 1000 * BlindShip_Stat.Lvl;
                         if (cost <= BlindShip_Stat.Money)
                         {
+                            UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(OkCaptaine));
+                            UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) OkCaptaine.length * 1000 + 500));
+                            
                             BlindShip_Stat.Money -= cost;
                             BlindShip_Stat.Max_Crew += 2;
                         }
@@ -197,11 +195,14 @@ namespace Scenes.Scenes.ShipShop
 
                     case "pistolet":
                     case "fusil":
-                        if (BlindCaptain_Stat.GunDamage != BlindCaptain_Stat.Max_GunDamage)
+                        if (BlindCaptain_Stat.GunDamage < BlindCaptain_Stat.Max_GunDamage)
                         {
                             cost = (BlindCaptain_Stat.GunDamage / BlindCaptain_Stat.Max_GunDamage) * 1000 * BlindCaptain_Stat.Lvl;
                             if (cost <= BlindShip_Stat.Money)
                             {
+                                UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(OkCaptaine));
+                                UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) OkCaptaine.length * 1000 + 500));
+                                
                                 BlindShip_Stat.Money -= cost;
                                 BlindCaptain_Stat.GunDamage += 10;
                             }
@@ -220,11 +221,14 @@ namespace Scenes.Scenes.ShipShop
 
                     case "sabre":
                     case "aipai":
-                        if (BlindCaptain_Stat.SwordDamage != BlindCaptain_Stat.Max_SwordDamage)
+                        if (BlindCaptain_Stat.SwordDamage < BlindCaptain_Stat.Max_SwordDamage)
                         {
                             cost = (BlindCaptain_Stat.SwordDamage / BlindCaptain_Stat.Max_SwordDamage) * 1000 * BlindCaptain_Stat.Lvl;
                             if (cost <= BlindShip_Stat.Money)
                             {
+                                UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(OkCaptaine));
+                                UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) OkCaptaine.length * 1000 + 500));
+                                
                                 BlindShip_Stat.Money -= cost;
                                 BlindCaptain_Stat.SwordDamage += 5;
                             }

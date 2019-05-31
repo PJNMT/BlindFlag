@@ -91,6 +91,8 @@ public class Recognition : MonoBehaviour
         if (myProcess != null) myProcess.Kill();
         if (tcpListener != null) tcpListener.Stop();
         if (tcpListenerThread != null) tcpListenerThread.Abort();
+        if (tcpclnt != null) tcpclnt.Close();
+        if (stm != null) stm.Close();
     }
 
     private static void ListenForIncommingRequests()
