@@ -1,9 +1,21 @@
 fileFormatVersion: 2
-guid: e05ccb8a196142446b7ae85631c7e810
+guid: 1a98c2a177964cf6b32d585940e71701
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - WhatDoUWantToDo_1: {fileID: 8300000, guid: f8180a96130c53a4aaa2971a30b7bc02, type: 3}
+  - GoodBye: {fileID: 8300000, guid: d08afcd4b04f2e141ba0e88043ea34e4, type: 3}
+  - Hello: {fileID: 8300000, guid: e8435111ac42ad642b6c3340d9d21adf, type: 3}
+  - Enter: {fileID: 8300000, guid: d91c1f1771c576a4491f0cda2b767944, type: 3}
+  - Gold: {fileID: 8300000, guid: d7221e49b60106240b73206983cc2cd2, type: 3}
+  - WhatDoUWantToDo: {fileID: 8300000, guid: 3e0546ed0cd40bf47a783365f7abb1a5, type: 3}
+  - CannonCantBeUp: {fileID: 8300000, guid: 0842ce6c27834e0468096f2b67bf3bd5, type: 3}
+  - YourGoldRise: {fileID: 8300000, guid: cd002c4209a0698479f11a5e09db8a99, type: 3}
+  - YourGunCantBeUp: {fileID: 8300000, guid: affb5d6b1ea188749ba3775ae3eab00c, type: 3}
+  - YourSwordCantBeUp: {fileID: 8300000, guid: 40c9d0f95ac658d4b9a160d83ac868d0, type: 3}
+  - YouDontHaveEngougthGold: {fileID: 8300000, guid: 321f448b7a5c06045a0d1953e4da0ea5,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

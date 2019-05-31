@@ -35,6 +35,8 @@ public class Recognition : MonoBehaviour
     {
         try
         {
+            stop_recognition();
+            
             treatment = f;
 
             loop = true;
@@ -86,9 +88,9 @@ public class Recognition : MonoBehaviour
 
     public static void stop_recognition()
     {
-        myProcess.Kill();
-        tcpListener.Stop();
-        tcpListenerThread.Abort();
+        if (myProcess != null) myProcess.Kill();
+        if (tcpListener != null) tcpListener.Stop();
+        if (tcpListenerThread != null) tcpListenerThread.Abort();
     }
 
     private static void ListenForIncommingRequests()
