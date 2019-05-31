@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading;
+using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.Audio;
 using Debug = UnityEngine.Debug;
@@ -26,6 +27,8 @@ public class     simon : MonoBehaviour
     private int i;
     private taverne taverne;
     private bool activated;
+
+    private Record recorder;
     
     
    
@@ -34,20 +37,21 @@ public class     simon : MonoBehaviour
     void Start()
     {
         Debug.Log("chanter");
-        _musicRecognition = gameObject.AddComponent<Music_Recognition>();
-        _musicRecognition.Is_right(_musicRecognition.AnalyzeSound(), "La_", 1.5f);
-        taverne = gameObject.GetComponent<taverne>();
-        activated = false;
-
-        _musicRecognition = gameObject.AddComponent<Music_Recognition>();
-
-        audio = GetComponent<AudioSource>();
-        audio.clip = musics[0];
-
-        i = 0;
-
+        recorder = gameObject.AddComponent<Record>();
         
-
+        recorder.Recorder(2);
+        
+        /* _musicRecognition = gameObject.AddComponent<Music_Recognition>();
+         _musicRecognition.Is_right(_musicRecognition.AnalyzeSound(), "La_", 1.5f);
+         taverne = gameObject.GetComponent<taverne>();
+         activated = false;
+ 
+         _musicRecognition = gameObject.AddComponent<Music_Recognition>();
+ 
+         audio = GetComponent<AudioSource>();
+         audio.clip = musics[0];
+ 
+         i = 0;*/
     }
 
     // Update is called once per frame
