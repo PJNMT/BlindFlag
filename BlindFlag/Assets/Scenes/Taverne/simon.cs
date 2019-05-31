@@ -33,15 +33,20 @@ public class     simon : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("chanter");
+        _musicRecognition = gameObject.AddComponent<Music_Recognition>();
+        _musicRecognition.Is_right(_musicRecognition.AnalyzeSound(), "La_", 1.5f);
         taverne = gameObject.GetComponent<taverne>();
         activated = false;
 
         _musicRecognition = gameObject.AddComponent<Music_Recognition>();
+
+        audio = GetComponent<AudioSource>();
         audio.clip = musics[0];
 
         i = 0;
 
-        //Jeu();
+        
 
     }
 
@@ -56,13 +61,27 @@ public class     simon : MonoBehaviour
         }
     }
 
-   
+    private void Reco_Correct()
+    {
+        for (int j =0; j<i; j++)
+        {
+            correct = _musicRecognition.Is_right(_musicRecognition.AnalyzeSound(), notes[j], 1.5f);    //Vérifie que chaque note est juste
+                        
+            //Si une note est mauvaise le jeu s'arrête et le capitaine perd sa mise.
+            if (!correct)
+            {
+                Synthesis.synthesis("Faudrait sonGer à vous améliorer capitaine.");
+                BlindShip_Stat.Money -= mise;
+                break;
+            }
+        }
+    }
 
 
     private void OnTriggerEnter(Collider other)
     {
 
-        if (other.gameObject.name == "You")
+        /*if (other.gameObject.name == "You")
         {
 
             StartCoroutine(Play());
@@ -175,6 +194,7 @@ public class     simon : MonoBehaviour
     IEnumerator Play()
     {
         i = 1;
+        
         while (i <= (int) audio.clip.length)
         {
             Debug.Log("on play");
@@ -182,6 +202,7 @@ public class     simon : MonoBehaviour
 
             //Wait for i seconds
             yield return new WaitForSeconds(i);
+            yield return new WaitUntil(() => !correct);
             Debug.Log("waintin");
 
             this.audio.Stop();

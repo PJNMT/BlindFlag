@@ -20,7 +20,7 @@ public class Music_Recognition : MonoBehaviour
     private  float _fSample;
 
     private  Dictionary<string, float> music_reference = new Dictionary<string, float>();
-    private  Dictionary<string, float> base_reference = new Dictionary<string, float>();
+    private  Dictionary<string, float> base_reference; 
 
      string note;
      float high;
@@ -51,8 +51,9 @@ public class Music_Recognition : MonoBehaviour
     }*/
 
 
-    void start_recognition()
+    public void start_recognition()
     {
+        base_reference = new Dictionary<string, float>();
         _samples = new float[QSamples];
         _spectrum = new float[QSamples];
         _fSample = AudioSettings.outputSampleRate;
@@ -61,7 +62,7 @@ public class Music_Recognition : MonoBehaviour
         base_reference.Add("Mi_", 41.20f); base_reference.Add("Fa_", 43.65f); base_reference.Add("Fa#_", 46.25f); base_reference.Add("Sol_", 49.00f);
         base_reference.Add("Sol#_", 51.91f); base_reference.Add("La_", 55.00f); base_reference.Add("La#_", 58.27f); base_reference.Add("Si_", 61.74f);
 
-        foreach (var reference in base_reference)       // Créer la table de correspondance entre les notes et la fréquence en Hertz
+       /* foreach (var reference in base_reference)       // Créer la table de correspondance entre les notes et la fréquence en Hertz
         {
             note = reference.Key;
             high = reference.Value;
@@ -72,22 +73,27 @@ public class Music_Recognition : MonoBehaviour
                 music_reference.Add(note + i, high * pow);
                 pow *= 2;
             }
-        }
+        }*/
 
     }
 
     public bool Is_right(float note_user, string note, float limit)
     {
-        float notefloat = base_reference[note];
-        for (int i = 0; i < 8; i++)
+        float note_reference = base_reference[note];
+        int i = 0;
+        bool correct = false;
+
+        while (!correct && i<8)
         {
-            double a = notefloat * Math.Pow(2, i);
+            double a = note_reference * Math.Pow(2, i);
             if (note_user <= a +limit  && note_user >= a- limit)
             {
-                return true;
+                correct = true;
             }
+
+            i += 1;
         }
-        return false;
+        return correct ;
     }
 
     public float AnalyzeSound()
