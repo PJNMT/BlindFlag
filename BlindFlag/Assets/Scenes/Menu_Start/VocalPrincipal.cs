@@ -16,14 +16,15 @@ public class VocalPrincipal : MonoBehaviour
         vocal = GetComponent<VocalOptions>();
         Synthesis.synthesis("Bienvenue capitaine ! Vous voici dans l'Univers de BlindFlag. Voici vos commandes : continuer, commencer, options, quitter. Je vous écoute.");
         Recognition.Function Traitement = this.Traitement;
-        Recognition.start_recognition(Traitement, "continuer commencer options quitter paramètre paramètres", 20);
+        Recognition.start_recognition(Traitement, "continuer commencer options quitter parametre parametres", 20);
     }
 
     void Restart()
     {
         Synthesis.synthesis("Je n'ai pas compris votre demande. Voici vos commandes : continuer, commencer, options, quitter. Je vous écoute.");
+        Recognition.stop_recognition();
         Recognition.Function Traitement = this.Traitement;
-        Recognition.start_recognition(Traitement, "continuer commencer options option paramètre paramètres quitter", 10);
+        Recognition.start_recognition(Traitement, "continuer commencer options option parametre parametres quitter", 10);
     }
 
     // Update is called once per frame
@@ -42,8 +43,8 @@ public class VocalPrincipal : MonoBehaviour
                 break;
             case "option":
             case "options":
-            case "paramètres":
-            case "paramètre":
+            case "parametres":
+            case "parametre":
                 GameObject.Find("MainMenuPanel").SetActive(false);
                 GameObject.Find("OptionPanel").SetActive(true);
                 VocalOptions.is_menu = true;
