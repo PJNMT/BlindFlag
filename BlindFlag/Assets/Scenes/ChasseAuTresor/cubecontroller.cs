@@ -35,7 +35,7 @@ public class cubecontroller : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
-		transform.position = new Vector3(50f, 1f, 5f);
+		transform.position = new Vector3(0f, 0f, 0f);
 		x = 2;
 		z = 0;
 
@@ -50,6 +50,17 @@ public class cubecontroller : MonoBehaviour
 
 		if (sedeplacer)
 		{
+			if (transform.position.x>98)
+			{
+				z = transform.position.z;
+				transform.position = new Vector3(98f,0f,z);
+			}
+
+			if (transform.position.z > 98)
+			{
+				x = transform.position.x;
+				transform.position = new Vector3(x,0f,98f);
+			}
 			Vector3 move = new Vector3();
 
 			// Récupération des touches haut et bas
