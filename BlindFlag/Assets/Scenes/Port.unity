@@ -455,7 +455,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 8d3329464224700419e28f07b2cb2401, type: 3}
+  m_audioClip: {fileID: 8300000, guid: d0b2c021a9bfbc244821276b70439a71, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -646,6 +646,7 @@ GameObject:
   - component: {fileID: 426587381}
   - component: {fileID: 426587380}
   - component: {fileID: 426587383}
+  - component: {fileID: 426587384}
   m_Layer: 0
   m_Name: Plane (11)
   m_TagString: Untagged
@@ -822,6 +823,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &426587384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426587378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6822b1d644b12854c866c26334c6dceb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &435858321
 GameObject:
   m_ObjectHideFlags: 0
@@ -1895,7 +1908,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1195666395}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -3060,6 +3073,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a0d1194ae36c3e4b997fe644e108e41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dist: 20
   moveSpeed: 0
   turnSpeed: 50
 --- !u!4 &1950681512 stripped

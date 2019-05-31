@@ -28,7 +28,7 @@ public class Mover_IA : MonoBehaviour
     void Start()
     {
         target = null;
-        type = BoatType.Marchand;//(BoatType)(Random.Range(0, 3));
+        //(BoatType)(Random.Range(0, 3));
         int OurLevel = 10;
         Level = Random.Range(OurLevel-3,OurLevel+6);
         Speed = 50;
@@ -95,7 +95,7 @@ public class Mover_IA : MonoBehaviour
         }
         
         
-        
+         
     }
     private double Distance(GameObject O_O)
     {
