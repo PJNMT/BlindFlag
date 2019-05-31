@@ -17,32 +17,29 @@ public class move : MonoBehaviour
     void Start()
     {
         this.GetComponentInChildren<AudioSource>().mute = true;
-
-
         moveSpeed = 0f;
+        scene = "";
+        Synthesis.synthesis("Ou voulez vous aller Capitaine ? A la taverne ? Au magasin ? ou bien voulez vous repartir ?");
+        Recognition.Function F1 = choix;
+        Recognition.start_recognition(F1,"taverne magasin partir quitter partons", 20);
     }
-    /*scene = "";
-    Synthesis.synthesis("Ou voulez vous aller Capitaine ? A la taverne ? Au magasin ? ou bien voulez vous repartir ?");
-    Recognition.Function F1 = choix;
-    Recognition.start_recognition(F1,"taverne magasin partir quitter partons", 20);
-}
 
 
-private void choix(string msg)
-{
-    switch (msg)
+    private void choix(string msg)
     {
-            case "taverne" :
-                scene = "taverne";
-
-                break;
-            case "magasin":
+        switch (msg)
+        {
+             case "taverne" :
+                 scene = "taverne";
+    
+                 break;
+                case "magasin":
                 scene = "magasin";
                 
                 break;
-            case "quitter":
-            case "partons":
-            case "partir" :
+             case "quitter":
+             case "partons":
+             case "partir" :
                 Synthesis.synthesis("Voulez vous allez au prochain port ou chercher un trésor ?");
                 Recognition.Function F2 = PouC;
                 Recognition.start_recognition(F2,"trésor port", 20);
@@ -75,7 +72,7 @@ private void PouC(string msg)
                 
     }
 }
-*/
+
 
     public float moveSpeed;
 
@@ -88,19 +85,18 @@ private void PouC(string msg)
         {
             switch (scene)
             {
-                /*
-                                    case "taverne" : 
+                 case "taverne" : 
                                         
-                                        SceneManager.LoadScene("taverne");
-                                        BlindShip_Stat.SceneLoad = 3;
-                                        SceneManager.UnloadSceneAsync("port");
-                                        break;
-                                    case "magasin" :
+                     SceneManager.LoadScene("taverne");
+                     BlindShip_Stat.SceneLoad = 3;
+                     SceneManager.UnloadSceneAsync("port");
+                     break;
+                 case "magasin" :
                                         
-                                        SceneManager.LoadScene("ShipShop");
-                                        BlindShip_Stat.SceneLoad = 6;
-                                        SceneManager.UnloadSceneAsync("port");
-                                        break;*/
+                     SceneManager.LoadScene("ShipShop");
+                     BlindShip_Stat.SceneLoad = 6;
+                     SceneManager.UnloadSceneAsync("port");
+                     break;
                 case "port":
                     SceneManager.LoadScene("navi");
                     foreach (GameObject o in SceneManager.GetSceneByName("navi").GetRootGameObjects())
@@ -140,7 +136,7 @@ private void PouC(string msg)
 
         // if (Input.GetKey(KeyCode.UpArrow)) moveSpeed += 1f; //on augmente la vitesse ou on la baisse
         // if (Input.GetKey(KeyCode.DownArrow)) moveSpeed -= 1f;
-        if (Input.GetKey(KeyCode.LeftArrow))
+       /* if (Input.GetKey(KeyCode.LeftArrow))
         {
             Debug.Log("bite");
             this.GetComponentInChildren<AudioSource>().mute = false;
@@ -151,7 +147,7 @@ private void PouC(string msg)
         //transform.Rotate(Vector3.up, turnSpeed * Time.deltaTime); //on tourne en f° du temps et non de l'update
         // if (Input.GetKey(KeyCode.Space)) moveSpeed += 1f;
 
-        if (moveSpeed < 0f) moveSpeed = 0f;
+        if (moveSpeed < 0f) moveSpeed = 0f;*/
         transform.Translate(Vector3.left * moveSpeed * Time.deltaTime); //on avance en f° du temps
 
 /*      transform.position += mov;
@@ -167,13 +163,4 @@ private void PouC(string msg)
 */
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.name == "Ship-Shop")
-        {
-            Debug.Log("PIPIPIPI");
-
-            //SceneManager.LoadScene("chasseautrésor");
-        }
-    }
 }
