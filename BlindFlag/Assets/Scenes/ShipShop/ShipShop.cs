@@ -26,7 +26,7 @@ namespace Scenes.Scenes.ShipShop
         void Start()
         {
             Audio = GetComponent<AudioSource>();
-            Launch(true, "réparer améliorer équipement quiter partir");
+            Launch(true, "raiparer amailiorer aiquipement quitter partir");
         }
 
         private void Launch(bool WDUWTD, string WordList, bool enter = false)
@@ -106,21 +106,22 @@ namespace Scenes.Scenes.ShipShop
             UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(OkCaptaine));
             UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) OkCaptaine.length * 1000 + 500));
             
-            if (speech != "quiter" && speech != "partir")
+            if (speech != "quitter" && speech != "partir")
             {
                 switch (speech)
                 {
-                    case "réparer":
+                    case "raiparer":
                         repair();
                         break;
 
-                    case "équipement":
-                    case "améliorer":
-                        Launch(false, "cannon capacité calle quartier équipage sabre épée pistolet fusil rien");
+                    case "aiquipement":
+                    case "amailiorer":
+                        Launch(false, "cannon capacitai calle quartier aiquipage sabre aipai pistolet fusil rien");
+                        // Que voulez-vous améliorer ? Vos canons, la capicité de votre calle, les quartiers de votre équipage, votre sabre ou votre fusil ? Ou bien alors ne rien faire ?
                         break;
                 }
                 
-                Launch(true, "réparer améliorer équipement quiter partir");
+                Launch(true, "raiparer amailiorer aiquipement quitter partir");
             }
             else Quit();
         }
@@ -158,7 +159,7 @@ namespace Scenes.Scenes.ShipShop
                         }
                         break;
 
-                    case "capacité":
+                    case "capacitai":
                     case "calle":
                         cost = (BlindShip_Stat.Money / BlindShip_Stat.Max_Money) * 1000 * BlindShip_Stat.Lvl;
                         if (cost <= BlindShip_Stat.Money)
@@ -173,7 +174,7 @@ namespace Scenes.Scenes.ShipShop
                         }
                         break;
 
-                    case "équipage":
+                    case "aiquipage":
                     case "quartier":
                         cost = (BlindShip_Stat.Crew / BlindShip_Stat.Max_Crew) * 1000 * BlindShip_Stat.Lvl;
                         if (cost <= BlindShip_Stat.Money)
@@ -212,7 +213,7 @@ namespace Scenes.Scenes.ShipShop
                         break;
 
                     case "sabre":
-                    case "épée":
+                    case "aipai":
                         if (BlindCaptain_Stat.SwordDamage != BlindCaptain_Stat.Max_SwordDamage)
                         {
                             cost = (BlindCaptain_Stat.SwordDamage / BlindCaptain_Stat.Max_SwordDamage) * 1000 * BlindCaptain_Stat.Lvl;
@@ -238,7 +239,7 @@ namespace Scenes.Scenes.ShipShop
                 BlindShip_Stat.XP += cost/(10*BlindShip_Stat.Lvl);
                 BlindCaptain_Stat.XP += cost/(10*BlindCaptain_Stat.Lvl);
                 
-                Launch(true, "réparer améliorer équipement quiter partir");
+                Launch(true, "raiparer amailiorer aiquipement quitter partir");
             }
         }
     }
