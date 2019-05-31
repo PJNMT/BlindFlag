@@ -11,6 +11,7 @@ public class move : MonoBehaviour
 {
     private string scene;
     private int repere;
+    public int dist = 200;
     Vector3 mov = Vector3.zero;
 
     // Start is called before the first frame update
@@ -21,7 +22,7 @@ public class move : MonoBehaviour
         moveSpeed = 0f;
         scene = "";
         Recognition.Function F1 = choix;
-        Recognition.start_recognition(F1,"taverne magasin partir quitter partons", 0);
+        Recognition.start_recognition(F1,"taverne magasin "/* partir quitter partons*/, 0);
     }
 
 
@@ -53,7 +54,7 @@ public class move : MonoBehaviour
                  {
                      Synthesis.synthesis("Voulez vous allez au prochain port ou chercher un trésor ?");
                      Recognition.Function F2 = PouC;
-                     Recognition.start_recognition(F2, "traisor port", 20);
+                     Recognition.start_recognition(F2, "traisor port", 0);
                  }
 
                  break;
@@ -98,15 +99,17 @@ private void PouC(string msg)
             switch (scene)
             {
                  case "taverne" :
-                     moveSpeed = 5;
+                     moveSpeed = 1;
                      scene = "0";
+                     repere = Time.frameCount;
                     /*SceneManager.LoadScene("taverne");
                      BlindShip_Stat.SceneLoad = 3;
                      SceneManager.UnloadSceneAsync("port");*/
                      break;
                  case "magasin" :
                      moveSpeed = 5;
-                     scene = "1";                
+                     scene = "1";             
+                     repere = Time.frameCount;   
                      /*SceneManager.LoadScene("ShipShop");
                      BlindShip_Stat.SceneLoad = 6;
                      SceneManager.UnloadSceneAsync("port");*/
@@ -144,13 +147,27 @@ private void PouC(string msg)
         }
 
 
-        if (scene == "1")
-        {
-            transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
-            GetComponentInChildren<AudioSource>().mute = false;
+        if (scene == "0")
+        {   
+            int a = repere - Time.frameCount;
+            if (a < dist || ( a> dist+20&&a<2*dist)||a>2*dist+20)
+            {
+                transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
+                GetComponentInChildren<AudioSource>().mute = false;
+            }
+            else 
+            {
+                Debug.Log("Caca");
+                transform.Rotate(Vector3.left,45*Time.deltaTime);
+                GetComponentInChildren<AudioSource>().mute = true;
+            }
+            /*else
+            {
+                transform.Rotate(Vector3.left,45*Time.deltaTime);
+            }*/
         }
 
-        if (scene == "0")
+        if (scene == "1")
         {
             transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
             GetComponentInChildren<AudioSource>().mute = false;
