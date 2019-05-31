@@ -33,11 +33,13 @@ public class     simon : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Recognition.stop_recognition();
         taverne = gameObject.GetComponent<taverne>();
         activated = false;
 
         _musicRecognition = gameObject.AddComponent<Music_Recognition>();
+        audio.clip = musics[0];
+
+        i = 0;
 
         //Jeu();
 
@@ -63,8 +65,9 @@ public class     simon : MonoBehaviour
         if (other.gameObject.name == "You")
         {
 
+            StartCoroutine(Play());
 
-            correct = _musicRecognition.Is_right(_musicRecognition.AnalyzeSound(), "La_", 1.5f);
+            //correct = _musicRecognition.Is_right(_musicRecognition.AnalyzeSound(), "La_", 1.5f);
             if (correct)
             {
                 Debug.Log("ok");
@@ -169,7 +172,7 @@ public class     simon : MonoBehaviour
         }
     }
     
-    IEnumerator Play(int i)
+    IEnumerator Play()
     {
         i = 1;
         while (i <= (int) audio.clip.length)
