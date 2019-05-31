@@ -95,7 +95,7 @@ public class Mover_IA : MonoBehaviour
         }
         
         
-        
+         
     }
     private double Distance(GameObject O_O)
     {
