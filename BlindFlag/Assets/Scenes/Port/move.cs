@@ -11,6 +11,7 @@ public class move : MonoBehaviour
 {
     private string scene;
     private int repere;
+    public int dist = 200;
     Vector3 mov = Vector3.zero;
 
     // Start is called before the first frame update
@@ -20,9 +21,8 @@ public class move : MonoBehaviour
         this.GetComponentInChildren<AudioSource>().mute = true;
         moveSpeed = 0f;
         scene = "";
-        Synthesis.synthesis("Ou voulez vous aller Capitaine ? A la taverne ? Au magasin ? ou bien voulez vous repartir ?");
         Recognition.Function F1 = choix;
-        Recognition.start_recognition(F1,"taverne magasin partir quitter partons", 20);
+        Recognition.start_recognition(F1,"taverne magasin "/* partir quitter partons*/, 0);
     }
 
 
@@ -31,21 +31,33 @@ public class move : MonoBehaviour
         switch (msg)
         {
              case "taverne" :
-                 scene = "taverne";
+                 if (scene == "")
+                 {
+                     scene = "taverne";                 
+                     Debug.Log(scene);
+                 }
+
     
                  break;
                 case "magasin":
-                scene = "magasin";
-                
-                break;
+                    if (scene == "")
+                    {
+                        scene = "magasin";
+                        Debug.Log(scene);
+                    }
+
+                    break;
              case "quitter":
              case "partons":
              case "partir" :
-                Synthesis.synthesis("Voulez vous allez au prochain port ou chercher un trésor ?");
-                Recognition.Function F2 = PouC;
-                Recognition.start_recognition(F2,"trésor port", 20);
-                
-                break;
+                 if (scene == "")
+                 {
+                     Synthesis.synthesis("Voulez vous allez au prochain port ou chercher un trésor ?");
+                     Recognition.Function F2 = PouC;
+                     Recognition.start_recognition(F2, "traisor port", 0);
+                 }
+
+                 break;
                 
                 
                    
@@ -87,64 +99,81 @@ private void PouC(string msg)
             switch (scene)
             {
                  case "taverne" :
-                     moveSpeed = 5;
+                     moveSpeed = 1;
                      scene = "0";
+                     repere = Time.frameCount;
                     /*SceneManager.LoadScene("taverne");
                      BlindShip_Stat.SceneLoad = 3;
                      SceneManager.UnloadSceneAsync("port");*/
                      break;
                  case "magasin" :
                      moveSpeed = 5;
-                     scene = "1";                
+                     scene = "1";             
+                     repere = Time.frameCount;   
                      /*SceneManager.LoadScene("ShipShop");
                      BlindShip_Stat.SceneLoad = 6;
                      SceneManager.UnloadSceneAsync("port");*/
                      break;
-                case "port":
-                    SceneManager.LoadScene("navi");
-                    foreach (GameObject o in SceneManager.GetSceneByName("navi").GetRootGameObjects())
-                    {
+                 case "port":
+                     SceneManager.LoadScene("navi");
+                     foreach (GameObject o in SceneManager.GetSceneByName("navi").GetRootGameObjects())
+                     {
                         if (o.name == "island")
                         {
                             o.tag = "Le port";
                             break;
                         }
-                    }
+                     }
 
-                    BlindShip_Stat.SceneLoad = 0;
-                    SceneManager.UnloadSceneAsync("Port");
-                    break;
-                case "tresor":
-                    SceneManager.LoadScene("navi");
-                    foreach (GameObject o in SceneManager.GetSceneByName("navi").GetRootGameObjects())
-                    {
+                     BlindShip_Stat.SceneLoad = 0;
+                     SceneManager.UnloadSceneAsync("Port");
+                     break;
+                 case "tresor":
+                     SceneManager.LoadScene("navi");
+                     foreach (GameObject o in SceneManager.GetSceneByName("navi").GetRootGameObjects())
+                     {
                         if (o.name == "island")
                         {
                             o.tag = "L'ile au trésor";
                             break;
                         }
-                    }
+                     }
 
-                    BlindShip_Stat.SceneLoad = 0;
+                     BlindShip_Stat.SceneLoad = 0;
 
-                    SceneManager.UnloadSceneAsync("Port");
-                    break;
+                     SceneManager.UnloadSceneAsync("Port");
+                     break;
             }
         }
 
 
+        if (scene == "0")
+        {   
+            int a = repere - Time.frameCount;
+            if (a < dist || ( a> dist+20&&a<2*dist)||a>2*dist+20)
+            {
+                transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
+                GetComponentInChildren<AudioSource>().mute = false;
+            }
+            else 
+            {
+                Debug.Log("Caca");
+                transform.Rotate(Vector3.left,45*Time.deltaTime);
+                GetComponentInChildren<AudioSource>().mute = true;
+            }
+            /*else
+            {
+                transform.Rotate(Vector3.left,45*Time.deltaTime);
+            }*/
+        }
+
         if (scene == "1")
         {
             transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
-        }
+            GetComponentInChildren<AudioSource>().mute = false;
 
-        if (scene == "0")
-        {
-            transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
         }
         
-        moveSpeed = 0f;
-        transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
 
 
         // if (Input.GetKey(KeyCode.UpArrow)) moveSpeed += 1f; //on augmente la vitesse ou on la baisse
@@ -161,7 +190,6 @@ private void PouC(string msg)
         // if (Input.GetKey(KeyCode.Space)) moveSpeed += 1f;
 
         if (moveSpeed < 0f) moveSpeed = 0f;*/
-        transform.Translate(Vector3.left * moveSpeed * Time.deltaTime); //on avance en f° du temps
 
 /*      transform.position += mov;
         if (transform.position.x>45)

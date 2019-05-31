@@ -12,9 +12,10 @@ public class Enter_shop : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        if (other.gameObject.name == "Captain")
+        if (other.gameObject.name == "You")
         {
             SceneManager.LoadScene("ShipShop");
+            BlindShip_Stat.SceneLoad = 6;
             SceneManager.UnloadSceneAsync("Port");
         }
         
