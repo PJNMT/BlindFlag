@@ -15,11 +15,10 @@ public class VocalPrincipal : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        vocal = GetComponent<VocalOptions>();
         Synthesis.synthesis("Bienvenue capitaine ! Vous voici dans l'Univers de BlindFlag. Voici vos commandes : continuer, commencer, options, quitter. Je vous écoute.");
         Recognition.Function Traitement = this.Traitement;
         Thread.Sleep(7000);
-        Recognition.start_recognition(Traitement, "continuer commencer options quitter parametre parametres", 20);
+        Recognition.start_recognition(Traitement, "continuer commencer options quitter parametre parametres", 200);
     }
 
     void Restart()
@@ -33,7 +32,6 @@ public class VocalPrincipal : MonoBehaviour
     // Update is called once per frame
     void Traitement(string input)
     {
-        Debug.Log(input);
         switch(input)
         {
             case "continuer":
