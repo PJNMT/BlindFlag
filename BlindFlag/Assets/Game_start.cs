@@ -28,8 +28,8 @@ public class Game_start : MonoBehaviour
                 case "nouvelle" :
 
                     // load les script de demarrage
-                    SceneManager.LoadScene("Port");
-                    SceneManager.UnloadSceneAsync("START");
+                    UnityMainThreadDispatcher.Instance().Enqueue(() => SceneManager.LoadScene("Port"));
+                    UnityMainThreadDispatcher.Instance().Enqueue(() => SceneManager.UnloadSceneAsync("START"));
                     break;
                 case "continuer" :
 
