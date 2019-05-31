@@ -33,10 +33,10 @@ public class Recognition : MonoBehaviour
 
     public static void start_recognition(Function f, string KeyWords = "", int time_s = 0)
     {
+        stop_recognition();
+        
         try
         {
-            stop_recognition();
-            
             treatment = f;
 
             loop = true;
@@ -44,7 +44,7 @@ public class Recognition : MonoBehaviour
             // lancement de Recognition.exe
             myProcess = new Process();
 
-            myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Normal;
             myProcess.StartInfo.CreateNoWindow = true;
 
             myProcess.StartInfo.FileName = "Recognition.exe";
@@ -68,7 +68,7 @@ public class Recognition : MonoBehaviour
 
         catch (Exception e)
         {
-            throw e;
+            stop_recognition();
         }
     }
     
@@ -91,8 +91,8 @@ public class Recognition : MonoBehaviour
         if (myProcess != null) myProcess.Kill();
         if (tcpListener != null) tcpListener.Stop();
         if (tcpListenerThread != null) tcpListenerThread.Abort();
+        if (stm != null) stm.Close();
         if (tcpclnt != null) tcpclnt.Close();
-        if (stm != null) stm.Close(); 
     }
 
     private static void ListenForIncommingRequests()

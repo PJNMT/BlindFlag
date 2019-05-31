@@ -24,11 +24,15 @@ namespace Scenes.Scenes.ShipShop
         private AudioSource Audio;
         public GameObject Taverne;
         public GameObject Street;
+
+        public GameObject You;
         
         void Start()
         {
             Taverne.GetComponent<AudioSource>().Play();
+            Taverne.GetComponent<AudioSource>().loop = true;
             Street.GetComponent<AudioSource>().Play();
+            Street.GetComponent<AudioSource>().loop = true;
             Audio = GetComponent<AudioSource>();
             Launch(true, "raiparer amailiorer aiquipement quitter partir");
         }
@@ -97,8 +101,7 @@ namespace Scenes.Scenes.ShipShop
         {
             UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(GoodBye));
             UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) GoodBye.length * 1000 + 500));
-            UnityMainThreadDispatcher.Instance().Enqueue(() => Recognition.stop_recognition());
-            UnityMainThreadDispatcher.Instance().Enqueue(() => SceneManager.LoadScene("Port"));
+            UnityMainThreadDispatcher.Instance().Enqueue(() => LoadScene.Load(LoadScene.Scene.Port, LoadScene.Scene.ShipShop));
         }
 
         private void MainFunc(string speech)

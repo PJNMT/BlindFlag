@@ -2,8 +2,6 @@
 .vs/
 bin
 obj
-Library
-Library/
 .idea
 *.userprefs
 
@@ -17,6 +15,12 @@ CurrentLayout.dwlt
 [Bb]uild/
 [Bb]uilds/
 [Ll]ogs/
+
+
+Library
+Library/
+/Library/
+/Library
 
 # Uncomment this line if you wish to ignore the asset store tools plugin
 # [Aa]ssets/AssetStoreTools*
