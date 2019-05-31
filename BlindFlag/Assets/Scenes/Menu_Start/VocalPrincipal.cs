@@ -6,8 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class VocalPrincipal : MonoBehaviour
 {
-    private VocalOptions vocal;
-
     private Start_ShipStats shipstats;
     public GameObject Optionpanel;
 
