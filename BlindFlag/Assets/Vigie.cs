@@ -109,7 +109,7 @@ public class Vigie : MonoBehaviour
             Debug.Log("perdu " + other.tag);
             
             ObjetsVus.Remove(other.gameObject);
-        }
+        } 
     }
 
    /* void JeVois(string word)

@@ -10,12 +10,13 @@ public class move : MonoBehaviour
 
 {
     private string scene;
-
+    private int repere;
     Vector3 mov = Vector3.zero;
 
     // Start is called before the first frame update
     void Start()
     {
+        repere = 0;
         this.GetComponentInChildren<AudioSource>().mute = true;
         moveSpeed = 0f;
         scene = "";
@@ -85,17 +86,19 @@ private void PouC(string msg)
         {
             switch (scene)
             {
-                 case "taverne" : 
-                                        
-                     SceneManager.LoadScene("taverne");
+                 case "taverne" :
+                     moveSpeed = 5;
+                     scene = "0";
+                    /*SceneManager.LoadScene("taverne");
                      BlindShip_Stat.SceneLoad = 3;
-                     SceneManager.UnloadSceneAsync("port");
+                     SceneManager.UnloadSceneAsync("port");*/
                      break;
                  case "magasin" :
-                                        
-                     SceneManager.LoadScene("ShipShop");
+                     moveSpeed = 5;
+                     scene = "1";                
+                     /*SceneManager.LoadScene("ShipShop");
                      BlindShip_Stat.SceneLoad = 6;
-                     SceneManager.UnloadSceneAsync("port");
+                     SceneManager.UnloadSceneAsync("port");*/
                      break;
                 case "port":
                     SceneManager.LoadScene("navi");
@@ -130,6 +133,16 @@ private void PouC(string msg)
         }
 
 
+        if (scene == "1")
+        {
+            transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
+        }
+
+        if (scene == "0")
+        {
+            transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
+        }
+        
         moveSpeed = 0f;
         transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
 
