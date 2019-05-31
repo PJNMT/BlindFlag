@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class Mover_IA : MonoBehaviour
@@ -12,25 +13,27 @@ public class Mover_IA : MonoBehaviour
     public static BoatType type;
     private static int Speed;
     public static float TailleMap = 1000f;
-    private GameObject Blindship;
-    
+    private Transform BlindShip;
+    public GameObject target;
+
     public enum BoatType
     {
         Marines = 0,
         Pirate,
-        Marchand
+        Marchand,
+        Corsaire
     }
     
     // Start is called before the first frame update
     void Start()
     {
-        type = (BoatType)(Random.Range(0, 2));
+        target = null;
+        type = BoatType.Marchand;//(BoatType)(Random.Range(0, 3));
         int OurLevel = 10;
         Level = Random.Range(OurLevel-3,OurLevel+6);
         Speed = 50;
         
         if (TailleMap < 200) TailleMap = 1000;
-        
         
         float rx = Random.Range(-1f, 1f);
         float rz = Random.Range(-1f, 1f);
@@ -49,29 +52,31 @@ public class Mover_IA : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (decteted)
         {
+            BlindShip = target.transform;
             if (type == BoatType.Marchand)
             {
+                FleeTarget();
                 //s'enfuit
-                
             }
             else if (type == BoatType.Marines)
             {
+                FaceTarget();
                 //s'approche
-                
             }
             else
             {
                 if (Random.Range(0,1)<=0)
                 {
+                    FaceTarget();
                     //bateau s'approche
-                    
                 }
                 else
                 {
+                    FleeTarget();
                     //bateau s'enfuit
-                    
                 }
             }
             
@@ -79,9 +84,18 @@ public class Mover_IA : MonoBehaviour
         else
         {
             transform.Rotate(Vector3.up, 50 * Time.deltaTime);
-            transform.Translate(Vector3.left * Speed * Time.deltaTime); //on avance en f° du temps
-
         }
+        transform.Translate(Vector3.left * Speed * Time.deltaTime); //on avance en f° du temps
+
+        if (Distance(target)<30)
+        {
+            SceneManager.LoadScene("seabattle");
+            BlindShip_Stat.SceneLoad = 1;
+            SceneManager.UnloadSceneAsync("navi");
+        }
+        
+        
+        
     }
     private double Distance(GameObject O_O)
     {
@@ -92,7 +106,7 @@ public class Mover_IA : MonoBehaviour
     {
         if (other.gameObject.name == "Ship")
         {
-            Blindship = other.gameObject;
+            target = other.gameObject;
         }
 
         decteted = true;
@@ -101,5 +115,18 @@ public class Mover_IA : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         decteted = false;
+    }
+    
+    void FaceTarget()
+    {
+        Vector3 direction = (BlindShip.position - transform.position).normalized;
+        Quaternion Rotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+        transform.rotation = Quaternion.Slerp(transform.rotation, Rotation, Time.deltaTime * 100f);
+    }
+    void FleeTarget()
+    {
+        Vector3 direction = (BlindShip.position - transform.position).normalized;
+        Quaternion Rotation = Quaternion.LookRotation(new Vector3(-direction.x, 0, -direction.z));
+        transform.rotation = Quaternion.Slerp(transform.rotation, Rotation, Time.deltaTime * 100f);
     }
 }

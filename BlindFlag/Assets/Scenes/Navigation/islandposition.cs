@@ -10,7 +10,7 @@ public class islandposition : MonoBehaviour
     
     // Start is called before the first frame update
     void Start()
-    {
+    {         
         if (TailleMap < 200) TailleMap = 1000;
         
         
