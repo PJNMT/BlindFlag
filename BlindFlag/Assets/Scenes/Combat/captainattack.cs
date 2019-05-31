@@ -47,7 +47,7 @@ public class captainattack : MonoBehaviour
         BlindCaptain_Stat.XP += XP;
         BlindShip_Stat.Money += Money;
         GetComponent<AudioSource>().PlayOneShot(death_ennemy);
-        SceneManager.LoadScene("navi");
+        LoadScene.Load(LoadScene.Scene.Navigation, LoadScene.Scene.Combat);
     }
 
     // Update is called once per frame

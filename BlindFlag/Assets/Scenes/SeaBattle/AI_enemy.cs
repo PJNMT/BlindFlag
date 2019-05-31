@@ -79,9 +79,7 @@ public class AI_enemy : MonoBehaviour
         }
         else if (distance <= 30)
         {
-            Destroy(BlindShip, 0f);
-            Destroy(transform, 0f);
-            SceneManager.LoadScene("combat");
+            LoadScene.Load(LoadScene.Scene.Combat, LoadScene.Scene.SeaBattle);
         }
 
     }
@@ -188,9 +186,7 @@ public class AI_enemy : MonoBehaviour
         Recognition.stop_recognition();
         BlindShip_Stat.Money += Money;
         BlindShip_Stat.XP += XP;
-        Destroy(gameObject, 0f);
-        Destroy(BlindShip, 0f);
-        SceneManager.LoadScene("navi");
+        LoadScene.Load(LoadScene.Scene.Navigation, LoadScene.Scene.SeaBattle);
     }
     
     

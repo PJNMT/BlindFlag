@@ -14,9 +14,7 @@ public class Enter_shop : MonoBehaviour
 
         if (other.gameObject.name == "You")
         {
-            SceneManager.LoadScene("ShipShop");
-            BlindShip_Stat.SceneLoad = 6;
-            SceneManager.UnloadSceneAsync("Port");
+            LoadScene.Load(LoadScene.Scene.ShipShop, LoadScene.Scene.Port);
         }
         
     }

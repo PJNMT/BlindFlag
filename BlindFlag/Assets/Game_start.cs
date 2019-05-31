@@ -12,11 +12,12 @@ public class Game_start : MonoBehaviour
            else
          
          */
-        
-        
-        Synthesis.synthesis("Bonjour capitaine, voulez vous continuez votre aventure ou bien commencer une nouvelle légende");
-        
-        Recognition.start_recognition(react,"nouvelle continuer commencer", 20);
+
+
+        Synthesis.synthesis(
+            "Bonjour capitaine, voulez vous continuez votre aventure ou bien commencer une nouvelle légende");
+
+        Recognition.start_recognition(react, "nouvelle continuer commencer", 20);
     }
 
 
@@ -24,26 +25,25 @@ public class Game_start : MonoBehaviour
     {
         switch (s)
         {
-                case "commencer" :
-                case "nouvelle" :
+            case "commencer":
+            case "nouvelle":
 
-                    // load les script de demarrage
-                    UnityMainThreadDispatcher.Instance().Enqueue(() => SceneManager.LoadScene("Port"));
-                    UnityMainThreadDispatcher.Instance().Enqueue(() => SceneManager.UnloadSceneAsync("START"));
-                    break;
-                case "continuer" :
+                // load les script de demarrage
+                UnityMainThreadDispatcher.Instance()
+                    .Enqueue(() => LoadScene.Load(LoadScene.Scene.Port, LoadScene.Scene.START));
+                break;
+            case "continuer":
 
 
-                    SceneManager.LoadScene("Port");
-                    SceneManager.UnloadSceneAsync("START");
-                    
-                    break;
+                SceneManager.LoadScene("Port");
+                SceneManager.UnloadSceneAsync("START");
+
+                break;
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
     }
 }

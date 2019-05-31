@@ -15,14 +15,11 @@ public class Start_CaptainStats : MonoBehaviour
         
         BlindCaptain_Stat.Tuto = new Dictionary<string, bool>()
         {
-            {"Navigation", false},
             {"SeaBattle", false},
-            {"Port", false},
             {"ChasseAuTresor", false},
-            {"Taverne", false},
-            {"ShipShop", false},
             {"Simon", false},
             {"Combat", false},
+            {"Coco", false},
         };
     }
 }

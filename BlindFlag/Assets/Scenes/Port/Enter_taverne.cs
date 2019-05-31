@@ -15,9 +15,7 @@ public class Enter_taverne : MonoBehaviour
     {
         if (other.gameObject.name == "You")
         {
-            SceneManager.LoadScene("Taverne");
-            BlindShip_Stat.SceneLoad = 6;
-            SceneManager.UnloadSceneAsync("Port");
+            LoadScene.Load(LoadScene.Scene.Taverne, LoadScene.Scene.Port);
         }
     }
 

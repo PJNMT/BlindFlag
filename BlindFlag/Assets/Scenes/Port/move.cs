@@ -102,20 +102,16 @@ private void PouC(string msg)
                      moveSpeed = 1;
                      scene = "0";
                      repere = Time.frameCount;
-                    /*SceneManager.LoadScene("taverne");
-                     BlindShip_Stat.SceneLoad = 3;
-                     SceneManager.UnloadSceneAsync("port");*/
+                    /*LoadScene.Load(LoadScene.Scene.Taverne, LoadScene.Scene.Port);*/
                      break;
                  case "magasin" :
                      moveSpeed = 5;
                      scene = "1";             
                      repere = Time.frameCount;   
-                     /*SceneManager.LoadScene("ShipShop");
-                     BlindShip_Stat.SceneLoad = 6;
-                     SceneManager.UnloadSceneAsync("port");*/
+                     /*LoadScene.Load(LoadScene.Scene.ShipShop, LoadScene.Scene.Port);*/
                      break;
                  case "port":
-                     SceneManager.LoadScene("navi");
+                     LoadScene.Load(LoadScene.Scene.Navigation, LoadScene.Scene.Port);
                      foreach (GameObject o in SceneManager.GetSceneByName("navi").GetRootGameObjects())
                      {
                         if (o.name == "island")
@@ -124,12 +120,9 @@ private void PouC(string msg)
                             break;
                         }
                      }
-
-                     BlindShip_Stat.SceneLoad = 0;
-                     SceneManager.UnloadSceneAsync("Port");
                      break;
                  case "tresor":
-                     SceneManager.LoadScene("navi");
+                     LoadScene.Load(LoadScene.Scene.Navigation, LoadScene.Scene.Port);
                      foreach (GameObject o in SceneManager.GetSceneByName("navi").GetRootGameObjects())
                      {
                         if (o.name == "island")
@@ -138,10 +131,6 @@ private void PouC(string msg)
                             break;
                         }
                      }
-
-                     BlindShip_Stat.SceneLoad = 0;
-
-                     SceneManager.UnloadSceneAsync("Port");
                      break;
             }
         }

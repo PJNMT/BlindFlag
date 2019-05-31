@@ -89,9 +89,7 @@ public class Mover_IA : MonoBehaviour
 
         if (Distance(target)<30)
         {
-            SceneManager.LoadScene("seabattle");
-            BlindShip_Stat.SceneLoad = 1;
-            SceneManager.UnloadSceneAsync("navi");
+            LoadScene.Load(LoadScene.Scene.SeaBattle, LoadScene.Scene.Navigation);
         }
         
         

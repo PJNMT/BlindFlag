@@ -104,17 +104,13 @@ public class shipcontroller : MonoBehaviour
 			if (other.tag == "Ile au trésor")
 			{
 				
-				SceneManager.LoadScene("chasseautrésor");
-				BlindShip_Stat.SceneLoad = 7;
+				LoadScene.Load(LoadScene.Scene.ChasseAuTresor, LoadScene.Scene.Navigation);
 			}
 
 			if (other.tag == "Port")
 			{
-				SceneManager.LoadScene("Port");
-				BlindShip_Stat.SceneLoad = 2;
+				LoadScene.Load(LoadScene.Scene.Port, LoadScene.Scene.Navigation);
 			}
-
-			SceneManager.UnloadSceneAsync("navi");
 		}
 	}
 }

@@ -36,7 +36,7 @@ public class VocalPrincipal : MonoBehaviour
                 Save.LoadGame();
                 break;
             case "commencer":
-                UnityMainThreadDispatcher.Instance().Enqueue(() => SceneManager.LoadScene(7));
+                UnityMainThreadDispatcher.Instance().Enqueue(() => LoadScene.Load((LoadScene.Scene) 7, LoadScene.Scene.START));
                 shipstats.enabled = true;
                 captstats.enabled = true;
                 break;

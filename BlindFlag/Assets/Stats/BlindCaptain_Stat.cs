@@ -78,9 +78,7 @@ public class BlindCaptain_Stat : MonoBehaviour
         BlindShip_Stat.Money -= BlindShip_Stat.Money / 5;
         BlindShip_Stat.Dead();
         Scene S = SceneManager.GetActiveScene();
-        SceneManager.LoadScene("navi");
-        BlindShip_Stat.SceneLoad = 0;
-        SceneManager.UnloadSceneAsync(S);
+        LoadScene.Load(LoadScene.Scene.Navigation, (LoadScene.Scene) S.buildIndex);
     }
     
    public void AddStat(AudioSource audioSource, string stat)
