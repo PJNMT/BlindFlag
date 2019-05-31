@@ -51,7 +51,7 @@ public class tresor : MonoBehaviour
         if (other.name == "You" || other.name == "Sphere")
         {
             FindObjectOfType<cubecontroller>().sedeplacer = false;
-            Synthesis.synthesis("Vous avez trouvez le trésor capitaine ! Mais saurez vous répondre à cette énigme ?");
+            Synthesis.synthesis("Vous avez trouvez le traisor capitaine ! Mais saurez vous raipondre à cette ainigme ?");
             Thread.Sleep(6000);
             
             //Dis l'énigme au joueur
@@ -70,7 +70,7 @@ public class tresor : MonoBehaviour
             {
                 Debug.Log("fin de la reco");
                 BlindShip_Stat.Money += or;
-                Synthesis.synthesis("Vous avez gagné capitaine !");
+                Synthesis.synthesis("Vous avez gagnai capitaine !");
             }
 
         }
@@ -91,14 +91,14 @@ public class tresor : MonoBehaviour
         {
             Debug.Log("Waiting for options answer....");
             Recognition.Function Traitement = Optionstreatement;
-            Recognition.start_recognition(Traitement, "chat indice aide répète répéter réentendre énigme", 0);
+            Recognition.start_recognition(Traitement, "chat indice aide raipaite raipaiter raientendre ainigme", 0);
 
             yield return new WaitWhile(() => recooptions);
 
             Recognition.Function Traitement2 = Answertraitement;
             Recognition.start_recognition(Traitement2);
 
-            Debug.Log("Donne ta réponse Wolila !");
+            Debug.Log("Donne ta raiponse Wolila !");
         }
     }
     
@@ -148,10 +148,10 @@ public class tresor : MonoBehaviour
         Debug.Log(input);
        switch (input)
         {
-            case "répète":
-            case "répéter":
-            case "réentendre":
-            case "énigme":
+            case "raipaite":
+            case "raipaiter":
+            case "raientendre":
+            case "ainigme":
             {
                 Synthesis.synthesis(_enigma._enigme);
                 Thread.Sleep(10000);
