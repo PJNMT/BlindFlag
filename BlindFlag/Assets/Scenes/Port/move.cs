@@ -31,21 +31,33 @@ public class move : MonoBehaviour
         switch (msg)
         {
              case "taverne" :
-                 scene = "taverne";
+                 if (scene == "")
+                 {
+                     scene = "taverne";                 
+                     Debug.Log(scene);
+                 }
+
     
                  break;
                 case "magasin":
-                scene = "magasin";
-                
-                break;
+                    if (scene == "")
+                    {
+                        scene = "magasin";
+                        Debug.Log(scene);
+                    }
+
+                    break;
              case "quitter":
              case "partons":
              case "partir" :
-                Synthesis.synthesis("Voulez vous allez au prochain port ou chercher un trésor ?");
-                Recognition.Function F2 = PouC;
-                Recognition.start_recognition(F2,"trésor port", 20);
-                
-                break;
+                 if (scene == "")
+                 {
+                     Synthesis.synthesis("Voulez vous allez au prochain port ou chercher un trésor ?");
+                     Recognition.Function F2 = PouC;
+                     Recognition.start_recognition(F2, "traisor port", 20);
+                 }
+
+                 break;
                 
                 
                    
@@ -100,35 +112,35 @@ private void PouC(string msg)
                      BlindShip_Stat.SceneLoad = 6;
                      SceneManager.UnloadSceneAsync("port");*/
                      break;
-                case "port":
-                    SceneManager.LoadScene("navi");
-                    foreach (GameObject o in SceneManager.GetSceneByName("navi").GetRootGameObjects())
-                    {
+                 case "port":
+                     SceneManager.LoadScene("navi");
+                     foreach (GameObject o in SceneManager.GetSceneByName("navi").GetRootGameObjects())
+                     {
                         if (o.name == "island")
                         {
                             o.tag = "Le port";
                             break;
                         }
-                    }
+                     }
 
-                    BlindShip_Stat.SceneLoad = 0;
-                    SceneManager.UnloadSceneAsync("Port");
-                    break;
-                case "tresor":
-                    SceneManager.LoadScene("navi");
-                    foreach (GameObject o in SceneManager.GetSceneByName("navi").GetRootGameObjects())
-                    {
+                     BlindShip_Stat.SceneLoad = 0;
+                     SceneManager.UnloadSceneAsync("Port");
+                     break;
+                 case "tresor":
+                     SceneManager.LoadScene("navi");
+                     foreach (GameObject o in SceneManager.GetSceneByName("navi").GetRootGameObjects())
+                     {
                         if (o.name == "island")
                         {
                             o.tag = "L'ile au trésor";
                             break;
                         }
-                    }
+                     }
 
-                    BlindShip_Stat.SceneLoad = 0;
+                     BlindShip_Stat.SceneLoad = 0;
 
-                    SceneManager.UnloadSceneAsync("Port");
-                    break;
+                     SceneManager.UnloadSceneAsync("Port");
+                     break;
             }
         }
 
