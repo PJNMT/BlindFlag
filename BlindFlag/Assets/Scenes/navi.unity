@@ -1312,9 +1312,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TailleMap: 1000
-  moveSpeed: 200
+  moveSpeed: 40
   turnSpeed: 100
-  vmax: 200
+  vmax: 40
 --- !u!82 &974435676
 AudioSource:
   m_ObjectHideFlags: 0
