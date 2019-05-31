@@ -33,46 +33,46 @@ namespace Scenes.Scenes.ShipShop
         {
             if (enter)
             {
-                Audio.PlayOneShot(Enter);
-                Audio.volume = 0.5f;
-                Thread.Sleep((int) Enter.length * 1000);
+                UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(Enter));
+                UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.volume = 0.5f);
+                UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) Enter.length * 1000));
                 
-                Audio.PlayOneShot(Hello);
-                Audio.volume = 1f;
-                Thread.Sleep((int) Hello.length * 1000 + 500);
+                UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(Hello));
+                UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.volume = 1f);
+                UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) Hello.length * 1000 + 500));
             }
             
-            Audio.PlayOneShot(YourGoldRise);
-            Thread.Sleep((int) YourGoldRise.length * 1000 + 500);
+            UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(YourGoldRise));
+            UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) YourGoldRise.length * 1000 + 500));
             
-            Synthesis.synthesis(BlindShip_Stat.Money + "");
-            Thread.Sleep(1300);
+            UnityMainThreadDispatcher.Instance().Enqueue(() => Synthesis.synthesis(BlindShip_Stat.Money + ""));
+            UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep(1300));
             
-            Audio.PlayOneShot(Gold);
-            Thread.Sleep((int) Gold.length * 1000 + 500);
+            UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(Gold));
+            UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) Gold.length * 1000 + 500));
             
-            Audio.PlayOneShot(WhatDoUWantToDo);
-            Thread.Sleep((int) WhatDoUWantToDo.length * 1000 + 500);
+            UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(WhatDoUWantToDo));
+            UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) WhatDoUWantToDo.length * 1000 + 500));
 
             Recognition.Function Func;
             
-            Audio.PlayOneShot(WhatDoUWantToDo);
-            Thread.Sleep((int) WhatDoUWantToDo.length * 1000 + 500);
+            UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(WhatDoUWantToDo));
+            UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) WhatDoUWantToDo.length * 1000 + 500));
 
             if (WDUWTD)
             {
-                Audio.PlayOneShot(WhatDoUWantToDo_1);
-                Thread.Sleep((int) WhatDoUWantToDo_1.length * 1000 + 500);
+                UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(WhatDoUWantToDo_1));
+                UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) WhatDoUWantToDo_1.length * 1000 + 500));
                 Func = MainFunc;
             }
             else
             {
-                Audio.PlayOneShot(WhatDoUWantToDo_2);
-                Thread.Sleep((int) WhatDoUWantToDo_2.length * 1000 + 500);
+                UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(WhatDoUWantToDo_2));
+                UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) WhatDoUWantToDo_2.length * 1000 + 500));
                 Func = SecondFunc;
             }
             
-            Recognition.start_recognition(Func, WordList);
+            UnityMainThreadDispatcher.Instance().Enqueue(() => Recognition.start_recognition(Func, WordList));
         }
         
         private void repair()
@@ -84,27 +84,27 @@ namespace Scenes.Scenes.ShipShop
                 BlindShip_Stat.Money -= cost;
                 BlindShip_Stat.HP = BlindShip_Stat.Max_HP;
                 
-                Audio.PlayOneShot(Repaire);
-                Thread.Sleep((int) Repaire.length * 1000 + 500);
+                UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(Repaire));
+                UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) Repaire.length * 1000 + 500));
             }
             else
             {
-                Audio.PlayOneShot(YouDontHaveEngougthGold);
-                Thread.Sleep((int) YouDontHaveEngougthGold.length * 1000 + 500);
+                UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(YouDontHaveEngougthGold));
+                UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) YouDontHaveEngougthGold.length * 1000 + 500));
             }
         }
 
         private void Quit()
         {
-            Audio.PlayOneShot(GoodBye);
-            Thread.Sleep((int) GoodBye.length * 1000 + 500);
+            UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(GoodBye));
+            UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) GoodBye.length * 1000 + 500));
             UnityMainThreadDispatcher.Instance().Enqueue(() => SceneManager.LoadScene("Port"));
         }
 
         private void MainFunc(string speech)
         {
-            Audio.PlayOneShot(OkCaptaine);
-            Thread.Sleep((int) OkCaptaine.length * 1000 + 500);
+            UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(OkCaptaine));
+            UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) OkCaptaine.length * 1000 + 500));
             
             if (speech != "quiter" && speech != "partir")
             {
@@ -127,8 +127,8 @@ namespace Scenes.Scenes.ShipShop
 
         private void SecondFunc(string speech)
         {
-            Audio.PlayOneShot(OkCaptaine);
-            Thread.Sleep((int) OkCaptaine.length * 1000 + 500);
+            UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(OkCaptaine));
+            UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) OkCaptaine.length * 1000 + 500));
             
             int cost = 0;
         
@@ -147,14 +147,14 @@ namespace Scenes.Scenes.ShipShop
                             }
                             else
                             {
-                                Audio.PlayOneShot(YouDontHaveEngougthGold);
-                                Thread.Sleep((int) YouDontHaveEngougthGold.length * 1000 + 500);
+                                UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(YouDontHaveEngougthGold));
+                                UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) YouDontHaveEngougthGold.length * 1000 + 500));
                             }
                         }
                         else
                         {
-                            Audio.PlayOneShot(CannonCantBeUp);
-                            Thread.Sleep((int) CannonCantBeUp.length * 1000 + 500);
+                            UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(CannonCantBeUp));
+                            UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) CannonCantBeUp.length * 1000 + 500));
                         }
                         break;
 
@@ -168,8 +168,8 @@ namespace Scenes.Scenes.ShipShop
                         }
                         else
                         {
-                            Audio.PlayOneShot(YouDontHaveEngougthGold);
-                            Thread.Sleep((int) YouDontHaveEngougthGold.length * 1000 + 500);
+                            UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(YouDontHaveEngougthGold));
+                            UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) YouDontHaveEngougthGold.length * 1000 + 500));
                         }
                         break;
 
@@ -183,8 +183,8 @@ namespace Scenes.Scenes.ShipShop
                         }
                         else
                         {
-                            Audio.PlayOneShot(YouDontHaveEngougthGold);
-                            Thread.Sleep((int) YouDontHaveEngougthGold.length * 1000 + 500);
+                            UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(YouDontHaveEngougthGold));
+                            UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) YouDontHaveEngougthGold.length * 1000 + 500));
                         }
                         break;
 
@@ -200,14 +200,14 @@ namespace Scenes.Scenes.ShipShop
                             }
                             else
                             {
-                                Audio.PlayOneShot(YouDontHaveEngougthGold);
-                                Thread.Sleep((int) YouDontHaveEngougthGold.length * 1000 + 500);
+                                UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(YouDontHaveEngougthGold));
+                                UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) YouDontHaveEngougthGold.length * 1000 + 500));
                             }
                         }
                         else
                         {
-                            Audio.PlayOneShot(YourGunCantBeUp);
-                            Thread.Sleep((int) YourGunCantBeUp.length * 1000 + 500);
+                            UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(YourGunCantBeUp));
+                            UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) YourGunCantBeUp.length * 1000 + 500));
                         }
                         break;
 
@@ -223,14 +223,14 @@ namespace Scenes.Scenes.ShipShop
                             }
                             else
                             {
-                                Audio.PlayOneShot(YouDontHaveEngougthGold);
-                                Thread.Sleep((int) YouDontHaveEngougthGold.length * 1000 + 500);
+                                UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(YouDontHaveEngougthGold));
+                                UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) YouDontHaveEngougthGold.length * 1000 + 500));
                             }
                         }
                         else
                         {
-                            Audio.PlayOneShot(YourSwordCantBeUp);
-                            Thread.Sleep((int) YourSwordCantBeUp.length * 1000 + 500);
+                            UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(YourSwordCantBeUp));
+                            UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) YourSwordCantBeUp.length * 1000 + 500));
                         }
                         break;
                 }
