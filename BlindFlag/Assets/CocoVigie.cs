@@ -9,12 +9,66 @@ namespace Scenes
     public class CocoVigie : MonoBehaviour
     {
         public static Vigie baba;
-        public static bool TutoON;
         public bool activated;
         public bool quit;
-
-
         public bool pauseCoco;
+
+        public AudioClip Babord;        //Vigie
+        public AudioClip Tribord;
+        public AudioClip Back;
+        public AudioClip Corsaire;
+        public AudioClip Pirates;
+        public AudioClip Forward;
+        public AudioClip Ship;
+        public AudioClip YesCaptain;
+        public AudioClip IsleInView;
+        public AudioClip Galion;
+        public AudioClip Military;
+
+        public AudioClip TutoCoco;        //Coco
+        public AudioClip CocoOn;
+        public AudioClip Cocococo;
+        public AudioClip Enfin;
+        public AudioClip EtPeutCauser;
+        public AudioClip EtVousAvez;
+        public AudioClip HommeEquipage;
+        public AudioClip HP;
+        public AudioClip IlPeutContenir;
+        public AudioClip Matelots;
+        public AudioClip OkCaptain;
+        public AudioClip PointDef;
+        public AudioClip PointSword;
+        public AudioClip PointGun;
+        public AudioClip PointReput;
+        public AudioClip PointResistance;
+        public AudioClip PointHP;
+        public AudioClip PointDegat;
+        public AudioClip VotreNavire;
+        public AudioClip VoulezVous;
+        public AudioClip VousAvezShip;
+        public AudioClip VousAvez;
+        public AudioClip XP;
+
+        private AudioSource Audio;
+
+        void Start()
+        {
+            Audio = GetComponent<AudioSource>();
+            
+            if (!BlindCaptain_Stat.Tuto["Coco"])
+            {
+                UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(TutoCoco));
+                UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) TutoCoco.length * 1000 + 500));
+                
+                BlindCaptain_Stat.Tuto["Coco"] = true;
+            }
+
+            Recognition.Function OkCoco = Traitement_Call;
+            UnityMainThreadDispatcher.Instance().Enqueue(() => Recognition.start_recognition(OkCoco, "Coco baba vigie"));
+
+            baba = FindObjectOfType<Vigie>();
+            quit = false;
+        }
 
 
         void Answertraitement(string word)
@@ -26,52 +80,147 @@ namespace Scenes
                 {
                     //Coco case
                     case "niveau":
-
-                        Synthesis.synthesis("Blindcaptain niveau" + BlindCaptain_Stat.Lvl);
-
-                        Thread.Sleep(5000);
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(VousAvez));
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) VousAvez.length * 1000 + 500));
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Synthesis.synthesis(BlindCaptain_Stat.Lvl + " niveaux."));
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep(2000));
                         break;
 
                     case "bateau":
                     case "navire":
-
-                        Synthesis.synthesis(" Tu as un bateau niveau " + BlindShip_Stat.Lvl +
-                                            " avec " + BlindShip_Stat.Crew + " homme d'équipage.  " +
-                                            " Il peut contenir au maximum "
-                                            + BlindShip_Stat.Max_Crew + "matelots.   " +
-                                            " Ton bateau possède " + BlindShip_Stat.XP + " X P " +
-                                            BlindShip_Stat.HP + " H P" + "et peut causer"
-                                            + BlindShip_Stat.Damage + " point de dommage." + " Enfin, il a "
-                                            + BlindShip_Stat.Shield + " point de capacité de défense");
-                        Thread.Sleep(15000);
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(VotreNavire));
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) VotreNavire.length * 1000 + 500));
+                        
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Synthesis.synthesis(BlindShip_Stat.Lvl + " niveaux."));
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep(2000));
+                        
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(VousAvez));
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) VousAvez.length * 1000 + 500));
+                        
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Synthesis.synthesis(BlindShip_Stat.Crew + ""));
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep(1300));
+                        
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(Matelots));
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) Matelots.length * 1000 + 500));
+                        
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(IlPeutContenir));
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) IlPeutContenir.length * 1000 + 500));
+                        
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Synthesis.synthesis(BlindShip_Stat.Max_Crew + ""));
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep(1300));
+                        
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(HommeEquipage));
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) HommeEquipage.length * 1000 + 500));
+                        
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(VotreNavire));
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) VotreNavire.length * 1000 + 500));
+                        
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Synthesis.synthesis(BlindShip_Stat.HP + ""));
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep(1300));
+                        
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(PointHP));
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) PointHP.length * 1000 + 500));
+                        
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Synthesis.synthesis(BlindShip_Stat.XP + ""));
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep(1300));
+                        
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(XP));
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) XP.length * 1000 + 500));
+                        
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(EtPeutCauser));
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) EtPeutCauser.length * 1000 + 500));
+                        
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Synthesis.synthesis(BlindShip_Stat.Damage + ""));
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep(1300));
+                        
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(PointDegat));
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) PointDegat.length * 1000 + 500));
+                        
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(Enfin));
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) Enfin.length * 1000 + 500));
+                        
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Synthesis.synthesis(BlindShip_Stat.Shield + ""));
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep(1300));
+                        
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(PointResistance));
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) PointResistance.length * 1000 + 500));
                         break;
 
 
                     case "vie":
                     case "HP":
-                        Synthesis.synthesis("Tu as " + BlindCaptain_Stat.HP + " point de vie." + "Ton bateau à " +
-                                            BlindShip_Stat.HP);
-                        Thread.Sleep(4000);
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(VotreNavire));
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) VotreNavire.length * 1000 + 500));
+                        
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Synthesis.synthesis(BlindShip_Stat.HP + ""));
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep(1300));
+                        
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(HP));
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) HP.length * 1000 + 500));
+                        
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(EtVousAvez));
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) EtVousAvez.length * 1000 + 500));
+                        
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Synthesis.synthesis(BlindCaptain_Stat.HP + ""));
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep(1300));
+                        
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(PointHP));
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) PointHP.length * 1000 + 500));
                         break;
 
-                    case "réputation":
-                        Synthesis.synthesis("Tu as " + BlindCaptain_Stat.Reputation + " point de réputation.");
-                        Thread.Sleep(3000);
+                    case "raiputation":
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(VousAvez));
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) VousAvez.length * 1000 + 500));
+                        
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Synthesis.synthesis(BlindCaptain_Stat.Reputation + ""));
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep(1300));
+                        
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(PointReput));
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) PointReput.length * 1000 + 500));
                         break;
 
                     case "XP":
                     case "experience":
-                        Synthesis.synthesis("Tu as " + BlindCaptain_Stat.XP + " point de d'experience.");
-                        Thread.Sleep(3000);
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(VotreNavire));
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) VotreNavire.length * 1000 + 500));
+                        
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Synthesis.synthesis(BlindShip_Stat.Lvl + " niveaux et " + BlindShip_Stat.XP));
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep(3000));
+                        
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(XP));
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) XP.length * 1000 + 500));
+                        
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(EtVousAvez));
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) EtVousAvez.length * 1000 + 500));
+                        
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Synthesis.synthesis(BlindCaptain_Stat.Lvl + " niveaux et " + BlindCaptain_Stat.XP));
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep(3000));
+                        
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(XP));
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) XP.length * 1000 + 500));
                         break;
 
-                    case "épée":
+                    case "aipai":
                     case "sabre":
-                        Synthesis.synthesis("Tu as " + BlindCaptain_Stat.SwordDamage + " point de dommmage à l'épée.");
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(VousAvez));
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) VousAvez.length * 1000 + 500));
+                        
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Synthesis.synthesis(BlindCaptain_Stat.SwordDamage + ""));
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep(1300));
+                        
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(PointSword));
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) PointSword.length * 1000 + 500));
                         break;
 
                     case "pistolet":
-                        Synthesis.synthesis("Tu as " + BlindCaptain_Stat.GunDamage + " point de dommage au pistolet.");
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(VousAvez));
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) VousAvez.length * 1000 + 500));
+                        
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Synthesis.synthesis(BlindCaptain_Stat.GunDamage + ""));
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep(1300));
+                        
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(PointGun));
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) PointGun.length * 1000 + 500));
 
                         break;
 
@@ -88,7 +237,8 @@ namespace Scenes
                     case "non":
                     case "rien":
                     case "merci":
-                        Synthesis.synthesis("Ok Capitaine");
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(OkCaptain));
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) OkCaptain.length * 1000 + 500));
                         quit = true;
                         break;
                 }
@@ -141,30 +291,11 @@ namespace Scenes
                 }
             }
 
-            //micMute.UnMuteMic(); 
             if (!quit)
             {
-                Synthesis.synthesis("Voulez vous autre chose capitaine ?");
+                UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(VoulezVous));
+                UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) VoulezVous.length * 1000 + 500));
             }
-        }
-
-        void Start()
-        {
-            if (TutoON)
-            {
-                Synthesis.synthesis(
-                    "Je suis Coco, votre assistant euh votre perroquet Capitaine ! Vous pouvez me demander vos statistiques de Capitaine" +
-                    "celles de votre navire. Je peux également vous proposer de sauvegarder votre partie ou aller au menu options sonores"
-                    + "Allez y testez moi !");
-                TutoON = false;
-            }
-
-            Recognition.Function OkCoco = Traitement_Call;
-            Recognition.start_recognition(OkCoco, "Coco baba vigie", 0);
-
-            baba = GameObject.FindObjectOfType<Vigie>();
-
-            quit = false;
         }
 
         private void Update()
@@ -172,26 +303,24 @@ namespace Scenes
             if (activated)
             {
                 Debug.Log("demande detecté");
-                Recognition.stop_recognition();
 
                 Recognition.Function AnswerCoco = Answertraitement;
                 Debug.Log("nouvelle reco");
-                //micMute.UnMuteMic();
-                Recognition.start_recognition(AnswerCoco,
-                    "non rien merci niveau bateau navire HP vie XP réputation épée sabre pistolet" +
-                    "sauver sauvegarder quitter Ennemy Ile Vois Bateau ", 0);
+                
+                UnityMainThreadDispatcher.Instance().Enqueue(() => Recognition.start_recognition(AnswerCoco,
+                    "non rien merci niveau bateau navire HP vie XP raiputation aipai sabre pistolet " +
+                    "sauver sauvegarder quitter Ennemy Ile Vois Bateau "));
                 activated = false;
                 Debug.Log("désactivé");
             }
 
-            if (quit)
+            else if (quit)
             {
-                Recognition.stop_recognition();
                 quit = false;
 
 
                 Recognition.Function Indication = Traitement_Call;
-                Recognition.start_recognition(Indication, "Coco baba vigie", 0);
+                UnityMainThreadDispatcher.Instance().Enqueue(() => Recognition.start_recognition(Indication, "Coco baba vigie"));
 
                 if (pauseCoco)
                 {
@@ -204,18 +333,18 @@ namespace Scenes
         {
             if (mot == "Coco")
             {
-                UnityMainThreadDispatcher.Instance().Enqueue(() => Synthesis.synthesis("Coco Activé"));
+                UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(CocoOn));
+                UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) CocoOn.length * 1000 + 500));
                 activated = true;
-
-                //micMute.MuteMic();
+                
                 UnityMainThreadDispatcher.Instance().Enqueue((() => Coco.Paused()));
                 pauseCoco = true;
             }
 
             if (mot == "baba" || mot == "vigie")
             {
-                //micMute.MuteMic();
-                UnityMainThreadDispatcher.Instance().Enqueue(() => Synthesis.synthesis("Oui Capitaine ?"));
+                UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(YesCaptain));
+                UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) YesCaptain.length * 1000 + 500));
                 Debug.Log("baba");
                 activated = true;
             }

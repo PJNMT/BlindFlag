@@ -503,6 +503,55 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 668152735}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &521849833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 521849832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 137c03f21f2d4dd8b1f08d836ee659dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activated: 0
+  quit: 0
+  pauseCoco: 0
+  Babord: {fileID: 0}
+  Tribord: {fileID: 0}
+  Back: {fileID: 0}
+  Corsaire: {fileID: 0}
+  Pirates: {fileID: 0}
+  Forward: {fileID: 0}
+  Ship: {fileID: 0}
+  YesCaptain: {fileID: 0}
+  IsleInView: {fileID: 0}
+  Galion: {fileID: 0}
+  Military: {fileID: 0}
+  TutoCoco: {fileID: 0}
+  CocoOn: {fileID: 0}
+  Cocococo: {fileID: 0}
+  Enfin: {fileID: 0}
+  EtPeutCauser: {fileID: 0}
+  EtVousAvez: {fileID: 0}
+  HommeEquipage: {fileID: 0}
+  HP: {fileID: 0}
+  IlPeutContenir: {fileID: 0}
+  Matelots: {fileID: 0}
+  OkCaptain: {fileID: 0}
+  PointDef: {fileID: 0}
+  PointSword: {fileID: 0}
+  PointGun: {fileID: 0}
+  PointReput: {fileID: 0}
+  PointResistance: {fileID: 0}
+  PointHP: {fileID: 0}
+  PointDegat: {fileID: 0}
+  VotreNavire: {fileID: 0}
+  VoulezVous: {fileID: 0}
+  VousAvezShip: {fileID: 0}
+  VousAvez: {fileID: 0}
+  XP: {fileID: 0}
 --- !u!82 &521849834
 AudioSource:
   m_ObjectHideFlags: 0
@@ -514,17 +563,17 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: df84cf1a28b28384aad84f55899c832c, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 15
+  MaxDistance: 20
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -995,7 +1044,8 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6368405390523591766, guid: 82a4d3f7a519aa244bc7a573a83fe8f8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 82a4d3f7a519aa244bc7a573a83fe8f8, type: 3}
 --- !u!1 &800869938
 GameObject:
@@ -1516,6 +1566,40 @@ MonoBehaviour:
   activated: 0
   quit: 0
   pauseCoco: 0
+  Babord: {fileID: 0}
+  Tribord: {fileID: 0}
+  Back: {fileID: 0}
+  Corsaire: {fileID: 0}
+  Pirates: {fileID: 0}
+  Forward: {fileID: 0}
+  Ship: {fileID: 0}
+  YesCaptain: {fileID: 0}
+  IsleInView: {fileID: 0}
+  Galion: {fileID: 0}
+  Military: {fileID: 0}
+  TutoCoco: {fileID: 0}
+  CocoOn: {fileID: 0}
+  Cocococo: {fileID: 0}
+  Enfin: {fileID: 0}
+  EtPeutCauser: {fileID: 0}
+  EtVousAvez: {fileID: 0}
+  HommeEquipage: {fileID: 0}
+  HP: {fileID: 0}
+  IlPeutContenir: {fileID: 0}
+  Matelots: {fileID: 0}
+  OkCaptain: {fileID: 0}
+  PointDef: {fileID: 0}
+  PointSword: {fileID: 0}
+  PointGun: {fileID: 0}
+  PointReput: {fileID: 0}
+  PointResistance: {fileID: 0}
+  PointHP: {fileID: 0}
+  PointDegat: {fileID: 0}
+  VotreNavire: {fileID: 0}
+  VoulezVous: {fileID: 0}
+  VousAvezShip: {fileID: 0}
+  VousAvez: {fileID: 0}
+  XP: {fileID: 0}
 --- !u!1 &1134638107
 GameObject:
   m_ObjectHideFlags: 0

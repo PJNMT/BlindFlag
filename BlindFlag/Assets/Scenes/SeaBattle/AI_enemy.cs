@@ -190,10 +190,10 @@ public class AI_enemy : MonoBehaviour
     }
     
     
-    private void OnGUI()
+    /*private void OnGUI()
     {
         GUI.Box(new Rect(1000, 10, 150, 25), "Enemy's STATS");
         GUI.Box(new Rect(1000, 36, 150, 25), "HP: " + HP + " / " + Lvl * 100);
         GUI.Box(new Rect(1000, 62, 150, 25), "Lvl: " + Lvl);
-    }
+    }*/
 }

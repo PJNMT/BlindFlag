@@ -34,7 +34,7 @@ namespace Scenes.Scenes.ShipShop
             Street.GetComponent<AudioSource>().Play();
             Street.GetComponent<AudioSource>().loop = true;
             Audio = GetComponent<AudioSource>();
-            Launch(true, "raiparer amailiorer aiquipement quitter partir");
+            Launch(true, "raiparer amailiorer aiquipement quitter partir", true);
         }
 
         private void Launch(bool WDUWTD, string WordList, bool enter = false)
@@ -42,7 +42,7 @@ namespace Scenes.Scenes.ShipShop
             if (enter)
             {
                 UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(Enter));
-                UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) Enter.length * 1000 + 500));
+                UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) Enter.length * 800));
                 
                 UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(Hello));
                 UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) Hello.length * 1000 + 500));

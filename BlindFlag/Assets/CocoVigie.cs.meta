@@ -1,3 +1,45 @@
-﻿fileFormatVersion: 2
+fileFormatVersion: 2
 guid: 137c03f21f2d4dd8b1f08d836ee659dd
-timeCreated: 1559136315
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - Babord: {fileID: 8300000, guid: 680fe518349741b4598ee895e305bd25, type: 3}
+  - Tribord: {fileID: 8300000, guid: 21665cd25cb35fd49859adca7a6fcca4, type: 3}
+  - Back: {fileID: 8300000, guid: 786108bc830b6334b856ea17310a1449, type: 3}
+  - Corsaire: {fileID: 8300000, guid: b06c358963536a94b9279c4bb41ba77b, type: 3}
+  - Pirates: {fileID: 8300000, guid: 18a08971096336446b89122bb56278a3, type: 3}
+  - Forward: {fileID: 8300000, guid: 63f4811c511f22040a640b5ae98217f0, type: 3}
+  - Ship: {fileID: 8300000, guid: 99360c4cf7e4dee428d29ad78fc5e952, type: 3}
+  - YesCaptain: {fileID: 8300000, guid: eb7d81b5bbfb48c41a26c3ed036d416f, type: 3}
+  - IsleInView: {fileID: 8300000, guid: 45598c7e83ec578499996979b5736328, type: 3}
+  - Galion: {fileID: 8300000, guid: 122df027ce6a92548a8d4879a183997a, type: 3}
+  - Military: {fileID: 8300000, guid: 2fa0db5d272ad9b4e8485cefee146bb9, type: 3}
+  - TutoCoco: {fileID: 8300000, guid: 126d74a63152e7242ba6e4707fc72fd2, type: 3}
+  - CocoOn: {fileID: 8300000, guid: 0704fdf5a672ae94f84f832af1c84cce, type: 3}
+  - Cocococo: {fileID: 8300000, guid: 8408d9b9b5ebfd247944e6a058b8c977, type: 3}
+  - Enfin: {fileID: 8300000, guid: 0c6a2fbfea1a7344c98c4ed12c55b33f, type: 3}
+  - EtPeutCauser: {fileID: 8300000, guid: 8cd7c681fbd98c24aa058a44fff35416, type: 3}
+  - EtVousAvez: {fileID: 8300000, guid: 4d772a6d9787aca49b0b489c25e2b147, type: 3}
+  - HommeEquipage: {fileID: 8300000, guid: adfbf6610864e37499e44a2c85db0db8, type: 3}
+  - HP: {fileID: 8300000, guid: 940eeaa6212eb1344970a6af14d93dff, type: 3}
+  - IlPeutContenir: {fileID: 8300000, guid: d2a2ae7b9743be040b2818dc8b896750, type: 3}
+  - Matelots: {fileID: 8300000, guid: f22ede1b6511ea446981559ac5534194, type: 3}
+  - OkCaptain: {fileID: 8300000, guid: 1da85150de4637541b6c6ae73cafae4e, type: 3}
+  - PointDef: {fileID: 8300000, guid: 1e8c43ee3fa10bc4cabe056930d58029, type: 3}
+  - PointSword: {fileID: 8300000, guid: e6f4d479a7ad5d24c97fa89752bc6db3, type: 3}
+  - PointGun: {fileID: 8300000, guid: 61de30eb3ebd18541b66f1094761fd2e, type: 3}
+  - PointReput: {fileID: 8300000, guid: 48c0c31978e136343950aa78bfb6eb3a, type: 3}
+  - PointResistance: {fileID: 8300000, guid: 0f9a3e3faa76c1a4e8ed3e51d5307ea8, type: 3}
+  - PointHP: {fileID: 8300000, guid: 687b90f63ce558644926ae47e9904b39, type: 3}
+  - PointDegat: {fileID: 8300000, guid: b4d903108698f594ab16b116bd67a130, type: 3}
+  - VotreNavire: {fileID: 8300000, guid: e808daefa33955842a96cfb9f03d377e, type: 3}
+  - VoulezVous: {fileID: 8300000, guid: 8604e19ebab5fb9418baa9c239df3576, type: 3}
+  - VousAvezShip: {fileID: 8300000, guid: c8352d1ccf7948a47b2c37132eb9f2d4, type: 3}
+  - VousAvez: {fileID: 8300000, guid: 90c8e5b30f20a7c4d889673ecf39d8f4, type: 3}
+  - XP: {fileID: 8300000, guid: cf2ca243ca9cc32468751a6c87b669de, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

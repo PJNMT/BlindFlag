@@ -8,7 +8,7 @@ using Random = UnityEngine.Random;
 public class Mover_IA : MonoBehaviour
 {
     
-    private static bool decteted = false;
+    private static bool decteted;
     public static int Level;
     public static BoatType type;
     private static int Speed;
@@ -27,6 +27,7 @@ public class Mover_IA : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        decteted = false;
         target = null;
         //(BoatType)(Random.Range(0, 3));
         int OurLevel = 10;
@@ -53,7 +54,7 @@ public class Mover_IA : MonoBehaviour
     void Update()
     {
         
-        if (decteted)
+        if (decteted && target != null)
         {
             BlindShip = target.transform;
             if (type == BoatType.Marchand)
@@ -87,7 +88,7 @@ public class Mover_IA : MonoBehaviour
         }
         transform.Translate(Vector3.left * Speed * Time.deltaTime); //on avance en f° du temps
 
-        if (Distance(target)<30)
+        if (target != null && Distance(target.gameObject)<30)
         {
             LoadScene.Load(LoadScene.Scene.SeaBattle, LoadScene.Scene.Navigation);
         }

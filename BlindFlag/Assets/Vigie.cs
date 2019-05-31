@@ -28,7 +28,6 @@ public class Vigie : MonoBehaviour
     }
     
     
-    
     private void Start()
     {
         speech = "";
@@ -37,32 +36,14 @@ public class Vigie : MonoBehaviour
         
         ObjetsVus = new Dictionary<GameObject, string>();
         Tags = new List<string>(){"Ennemy","Ile","Visible","Port","Ile au trésor"};
-
-       /* 
-        Recognition.Function IlVoit = JeVois;
-        
-        Recognition.start_recognition(IlVoit, "vigie baba Ile Ennemy Vois Bateau"); // TODO il ne faut pas executer cette ligne lorsqu'on est en battaile navale !!!
-
-        
-        foreach (GameObject o in SceneManager.GetSceneByName("navi").GetRootGameObjects())
-        {
-            if (o.tag == "player" || o.name == "Ship")
-            {
-                player = o.gameObject;
-                break;
-            }
-                        
-        } */
     }
 
 
     private void OnTriggerEnter(Collider other)
     {
-        /*if(!Tags.Contains(other.tag)) return;*/
-
         if (Tags.Contains(other.tag))
         {
-            Synthesis.synthesis(other.tag + " en vue " + Direction(other.gameObject));
+            UnityMainThreadDispatcher.Instance().Enqueue(() => Synthesis.synthesis(other.tag + " en vue " + Direction(other.gameObject)));
             Debug.Log(other.tag + " en vue " + Direction(other.gameObject));
             ObjetsVus.Add(other.gameObject, other.tag);
         }
@@ -104,73 +85,10 @@ public class Vigie : MonoBehaviour
     {
         if (ObjetsVus.ContainsKey(other.gameObject))
         {
-            //J'ai perdu 'other' de vu
-            //Synthesis.synthesis("J'ai perdu " + other.name + " de vue");
             Debug.Log("perdu " + other.tag);
             
             ObjetsVus.Remove(other.gameObject);
         } 
     }
-
-   /* void JeVois(string word)
-    {
-        speech = speech + word + " ";
-        string[] words = speech.Split(' ');
-        
-        Debug.Log(speech);
-
-        if (words.Length > 2)
-        {
-            if (Dico_1.Contains(words[0]) && Dico_2.Contains(words[1]))
-            {
-
-                Synthesis.synthesis("oui Cap'tain"); 
-                
-                switch (words[1])
-                {
-                    case "Vois":
-                        foreach (KeyValuePair<GameObject,string> pair in ObjetsVus)
-                        {
-                            UnityMainThreadDispatcher.Instance().Enqueue(() => Synthesis.synthesis(pair.Value + " en vue " + Direction(pair.Key.gameObject)));
-
-                        }
-                        break;
-                    
-                    case "Ennemy":
-                    case "Bateau":
-
-                        foreach (KeyValuePair<GameObject,string> objetsVu in ObjetsVus)
-                        {
-                            if (objetsVu.Value == "Ennemy")
-                            {
-                                UnityMainThreadDispatcher.Instance().Enqueue(() => Synthesis.synthesis(objetsVu.Value + " en vue " + Direction(objetsVu.Key.gameObject)));
-
-                            }
-                        }
-                        break;
-
-                    case "Ile":
-                        Debug.Log("ok captain");
-                        foreach (KeyValuePair<GameObject,string> objetsVu in ObjetsVus)
-                        {
-                            if ((objetsVu.Value == "Port" || objetsVu.Value == "Ile au trésor"))
-                            {
-                                Debug.Log("ok captain");
-                                UnityMainThreadDispatcher.Instance().Enqueue(() => Synthesis.synthesis(objetsVu.Value + " en vue " + Direction(objetsVu.Key.gameObject)));
-
-                            }
-                        }
-                        
-                        break;
-                }
-            }
-
-            speech = "";
-        }
-        
-        else if (!Dico_1.Contains(words[0])) speech = "";
-    
-        
-    }*/
 }
 
