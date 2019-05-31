@@ -121,7 +121,9 @@ namespace Scenes.Scenes.ShipShop
                     case "aiquipement":
                     case "amailiorer":
                         Launch(false, "cannon capacitai calle quartier aiquipage sabre aipai pistolet fusil rien");
-                        // Que voulez-vous améliorer ? Vos canons, la capicité de votre calle, les quartiers de votre équipage, votre sabre ou votre fusil ? Ou bien alors ne rien faire ?
+                        // Que voulez-vous améliorer ?
+                        // Vos canons, la capicité de votre calle, les quartiers de votre équipage, votre sabre ou votre fusil ?
+                        // Ou bien alors ne rien faire ?
                         break;
                 }
                 

@@ -33,14 +33,11 @@ public class BlindCaptain_Stat : MonoBehaviour
     
     public static Dictionary<string, bool> Tuto = new Dictionary<string, bool>()
     {
-        {"Navigation", false},
         {"SeaBattle", false},
-        {"Port", false},
         {"ChasseAuTresor", false},
-        {"Taverne", false},
-        {"ShipShop", false},
         {"Simon", false},
         {"Combat", false},
+        {"Coco", false},
     };
 
     private void Update()
