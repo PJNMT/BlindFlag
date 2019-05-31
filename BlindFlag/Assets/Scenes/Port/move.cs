@@ -20,9 +20,8 @@ public class move : MonoBehaviour
         this.GetComponentInChildren<AudioSource>().mute = true;
         moveSpeed = 0f;
         scene = "";
-        Synthesis.synthesis("Ou voulez vous aller Capitaine ? A la taverne ? Au magasin ? ou bien voulez vous repartir ?");
         Recognition.Function F1 = choix;
-        Recognition.start_recognition(F1,"taverne magasin partir quitter partons", 20);
+        Recognition.start_recognition(F1,"taverne magasin partir quitter partons", 0);
     }
 
 
@@ -148,15 +147,16 @@ private void PouC(string msg)
         if (scene == "1")
         {
             transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
+            GetComponentInChildren<AudioSource>().mute = false;
         }
 
         if (scene == "0")
         {
             transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
+            GetComponentInChildren<AudioSource>().mute = false;
+
         }
         
-        moveSpeed = 0f;
-        transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
 
 
         // if (Input.GetKey(KeyCode.UpArrow)) moveSpeed += 1f; //on augmente la vitesse ou on la baisse
@@ -173,7 +173,6 @@ private void PouC(string msg)
         // if (Input.GetKey(KeyCode.Space)) moveSpeed += 1f;
 
         if (moveSpeed < 0f) moveSpeed = 0f;*/
-        transform.Translate(Vector3.left * moveSpeed * Time.deltaTime); //on avance en f° du temps
 
 /*      transform.position += mov;
         if (transform.position.x>45)
