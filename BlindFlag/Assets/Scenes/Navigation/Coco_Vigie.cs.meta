@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 137c03f21f2d4dd8b1f08d836ee659dd
+guid: d5212f6b022310d4180ffb74b02cebe3
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
@@ -15,6 +15,7 @@ MonoImporter:
   - IsleInView: {fileID: 8300000, guid: 45598c7e83ec578499996979b5736328, type: 3}
   - Galion: {fileID: 8300000, guid: 122df027ce6a92548a8d4879a183997a, type: 3}
   - Military: {fileID: 8300000, guid: 2fa0db5d272ad9b4e8485cefee146bb9, type: 3}
+  - EnVue: {fileID: 8300000, guid: c4aeb488430510240b3f4a8880643ee5, type: 3}
   - TutoCoco: {fileID: 8300000, guid: 126d74a63152e7242ba6e4707fc72fd2, type: 3}
   - CocoOn: {fileID: 8300000, guid: 0704fdf5a672ae94f84f832af1c84cce, type: 3}
   - Cocococo: {fileID: 8300000, guid: 8408d9b9b5ebfd247944e6a058b8c977, type: 3}

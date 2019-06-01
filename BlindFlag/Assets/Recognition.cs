@@ -44,7 +44,7 @@ public class Recognition : MonoBehaviour
             // lancement de Recognition.exe
             myProcess = new Process();
 
-            myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Normal;
             myProcess.StartInfo.CreateNoWindow = true;
 
             myProcess.StartInfo.FileName = "Recognition.exe";
@@ -88,11 +88,15 @@ public class Recognition : MonoBehaviour
 
     public static void stop_recognition()
     {
-        if (myProcess != null) myProcess.Kill();
         if (tcpListener != null) tcpListener.Stop();
         if (tcpListenerThread != null) tcpListenerThread.Abort();
         if (stm != null) stm.Close();
-        if (tcpclnt != null) tcpclnt.Close();
+        if (tcpclnt != null)
+        {
+            tcpclnt.Dispose();
+            tcpclnt.Close();
+        }
+        if (myProcess != null) myProcess.Kill();
     }
 
     private static void ListenForIncommingRequests()

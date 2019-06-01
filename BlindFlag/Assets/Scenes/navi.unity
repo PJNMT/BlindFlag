@@ -293,7 +293,6 @@ GameObject:
   - component: {fileID: 406203090}
   - component: {fileID: 406203089}
   - component: {fileID: 406203092}
-  - component: {fileID: 406203088}
   - component: {fileID: 406203093}
   - component: {fileID: 406203094}
   m_Layer: 0
@@ -303,19 +302,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &406203088
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 406203087}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb92e848336b53e449268897d0c95749, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  name_: Nothing bro
 --- !u!23 &406203089
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -611,6 +597,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53930a833632a7c49af4d6681bf34a73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Babord: {fileID: 8300000, guid: 680fe518349741b4598ee895e305bd25, type: 3}
+  Tribord: {fileID: 8300000, guid: 21665cd25cb35fd49859adca7a6fcca4, type: 3}
+  Back: {fileID: 8300000, guid: 786108bc830b6334b856ea17310a1449, type: 3}
+  Corsaire: {fileID: 8300000, guid: b06c358963536a94b9279c4bb41ba77b, type: 3}
+  Pirates: {fileID: 8300000, guid: 18a08971096336446b89122bb56278a3, type: 3}
+  Forward: {fileID: 8300000, guid: 63f4811c511f22040a640b5ae98217f0, type: 3}
+  Ship: {fileID: 8300000, guid: 99360c4cf7e4dee428d29ad78fc5e952, type: 3}
+  YesCaptain: {fileID: 8300000, guid: eb7d81b5bbfb48c41a26c3ed036d416f, type: 3}
+  IsleInView: {fileID: 8300000, guid: 45598c7e83ec578499996979b5736328, type: 3}
+  Galion: {fileID: 8300000, guid: 122df027ce6a92548a8d4879a183997a, type: 3}
+  Military: {fileID: 8300000, guid: 2fa0db5d272ad9b4e8485cefee146bb9, type: 3}
+  EnVue: {fileID: 8300000, guid: c4aeb488430510240b3f4a8880643ee5, type: 3}
   Tags: []
 --- !u!1 &534669902
 GameObject:
@@ -1525,12 +1523,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1028395073}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 137c03f21f2d4dd8b1f08d836ee659dd, type: 3}
+  m_Script: {fileID: 11500000, guid: d5212f6b022310d4180ffb74b02cebe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activated: 0
-  quit: 0
-  pauseCoco: 0
   Babord: {fileID: 8300000, guid: 680fe518349741b4598ee895e305bd25, type: 3}
   Tribord: {fileID: 8300000, guid: 21665cd25cb35fd49859adca7a6fcca4, type: 3}
   Back: {fileID: 8300000, guid: 786108bc830b6334b856ea17310a1449, type: 3}
@@ -1542,6 +1537,7 @@ MonoBehaviour:
   IsleInView: {fileID: 8300000, guid: 45598c7e83ec578499996979b5736328, type: 3}
   Galion: {fileID: 8300000, guid: 122df027ce6a92548a8d4879a183997a, type: 3}
   Military: {fileID: 8300000, guid: 2fa0db5d272ad9b4e8485cefee146bb9, type: 3}
+  EnVue: {fileID: 8300000, guid: c4aeb488430510240b3f4a8880643ee5, type: 3}
   TutoCoco: {fileID: 8300000, guid: 126d74a63152e7242ba6e4707fc72fd2, type: 3}
   CocoOn: {fileID: 8300000, guid: 0704fdf5a672ae94f84f832af1c84cce, type: 3}
   Cocococo: {fileID: 8300000, guid: 8408d9b9b5ebfd247944e6a058b8c977, type: 3}
@@ -2328,7 +2324,7 @@ AudioSource:
   MinDistance: 1
   MaxDistance: 300
   Pan2D: 0
-  rolloffMode: 2
+  rolloffMode: 0
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0

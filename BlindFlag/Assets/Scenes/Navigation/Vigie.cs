@@ -4,11 +4,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using JetBrains.Annotations;
+using Scenes;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Vigie : MonoBehaviour
 {
+    public AudioClip Babord; //Vigie
+    public AudioClip Tribord;
+    public AudioClip Back;
+    public AudioClip Corsaire;
+    public AudioClip Pirates;
+    public AudioClip Forward;
+    public AudioClip Ship;
+    public AudioClip YesCaptain;
+    public AudioClip IsleInView;
+    public AudioClip Galion;
+    public AudioClip Military;
+    public AudioClip EnVue;
+    
     public Dictionary<GameObject, string> ObjetsVus;
     public List<string> Tags;
     private GameObject player;
@@ -25,6 +40,34 @@ public class Vigie : MonoBehaviour
         ATribord = 1,
         ABabord = 3,
         DroitDevant = 2
+    }
+
+    public AudioClip DirectionToAudio(direction D)
+    {
+        switch (D)
+        {
+            case direction.Derriere:
+                return Back;
+            case direction.ABabord:
+                return Babord;
+            case direction.ATribord:
+                return Tribord;
+            default:
+                return Forward;
+        }
+    }
+
+    public AudioClip TagToAudio(string tag)
+    {
+        switch (tag)
+        {
+            case "Ile":
+            case "Ile au trésor":
+            case "Port":
+                return IsleInView;
+            default:
+                return Ship;
+        }
     }
     
     
@@ -43,7 +86,11 @@ public class Vigie : MonoBehaviour
     {
         if (Tags.Contains(other.tag))
         {
-            UnityMainThreadDispatcher.Instance().Enqueue(() => Synthesis.synthesis(other.tag + " en vue " + Direction(other.gameObject)));
+            //UnityMainThreadDispatcher.Instance().Enqueue(() => Synthesis.synthesis(other.tag + " en vue " + Direction(other.gameObject)));
+            Coco_Vigie.Audio.PlayOneShot(TagToAudio(other.tag));
+            Thread.Sleep((int) (TagToAudio(other.tag).length * 1000 + 500));
+            Coco_Vigie.Audio.PlayOneShot(DirectionToAudio(Direction(other.gameObject)));
+            Thread.Sleep((int) (DirectionToAudio(Direction(other.gameObject)).length * 1000 + 500));
             Debug.Log(other.tag + " en vue " + Direction(other.gameObject));
             ObjetsVus.Add(other.gameObject, other.tag);
         }
