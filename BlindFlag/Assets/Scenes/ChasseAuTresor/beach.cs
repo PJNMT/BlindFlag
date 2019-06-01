@@ -10,7 +10,7 @@ public class beach : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _audioSource.clip = walk_on_sand;
+        
     }
 
     // Update is called once per frame
@@ -22,6 +22,6 @@ public class beach : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         cubecontroller a = FindObjectOfType<cubecontroller>();
-        
+        _audioSource.clip = walk_on_sand;
     }
 }

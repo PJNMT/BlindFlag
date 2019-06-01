@@ -35,7 +35,7 @@ public class cubecontroller : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
-		transform.position = new Vector3(0f, 0f, 0f);
+		transform.position = new Vector3(50f, 0f, 2f);
 		x = 2;
 		z = 0;
 
