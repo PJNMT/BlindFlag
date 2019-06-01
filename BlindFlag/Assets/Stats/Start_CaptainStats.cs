@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Start_CaptainStats : MonoBehaviour
 {
-    void Start()
+    public static void Start()
     {
         BlindCaptain_Stat.Lvl = 0;
         BlindCaptain_Stat.Reputation = 0;

@@ -92,7 +92,7 @@ public class Vigie : MonoBehaviour
             Coco_Vigie.Audio.PlayOneShot(DirectionToAudio(Direction(other.gameObject)));
             Thread.Sleep((int) (DirectionToAudio(Direction(other.gameObject)).length * 1000 + 500));
             Debug.Log(other.tag + " en vue " + Direction(other.gameObject));
-            ObjetsVus.Add(other.gameObject, other.tag);
+            if (!ObjetsVus.ContainsKey(other.gameObject)) ObjetsVus.Add(other.gameObject, other.tag);
         }
 
 
