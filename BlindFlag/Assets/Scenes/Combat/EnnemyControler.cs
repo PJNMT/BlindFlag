@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -24,6 +25,8 @@ public class EnnemyControler : MonoBehaviour
 
     private AudioClip[] Sons;
 
+    public AudioClip TutoCombat;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +35,14 @@ public class EnnemyControler : MonoBehaviour
 
         target = player.transform;
         Sons = new[] { Atk_IA1, Atk_IA2, Atk_IA3};
+        
+        if (!BlindCaptain_Stat.Tuto["Coco"])
+        {
+            UnityMainThreadDispatcher.Instance().Enqueue(() => GetComponent<AudioSource>().PlayOneShot(TutoCombat));
+            UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) TutoCombat.length * 1000 + 500));
+
+            BlindCaptain_Stat.Tuto["Coco"] = true;
+        }
     }
 
     private void OnCollisionEnter(Collision other) //verifie si un projectile entre dans collider zone ennemy
