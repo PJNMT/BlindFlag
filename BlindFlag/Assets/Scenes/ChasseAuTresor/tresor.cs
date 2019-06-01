@@ -32,8 +32,8 @@ public class tresor : MonoBehaviour
          x = Random.Range(2f, 98f);
          z = Random.Range(30f, 98f);
 
-          transform.position = new Vector3(0,0,20);
-        //transform.position = new Vector3(x, 1f, z);
+         
+        transform.position = new Vector3(x, 1f, z);
         
         //crée l'objet enigme choisit et _enigma prends sa valeur
         Generateenigme();
