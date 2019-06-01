@@ -9,25 +9,22 @@ public class taverne : MonoBehaviour
     private bool activated;
     
     // Start is called before the first frame update
-    void Start()
+    private void OnTriggerEnter(Collider other)
     {
-        
-        UnityMainThreadDispatcher.Instance().Enqueue(() =>Synthesis.synthesis("Que voulez-vous faire Captaine ? Offrir une tournée générale à ces pirates, chercher de nouvelles recrues ou leur montrer qui est le meilleur chanteur " +
-                            "de chansons pirates de toutes les Caraïbes ?"));
-        Thread.Sleep(10000);
-        Recognition.Function Traitement = this.Traitement;
-        Recognition.start_recognition(Traitement, "chanson chanter jouer boire simon payer tournée recruter recrue nouveau équipage matelot", 60);
+        if (other.gameObject.name == "You")
+        {
+            UnityMainThreadDispatcher.Instance().Enqueue(() => Synthesis.synthesis(
+                "Que voulez-vous faire Captaine ? Offrir une tournée générale à ces pirates, chercher de nouvelles recrues ou leur montrer qui est le meilleur chanteur " +
+                "de chansons pirates de toutes les Caraïbes ?"));
+            UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep(10000));
+            
+            
+            Recognition.Function Traitement = this.Traitement;
+            Recognition.start_recognition(Traitement,
+                "chanson chanter jouer boire simon payer tournée recruter recrue nouveau équipage matelot", 60);
+        }
     }
 
-    void Menu()
-    {
-        UnityMainThreadDispatcher.Instance().Enqueue(() =>Synthesis.synthesis("Que voulez-vous faire Captaine ? Offrir une tournée générale à ces pirates, chercher de nouvelles recrues ou leur montrer qui est le meilleur chanteur " +
-                                                                              "de chansons pirates de toutes les Caraïbes ?"));
-        Thread.Sleep(10000);
-        Recognition.Function Traitement = this.Traitement;
-        Recognition.start_recognition(Traitement, "chanson chanter jouer boire simon payer tournée recruter recrue nouveau équipage matelot", 60);
-    }
-    
     
     // Update is called once per frame
     void Update()
@@ -67,7 +64,7 @@ public class taverne : MonoBehaviour
                Synthesis.synthesis("Vous avez recruté"+ crew_members +" membres d'équipage.");
                BlindShip_Stat.Crew += crew_members;
                Thread.Sleep(3000);
-               Menu();
+               //Menu();
                Debug.Log("menu");
                break;
            
@@ -88,7 +85,7 @@ public class taverne : MonoBehaviour
                    //AudioSource.PlayClipAtPoint();  enthousiasme des pirates
                    Synthesis.synthesis("Vous avez payé avec succès vos pirates! Bien joué !");      
                }
-               Start();
+               //OnTriggerEnter(other:);
                break;
            case "quitter":
                LoadScene.Load(LoadScene.Scene.Port, LoadScene.Scene.Taverne);
@@ -97,7 +94,7 @@ public class taverne : MonoBehaviour
            default:
            Synthesis.synthesis("Je n'ai pas compris ce que vous avez dit.");
            activated = false;
-           Start();
+           //Start();
            break;
                 
         }

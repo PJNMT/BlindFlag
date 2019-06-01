@@ -12,6 +12,8 @@ public class Simon2 : MonoBehaviour
     public AudioSource _AudioSource;
     public int Len;
 
+    private Collider other;
+
     private int mise;
     private bool activated;
     
@@ -20,7 +22,7 @@ public class Simon2 : MonoBehaviour
     public bool won;
 
     public Dictionary<int, KeyCode> IntToKey;
-    public Dictionary<string, int> KeyToInt;
+   
     
     Event e;
     KeyCode LastKeyPressed;
@@ -33,17 +35,11 @@ public class Simon2 : MonoBehaviour
     void Start()
     {
        IntToKey = new Dictionary<int, KeyCode>();
-       KeyToInt = new Dictionary<string, int>();
-        
        IntToKey.Add(1,KeyCode.UpArrow);
        IntToKey.Add(2,KeyCode.LeftArrow);
        IntToKey.Add(3,KeyCode.DownArrow);
        IntToKey.Add(4,KeyCode.RightArrow);
-        
-        KeyToInt.Add("UpArrow", 1);
-        KeyToInt.Add("LeftArrow",2);
-        KeyToInt.Add("DownArrow",3);
-        KeyToInt.Add("RightArrow",4);
+       
         
         won = false;
         continuer = true;
@@ -57,7 +53,8 @@ public class Simon2 : MonoBehaviour
 
         _AudioSource = GetComponent<AudioSource>();
 
-        activated = false;
+        mise = 0;
+        
     }
 
 
@@ -65,14 +62,15 @@ public class Simon2 : MonoBehaviour
     {
         if (other.gameObject.name == "You")
         {
-            
-            //UnityMainThreadDispatcher.Instance().Enqueue(() => Synthesis.synthesis("Combien voulez vous parier à ce jeu ? vinGt, trente cinquante ou cent piaice d'or?"));
-            //Thread.Sleep(500);
-            //Recognition.start_recognition(Traitement,"trente cinquante cent vinGt", 30); 
+            this.other = other;
+            UnityMainThreadDispatcher.Instance().Enqueue(() => Synthesis.synthesis("Combien voulez vous parier à ce jeu ? vinGt, trente cinquante ou cent piaice d'or?"));
+            UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep(500));
+            Recognition.start_recognition(Traitement,"trente cinquante cent vinGt", 30); 
             
             Debug.Log("début");
 
             SimonGame();
+            
         }
         
     }
@@ -143,7 +141,15 @@ public class Simon2 : MonoBehaviour
         if (i == Len)
         {
             won = true;
+            Synthesis.synthesis("Vous avez gagné capitaine");
+            other.gameObject.GetComponent<BlindShip_Stat>().AddMoney(_AudioSource, mise);
         }
+        else
+        {
+            Synthesis.synthesis("Vous avez perdu");
+        }
+        
+        other.gameObject.transform.position = new Vector3(7,1,7);
     }
     
     
@@ -188,6 +194,7 @@ public class Simon2 : MonoBehaviour
         if (activated)
         {
             Recognition.stop_recognition();
+            activated = false;
         }
     }
     
