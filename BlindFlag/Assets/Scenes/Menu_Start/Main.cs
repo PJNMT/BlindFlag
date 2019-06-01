@@ -30,6 +30,7 @@ public class Main : MonoBehaviour
 
     void NewGame()
     {
+        if (Save.IsThereASave()) Save.DeleteSave();
         Start_CaptainStats.Start();
         Start_ShipStats.Start();
         BlindShip_Stat.SceneLoad = (int) LoadScene.Scene.Navigation;
