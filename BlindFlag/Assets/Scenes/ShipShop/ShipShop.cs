@@ -24,8 +24,6 @@ namespace Scenes.Scenes.ShipShop
         private AudioSource Audio;
         public GameObject Taverne;
         public GameObject Street;
-
-        public GameObject You;
         
         void Start()
         {
