@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace DefaultNamespace
 {
-    public class Record : MonoBehaviour
+    public class RecordMic : MonoBehaviour
     {
         //A boolean that flags whether there's a connected microphone  
         private bool micConnected = false;

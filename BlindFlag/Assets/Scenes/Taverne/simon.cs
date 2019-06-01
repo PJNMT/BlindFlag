@@ -28,7 +28,7 @@ public class     simon : MonoBehaviour
     private taverne taverne;
     private bool activated;
 
-    private Record recorder;
+    private RecordMic recorder;
     
     
    
@@ -37,7 +37,7 @@ public class     simon : MonoBehaviour
     void Start()
     {
         Debug.Log("chanter");
-        recorder = gameObject.AddComponent<Record>();
+        recorder = gameObject.AddComponent<RecordMic>();
         
         recorder.Recorder(2);
         

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -801,6 +801,8 @@ GameObject:
   - component: {fileID: 1992667853}
   - component: {fileID: 1992667852}
   - component: {fileID: 1992667855}
+  - component: {fileID: 1992667857}
+  - component: {fileID: 1992667856}
   - component: {fileID: 1992667854}
   m_Layer: 0
   m_Name: Simon (empty object)
@@ -939,13 +941,50 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1992667851}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a217943d2fe9bf04684d64cfe29d4577, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   musics:
   - {fileID: 8300000, guid: 894b8540f3b32ce478b07d5a84a19a07, type: 3}
+--- !u!114 &1992667856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1992667851}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43dd5dd4e70894847b2c12bc1b1770ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1992667857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1992667851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a585e5ff195f4f04b32d5e7528145b72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SimonPad: 
+  PlayerPad: 
+  SoundPad:
+  - {fileID: 0}
+  - {fileID: 8300000, guid: d197023fcfbb90345a504c4710e8b7e3, type: 3}
+  - {fileID: 8300000, guid: 24a0c8b21dcdc4e42a5f80651903fcdd, type: 3}
+  - {fileID: 8300000, guid: d8ae43b9ded2a424fb0da87f1bc6cf8b, type: 3}
+  - {fileID: 8300000, guid: aec78e0a9adec2b4384da13b3faa9a17, type: 3}
+  _AudioSource: {fileID: 1992667852}
+  Len: 3
+  time: 1
+  continuer: 0
+  won: 0
 --- !u!1 &2066121395
 GameObject:
   m_ObjectHideFlags: 0
