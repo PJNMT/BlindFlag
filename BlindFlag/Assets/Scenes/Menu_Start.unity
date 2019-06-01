@@ -3601,6 +3601,7 @@ MonoBehaviour:
   Hello: {fileID: 8300000, guid: 37023d881caa7f44bbbe3e2c218639ac, type: 3}
   GoodBye: {fileID: 8300000, guid: 3ff3221fc3354094da97272683e99244, type: 3}
   NoSave: {fileID: 8300000, guid: 1d3df926589ef93458a79bd7b4cde4ff, type: 3}
+  Canvas: {fileID: 1484933042}
 --- !u!82 &2024826951
 AudioSource:
   m_ObjectHideFlags: 0
