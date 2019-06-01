@@ -20,6 +20,7 @@ public class tresor : MonoBehaviour
     public bool recooptions;
     public bool rightanswer;
     public static bool indice;
+    public bool answer;
     
     
     public float x;
@@ -51,11 +52,11 @@ public class tresor : MonoBehaviour
         if (other.name == "You" || other.name == "Sphere")
         {
             FindObjectOfType<cubecontroller>().sedeplacer = false;
-            Synthesis.synthesis("Vous avez trouvez le traisor capitaine ! Mais saurez vous raipondre à cette ainigme ?");
+            Synthesis.synthesis("Vous avez trouvez le traisor capitaine ! Mais saurez vous raipondre à cette ainigme ? ");
             Thread.Sleep(6000);
             
             //Dis l'énigme au joueur
-            Synthesis.synthesis(_enigma._enigme);
+            Synthesis.synthesis(_enigma._enigme + ". Si vous avez la raiponse appuyez sur espace");
             Thread.Sleep(10000);
             
             
@@ -96,11 +97,16 @@ public class tresor : MonoBehaviour
 
             yield return new WaitWhile(() => recooptions);
 
+            Recognition.stop_recognition();
+            
             Debug.Log("Waitin for answer...");
             Recognition.Function Traitement2 = Answertraitement;
             Recognition.start_recognition(Traitement2);
 
             Debug.Log("Donne ta raiponse Wolila !");
+            
+            yield return new WaitUntil( () => answer);
+            recooptions = true;
         }
     }
     
@@ -189,6 +195,9 @@ public class tresor : MonoBehaviour
             rightanswer = true;
 
         }
+
+        answer = true;
+        Recognition.stop_recognition();
     }
     
 }
