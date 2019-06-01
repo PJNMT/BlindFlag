@@ -104,6 +104,7 @@ public class Coco_Vigie : MonoBehaviour
 
     public void LaunchCoco()
     {
+        Coco.Paused();
         Recognition.Function Func = OKCoco;
         UnityMainThreadDispatcher.Instance().Enqueue(() => Recognition.start_recognition(Func, "niveau bateau navire vie HP raiputation XP expairience aipai sabre pistolet sauvegarder  sauver enregistrer quitter non rien merci"));
     }
@@ -360,6 +361,7 @@ public class Coco_Vigie : MonoBehaviour
         {
             UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(OkCaptain));
             UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) OkCaptain.length * 1000 + 500));
+            Coco.Play();
             Launch(); 
         }
     }
