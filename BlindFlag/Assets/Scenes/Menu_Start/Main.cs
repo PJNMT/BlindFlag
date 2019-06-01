@@ -16,11 +16,15 @@ public class Main : MonoBehaviour
 
     private AudioSource Audio;
 
+    public GameObject Canvas;
+
     public static bool relaunch;
     
     // Start is called before the first frame update
     void Start()
     {
+        Canvas.GetComponent<AudioSource>().loop = true;
+        Canvas.GetComponent<AudioSource>().Play();
         Launch();
     }
 
