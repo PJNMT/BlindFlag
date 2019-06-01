@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEditor.Experimental.UIElements.GraphView;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -44,9 +45,11 @@ public class captainattack : MonoBehaviour
 
     void Dead() //give money and xp to capitain
     {
+        Thread.Sleep(1000);
         BlindCaptain_Stat.XP += XP;
         BlindShip_Stat.Money += Money;
         GetComponent<AudioSource>().PlayOneShot(death_ennemy);
+        Thread.Sleep(2000);
         LoadScene.Load(LoadScene.Scene.Navigation, LoadScene.Scene.Combat);
     }
 

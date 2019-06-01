@@ -90,12 +90,15 @@ public class taverne : MonoBehaviour
                }
                Start();
                break;
-           
-               default:
-               Synthesis.synthesis("Je n'ai pas compris ce que vous avez dit.");
-                   activated = false;
-               Start();
+           case "quitter":
+               LoadScene.Load(LoadScene.Scene.Port, LoadScene.Scene.Taverne);
                break;
+           
+           default:
+           Synthesis.synthesis("Je n'ai pas compris ce que vous avez dit.");
+           activated = false;
+           Start();
+           break;
                 
         }
     }

@@ -23,7 +23,7 @@ public class Tir : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(captainattack.gunatk) && do_gunok)
+        if ((Input.GetKeyDown(captainattack.gunatk)||Input.GetKeyDown(KeyCode.Return)) && do_gunok)
         {
             GetComponent<AudioSource>().PlayOneShot(tir);
             GameObject Bullet = Instantiate(Projectile, transform.position, Quaternion.identity); //create a new bullet
