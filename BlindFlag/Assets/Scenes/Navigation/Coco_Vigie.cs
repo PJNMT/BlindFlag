@@ -352,7 +352,7 @@ public class Coco_Vigie : MonoBehaviour
                 case "sauver":
                 case "sauvegarder":
                 case "enregistrer":
-                    Debug.Log("sauver");
+                    Save.SaveGame();
                     break;
             }
 
