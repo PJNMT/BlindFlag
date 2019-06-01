@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
@@ -20,16 +21,29 @@ public class Option : MonoBehaviour
     
     private AudioSource Audio;
     
+    public static bool relaunch;
+    
     
     // Start is called before the first frame update
     void Start()
     {
+        OptionLaunch();
+    }
+
+    void OptionLaunch()
+    {
         Audio = GetComponent<AudioSource>();
+        relaunch = false;
         
         UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(Menu));
         UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) Menu.length * 1000 + 500));
 
         Launch();
+    }
+
+    private void Update()
+    {
+        if (relaunch) OptionLaunch();
     }
 
     void Launch()
@@ -38,7 +52,7 @@ public class Option : MonoBehaviour
         UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) WhatDoUWant.length * 1000 + 500));
 
         Recognition.Function Func = Choice;
-        UnityMainThreadDispatcher.Instance().Enqueue(() => Recognition.start_recognition(Func, "quitter son musique voix"));
+        UnityMainThreadDispatcher.Instance().Enqueue(() => Recognition.start_recognition(Func, "stop rien aucun quitter son musique voix"));
     }
 
     void LaunchChange()
@@ -47,12 +61,12 @@ public class Option : MonoBehaviour
         UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) UpDown.length * 1000 + 500)); 
         
         Recognition.Function Func = UpOrDown;
-        UnityMainThreadDispatcher.Instance().Enqueue(() => Recognition.start_recognition(Func, "augmenter monter plus diminuer baisser moins"));
+        UnityMainThreadDispatcher.Instance().Enqueue(() => Recognition.start_recognition(Func, "stop rien aucun quitter augmenter monter plus diminuer baisser moins"));
     }
 
     void Choice(string speech)
     {
-        if (speech != "quitter")
+        if (speech != "quitter" && speech != "stop" && speech != "rien" && speech != "aucun")
         {
             switch (speech)
             {
@@ -69,32 +83,39 @@ public class Option : MonoBehaviour
                     break;
             }
             
-            LaunchChange();
+            UnityMainThreadDispatcher.Instance().Enqueue(() => LaunchChange());
         }
-        
-        UnityMainThreadDispatcher.Instance().Enqueue(() => OptionMenu.SetActive(false));
-        UnityMainThreadDispatcher.Instance().Enqueue(() => MainMenu.SetActive(true));
+        else
+        {
+            UnityMainThreadDispatcher.Instance().Enqueue(() => OptionMenu.SetActive(false));
+            UnityMainThreadDispatcher.Instance().Enqueue(() => MainMenu.SetActive(true));
+
+            UnityMainThreadDispatcher.Instance().Enqueue(() => Main.relaunch = true);
+        }
     }
 
     void UpOrDown(string speech)
     {
-        switch (speech)
+        if (speech != "quitter" && speech != "stop" && speech != "rien" && speech != "aucun")
         {
-            case "monter":
-            case "plus":
-            case"augmenter":
-                audioMixer.GetFloat(barremixer, out setlvl);
-                audioMixer.SetFloat(barremixer, setlvl + 0.1f);
-                break;
-            
-            case "baisser":
-            case "moins":
-            case "diminuer":
-                audioMixer.GetFloat(barremixer, out setlvl);
-                audioMixer.SetFloat(barremixer, setlvl + 0.1f);
-                break;
+            switch (speech)
+            {
+                case "monter":
+                case "plus":
+                case "augmenter":
+                    UnityMainThreadDispatcher.Instance().Enqueue(() => audioMixer.GetFloat(barremixer, out setlvl));
+                    UnityMainThreadDispatcher.Instance().Enqueue(() => audioMixer.SetFloat(barremixer, setlvl + 0.1f));
+                    break;
+
+                case "baisser":
+                case "moins":
+                case "diminuer":
+                    UnityMainThreadDispatcher.Instance().Enqueue(() => audioMixer.GetFloat(barremixer, out setlvl));
+                    UnityMainThreadDispatcher.Instance().Enqueue(() => audioMixer.SetFloat(barremixer, setlvl + 0.1f));
+                    break;
+            }
         }
-        
-        Launch();
+
+        UnityMainThreadDispatcher.Instance().Enqueue(() => Launch());
     }
 }

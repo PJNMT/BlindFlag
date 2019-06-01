@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
@@ -14,17 +15,33 @@ public class Main : MonoBehaviour
     public AudioClip NoSave;
 
     private AudioSource Audio;
+
+    public GameObject Canvas;
+
+    public static bool relaunch;
     
     // Start is called before the first frame update
     void Start()
     {
+        Canvas.GetComponent<AudioSource>().loop = true;
+        Canvas.GetComponent<AudioSource>().Play();
+        Launch();
+    }
+
+    private void Update()
+    {
+        if (relaunch) Launch();
+    }
+
+    public void Launch()
+    {
         Audio = GetComponent<AudioSource>();
+        relaunch = false;
         
         UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(Hello));
         UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) Hello.length * 1000 + 500));
         
         Recognition.Function Func = Traitement;
-        
         UnityMainThreadDispatcher.Instance().Enqueue(() => Recognition.start_recognition(Func, "continuer commencer option quitter parametre"));
     }
 
@@ -59,6 +76,7 @@ public class Main : MonoBehaviour
             case "parametre":
                 UnityMainThreadDispatcher.Instance().Enqueue(() => MainMenu.SetActive(false));
                 UnityMainThreadDispatcher.Instance().Enqueue(() => OptionMenu.SetActive(true));
+                UnityMainThreadDispatcher.Instance().Enqueue(() => Option.relaunch = true);
                 break;
 
             case "quitter":
