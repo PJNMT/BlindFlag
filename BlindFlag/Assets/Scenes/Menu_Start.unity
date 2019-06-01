@@ -1229,10 +1229,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 708861053}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35a180581ae718c468c5a37755171689, type: 3}
+  m_Script: {fileID: 11500000, guid: 87c6c78ee3a3bc547b29ecc86e1366ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: 7419e47b1fd3ddf4aa3df04c2d52a248, type: 2}
+  OptionMenu: {fileID: 708861053}
+  MainMenu: {fileID: 2024826945}
+  UpDown: {fileID: 0}
+  WhatDoUWant: {fileID: 0}
+  Menu: {fileID: 0}
 --- !u!1 &790107071
 GameObject:
   m_ObjectHideFlags: 0
@@ -3477,9 +3482,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 2024826945}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0863ee4ad14cab349851112cca192337, type: 3}
+  m_Script: {fileID: 11500000, guid: 758d8275e4957a24685ac05a9b7199e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OptionMenu: {fileID: 708861053}
+  MainMenu: {fileID: 2024826945}
+  Hello: {fileID: 0}
+  GoodBye: {fileID: 0}
+  NoSave: {fileID: 0}
 --- !u!1 &2080574652
 GameObject:
   m_ObjectHideFlags: 0
