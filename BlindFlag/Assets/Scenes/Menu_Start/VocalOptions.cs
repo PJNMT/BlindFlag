@@ -26,7 +26,6 @@ public class VocalOptions : MonoBehaviour
     void Restart()
     {
         Synthesis.synthesis("Je n'ai pas compris votre demande. Voici vos commandes : son, musique, voix, quitter. Je vous écoute.");
-        Recognition.stop_recognition();
         Recognition.Function Traitement = this.Traitement;
         Recognition.start_recognition(Traitement, "son musique voix quitter", 10);
     }

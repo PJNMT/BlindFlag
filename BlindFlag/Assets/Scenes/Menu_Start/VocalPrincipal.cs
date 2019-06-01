@@ -22,7 +22,6 @@ public class VocalPrincipal : MonoBehaviour
     void Restart()
     {
         Synthesis.synthesis("Je n'ai pas compris votre demande. Voici vos commandes : continuer, commencer, options, quitter. Je vous écoute.");
-        Recognition.stop_recognition();
         Recognition.Function Traitement = this.Traitement;
         Recognition.start_recognition(Traitement, "continuer commencer options option parametre parametres quitter", 10);
     }

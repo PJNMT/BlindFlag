@@ -31,6 +31,32 @@ public class Recognition : MonoBehaviour
 
     static bool loop;
 
+    public static void stop_recognition()
+    {
+        if (connectedTcpClient != null)
+        {
+            connectedTcpClient.Dispose();
+            connectedTcpClient.Close();
+        }
+        if (tcpListener != null) tcpListener.Stop();
+        if (tcpListenerThread != null)
+        {
+            tcpListenerThread.Interrupt();
+            tcpListenerThread.Abort();
+        }
+        if (stm != null)
+        {
+            stm.Dispose();
+            stm.Close();
+        }
+        if (tcpclnt != null)
+        {
+            tcpclnt.Dispose();
+            tcpclnt.Close();
+        }
+        if (myProcess != null) myProcess.Kill();
+    }
+
     public static void start_recognition(Function f, string KeyWords = "", int time_s = 0)
     {
         stop_recognition();
@@ -84,19 +110,6 @@ public class Recognition : MonoBehaviour
         {
             Environment.Exit(0);
         }
-    }
-
-    public static void stop_recognition()
-    {
-        if (tcpListener != null) tcpListener.Stop();
-        if (tcpListenerThread != null) tcpListenerThread.Abort();
-        if (stm != null) stm.Close();
-        if (tcpclnt != null)
-        {
-            tcpclnt.Dispose();
-            tcpclnt.Close();
-        }
-        if (myProcess != null) myProcess.Kill();
     }
 
     private static void ListenForIncommingRequests()

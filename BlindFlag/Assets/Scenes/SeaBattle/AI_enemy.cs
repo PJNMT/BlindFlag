@@ -183,7 +183,6 @@ public class AI_enemy : MonoBehaviour
 
     void Dead()
     {
-        Recognition.stop_recognition();
         BlindShip_Stat.Money += Money;
         BlindShip_Stat.XP += XP;
         LoadScene.Load(LoadScene.Scene.Navigation, LoadScene.Scene.SeaBattle);

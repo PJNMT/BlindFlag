@@ -72,13 +72,12 @@ public class BlindCaptain_Stat : MonoBehaviour
 
     public static void Dead()
     {
-        Recognition.stop_recognition();
         SetStat();
         BlindShip_Stat.SetStat();
         BlindShip_Stat.Money -= BlindShip_Stat.Money / 5;
         BlindShip_Stat.Dead();
-        Scene S = SceneManager.GetActiveScene();
-        LoadScene.Load(LoadScene.Scene.Navigation, (LoadScene.Scene) S.buildIndex);
+        BlindShip_Stat.SceneLoad = (int) LoadScene.Scene.Navigation;
+        SceneManager.LoadScene("navi");
     }
     
    public void AddStat(AudioSource audioSource, string stat)

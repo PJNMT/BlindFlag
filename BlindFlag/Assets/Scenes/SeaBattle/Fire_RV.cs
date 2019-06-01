@@ -107,7 +107,6 @@ public class Fire_RV : MonoBehaviour
         };
         
         Recognition.Function Fire_RV = Fire;
-        
         Recognition.start_recognition(Fire_RV, "babord tribord droite gauche tirer feu cannoner");
     }
 }

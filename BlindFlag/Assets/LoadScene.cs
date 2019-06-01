@@ -34,8 +34,6 @@ public class LoadScene : MonoBehaviour
     }
     public static void Load(Scene new_scene, Scene old_scene)
     {
-        Recognition.stop_recognition();
-        
         foreach (var g in SceneManager.GetSceneByName(ToString(old_scene)).GetRootGameObjects())
         {
             DestroyImmediate(g);

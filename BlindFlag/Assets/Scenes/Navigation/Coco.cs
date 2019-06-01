@@ -11,12 +11,12 @@ public class Coco : MonoBehaviour
 {
     public static void Paused()
     {
-        Time.timeScale = 0.0f;
+        UnityMainThreadDispatcher.Instance().Enqueue(() => Time.timeScale = 0.0f);
     }
 
     public static void Play()
     {
-        Time.timeScale = 1f;
+        UnityMainThreadDispatcher.Instance().Enqueue(() => Time.timeScale = 1f);
     }
    
 }
