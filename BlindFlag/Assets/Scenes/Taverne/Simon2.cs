@@ -63,6 +63,7 @@ public class Simon2 : MonoBehaviour
         if (other.gameObject.name == "You")
         {
             this.other = other;
+            other.GetComponent<DeplacementTaverne>().sedeplacer = false;
             UnityMainThreadDispatcher.Instance().Enqueue(() => Synthesis.synthesis("Combien voulez vous parier à ce jeu ? vinGt, trente cinquante ou cent piaice d'or?"));
             UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep(500));
             Recognition.start_recognition(Traitement,"trente cinquante cent vinGt", 30); 
