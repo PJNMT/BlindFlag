@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -302,7 +302,8 @@ AudioSource:
   m_GameObject: {fileID: 478245351}
   m_Enabled: 0
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243244932120075386, guid: 7419e47b1fd3ddf4aa3df04c2d52a248,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 4d8ad0f83aa4fa042b6dde05f38d19a3, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -564,7 +565,8 @@ AudioSource:
   m_GameObject: {fileID: 1118835834}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243244932120075386, guid: 7419e47b1fd3ddf4aa3df04c2d52a248,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 4d8ad0f83aa4fa042b6dde05f38d19a3, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -825,7 +827,8 @@ AudioSource:
   m_GameObject: {fileID: 1992667851}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243489221794256468, guid: 7419e47b1fd3ddf4aa3df04c2d52a248,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -1019,7 +1022,8 @@ AudioSource:
   m_GameObject: {fileID: 2066121395}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243244932120075386, guid: 7419e47b1fd3ddf4aa3df04c2d52a248,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: a8128558ecbcfc34782f47aaf5e726e3, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -1388,7 +1392,8 @@ AudioSource:
   m_GameObject: {fileID: 2145110469}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243489221794256468, guid: 7419e47b1fd3ddf4aa3df04c2d52a248,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
