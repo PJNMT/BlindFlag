@@ -600,9 +600,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 819123353}
-  Atk_IA1: {fileID: 0}
-  Atk_IA2: {fileID: 0}
-  Atk_IA3: {fileID: 0}
+  Atk_IA1: {fileID: 8300000, guid: bfc5ba113a6e8fa458be55e8186844bc, type: 3}
+  Atk_IA2: {fileID: 8300000, guid: 3399f6c92bbd4db408175a9bc68b72bd, type: 3}
+  Atk_IA3: {fileID: 8300000, guid: ff274d8ce8ae3f149957176aa71c9877, type: 3}
+  TutoCombat: {fileID: 8300000, guid: d7b211817d8969245a0257c551ff66ac, type: 3}
 --- !u!136 &578259631
 CapsuleCollider:
   m_ObjectHideFlags: 0

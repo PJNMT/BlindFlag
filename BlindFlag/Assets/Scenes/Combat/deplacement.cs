@@ -34,10 +34,10 @@ public class deplacement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        intputarrière = KeyCode.S;
-        intputavant = KeyCode.Z;
-        intputdroit = KeyCode.D;
-        intputgauche = KeyCode.Q;
+        intputarrière = KeyCode.DownArrow;
+        intputavant = KeyCode.UpArrow;
+        intputdroit = KeyCode.RightArrow;
+        intputgauche = KeyCode.LeftArrow;
         
         playercollider = gameObject.GetComponent<CapsuleCollider>();
     }
