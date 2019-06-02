@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 
 public class Tresor_reco : MonoBehaviour
 {
-    private (float, float) coordinates;
+    private (float, float) coor;
     private bool launch;
 
     private Enigma enigme;
@@ -25,10 +25,10 @@ public class Tresor_reco : MonoBehaviour
     {
         Audio = GetComponent<AudioSource>();
         
-        coordinates.Item1 = Random.Range(2f, 98f);
-        coordinates.Item2 = Random.Range(30f, 98f);
+        coor.Item1 = Random.Range(2f, 98f);
+        coor.Item2 = Random.Range(30f, 98f);
         
-        transform.position = new Vector3(coordinates.Item1, 1f, coordinates.Item2);
+        transform.position = new Vector3(coor.Item1, 1f, coor.Item2);
 
         launch = false;
         
