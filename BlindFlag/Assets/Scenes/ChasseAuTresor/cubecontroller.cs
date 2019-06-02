@@ -104,11 +104,11 @@ public class cubecontroller : MonoBehaviour
 		{
 			ground = other.GetComponent<FootStep>();
 		}
-		if (other.gameObject.name == "beach")
+		if (other.gameObject.name == "beach" || other.gameObject.name == "beach 2")
 		{
 			ground = other.GetComponent<FootStep>();
 		}
-		if (other.gameObject.name == "sea")
+		if (other.gameObject.name == "sea" )
 		{
 			ground = other.GetComponent<FootStep>();
 		}

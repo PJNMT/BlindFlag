@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class beach : MonoBehaviour
+public class ground : MonoBehaviour
 {
     
     

@@ -53,19 +53,46 @@ public class cubeindicator : MonoBehaviour
         {
             if (sedeplacer)
             {
-                if (this.z+5 < tresor.transform.position.z)
+                if (this.z < tresor.transform.position.z)
                 {
-                    z += 5f;
+                    if (this.z+5 > tresor.transform.position.z)
+                    {
+                        z += tresor.transform.position.z - this.z;
+                    }
+                    else
+                    {
+                        z += 5f; 
+                    }
+                    
                     transform.position = new Vector3(x, 2f, z);
                 }
                 
-                
                 else
                 {
-                    if (this.x-5 > tresor.transform.position.x)
-                    { x -= 5f;}
+                    if (this.x > tresor.transform.position.x)
+                    {
+                        if ((this.x-5 < tresor.transform.position.x))
+                        {
+                            x -= x - tresor.transform.position.x;
+                        }
+                        else
+                        {
+                            x -= 5f; 
+                        }
+                        
+                    }
                     else
-                    { x += 5f; }
+                    {
+                        if ((this.x+5 > tresor.transform.position.x))
+                        {
+                            x += tresor.transform.position.x-x;
+                        }
+                        else
+                        {
+                            x += 5f; 
+                        }
+                        
+                    }
 
                     transform.position = new Vector3(x, 2f, z);
                 }
