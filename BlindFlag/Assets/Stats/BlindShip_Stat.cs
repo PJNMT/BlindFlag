@@ -39,9 +39,18 @@ public class BlindShip_Stat : MonoBehaviour
 
     private static GameObject BlindShip;
 
+    private static AudioClip D;
+    private static AudioClip L;
+    private static AudioClip C;
+    private static AudioClip M;
+
     void Start()
     {
         BlindShip = gameObject;
+        D = damage;
+        C = crew;
+        M = money;
+        L = level;
     }
 
     private void Update()
@@ -85,10 +94,9 @@ public class BlindShip_Stat : MonoBehaviour
         Max_Shield = Lvl * 10;
     }
 
-    public void AddStat(AudioSource audioSource, string stat)
+    public static void AddStat(AudioSource audioSource, string stat)
     {
-        audioSource.clip = level;
-        audioSource.Play();
+        audioSource.PlayOneShot(L);
         switch (stat)
         {
             case "level":
@@ -107,24 +115,21 @@ public class BlindShip_Stat : MonoBehaviour
         }
     }
     
-    public void Adddamage(AudioSource audioSource, int added)
+    public static void Adddamage(AudioSource audioSource, int added)
     {
-        audioSource.clip = damage;
-        audioSource.Play();
+        audioSource.PlayOneShot(D);
         Damage += added;
     }
     
-    public void AddCrew(AudioSource audioSource, int added)
+    public static void AddCrew(AudioSource audioSource, int added)
     {
-        audioSource.clip = crew;
-        audioSource.Play();
+        audioSource.PlayOneShot(C);
         Crew += added;
     }
     
-    public void AddMoney(AudioSource audioSource, int added)
+    public static void AddMoney(AudioSource audioSource, int added)
     {
-        audioSource.clip = money;
-        audioSource.Play();
+        audioSource.PlayOneShot(M);
         Money += added;
     }
 }

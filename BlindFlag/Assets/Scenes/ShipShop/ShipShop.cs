@@ -83,7 +83,7 @@ namespace Scenes.Scenes.ShipShop
             if (cost <= BlindShip_Stat.Money)
             {
                 BlindShip_Stat.Money -= cost;
-                BlindShip_Stat.HP = BlindShip_Stat.Max_HP;
+                UnityMainThreadDispatcher.Instance().Enqueue(() => BlindShip_Stat.AddStat(Audio, "HP"));
                 
                 UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(Repaire));
                 UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) Repaire.length * 1000 + 500));
@@ -143,7 +143,7 @@ namespace Scenes.Scenes.ShipShop
                                 UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) OkCaptaine.length * 1000 + 500));
                                 
                                 BlindShip_Stat.Money -= cost;
-                                BlindShip_Stat.Damage += 3;
+                                UnityMainThreadDispatcher.Instance().Enqueue(() => BlindShip_Stat.Adddamage(Audio, 3));
                             }
                             else
                             {
@@ -185,7 +185,7 @@ namespace Scenes.Scenes.ShipShop
                             UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) OkCaptaine.length * 1000 + 500));
                             
                             BlindShip_Stat.Money -= cost;
-                            BlindShip_Stat.Max_Crew += 2;
+                            UnityMainThreadDispatcher.Instance().Enqueue(() => BlindShip_Stat.AddCrew(Audio, 2));
                         }
                         else
                         {
@@ -205,7 +205,7 @@ namespace Scenes.Scenes.ShipShop
                                 UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) OkCaptaine.length * 1000 + 500));
                                 
                                 BlindShip_Stat.Money -= cost;
-                                BlindCaptain_Stat.GunDamage += 10;
+                                UnityMainThreadDispatcher.Instance().Enqueue(() => BlindCaptain_Stat.AddGundamage(Audio, 10));
                             }
                             else
                             {
@@ -231,7 +231,7 @@ namespace Scenes.Scenes.ShipShop
                                 UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) OkCaptaine.length * 1000 + 500));
                                 
                                 BlindShip_Stat.Money -= cost;
-                                BlindCaptain_Stat.SwordDamage += 5;
+                                UnityMainThreadDispatcher.Instance().Enqueue(() => BlindCaptain_Stat.AddSworddamage(Audio, 5));
                             }
                             else
                             {

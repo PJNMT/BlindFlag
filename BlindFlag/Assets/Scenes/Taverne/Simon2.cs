@@ -142,7 +142,7 @@ public class Simon2 : MonoBehaviour
         {
             won = true;
             Synthesis.synthesis("Vous avez gagné capitaine");
-            other.gameObject.GetComponent<BlindShip_Stat>().AddMoney(_AudioSource, mise);
+            BlindShip_Stat.AddMoney(_AudioSource, mise);
         }
         else
         {

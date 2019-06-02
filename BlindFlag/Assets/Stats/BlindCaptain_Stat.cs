@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Experimental.UIElements.GraphView;
 using UnityEngine;
@@ -30,6 +31,10 @@ public class BlindCaptain_Stat : MonoBehaviour
     private AudioClip gundamage;
     [SerializeField]
     private AudioClip sworddamage;
+
+    private static AudioClip L;
+    private static AudioClip G;
+    private static AudioClip S;
     
     public static Dictionary<string, bool> Tuto = new Dictionary<string, bool>()
     {
@@ -39,6 +44,13 @@ public class BlindCaptain_Stat : MonoBehaviour
         {"Combat", false},
         {"Coco", false},
     };
+
+    private void Start()
+    {
+        L = level;
+        G = gundamage;
+        S = sworddamage;
+    }
 
     private void Update()
     {
@@ -80,10 +92,9 @@ public class BlindCaptain_Stat : MonoBehaviour
         SceneManager.LoadScene("navi");
     }
     
-   public void AddStat(AudioSource audioSource, string stat)
+   public static void AddStat(AudioSource audioSource, string stat)
     {
-        audioSource.clip = level;
-        audioSource.Play();
+        audioSource.PlayOneShot(L);
         switch (stat)
         {
             case  "level":
@@ -106,17 +117,15 @@ public class BlindCaptain_Stat : MonoBehaviour
         
     }
 
-    public void AddSworddamage(AudioSource audioSource, int added)
+    public static void AddSworddamage(AudioSource audioSource, int added)
     {
-        audioSource.clip = sworddamage;
-        audioSource.Play();
+        audioSource.PlayOneShot(S);
         SwordDamage += added;
     }
     
-    public void AddGundamage(AudioSource audioSource, int added)
+    public static void AddGundamage(AudioSource audioSource, int added)
     {
-        audioSource.clip = gundamage;
-        audioSource.Play();
+        audioSource.PlayOneShot(G);
         GunDamage += added;
     }
 }
