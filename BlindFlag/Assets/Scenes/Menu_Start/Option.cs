@@ -52,7 +52,7 @@ public class Option : MonoBehaviour
         UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) WhatDoUWant.length * 1000 + 500));
 
         Recognition.Function Func = Choice;
-        UnityMainThreadDispatcher.Instance().Enqueue(() => Recognition.start_recognition(Func, "stop rien aucun quitter son musique voix"));
+        UnityMainThreadDispatcher.Instance().Enqueue(() => Recognition.start_recognition(Func, "stop rien aucun quitter son musique voix effets"));
     }
 
     void LaunchChange()
@@ -80,6 +80,9 @@ public class Option : MonoBehaviour
 
                 case "voix":
                     barremixer = "VoicesVol";
+                    break;
+                case "effets":
+                    barremixer = "EffetsVol";
                     break;
             }
             
