@@ -19,12 +19,18 @@ using Random = UnityEngine.Random;
 
         void Update()
         {
-            if (!_audioSource.isPlaying && Player.transform.position.magnitude>2)
+            
+        }
+
+        public void Sound()
+        {
+            if (!_audioSource.isPlaying)
             {
-                _audioSource.volume = Random.Range(0.7f, 1f);
-                
-                _audioSource.Play();
-                
+                Debug.Log("play audio");
+                float rnd = Random.Range(0.2f, 1f);
+                _audioSource.volume = rnd;
+                _audioSource.PlayOneShot(walk);
+
             }
         }
     }

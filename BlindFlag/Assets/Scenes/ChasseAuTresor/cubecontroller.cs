@@ -7,8 +7,8 @@ public class cubecontroller : MonoBehaviour
 {
 	public float m_speed;
 	public int t_speed;
-	private float x;
-	private float z;
+	public float x;
+	public float z;
 
 	private KeyCode inputavant;
 	private KeyCode inputarrière;
@@ -16,16 +16,16 @@ public class cubecontroller : MonoBehaviour
 	private KeyCode inputRotatedroite;
 	private KeyCode inputRotategauche;
 
-	
-	
+
+	public FootStep ground;
 
 	public bool sedeplacer = true;
-	public bool isGrounded;
+	public bool isWalkin;
 	public AudioSource _audioSource;
 
 	void Touches()
 	{
-		inputRotatedroite = KeyCode.RightArrow;
+	  inputRotatedroite = KeyCode.RightArrow;
 	  inputRotategauche = KeyCode.LeftArrow;
 		inputavant = KeyCode.UpArrow;
 		inputarrière = KeyCode.DownArrow;
@@ -34,7 +34,7 @@ public class cubecontroller : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
-		transform.position = new Vector3(50f, 0f, 2f);
+	    transform.position = new Vector3(50f, 0f, 2f);
 		x = 2;
 		z = 0;
 
@@ -51,7 +51,7 @@ public class cubecontroller : MonoBehaviour
 		{
 			if (transform.position.x>98)
 			{
-				z = transform.position.z;
+			    z = transform.position.z;
 				transform.position = new Vector3(98f,0f,z);
 				
 			}
@@ -60,17 +60,21 @@ public class cubecontroller : MonoBehaviour
 			{
 				x = transform.position.x;
 				transform.position = new Vector3(x,0f,98f);
+				
 			}
 			Vector3 move = new Vector3();
 
 			// Récupération des touches haut et bas
 			if (Input.GetKey(KeyCode.UpArrow))
 			{
+				ground.Sound();
 				transform.Translate(Vector3.forward*m_speed*Time.deltaTime);
+				
 			}
 
 			if (Input.GetKey(KeyCode.DownArrow))
 			{
+				ground.Sound();
 				transform.Translate(-Vector3.forward*m_speed*Time.deltaTime);
 				
 			}
@@ -78,23 +82,39 @@ public class cubecontroller : MonoBehaviour
 			// Récupération des touches gauche et droite
 			if (Input.GetKey(KeyCode.LeftArrow))
 			{
-				
+				ground.Sound();
 				transform.Rotate(-Vector3.up * t_speed * Time.deltaTime);
 				
 			}
 
 			if (Input.GetKey(KeyCode.RightArrow))
 			{
+				ground.Sound();
 				transform.Rotate(Vector3.up * t_speed * Time.deltaTime);
 				
 			}
-
 		}
-	    
-	    
-        
-        		
 	}
 
-	
+
+	private void OnTriggerEnter(Collider other)
+	{
+		Debug.Log(other.gameObject.name);
+		if (other.gameObject.name == "Plane")
+		{
+			ground = other.GetComponent<FootStep>();
+		}
+		if (other.gameObject.name == "beach")
+		{
+			ground = other.GetComponent<FootStep>();
+		}
+		if (other.gameObject.name == "sea")
+		{
+			ground = other.GetComponent<FootStep>();
+		}
+		if (other.gameObject.name == "grass")
+		{
+			ground = other.GetComponent<FootStep>();
+		}
+	}
 }
