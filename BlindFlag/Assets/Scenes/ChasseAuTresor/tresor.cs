@@ -54,7 +54,7 @@ public class tresor : MonoBehaviour
             FindObjectOfType<cubecontroller>().sedeplacer = false;
             Synthesis.synthesis("Vous avez trouvez le traisor capitaine ! Mais saurez vous raipondre à cette ainigme ? ");
             Thread.Sleep(6000);
-            
+             
             //Dis l'énigme au joueur
             Synthesis.synthesis(_enigma._enigme + ". Si vous avez la raiponse appuyez sur espace");
             Thread.Sleep(10000);
