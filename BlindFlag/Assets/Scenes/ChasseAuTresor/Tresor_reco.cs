@@ -19,6 +19,7 @@ public class Tresor_reco : MonoBehaviour
     public AudioClip GiveUp;
     public AudioClip WrongAnswer;
     public AudioClip WhatIsYourAnswer;
+    public AudioClip Gold;
     
     void Start()
     {
@@ -117,6 +118,12 @@ public class Tresor_reco : MonoBehaviour
 
             UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(UWin));
             UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) UWin.length * 1000 + 500));
+            
+            UnityMainThreadDispatcher.Instance().Enqueue(() => Synthesis.synthesis(enigme.gold + ""));
+            UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep(1300));
+            
+            UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(Gold));
+            UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) Gold.length * 1000 + 500));
         }
         else
         {
