@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class beach : MonoBehaviour
 {
-    public AudioClip walk_on_sand;
-
-    private AudioSource _audioSource;
+    
+    
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +22,6 @@ public class beach : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         cubecontroller a = FindObjectOfType<cubecontroller>();
-        _audioSource.clip = walk_on_sand;
+        
     }
 }

@@ -10,8 +10,6 @@ public class cubecontroller : MonoBehaviour
 	private float x;
 	private float z;
 
-	private KeyCode inputdroit;
-	private KeyCode inputgauche;
 	private KeyCode inputavant;
 	private KeyCode inputarrière;
 
@@ -22,12 +20,13 @@ public class cubecontroller : MonoBehaviour
 	
 
 	public bool sedeplacer = true;
+	public bool isGrounded;
 	public AudioSource _audioSource;
 
 	void Touches()
 	{
-		inputdroit = KeyCode.RightArrow;
-	  inputgauche = KeyCode.LeftArrow;
+		inputRotatedroite = KeyCode.RightArrow;
+	  inputRotategauche = KeyCode.LeftArrow;
 		inputavant = KeyCode.UpArrow;
 		inputarrière = KeyCode.DownArrow;
 	}
@@ -54,6 +53,7 @@ public class cubecontroller : MonoBehaviour
 			{
 				z = transform.position.z;
 				transform.position = new Vector3(98f,0f,z);
+				
 			}
 
 			if (transform.position.z > 98)
