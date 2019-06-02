@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 
 public class Tresor_reco : MonoBehaviour
 {
-    private (float, float) coordinates;
+    private (float, float) coor;
     private bool launch;
 
     private Enigma enigme;
@@ -19,15 +19,16 @@ public class Tresor_reco : MonoBehaviour
     public AudioClip GiveUp;
     public AudioClip WrongAnswer;
     public AudioClip WhatIsYourAnswer;
+    public AudioClip Gold;
     
     void Start()
     {
         Audio = GetComponent<AudioSource>();
         
-        coordinates.Item1 = Random.Range(2f, 98f);
-        coordinates.Item2 = Random.Range(30f, 98f);
+        coor.Item1 = Random.Range(2f, 98f);
+        coor.Item2 = Random.Range(30f, 98f);
         
-        transform.position = new Vector3(coordinates.Item1, 1f, coordinates.Item2);
+        transform.position = new Vector3(coor.Item1, 1f, coor.Item2);
 
         launch = false;
         
@@ -117,6 +118,12 @@ public class Tresor_reco : MonoBehaviour
 
             UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(UWin));
             UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) UWin.length * 1000 + 500));
+            
+            UnityMainThreadDispatcher.Instance().Enqueue(() => Synthesis.synthesis(enigme.gold + ""));
+            UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep(1300));
+            
+            UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(Gold));
+            UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) Gold.length * 1000 + 500));
         }
         else
         {
