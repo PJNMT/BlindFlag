@@ -53,8 +53,6 @@ public class cubeindicator : MonoBehaviour
         {
             if (sedeplacer)
             {
-                Debug.Log(x);
-                Debug.Log(tresor.transform.position.x);
                 if (this.z+5 < tresor.transform.position.z)
                 {
                     z += 5f;
@@ -89,7 +87,6 @@ public class cubeindicator : MonoBehaviour
             {
 
 
-                Debug.Log(player.transform.position.x - x);
                 if (player.transform.position.x - x > 15 || Math.Abs(player.transform.position.z - z) > 15)
                 {
                     a.clip = indications[1];

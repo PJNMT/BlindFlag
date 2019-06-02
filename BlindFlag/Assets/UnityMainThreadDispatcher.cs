@@ -33,7 +33,7 @@ public class UnityMainThreadDispatcher : MonoBehaviour {
 	public void Update() {
 		lock(_executionQueue) {
 			while (_executionQueue.Count > 0) {
-				_executionQueue.Dequeue().Invoke();
+			    _executionQueue.Dequeue().Invoke();
 			}
 		}
 	}
@@ -44,7 +44,7 @@ public class UnityMainThreadDispatcher : MonoBehaviour {
 	/// <param name="action">IEnumerator function that will be executed from the main thread.</param>
 	public void Enqueue(IEnumerator action) {
 		lock (_executionQueue) {
-			_executionQueue.Enqueue (() => {
+		     _executionQueue.Enqueue (() => {
 				StartCoroutine (action);
 			});
 		}
@@ -56,7 +56,7 @@ public class UnityMainThreadDispatcher : MonoBehaviour {
 	/// <param name="action">function that will be executed from the main thread.</param>
 	public void Enqueue(Action action)
 	{
-		Enqueue(ActionWrapper(action));
+	    Enqueue(ActionWrapper(action));
 	}
 	IEnumerator ActionWrapper(Action a)
 	{

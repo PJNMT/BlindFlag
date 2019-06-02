@@ -104,7 +104,7 @@ public class shipcontroller : MonoBehaviour
 			if (other.tag == "Ile au trésor")
 			{
 				
-				LoadScene.Load(LoadScene.Scene.ChasseAuTresor, LoadScene.Scene.Navigation);
+			   LoadScene.Load(LoadScene.Scene.ChasseAuTresor, LoadScene.Scene.Navigation);
 			}
 
 			if (other.tag == "Port")
