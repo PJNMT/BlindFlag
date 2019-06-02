@@ -24,6 +24,8 @@ public class BlindCaptain_Stat : MonoBehaviour
 
     public static int Reputation = 0;
     public static string Name = "BlindPirate";
+
+    public static int NbEnigme = 1;
     
     [SerializeField]
     private AudioClip level;
