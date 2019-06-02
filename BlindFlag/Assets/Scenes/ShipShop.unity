@@ -181,7 +181,6 @@ MonoBehaviour:
   Repaire: {fileID: 8300000, guid: f777227eb27e79d40b873fd6b9b3234d, type: 3}
   Taverne: {fileID: 1257577265}
   Street: {fileID: 900343517}
-  You: {fileID: 0}
 --- !u!65 &47343597
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -275,7 +274,8 @@ AudioSource:
   m_GameObject: {fileID: 47343595}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243649235973472684, guid: 7419e47b1fd3ddf4aa3df04c2d52a248,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -855,7 +855,8 @@ AudioSource:
   m_GameObject: {fileID: 900343517}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243244932120075386, guid: 7419e47b1fd3ddf4aa3df04c2d52a248,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: c9b203ed26ebe3247be43ff1ebad0cc2, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.4
@@ -1316,7 +1317,8 @@ AudioSource:
   m_GameObject: {fileID: 1257577265}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243244932120075386, guid: 7419e47b1fd3ddf4aa3df04c2d52a248,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 23fa80a32c9594a48b59994b1947996d, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.4

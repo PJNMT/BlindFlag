@@ -142,7 +142,8 @@ AudioSource:
   m_GameObject: {fileID: 450475152}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243821819288207942, guid: 7419e47b1fd3ddf4aa3df04c2d52a248,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 7d4f8c06f4becd142bb6dce8cb03c23a, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.735
@@ -423,7 +424,8 @@ AudioSource:
   m_GameObject: {fileID: 834723463}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243244932120075386, guid: 7419e47b1fd3ddf4aa3df04c2d52a248,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: e826b6e7fba39be41aa7643306b6a804, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -694,7 +696,8 @@ AudioSource:
   m_GameObject: {fileID: 1083053672}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243244932120075386, guid: 7419e47b1fd3ddf4aa3df04c2d52a248,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: fc33ffa590518f647873209b363944f0, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.25
@@ -963,7 +966,8 @@ AudioSource:
   m_GameObject: {fileID: 1885550560}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243649235973472684, guid: 7419e47b1fd3ddf4aa3df04c2d52a248,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: bd3b4d86c6513e84c904ce4bf148c924, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.25
@@ -1235,11 +1239,6 @@ PrefabInstance:
       propertyPath: loadbattle
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6368405390523591766, guid: 82a4d3f7a519aa244bc7a573a83fe8f8,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1047173517547220987, guid: 82a4d3f7a519aa244bc7a573a83fe8f8,
         type: 3}
       propertyPath: m_RootOrder
@@ -1304,6 +1303,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 6368405390523591766, guid: 82a4d3f7a519aa244bc7a573a83fe8f8,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1058451602938117134, guid: 82a4d3f7a519aa244bc7a573a83fe8f8,
         type: 3}
