@@ -11,7 +11,7 @@ public class cubeindicator : MonoBehaviour
     public AudioClip[] indications;
     public AudioSource a;
 
-    public tresor tresor;
+    public Tresor_reco tresor;
     public cubecontroller player;
     private float x;
     private float z;
@@ -27,7 +27,7 @@ public class cubeindicator : MonoBehaviour
         //Récupère le controller de l'objet joueur
         // et la position du trésor dans UNITY
 
-        tresor = FindObjectOfType<tresor>();
+        tresor = FindObjectOfType<Tresor_reco>();
         player = FindObjectOfType<cubecontroller>();
         
         transform.position = new Vector3(50f,2f,10f);
