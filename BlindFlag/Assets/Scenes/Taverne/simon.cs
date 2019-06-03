@@ -23,7 +23,7 @@ public class     simon : MonoBehaviour
     public static string[] notes;
 
     private int i;
-    private taverne taverne;
+    private Tavern taverne;
     private bool activated;
 
     private RecordMic recorder;

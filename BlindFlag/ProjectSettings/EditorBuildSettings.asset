@@ -35,4 +35,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/capclairvoyant.unity
     guid: c9c7d0f32b8ee21438eacadb3e18873a
+  - enabled: 1
+    path: Assets/Scenes/claircbt.unity
+    guid: 3630ebfb9d311b44493d3a38f953ff0c
   m_configObjects: {}
