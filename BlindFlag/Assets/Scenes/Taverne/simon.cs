@@ -7,10 +7,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading;
 using DefaultNamespace;
-using UnityEditor.SceneManagement;
-using UnityEditorInternal;
 using UnityEngine;
-using UnityEngine.Audio;
 using Debug = UnityEngine.Debug;
 
 public class     simon : MonoBehaviour
