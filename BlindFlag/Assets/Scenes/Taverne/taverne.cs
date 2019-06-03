@@ -30,13 +30,10 @@ public class taverne : MonoBehaviour
         {
 
             player.Ondemand = true;
-            UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int)Jouer_au_simon.length*1000+300));
             recrues.Ondemand = true;
-            UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int)Recruter.length*1000+300));
             recrues.Ondemand = true;
-            UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int)offrir_a_boire.length*1000+300));
             
-            //LaunchReco();
+            UnityMainThreadDispatcher.Instance().Enqueue(() => LaunchReco());
         }
     }
 
@@ -84,7 +81,7 @@ public class taverne : MonoBehaviour
                    
                int crew_members = 0;
                UnityMainThreadDispatcher.Instance().Enqueue(() => crew_members = Random.Range(0, BlindShip_Stat.Max_Crew - BlindShip_Stat.Crew));
-               BlindShip_Stat.AddCrew(GetComponent<AudioSource>(),crew_members);
+               UnityMainThreadDispatcher.Instance().Enqueue(() => BlindShip_Stat.AddCrew(GetComponent<AudioSource>(),crew_members));
                Thread.Sleep(3000);
                //Menu();
                Debug.Log("menu");
