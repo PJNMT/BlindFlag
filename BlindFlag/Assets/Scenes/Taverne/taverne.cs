@@ -104,7 +104,7 @@ public class taverne : MonoBehaviour
                }
                else
                {
-                   BlindCaptain_Stat.Reputation += 10;
+                   BlindCaptain_Stat.Reputation += 10*BlindShip_Stat.Crew;
                    BlindShip_Stat.Money = available_money;
                    //AudioSource.PlayClipAtPoint();  enthousiasme des pirates
                    Synthesis.synthesis("Vous avez payé avec succès vos pirates! Bien joué !");      
