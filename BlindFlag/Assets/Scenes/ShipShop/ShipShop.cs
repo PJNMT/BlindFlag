@@ -20,6 +20,7 @@ namespace Scenes.Scenes.ShipShop
         public AudioClip WhatDoUWantToDo_2;
         public AudioClip OkCaptaine;
         public AudioClip Repaire;
+        public AudioClip YouAlreadyHave;
 
         private AudioSource Audio;
         public GameObject Taverne;
@@ -32,7 +33,7 @@ namespace Scenes.Scenes.ShipShop
             Street.GetComponent<AudioSource>().Play();
             Street.GetComponent<AudioSource>().loop = true;
             Audio = GetComponent<AudioSource>();
-            Launch(true, "raiparer amailiorer aiquipement quitter partir", true);
+            Launch(true, "raiparer traisor acheter amailiorer aiquipement quitter partir", true);
         }
 
         private void Launch(bool WDUWTD, string WordList, bool enter = false)
@@ -95,6 +96,30 @@ namespace Scenes.Scenes.ShipShop
             }
         }
 
+        private void Tresor()
+        {
+            int cost = 200;
+
+            if (cost > BlindShip_Stat.Money)
+            {
+                UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(YouDontHaveEngougthGold));
+                UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) YouDontHaveEngougthGold.length * 1000 + 500));
+            }
+            else if (BlindCaptain_Stat.chasseautresor)
+            {
+                UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(YouAlreadyHave));
+                UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) YouAlreadyHave.length * 1000 + 500));
+            }
+            else 
+            {
+                BlindShip_Stat.Money -= cost;
+                BlindCaptain_Stat.chasseautresor = true;
+                
+                UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(OkCaptaine));
+                UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) OkCaptaine.length * 1000 + 500));
+            }
+        }
+
         private void Quit()
         {
             UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(GoodBye));
@@ -113,12 +138,18 @@ namespace Scenes.Scenes.ShipShop
                 {
                     case "raiparer":
                         repair();
-                        Launch(true, "raiparer amailiorer aiquipement quitter partir");
+                        Launch(true, "raiparer traisor acheter amailiorer aiquipement quitter partir");
                         break;
 
                     case "aiquipement":
                     case "amailiorer":
                         Launch(false, "cannon capacitai calle quartier aiquipage sabre aipai pistolet fusil rien");
+                        break;
+                    
+                    case "traisor":
+                    case "acheter":
+                        Tresor();
+                        Launch(true, "raiparer traisor acheter amailiorer aiquipement quitter partir");
                         break;
                 }
             }

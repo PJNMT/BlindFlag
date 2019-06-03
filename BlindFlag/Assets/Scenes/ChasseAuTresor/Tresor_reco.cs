@@ -141,6 +141,7 @@ public class Tresor_reco : MonoBehaviour
         {
             BlindShip_Stat.Money += enigme.gold;
             BlindCaptain_Stat.NbEnigme += 1;
+            BlindCaptain_Stat.chasseautresor = false;
 
             UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(UWin));
             UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) UWin.length * 1000 + 500));
