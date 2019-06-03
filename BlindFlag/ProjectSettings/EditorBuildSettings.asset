@@ -6,27 +6,27 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/START.unity
+    guid: 4834e4a906fe2f34ebc5ce5113a1426f
+  - enabled: 1
     path: Assets/Scenes/navi.unity
     guid: 7692f5f4f9141b947a2f301220d8f4f8
-  - enabled: 1
-    path: Assets/Scenes/seabattle.unity
-    guid: e9dcb4800ce6f74408cb962c62902e65
   - enabled: 1
     path: Assets/Scenes/Port.unity
     guid: e8e3dfeba89dda6458c9abcc8ca93698
   - enabled: 1
-    path: Assets/Scenes/taverne.unity
-    guid: 2adf5cd60cd5f224faeb3d41fb0a266b
-  - enabled: 1
-    path: Assets/Scenes/combat.unity
-    guid: 4e6438b2811ba74459d04e3c2661f25f
-  - enabled: 1
     path: Assets/Scenes/ShipShop.unity
     guid: a87757b112b211941a8862b9e9097ad5
+  - enabled: 1
+    path: Assets/Scenes/taverne.unity
+    guid: 2adf5cd60cd5f224faeb3d41fb0a266b
   - enabled: 1
     path: "Assets/Scenes/chasseautr\xE9sor.unity"
     guid: 126095a79adf88b4e9b09b7ef691c3f5
   - enabled: 1
-    path: Assets/Scenes/START.unity
-    guid: 4834e4a906fe2f34ebc5ce5113a1426f
+    path: Assets/Scenes/seabattle.unity
+    guid: e9dcb4800ce6f74408cb962c62902e65
+  - enabled: 1
+    path: Assets/Scenes/combat.unity
+    guid: 4e6438b2811ba74459d04e3c2661f25f
   m_configObjects: {}

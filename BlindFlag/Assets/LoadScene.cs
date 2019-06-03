@@ -7,7 +7,7 @@ public class LoadScene : MonoBehaviour
 {
     public enum Scene
     {
-        Navigation = 0, SeaBattle, Port, Taverne, Combat, ShipShop, ChasseAuTresor, START
+        START = 0, Navigation, Port, ShipShop, Taverne, ChasseAuTresor, SeaBattle, Combat
     }
 
     private static string ToString(Scene s)

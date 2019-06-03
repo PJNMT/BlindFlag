@@ -165,9 +165,7 @@ public class Save : MonoBehaviour
                 int SceneLoad = gamma_decode(MyReader.ReadLine());
 
                 BlindShip_Stat.SceneLoad =
-                    (SceneLoad == 0 || SceneLoad == 1 || SceneLoad == 5 || SceneLoad == 7) ? 0 : 2;
-                
-                SceneManager.LoadScene((BlindShip_Stat.SceneLoad == 0 ? "navi" : "Port"));
+                    (SceneLoad == 2 || SceneLoad == 3 || SceneLoad == 4) ? (int) LoadScene.Scene.Port : (int) LoadScene.Scene.Navigation;
 
                 string[] S = MyReader.ReadToEnd().Split(' ', '\t', '\r', '\n');
                 
@@ -179,6 +177,8 @@ public class Save : MonoBehaviour
                     {"Combat", (S[3] == "0" ? false : true)},
                     {"Coco", (S[4] == "0" ? false : true)},
                 };
+                
+                SceneManager.LoadScene(BlindShip_Stat.SceneLoad);
             }
         }
     }
