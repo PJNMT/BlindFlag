@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu_Start.unity
     guid: 7d2c85f983671d14c9f92882f89c3e1e
   - enabled: 0
-    path: Assets/Scenes/START.unity
+    path: 
     guid: 4834e4a906fe2f34ebc5ce5113a1426f
   - enabled: 1
     path: Assets/Scenes/navi.unity
@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/combat.unity
     guid: 4e6438b2811ba74459d04e3c2661f25f
+  - enabled: 1
+    path: Assets/Scenes/capclairvoyant.unity
+    guid: c9c7d0f32b8ee21438eacadb3e18873a
   m_configObjects: {}
