@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StatClairvoyant : MonoBehaviour
 {
@@ -12,13 +13,13 @@ public class StatClairvoyant : MonoBehaviour
     public AudioClip Mort2;
     private AudioSource Audio;
 
-    private static int nb_death;
+    public static int nb_death=0; 
     // Start is called before the first frame update
     void Start()
     {
         Audio = GetComponent<AudioSource>();
         Clairvoyant_HP = 5500;
-        nb_death = 0;
+        transform.position = new Vector3(0,0,0);
     }
 
     void Death()
@@ -39,14 +40,20 @@ public class StatClairvoyant : MonoBehaviour
             {
                 Audio.PlayOneShot(Mort2);
             }
+            Thread.Sleep(2000);
             float ClaiHP = Clairvoyant_HP;
             Clairvoyant_HP = ClaiHP * 0.9f;
+            SceneManager.LoadScene("Combat");
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (Clairvoyant_HP<=0)
+        {
+            nb_death += 1;
+            Death();
+        }
     }
+
 }

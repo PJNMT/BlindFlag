@@ -131,5 +131,9 @@ public class BlindCaptain_Stat : MonoBehaviour
         audioSource.PlayOneShot(G);
         GunDamage += added;
     }
+    
+    
+    //information pr cbt contre clairvoyant
+    public static int nb_ennemy_defeated = 0;
 }
 

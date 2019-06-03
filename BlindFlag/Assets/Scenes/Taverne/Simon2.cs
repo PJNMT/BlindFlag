@@ -12,7 +12,7 @@ public class Simon2 : MonoBehaviour
     public AudioSource _AudioSource;
     public int Len;
 
-    private Collider other;
+    public GameObject other;
 
     private int mise;
     private bool activated;
@@ -59,7 +59,6 @@ public class Simon2 : MonoBehaviour
         _AudioSource = GetComponent<AudioSource>();
 
         mise = 0;
-        this.other = GameObject.FindGameObjectWithTag("Player").GetComponent<Collider>();
 
     }
 

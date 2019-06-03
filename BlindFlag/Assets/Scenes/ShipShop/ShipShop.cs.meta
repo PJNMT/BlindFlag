@@ -19,6 +19,7 @@ MonoImporter:
   - WhatDoUWantToDo_2: {fileID: 8300000, guid: a816a747c986aa04b9c6e7c9b306b9c5, type: 3}
   - OkCaptaine: {fileID: 8300000, guid: a89ee686df5dfe942be1fb3c033b0943, type: 3}
   - Repaire: {fileID: 8300000, guid: f777227eb27e79d40b873fd6b9b3234d, type: 3}
+  - YouAlreadyHave: {fileID: 8300000, guid: 956dbdf71b4ca534fba871d709a54cae, type: 3}
   - Taverne: {instanceID: 0}
   - Street: {instanceID: 0}
   executionOrder: 0
