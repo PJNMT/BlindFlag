@@ -33,7 +33,7 @@ namespace Scenes.Scenes.ShipShop
             Street.GetComponent<AudioSource>().Play();
             Street.GetComponent<AudioSource>().loop = true;
             Audio = GetComponent<AudioSource>();
-            Launch(true, "raiparer traisor acheter amailiorer aiquipement quitter partir", true);
+            Launch(true, "raiparer traisor acheter amailiorer aiquipement quitter partir aller", true);
         }
 
         private void Launch(bool WDUWTD, string WordList, bool enter = false)
@@ -129,7 +129,7 @@ namespace Scenes.Scenes.ShipShop
 
         private void MainFunc(string speech)
         {
-            if (speech != "quitter" && speech != "partir")
+            if (speech != "quitter" && speech != "partir" && speech != "aller")
             {
                 UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(OkCaptaine));
                 UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) OkCaptaine.length * 1000 + 500));
@@ -138,7 +138,7 @@ namespace Scenes.Scenes.ShipShop
                 {
                     case "raiparer":
                         repair();
-                        Launch(true, "raiparer traisor acheter amailiorer aiquipement quitter partir");
+                        Launch(true, "raiparer traisor acheter amailiorer aiquipement quitter partir aller");
                         break;
 
                     case "aiquipement":
@@ -149,7 +149,7 @@ namespace Scenes.Scenes.ShipShop
                     case "traisor":
                     case "acheter":
                         Tresor();
-                        Launch(true, "raiparer traisor acheter amailiorer aiquipement quitter partir");
+                        Launch(true, "raiparer traisor acheter amailiorer aiquipement quitter partir aller");
                         break;
                 }
             }

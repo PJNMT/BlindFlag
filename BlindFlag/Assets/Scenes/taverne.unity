@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -287,6 +287,7 @@ GameObject:
   - component: {fileID: 336349210}
   - component: {fileID: 336349209}
   - component: {fileID: 336349208}
+  - component: {fileID: 336349214}
   m_Layer: 0
   m_Name: Ivrogne
   m_TagString: Untagged
@@ -476,6 +477,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &336349214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 336349207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94014b11b9eefc5459b506067f12a62a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &478245351
 GameObject:
   m_ObjectHideFlags: 0
@@ -891,6 +904,7 @@ GameObject:
   - component: {fileID: 875963684}
   - component: {fileID: 875963683}
   - component: {fileID: 875963682}
+  - component: {fileID: 875963688}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1080,6 +1094,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &875963688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875963681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94014b11b9eefc5459b506067f12a62a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1094307719
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1357,6 +1383,7 @@ GameObject:
   - component: {fileID: 1284108291}
   - component: {fileID: 1284108290}
   - component: {fileID: 1284108289}
+  - component: {fileID: 1284108295}
   m_Layer: 0
   m_Name: Recrue
   m_TagString: Untagged
@@ -1546,6 +1573,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1284108295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1284108288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94014b11b9eefc5459b506067f12a62a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1705392938
 GameObject:
   m_ObjectHideFlags: 0
@@ -1630,9 +1669,10 @@ GameObject:
   - component: {fileID: 1992667852}
   - component: {fileID: 1992667854}
   - component: {fileID: 1992667855}
+  - component: {fileID: 1992667856}
   m_Layer: 0
   m_Name: Simon (empty object)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1778,9 +1818,26 @@ MonoBehaviour:
   SoundPad: []
   _AudioSource: {fileID: 0}
   Len: 3
+  other: {fileID: 2069634251}
   time: 0
   continuer: 0
   won: 0
+  vos_gains: {fileID: 0}
+  combien_miser: {fileID: 0}
+  faut_sameliorer: {fileID: 0}
+  "\xEAtes_le_meilleur": {fileID: 0}
+--- !u!114 &1992667856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1992667851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94014b11b9eefc5459b506067f12a62a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2066121395
 GameObject:
   m_ObjectHideFlags: 0
@@ -2033,7 +2090,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2140891040
 MonoBehaviour:
   m_ObjectHideFlags: 0

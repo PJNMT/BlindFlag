@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class PlayOnDemand : MonoBehaviour
@@ -19,7 +20,8 @@ public class PlayOnDemand : MonoBehaviour
         if (Ondemand)
         {
             Ondemand = false;
-            AudioSource.Play();
+            UnityMainThreadDispatcher.Instance().Enqueue(() => AudioSource.PlayOneShot(AudioSource.clip));
+            UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) AudioSource.clip.length * 1000 + 500));
         }
     }
 }
