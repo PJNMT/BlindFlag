@@ -185,7 +185,7 @@ namespace Scenes.Scenes.ShipShop
                             UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) OkCaptaine.length * 1000 + 500));
                             
                             BlindShip_Stat.Money -= cost;
-                            UnityMainThreadDispatcher.Instance().Enqueue(() => BlindShip_Stat.AddCrew(Audio, 2));
+                            BlindShip_Stat.Max_Crew += 2;
                         }
                         else
                         {
