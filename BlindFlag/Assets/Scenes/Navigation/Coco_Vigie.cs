@@ -161,13 +161,9 @@ public class Coco_Vigie : MonoBehaviour
                     }
                 }
                 break;
-            case "stop": 
-            case "rien":
-                UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(YesCaptain));
-                UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) YesCaptain.length * 1000 + 500));
-                Launch();
-                break;
         }
+        
+        Launch();
     }
 
     public void OKCoco(string speech)
