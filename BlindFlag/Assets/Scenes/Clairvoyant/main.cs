@@ -13,7 +13,7 @@ public class main : MonoBehaviour
         
         if (!BlindCaptain_Stat.do_seabattle)
         {
-            LoadScene.Load(LoadScene.Scene.SeaBattle, LoadScene.Scene.);
+            LoadScene.Load(LoadScene.Scene.SeaBattle, LoadScene.Scene.ENDCOMBAT);
         }
     }
 
