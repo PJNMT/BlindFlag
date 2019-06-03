@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
+using System.Threading;
 using UnityEngine;
 
 public class cubecontroller : MonoBehaviour
@@ -22,11 +23,12 @@ public class cubecontroller : MonoBehaviour
 	public bool sedeplacer = true;
 	public bool isWalkin;
 	public AudioSource _audioSource;
+	public AudioClip TutoChasse;
 
 	void Touches()
 	{
-	  inputRotatedroite = KeyCode.RightArrow;
-	  inputRotategauche = KeyCode.LeftArrow;
+	    inputRotatedroite = KeyCode.RightArrow;
+	    inputRotategauche = KeyCode.LeftArrow;
 		inputavant = KeyCode.UpArrow;
 		inputarrière = KeyCode.DownArrow;
 	}
@@ -40,6 +42,14 @@ public class cubecontroller : MonoBehaviour
 
 		_audioSource = this.GetComponent<AudioSource>();
 		Touches();
+		
+		if (!BlindCaptain_Stat.Tuto["Chasse au trésor"])
+		{
+			UnityMainThreadDispatcher.Instance().Enqueue(() => _audioSource.PlayOneShot(TutoChasse));
+			UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) TutoChasse.length * 1000 + 500));
+
+			BlindCaptain_Stat.Tuto["Chasse au trésor"] = true;
+		}
 		
 	}
 

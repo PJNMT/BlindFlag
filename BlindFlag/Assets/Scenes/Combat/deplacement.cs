@@ -20,6 +20,9 @@ public class deplacement : MonoBehaviour
     public float moveSpeed;
     public float turnSpeed;
 
+    public AudioSource _audiosource;
+    public AudioClip TutoCombat;
+
 
 
 
@@ -40,6 +43,14 @@ public class deplacement : MonoBehaviour
         intputgauche = KeyCode.LeftArrow;
         
         playercollider = gameObject.GetComponent<CapsuleCollider>();
+        
+        if (!BlindCaptain_Stat.Tuto["Combat"])
+        {
+            UnityMainThreadDispatcher.Instance().Enqueue(() => _audiosource.PlayOneShot(TutoCombat));
+            UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) TutoCombat.length * 1000 + 500));
+
+            BlindCaptain_Stat.Tuto["Combat"] = true;
+        }
     }
 
     // Update is called once per frame

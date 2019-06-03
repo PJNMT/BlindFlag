@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using UnityEngine;
 
 public class Fire_RV : MonoBehaviour
@@ -10,6 +11,8 @@ public class Fire_RV : MonoBehaviour
     public static string[] Dico_2;
 
     public GameObject Cannonball;
+    public AudioSource _audiosource;
+    public AudioClip TutoBattleSea;
     void Fire(string word)
     {
         Fire_RV.speech = Fire_RV.speech + word + " ";
@@ -91,6 +94,15 @@ public class Fire_RV : MonoBehaviour
 
     void Start()
     {
+        if (!BlindCaptain_Stat.Tuto["Bataille Navale"])
+        {
+            UnityMainThreadDispatcher.Instance().Enqueue(() => _audiosource.PlayOneShot(TutoBattleSea));
+            UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) TutoBattleSea.length * 1000 + 500));
+
+            BlindCaptain_Stat.Tuto["Bataille Navale"] = true;
+        }
+        
+        
         speech = "";
         Dico_1 = new[]
         {
