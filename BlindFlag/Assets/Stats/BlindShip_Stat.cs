@@ -117,14 +117,32 @@ public class BlindShip_Stat : MonoBehaviour
     
     public static void Adddamage(AudioSource audioSource, int added)
     {
-        audioSource.PlayOneShot(D);
-        Damage += added;
+        if (Damage + added > Max_Damage)
+        {
+            added = Max_Damage - Damage;
+        }
+
+        if (added != 0) 
+        {
+            audioSource.PlayOneShot(D);
+            Damage += added;
+        }
+        
+        
     }
     
     public static void AddCrew(AudioSource audioSource, int added)
     {
-        audioSource.PlayOneShot(C);
-        Crew += added;
+        if (Crew+added> Max_Crew)
+        {
+            added = Max_Crew - Crew;
+        }
+        if (added != 0) 
+        {
+            audioSource.PlayOneShot(C);
+            Crew += added; 
+        }
+        
     }
     
     public static void AddMoney(AudioSource audioSource, int added)

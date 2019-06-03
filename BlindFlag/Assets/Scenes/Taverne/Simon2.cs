@@ -54,16 +54,17 @@ public class Simon2 : MonoBehaviour
         _AudioSource = GetComponent<AudioSource>();
 
         mise = 0;
-        
+        this.other = GameObject.FindGameObjectWithTag("Player").GetComponent<Collider>();
+
     }
 
 
-    /*private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name == "You")
         {
-            this.other = other;
-            //other.GetComponent<DeplacementTaverne>().sedeplacer = false;
+            
+            other.GetComponent<DeplacementTaverne>().sedeplacer = false;
             UnityMainThreadDispatcher.Instance().Enqueue(() => Synthesis.synthesis("Combien voulez vous parier à ce jeu ? vinGt, trente cinquante ou cent piaice d'or?"));
             UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep(500));
             Recognition.start_recognition(Traitement,"trente cinquante cent vinGt", 30); 
@@ -74,7 +75,7 @@ public class Simon2 : MonoBehaviour
             
         }
         
-    }*/
+    }
     
     bool SimonGame()
     {
@@ -148,6 +149,7 @@ public class Simon2 : MonoBehaviour
         else
         {
             Synthesis.synthesis("Vous avez perdu");
+            BlindShip_Stat.Money -= mise;
         }
         
         other.gameObject.transform.position = new Vector3(7,1,7);
@@ -227,35 +229,30 @@ public class Simon2 : MonoBehaviour
     //Treat the event Key pressed
     void OnGUI()
     {
-        e = Event.current;
-        if(e.type.Equals(EventType.KeyDown) && !keydown)
+        if (!other.GetComponent<DeplacementTaverne>().sedeplacer)
         {
-            if (e.keyCode == KeyCode.Space)
+            e = Event.current;
+            if (e.type.Equals(EventType.KeyDown) && !keydown)
             {
-                EnterPressed = true;
-            }
-            else
-            {
-                LastKeyPressed = e.keyCode;
-                Sound(LastKeyPressed);
-                keydown = true;
+                if (e.keyCode == KeyCode.Space)
+                {
+                    EnterPressed = true;
+                }
+                else
+                {
+                    LastKeyPressed = e.keyCode;
+                    Sound(LastKeyPressed);
+                    keydown = true;
+                }
+
             }
 
+            if (e.type.Equals(EventType.KeyUp))
+                keydown = false;
+
+
+            Debug.Log("Last Key Pressed - " + e.keyCode.ToString());
         }
-      
-        if(e.type.Equals(EventType.KeyUp))
-            keydown = false;
-        
-        
-        Debug.Log("Last Key Pressed - " + e.keyCode.ToString());
-        
+
     }
 }
-
-   
-
-
-
-
-
-

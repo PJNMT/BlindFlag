@@ -5,27 +5,41 @@ using UnityEngine;
 
 public class taverne : MonoBehaviour
 {
-    public AudioSource[] _audioSources;
+    public AudioSource _audioSources;
+    
+    public AudioClip Jouer_au_simon;
+    public AudioClip Recruter;
+    public AudioClip offrir_a_boire;
+    public AudioClip pas_assez_money;
+    public AudioClip vous_avez_recrute;
+
+    public PlayOnDemand ivrogne;
+    public PlayOnDemand player;
+    public PlayOnDemand recrues;
+
+    public DeplacementTaverne You;
+    
+    
     private bool activated;
     
     // Start is called before the first frame update
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log(other.gameObject.name);
         if (other.gameObject.name == "You")
         {
-            UnityMainThreadDispatcher.Instance().Enqueue(() => Synthesis.synthesis(
-                "Que voulez-vous faire Captaine ? Offrir une tournée générale à ces pirates, chercher de nouvelles recrues ou leur montrer qui est le meilleur chanteur " +
-                "de chansons pirates de toutes les Caraïbes ?"));
-            UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep(10000));
+
+            player.Ondemand = true;
+            UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int)Jouer_au_simon.length*1000+300));
+            recrues.Ondemand = true;
+            UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int)Recruter.length*1000+300));
+            recrues.Ondemand = true;
+            UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int)offrir_a_boire.length*1000+300));
             
-            
-            Recognition.Function Traitement = this.Traitement;
-            Recognition.start_recognition(Traitement,
-                "chanson chanter jouer boire simon payer tournée recruter recrue nouveau équipage matelot", 60);
+            //LaunchReco();
         }
     }
 
-    
     // Update is called once per frame
     void Update()
     {
@@ -34,6 +48,13 @@ public class taverne : MonoBehaviour
             Recognition.stop_recognition();
             activated = false;
         }
+    }
+
+    void LaunchReco()
+    {
+        Recognition.Function Traitement = this.Traitement;
+        Recognition.start_recognition(Traitement,
+            "chanson chanter jouer boire simon payer tournée recruter recrue nouveau équipage matelot", 60);
     }
 
 
@@ -49,7 +70,7 @@ public class taverne : MonoBehaviour
            case "jouer":
            case "chanter":
                    
-               UnityMainThreadDispatcher.Instance().Enqueue(() => transform.position = new Vector3(3.64f,1f,3.65f));
+               UnityMainThreadDispatcher.Instance().Enqueue(() => You.transform.position = new Vector3(3.64f,1f,3.65f));
                
                break;
            
@@ -59,6 +80,8 @@ public class taverne : MonoBehaviour
                 case "matelot" :
                case "équipage":
 
+               UnityMainThreadDispatcher.Instance().Enqueue(() => You.transform.position = new Vector3(-5.95f,0.94f,5.95f));   
+                   
                int crew_members = 0;
                UnityMainThreadDispatcher.Instance().Enqueue(() => crew_members = Random.Range(0, BlindShip_Stat.Max_Crew - BlindShip_Stat.Crew));
                Synthesis.synthesis("Vous avez recruté"+ crew_members +" membres d'équipage.");
@@ -72,6 +95,7 @@ public class taverne : MonoBehaviour
            case "payer":
            case "tournée":
            case "boire":
+               UnityMainThreadDispatcher.Instance().Enqueue(() => You.transform.position = new Vector3(-3.61f,0.94f,-2.77f));   
                int available_money = BlindShip_Stat.Money -= (BlindShip_Stat.Crew*20);
                if (available_money<0)
                {

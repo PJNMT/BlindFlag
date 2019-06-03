@@ -17,7 +17,7 @@ public class DeplacementTaverne : MonoBehaviour
     public float moveSpeed;
     public float turnSpeed;
 
-    // Start is called before the first frame update
+   
     void Start()
     {
         intputarrière = KeyCode.DownArrow;
@@ -28,7 +28,7 @@ public class DeplacementTaverne : MonoBehaviour
         
     }
 
-    // Update is called once per frame
+    //
     void Update()
     {
         if (sedeplacer)
