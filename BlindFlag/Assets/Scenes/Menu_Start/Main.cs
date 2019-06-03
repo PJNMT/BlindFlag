@@ -42,7 +42,7 @@ public class Main : MonoBehaviour
         UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) Hello.length * 1000 + 500));
         
         Recognition.Function Func = Traitement;
-        UnityMainThreadDispatcher.Instance().Enqueue(() => Recognition.start_recognition(Func, "continuer commencer option quitter parametre"));
+        UnityMainThreadDispatcher.Instance().Enqueue(() => Recognition.start_recognition(Func, "continuer commencer option quitter paramaitre"));
     }
 
     void NewGame()
@@ -73,7 +73,7 @@ public class Main : MonoBehaviour
                 break;
 
             case "option":
-            case "parametre":
+            case "paramaitre":
                 UnityMainThreadDispatcher.Instance().Enqueue(() => MainMenu.SetActive(false));
                 UnityMainThreadDispatcher.Instance().Enqueue(() => OptionMenu.SetActive(true));
                 UnityMainThreadDispatcher.Instance().Enqueue(() => Option.relaunch = true);
@@ -82,7 +82,7 @@ public class Main : MonoBehaviour
             case "quitter":
                 UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(GoodBye));
                 UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) GoodBye.length * 1000 + 500));
-                QuitOnClick.Quit();
+                Application.Quit();
                 break;
         }
     }
