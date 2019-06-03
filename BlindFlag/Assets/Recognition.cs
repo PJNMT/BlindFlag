@@ -70,7 +70,7 @@ public class Recognition : MonoBehaviour
             // lancement de Recognition.exe
             myProcess = new Process();
 
-            myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Normal;
+            myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             myProcess.StartInfo.CreateNoWindow = true;
 
             myProcess.StartInfo.FileName = "Recognition.exe";
