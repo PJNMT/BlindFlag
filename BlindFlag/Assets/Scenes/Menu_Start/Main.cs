@@ -23,6 +23,14 @@ public class Main : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        int width = 1080; // or something else
+        int height= 720; // or something else
+        bool isFullScreen = true; // should be windowed to run in arbitrary resolution
+        int desiredFPS = 60; // or something else
+ 
+        Screen.SetResolution (width , height, isFullScreen, desiredFPS );
+        
+        
         Canvas.GetComponent<AudioSource>().loop = true;
         Canvas.GetComponent<AudioSource>().Play();
         Launch();
