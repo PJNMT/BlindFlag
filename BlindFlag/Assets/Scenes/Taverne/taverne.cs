@@ -84,8 +84,7 @@ public class taverne : MonoBehaviour
                    
                int crew_members = 0;
                UnityMainThreadDispatcher.Instance().Enqueue(() => crew_members = Random.Range(0, BlindShip_Stat.Max_Crew - BlindShip_Stat.Crew));
-               Synthesis.synthesis("Vous avez recruté"+ crew_members +" membres d'équipage.");
-               BlindShip_Stat.Crew += crew_members;
+               BlindShip_Stat.AddCrew(GetComponent<AudioSource>(),crew_members);
                Thread.Sleep(3000);
                //Menu();
                Debug.Log("menu");
