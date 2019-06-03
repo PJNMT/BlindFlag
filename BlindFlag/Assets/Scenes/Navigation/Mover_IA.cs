@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
@@ -11,7 +12,7 @@ public class Mover_IA : MonoBehaviour
     private static bool decteted;
     public static int Level;
     public static BoatType type;
-    private static int Speed;
+    public int Speed;
     public static float TailleMap = 1000f;
     private Transform BlindShip;
     public GameObject target;
@@ -28,11 +29,9 @@ public class Mover_IA : MonoBehaviour
     void Start()
     {
         decteted = false;
-        target = null;
         //(BoatType)(Random.Range(0, 3));
         int OurLevel = 10;
         Level = Random.Range(OurLevel-3,OurLevel+6);
-        Speed = 50;
         
         if (TailleMap < 200) TailleMap = 1000;
         
@@ -53,48 +52,60 @@ public class Mover_IA : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        if (decteted && target != null)
+        bool control = true;
+        if (Math.Abs(transform.position.x) > TailleMap / 2)
         {
-            BlindShip = target.transform;
-            if (type == BoatType.Marchand)
+            transform.Rotate(Vector3.up, Speed * Speed* Time.deltaTime);
+            control = false;
+        }
+        if (Math.Abs(transform.position.z) > TailleMap / 2)
+        {
+            transform.Rotate(Vector3.up, Speed * Speed * Time.deltaTime);
+            control = false;
+        }
+
+        if (control)
+        {
+            if (decteted && target != null)
             {
-                FleeTarget();
-                //s'enfuit
-            }
-            else if (type == BoatType.Marines)
-            {
-                FaceTarget();
-                //s'approche
-            }
-            else
-            {
-                if (Random.Range(0,1)<=0)
+                BlindShip = target.transform;
+                if (type == BoatType.Marchand)
+                {
+                    FleeTarget();
+                    //s'enfuit
+                }
+                else if (type == BoatType.Marines)
                 {
                     FaceTarget();
-                    //bateau s'approche
+                    //s'approche
                 }
                 else
                 {
-                    FleeTarget();
-                    //bateau s'enfuit
+                    if (Random.Range(0,1)<=0)
+                    {
+                        FaceTarget();
+                        //bateau s'approche
+                    }
+                    else
+                    {
+                        FleeTarget();
+                        //bateau s'enfuit
+                    }
                 }
-            }
             
+            }
+            else
+            {
+                transform.Rotate(Vector3.up, 50 * Time.deltaTime);
+                transform.Translate(Vector3.left * Speed * Time.deltaTime); //on avance en f° du temps
+            }
         }
-        else
+        
+        if (Distance(target.gameObject)<30)
         {
-            transform.Rotate(Vector3.up, 50 * Time.deltaTime);
-        }
-        transform.Translate(Vector3.left * Speed * Time.deltaTime); //on avance en f° du temps
-
-        if (target != null && Distance(target.gameObject)<30)
-        {
+            Thread.Sleep(2000);
             LoadScene.Load(LoadScene.Scene.SeaBattle, LoadScene.Scene.Navigation);
-        }
-        
-        
-         
+        }   
     }
     private double Distance(GameObject O_O)
     {
@@ -103,11 +114,6 @@ public class Mover_IA : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "Ship")
-        {
-            target = other.gameObject;
-        }
-
         decteted = true;
     }
 
@@ -118,14 +124,10 @@ public class Mover_IA : MonoBehaviour
     
     void FaceTarget()
     {
-        Vector3 direction = (BlindShip.position - transform.position).normalized;
-        Quaternion Rotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
-        transform.rotation = Quaternion.Slerp(transform.rotation, Rotation, Time.deltaTime * 100f);
+        transform.Translate((transform.position - target.transform.position).normalized * Time.deltaTime*Speed);
     }
     void FleeTarget()
     {
-        Vector3 direction = (BlindShip.position - transform.position).normalized;
-        Quaternion Rotation = Quaternion.LookRotation(new Vector3(-direction.x, 0, -direction.z));
-        transform.rotation = Quaternion.Slerp(transform.rotation, Rotation, Time.deltaTime * 100f);
+        transform.Translate(-(transform.position - target.transform.position).normalized * Time.deltaTime*Speed);
     }
 }

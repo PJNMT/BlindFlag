@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Threading;
 using UnityEngine;
 
 namespace DefaultNamespace
@@ -14,6 +16,7 @@ namespace DefaultNamespace
 
         //A handle to the attached AudioSource  
         private AudioSource goAudioSource;
+        private simon _simon;
 
         //Use this for initialization  
         void Start()
@@ -42,6 +45,7 @@ namespace DefaultNamespace
 
                 //Get the attached AudioSource component  
                 goAudioSource = this.GetComponent<AudioSource>();
+                _simon = gameObject.GetComponent<simon>();
             }
         }
         
@@ -55,15 +59,14 @@ namespace DefaultNamespace
                 {  
                     Debug.Log("On recordin");
                     //Start recording and store the audio captured from the microphone at the AudioClip in the AudioSource  
-                    goAudioSource.clip = Microphone.Start(null, true, time, maxFreq);  
+                    goAudioSource.clip = Microphone.Start(Microphone.devices[0], true, time, maxFreq);  
                     
                 }  
                 else //Recording is in progress  
                 {  
                     
                         Microphone.End(null); //Stop the audio recording  
-                        goAudioSource.Play(); //Playback the recorded audio  
-                    
+                        
   
                     Debug.Log("Recording in progress...");  
                 }  
@@ -75,6 +78,36 @@ namespace DefaultNamespace
             }  
   
         }
+       
+       public IEnumerator PlayBack(int time)
+       {
+           Debug.Log("yo");
+           int i = 1;
+           float note_user;
+           bool IsCorrect = true;
+
+           goAudioSource.volume = 1f;
+           goAudioSource.loop = true;
+           goAudioSource.Play();
+           
+           while (i<=time && IsCorrect)
+           {
+               note_user = 3.0f;
+            
+               UnityMainThreadDispatcher.Instance().Enqueue(() => note_user = _simon._musicRecognition.AnalyzeSound());
+               
+               yield return new WaitForSeconds(4);
+               
+               goAudioSource.Stop();
+
+               IsCorrect =  _simon._musicRecognition.Is_right(note_user, simon.notes[i], 3f);
+               
+
+               i += 1;
+           }
+
+           _simon.correct = IsCorrect;
+       }
 
 
 

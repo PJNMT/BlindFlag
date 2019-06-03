@@ -7,7 +7,7 @@ public class LoadScene : MonoBehaviour
 {
     public enum Scene
     {
-        Navigation = 0, SeaBattle, Port, Taverne, Combat, ShipShop, ChasseAuTresor, START
+        START = 0, Navigation, Port, ShipShop, Taverne, ChasseAuTresor, SeaBattle, Combat, END
     }
 
     private static string ToString(Scene s)
@@ -28,9 +28,11 @@ public class LoadScene : MonoBehaviour
                 return "ShipShop";
             case Scene.ChasseAuTresor:
                 return "chasseautrésor";
+            case Scene.END:
+                return "capclairvoyant";
         }
         
-        return "START";
+        return "Menu_Start";
     }
     public static void Load(Scene new_scene, Scene old_scene)
     {

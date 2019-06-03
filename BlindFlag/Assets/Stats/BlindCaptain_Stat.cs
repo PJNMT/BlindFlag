@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.UIElements.GraphView;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -26,6 +25,8 @@ public class BlindCaptain_Stat : MonoBehaviour
     public static string Name = "BlindPirate";
 
     public static int NbEnigme = 1;
+
+    public static bool chasseautresor = false;
     
     [SerializeField]
     private AudioClip level;

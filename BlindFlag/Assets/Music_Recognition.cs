@@ -31,10 +31,6 @@ public class Music_Recognition : MonoBehaviour
 
      float music_note;
 
-    void Start()
-    {
-        start_recognition();
-    }
 
     // A modifier en fonction de ce qu'on veut faire
    /*void Update()
@@ -79,6 +75,7 @@ public class Music_Recognition : MonoBehaviour
 
     public bool Is_right(float note_user, string note, float limit)
     {
+        Debug.Log(note);
         float note_reference = base_reference[note];
         int i = 0;
         bool correct = false;
@@ -129,6 +126,8 @@ public class Music_Recognition : MonoBehaviour
         }
 
         PitchValue = freqN * (_fSample / 2) / QSamples;
+        
+        Debug.Log(PitchValue);
 
         return PitchValue;
     }

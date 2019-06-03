@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -130,7 +130,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &4532076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -436,7 +436,8 @@ AudioSource:
   m_GameObject: {fileID: 328936937}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243244932120075386, guid: 7419e47b1fd3ddf4aa3df04c2d52a248,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -715,16 +716,17 @@ AudioSource:
   m_GameObject: {fileID: 565397385}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243244932120075386, guid: 7419e47b1fd3ddf4aa3df04c2d52a248,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 63c7826942edbd64f88af5f70ff12ab4, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 230
+  Priority: 126
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 20
@@ -868,7 +870,8 @@ AudioSource:
   m_GameObject: {fileID: 668501962}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243649235973472684, guid: 7419e47b1fd3ddf4aa3df04c2d52a248,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -1114,7 +1117,8 @@ AudioSource:
   m_GameObject: {fileID: 735227585}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243244932120075386, guid: 7419e47b1fd3ddf4aa3df04c2d52a248,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 65e4ec81e93ef38448df3481c5a0a21c, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.2
@@ -1362,7 +1366,8 @@ AudioSource:
   m_GameObject: {fileID: 873372851}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243244932120075386, guid: 7419e47b1fd3ddf4aa3df04c2d52a248,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -1565,7 +1570,8 @@ AudioSource:
   m_GameObject: {fileID: 1275746158}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243244932120075386, guid: 7419e47b1fd3ddf4aa3df04c2d52a248,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -1840,7 +1846,8 @@ AudioSource:
   m_GameObject: {fileID: 1458213858}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243244932120075386, guid: 7419e47b1fd3ddf4aa3df04c2d52a248,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -1942,6 +1949,8 @@ GameObject:
   - component: {fileID: 1578644280}
   - component: {fileID: 1578644286}
   - component: {fileID: 1578644285}
+  - component: {fileID: 1578644288}
+  - component: {fileID: 1578644287}
   m_Layer: 0
   m_Name: "tr\xE9sor"
   m_TagString: Untagged
@@ -2047,7 +2056,8 @@ AudioSource:
   m_GameObject: {fileID: 1578644279}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243821819288207942, guid: 7419e47b1fd3ddf4aa3df04c2d52a248,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -2146,13 +2156,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bfaa108d3917694d876f6f8182c192b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enigma: {fileID: 0}
-  continuer: 0
-  recooptions: 0
-  rightanswer: 0
-  answer: 0
-  x: 0
-  z: 0
+--- !u!114 &1578644287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1578644279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a9aac7bf0a75bc44b51371fc02e5c73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Find: {fileID: 8300000, guid: e4dbf56d0eaa2224585b766b413183b2, type: 3}
+  IfAnswer: {fileID: 8300000, guid: 1c6f10922cfdbe94b859833a3f7ec77e, type: 3}
+  UWin: {fileID: 8300000, guid: 8ce86a56b61e853449e439e4d5bfa8c7, type: 3}
+  GiveUp: {fileID: 8300000, guid: 303b7ccf8c88e39459eb5dece23682cf, type: 3}
+  WrongAnswer: {fileID: 8300000, guid: 0856b6ea4ff8a0c4b8658e481bcf2c04, type: 3}
+  WhatIsYourAnswer: {fileID: 8300000, guid: 508e2658ec0a38f44acd1aa2ec894698, type: 3}
+  Gold: {fileID: 8300000, guid: 01826944035382f4586ee7679b37afac, type: 3}
+--- !u!114 &1578644288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1578644279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94014b11b9eefc5459b506067f12a62a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1634753536
 GameObject:
   m_ObjectHideFlags: 0
@@ -2256,7 +2290,8 @@ AudioSource:
   m_GameObject: {fileID: 1634753536}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243244932120075386, guid: 7419e47b1fd3ddf4aa3df04c2d52a248,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -2548,16 +2583,17 @@ AudioSource:
   m_GameObject: {fileID: 1981141923}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243244932120075386, guid: 7419e47b1fd3ddf4aa3df04c2d52a248,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 63c7826942edbd64f88af5f70ff12ab4, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_Volume: 0.15
   m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 17
+  Priority: 132
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 15

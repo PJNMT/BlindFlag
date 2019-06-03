@@ -10,9 +10,13 @@ public class islandposition : MonoBehaviour
     
     // Start is called before the first frame update
     void Start()
-    {         
-        if (TailleMap < 200) TailleMap = 1000;
+    {
+        gameObject.name = "island";
         
+        if (TailleMap < 200) TailleMap = 1000;
+
+        if (BlindCaptain_Stat.chasseautresor) gameObject.tag = "Ile au trésor";
+        else gameObject.tag = "Port";
         
         float rx = Random.Range(-1f, 1f);
         float rz = Random.Range(-1f, 1f);

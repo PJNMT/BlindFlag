@@ -52,7 +52,7 @@ public class Option : MonoBehaviour
         UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) WhatDoUWant.length * 1000 + 500));
 
         Recognition.Function Func = Choice;
-        UnityMainThreadDispatcher.Instance().Enqueue(() => Recognition.start_recognition(Func, "stop rien aucun quitter son musique voix"));
+        UnityMainThreadDispatcher.Instance().Enqueue(() => Recognition.start_recognition(Func, "stop retour rien aucun quitter son musique voix effets"));
     }
 
     void LaunchChange()
@@ -61,12 +61,12 @@ public class Option : MonoBehaviour
         UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) UpDown.length * 1000 + 500)); 
         
         Recognition.Function Func = UpOrDown;
-        UnityMainThreadDispatcher.Instance().Enqueue(() => Recognition.start_recognition(Func, "stop rien aucun quitter augmenter monter plus diminuer baisser moins"));
+        UnityMainThreadDispatcher.Instance().Enqueue(() => Recognition.start_recognition(Func, "stop rien retour aucun quitter augmenter monter plus diminuer baisser moins"));
     }
 
     void Choice(string speech)
     {
-        if (speech != "quitter" && speech != "stop" && speech != "rien" && speech != "aucun")
+        if (speech != "quitter" && speech != "stop" && speech != "retour" && speech != "rien" && speech != "aucun")
         {
             switch (speech)
             {
@@ -80,6 +80,9 @@ public class Option : MonoBehaviour
 
                 case "voix":
                     barremixer = "VoicesVol";
+                    break;
+                case "effets":
+                    barremixer = "EffetsVol";
                     break;
             }
             
@@ -96,7 +99,7 @@ public class Option : MonoBehaviour
 
     void UpOrDown(string speech)
     {
-        if (speech != "quitter" && speech != "stop" && speech != "rien" && speech != "aucun")
+        if (speech != "quitter" && speech != "stop" && speech != "retour" && speech != "rien" && speech != "aucun")
         {
             switch (speech)
             {

@@ -127,6 +127,8 @@ public class Save : MonoBehaviour
             MyWriter.WriteLine(gamma_encode(BlindCaptain_Stat.GunDamage));
             MyWriter.WriteLine(gamma_encode(BlindCaptain_Stat.SwordDamage));
             MyWriter.WriteLine(gamma_encode(BlindCaptain_Stat.Reputation));
+            MyWriter.WriteLine(gamma_encode(BlindCaptain_Stat.NbEnigme));
+            MyWriter.WriteLine(gamma_encode(BlindCaptain_Stat.chasseautresor ? 1 : 0));
 
             MyWriter.WriteLine((gamma_encode(BlindShip_Stat.SceneLoad)));
 
@@ -159,13 +161,13 @@ public class Save : MonoBehaviour
                 BlindCaptain_Stat.GunDamage = gamma_decode(MyReader.ReadLine());
                 BlindCaptain_Stat.SwordDamage = gamma_decode(MyReader.ReadLine());
                 BlindCaptain_Stat.Reputation = gamma_decode(MyReader.ReadLine());
+                BlindCaptain_Stat.NbEnigme = gamma_decode(MyReader.ReadLine());
+                BlindCaptain_Stat.chasseautresor = gamma_decode(MyReader.ReadLine()) != 0;
 
                 int SceneLoad = gamma_decode(MyReader.ReadLine());
 
                 BlindShip_Stat.SceneLoad =
-                    (SceneLoad == 0 || SceneLoad == 1 || SceneLoad == 5 || SceneLoad == 7) ? 0 : 2;
-                
-                SceneManager.LoadScene((BlindShip_Stat.SceneLoad == 0 ? "navi" : "Port"));
+                    (SceneLoad == 2 || SceneLoad == 3 || SceneLoad == 4) ? (int) LoadScene.Scene.Port : (int) LoadScene.Scene.Navigation;
 
                 string[] S = MyReader.ReadToEnd().Split(' ', '\t', '\r', '\n');
                 
@@ -177,6 +179,8 @@ public class Save : MonoBehaviour
                     {"Combat", (S[3] == "0" ? false : true)},
                     {"Coco", (S[4] == "0" ? false : true)},
                 };
+                
+                SceneManager.LoadScene(BlindShip_Stat.SceneLoad);
             }
         }
     }
@@ -188,7 +192,7 @@ public class Save : MonoBehaviour
             using (StreamReader MyReader = new StreamReader(SavePath))
             {
                 List<string> save = MyReader.ReadToEnd().Split(' ', '\t', '\r', '\n').Where(e => e != "").ToList();
-                return save.Count == 18;
+                return save.Count == 20;
             }
         }
         catch

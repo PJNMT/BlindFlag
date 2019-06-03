@@ -23,6 +23,14 @@ public class Main : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        int width = 1920; // or something else
+        int height= 1080; // or something else
+        bool isFullScreen = true; // should be windowed to run in arbitrary resolution
+        int desiredFPS = 60; // or something else
+ 
+        Screen.SetResolution (width , height, isFullScreen, desiredFPS );
+        
+        
         Canvas.GetComponent<AudioSource>().loop = true;
         Canvas.GetComponent<AudioSource>().Play();
         Launch();
@@ -42,7 +50,7 @@ public class Main : MonoBehaviour
         UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) Hello.length * 1000 + 500));
         
         Recognition.Function Func = Traitement;
-        UnityMainThreadDispatcher.Instance().Enqueue(() => Recognition.start_recognition(Func, "continuer commencer option quitter parametre"));
+        UnityMainThreadDispatcher.Instance().Enqueue(() => Recognition.start_recognition(Func, "continuer commencer option quitter paramaitre"));
     }
 
     void NewGame()
@@ -73,7 +81,7 @@ public class Main : MonoBehaviour
                 break;
 
             case "option":
-            case "parametre":
+            case "paramaitre":
                 UnityMainThreadDispatcher.Instance().Enqueue(() => MainMenu.SetActive(false));
                 UnityMainThreadDispatcher.Instance().Enqueue(() => OptionMenu.SetActive(true));
                 UnityMainThreadDispatcher.Instance().Enqueue(() => Option.relaunch = true);
@@ -82,8 +90,17 @@ public class Main : MonoBehaviour
             case "quitter":
                 UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(GoodBye));
                 UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) GoodBye.length * 1000 + 500));
-                QuitOnClick.Quit();
+                Quit();
                 break;
         }
+    }
+
+    public void Quit()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+                Application.Quit ();
+#endif
     }
 }

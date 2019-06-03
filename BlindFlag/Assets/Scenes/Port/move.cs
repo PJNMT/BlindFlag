@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.XR.WSA.WebCam;
 
 public class move : MonoBehaviour
 
@@ -111,6 +111,7 @@ private void PouC(string msg)
                      /*LoadScene.Load(LoadScene.Scene.ShipShop, LoadScene.Scene.Port);*/
                      break;
                  case "port":
+                     Thread.Sleep(2000);
                      LoadScene.Load(LoadScene.Scene.Navigation, LoadScene.Scene.Port);
                      foreach (GameObject o in SceneManager.GetSceneByName("navi").GetRootGameObjects())
                      {
@@ -122,6 +123,7 @@ private void PouC(string msg)
                      }
                      break;
                  case "tresor":
+                     Thread.Sleep(2000);
                      LoadScene.Load(LoadScene.Scene.Navigation, LoadScene.Scene.Port);
                      foreach (GameObject o in SceneManager.GetSceneByName("navi").GetRootGameObjects())
                      {
@@ -138,22 +140,9 @@ private void PouC(string msg)
 
         if (scene == "0")
         {   
-            int a = repere - Time.frameCount;
-            if (a < dist || ( a> dist+20&&a<2*dist)||a>2*dist+20)
-            {
-                transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
-                GetComponentInChildren<AudioSource>().mute = false;
-            }
-            else 
-            {
-                Debug.Log("Caca");
-                transform.Rotate(Vector3.left,45*Time.deltaTime);
-                GetComponentInChildren<AudioSource>().mute = true;
-            }
-            /*else
-            {
-                transform.Rotate(Vector3.left,45*Time.deltaTime);
-            }*/
+            transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
+            transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
+            GetComponentInChildren<AudioSource>().mute = false;
         }
 
         if (scene == "1")
