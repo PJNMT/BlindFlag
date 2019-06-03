@@ -6,6 +6,8 @@ using UnityEngine.EventSystems;
 
 public class Simon2 : MonoBehaviour
 {
+    //TODO
+    
     public int[] SimonPad;
     public int[] PlayerPad;
     public AudioClip[] SoundPad;
