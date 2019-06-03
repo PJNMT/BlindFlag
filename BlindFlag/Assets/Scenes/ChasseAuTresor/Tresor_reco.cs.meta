@@ -3,7 +3,14 @@ guid: 1a9aac7bf0a75bc44b51371fc02e5c73
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - Find: {fileID: 8300000, guid: e4dbf56d0eaa2224585b766b413183b2, type: 3}
+  - IfAnswer: {fileID: 8300000, guid: 1c6f10922cfdbe94b859833a3f7ec77e, type: 3}
+  - UWin: {fileID: 8300000, guid: 8ce86a56b61e853449e439e4d5bfa8c7, type: 3}
+  - GiveUp: {fileID: 8300000, guid: 303b7ccf8c88e39459eb5dece23682cf, type: 3}
+  - WrongAnswer: {fileID: 8300000, guid: 0856b6ea4ff8a0c4b8658e481bcf2c04, type: 3}
+  - WhatIsYourAnswer: {fileID: 8300000, guid: 508e2658ec0a38f44acd1aa2ec894698, type: 3}
+  - Gold: {fileID: 8300000, guid: 01826944035382f4586ee7679b37afac, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

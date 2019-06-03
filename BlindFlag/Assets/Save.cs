@@ -127,6 +127,7 @@ public class Save : MonoBehaviour
             MyWriter.WriteLine(gamma_encode(BlindCaptain_Stat.GunDamage));
             MyWriter.WriteLine(gamma_encode(BlindCaptain_Stat.SwordDamage));
             MyWriter.WriteLine(gamma_encode(BlindCaptain_Stat.Reputation));
+            MyWriter.WriteLine(gamma_encode(BlindCaptain_Stat.NbEnigme));
 
             MyWriter.WriteLine((gamma_encode(BlindShip_Stat.SceneLoad)));
 
@@ -159,6 +160,7 @@ public class Save : MonoBehaviour
                 BlindCaptain_Stat.GunDamage = gamma_decode(MyReader.ReadLine());
                 BlindCaptain_Stat.SwordDamage = gamma_decode(MyReader.ReadLine());
                 BlindCaptain_Stat.Reputation = gamma_decode(MyReader.ReadLine());
+                BlindCaptain_Stat.NbEnigme = gamma_decode(MyReader.ReadLine());
 
                 int SceneLoad = gamma_decode(MyReader.ReadLine());
 
@@ -188,7 +190,7 @@ public class Save : MonoBehaviour
             using (StreamReader MyReader = new StreamReader(SavePath))
             {
                 List<string> save = MyReader.ReadToEnd().Split(' ', '\t', '\r', '\n').Where(e => e != "").ToList();
-                return save.Count == 18;
+                return save.Count == 19;
             }
         }
         catch
