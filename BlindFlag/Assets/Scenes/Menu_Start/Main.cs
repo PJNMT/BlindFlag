@@ -82,8 +82,17 @@ public class Main : MonoBehaviour
             case "quitter":
                 UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(GoodBye));
                 UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) GoodBye.length * 1000 + 500));
-                Application.Quit();
+                Quit();
                 break;
         }
+    }
+
+    public void Quit()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+                Application.Quit ();
+#endif
     }
 }
