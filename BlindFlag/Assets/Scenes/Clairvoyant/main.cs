@@ -5,17 +5,16 @@ using UnityEngine;
 public class main : MonoBehaviour
 {
 
-    public GameObject En1;
-    public GameObject En2;
-    public GameObject En3;
-    public GameObject En4;
-    public GameObject En5;
-    public GameObject CapitaineClairvoyant;
-    
+    public static bool has_win = false;
     // Start is called before the first frame update
     void Start()
     {
+        BlindCaptain_Stat.in_clairvoyant = true;
         
+        if (!BlindCaptain_Stat.do_seabattle)
+        {
+            LoadScene.Load(LoadScene.Scene.SeaBattle, LoadScene.Scene.ENDCOMBAT);
+        }
     }
 
     // Update is called once per frame

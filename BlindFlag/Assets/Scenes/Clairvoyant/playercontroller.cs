@@ -1,10 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
-using System.Threading;
 using UnityEngine;
 
-public class cubecontroller : MonoBehaviour
+public class playercontroller : MonoBehaviour
 {
 	public float m_speed;
 	public int t_speed;
@@ -18,38 +17,24 @@ public class cubecontroller : MonoBehaviour
 	private KeyCode inputRotategauche;
 
 
-	public FootStep ground;
+	public AudioClip Grass;
+	public AudioClip Sea;
+	public AudioClip Sand;
+
+	private AudioClip typeofground;
 
 	public bool sedeplacer = true;
 	public bool isWalkin;
 	public AudioSource _audioSource;
-	public AudioClip TutoChasse;
-
-	void Touches()
-	{
-	    inputRotatedroite = KeyCode.RightArrow;
-	    inputRotategauche = KeyCode.LeftArrow;
-		inputavant = KeyCode.UpArrow;
-		inputarrière = KeyCode.DownArrow;
-	}
 	
 	// Start is called before the first frame update
 	void Start()
 	{
-	    transform.position = new Vector3(50f, 0f, 2f);
-		x = 2;
-		z = 0;
-
-		_audioSource = this.GetComponent<AudioSource>();
-		Touches();
-		
-		if (!BlindCaptain_Stat.Tuto["Chasse au trésor"])
-		{
-			UnityMainThreadDispatcher.Instance().Enqueue(() => _audioSource.PlayOneShot(TutoChasse));
-			UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) TutoChasse.length * 1000 + 500));
-
-			BlindCaptain_Stat.Tuto["Chasse au trésor"] = true;
-		}
+		_audioSource = GetComponent<AudioSource>();
+		inputRotatedroite = KeyCode.RightArrow;
+		inputRotategauche = KeyCode.LeftArrow;
+		inputavant = KeyCode.UpArrow;
+		inputarrière = KeyCode.DownArrow;
 		
 	}
 
@@ -77,14 +62,14 @@ public class cubecontroller : MonoBehaviour
 			// Récupération des touches haut et bas
 			if (Input.GetKey(KeyCode.UpArrow))
 			{
-				ground.Sound();
+				_audioSource.PlayOneShot(typeofground);
 				transform.Translate(Vector3.forward*m_speed*Time.deltaTime);
 				
 			}
 
 			if (Input.GetKey(KeyCode.DownArrow))
 			{
-				ground.Sound();
+				_audioSource.PlayOneShot(typeofground);
 				transform.Translate(-Vector3.forward*m_speed*Time.deltaTime);
 				
 			}
@@ -92,14 +77,14 @@ public class cubecontroller : MonoBehaviour
 			// Récupération des touches gauche et droite
 			if (Input.GetKey(KeyCode.LeftArrow))
 			{
-				ground.Sound();
+				_audioSource.PlayOneShot(typeofground);
 				transform.Rotate(-Vector3.up * t_speed * Time.deltaTime);
 				
 			}
 
 			if (Input.GetKey(KeyCode.RightArrow))
 			{
-				ground.Sound();
+				_audioSource.PlayOneShot(typeofground);
 				transform.Rotate(Vector3.up * t_speed * Time.deltaTime);
 				
 			}
@@ -110,21 +95,18 @@ public class cubecontroller : MonoBehaviour
 	private void OnTriggerEnter(Collider other)
 	{
 		Debug.Log(other.gameObject.name);
-		if (other.gameObject.name == "Plane")
+		
+		if (other.gameObject.name == "Grass")
 		{
-			ground = other.GetComponent<FootStep>();
+			typeofground = Grass;
 		}
-		if (other.gameObject.name == "beach" || other.gameObject.name == "beach 2")
+		if (other.gameObject.name == "Water" )
 		{
-			ground = other.GetComponent<FootStep>();
+			typeofground = Sea;
 		}
-		if (other.gameObject.name == "sea" )
+		if (other.gameObject.name == "Sand")
 		{
-			ground = other.GetComponent<FootStep>();
-		}
-		if (other.gameObject.name == "grass")
-		{
-			ground = other.GetComponent<FootStep>();
+			typeofground = Sand;
 		}
 	}
 }

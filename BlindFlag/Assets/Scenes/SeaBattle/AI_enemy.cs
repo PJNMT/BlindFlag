@@ -185,7 +185,15 @@ public class AI_enemy : MonoBehaviour
     {
         BlindShip_Stat.Money += Money;
         BlindShip_Stat.XP += XP;
-        LoadScene.Load(LoadScene.Scene.Navigation, LoadScene.Scene.SeaBattle);
+        if (BlindCaptain_Stat.in_clairvoyant)
+        {
+            BlindCaptain_Stat.do_seabattle = true;
+            LoadScene.Load(LoadScene.Scene.END, LoadScene.Scene.SeaBattle);
+        }
+        else
+        {
+            LoadScene.Load(LoadScene.Scene.Navigation, LoadScene.Scene.SeaBattle);
+        }
     }
     
     
