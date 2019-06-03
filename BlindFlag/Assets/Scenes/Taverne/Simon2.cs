@@ -29,6 +29,11 @@ public class Simon2 : MonoBehaviour
     bool keydown = false;
 
     private bool EnterPressed;
+
+    public AudioClip vos_gains;
+    public AudioClip combien_miser;
+    public AudioClip faut_sameliorer;
+    public AudioClip êtes_le_meilleur;
     
     
     // Start is called before the first frame update
@@ -65,8 +70,8 @@ public class Simon2 : MonoBehaviour
         {
             
             other.GetComponent<DeplacementTaverne>().sedeplacer = false;
-            UnityMainThreadDispatcher.Instance().Enqueue(() => Synthesis.synthesis("Combien voulez vous parier à ce jeu ? vinGt, trente cinquante ou cent piaice d'or?"));
-            UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep(500));
+            UnityMainThreadDispatcher.Instance().Enqueue(() => _AudioSource.PlayOneShot(combien_miser));
+            UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int)combien_miser.length*1000 +500));
             Recognition.start_recognition(Traitement,"trente cinquante cent vinGt", 30); 
             
             Debug.Log("début");
@@ -143,12 +148,16 @@ public class Simon2 : MonoBehaviour
         if (i == Len)
         {
             won = true;
-            Synthesis.synthesis("Vous avez gagné capitaine");
+            UnityMainThreadDispatcher.Instance().Enqueue(() => _AudioSource.PlayOneShot(êtes_le_meilleur));
+            UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) êtes_le_meilleur.length * 1000 + 500));
+            UnityMainThreadDispatcher.Instance().Enqueue(() => _AudioSource.PlayOneShot(vos_gains));
+            
             BlindShip_Stat.AddMoney(_AudioSource, mise);
         }
         else
         {
-            Synthesis.synthesis("Vous avez perdu");
+            UnityMainThreadDispatcher.Instance().Enqueue(() => _AudioSource.PlayOneShot(faut_sameliorer));
+            UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) faut_sameliorer.length * 1000 + 500));
             BlindShip_Stat.Money -= mise;
         }
         
