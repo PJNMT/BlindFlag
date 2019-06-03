@@ -7,6 +7,7 @@ public class QuitOnClick : MonoBehaviour
 
     public static void Quit()
     {
-            Application.Quit ();
+            Application.Quit();
+            
     }
 }
