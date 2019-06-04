@@ -184,6 +184,11 @@ public class Save : MonoBehaviour
         }
     }
 
+    public void LoadGamenotStatic()
+    {
+        LoadGame();
+    }
+
     public static bool IsThereASave()
     {
         try
