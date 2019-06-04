@@ -16,10 +16,4 @@ public class main : MonoBehaviour
             LoadScene.Load(LoadScene.Scene.SeaBattle, LoadScene.Scene.ENDCOMBAT);
         }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

@@ -6,13 +6,11 @@ using System.Xml.Schema;
 using UnityEngine;
 using UnityEngine.Experimental.UIElements;
 
-public class deplacement : MonoBehaviour
+public class deplacement1 : MonoBehaviour
 {
     private int x;
     private int y;
-    private int z; //si le capitaine se baisse ou non. valeur 1 ou 0 exclusivement.
 
-    CapsuleCollider playercollider;
     private KeyCode intputavant;
     private KeyCode intputarrière;
     private KeyCode intputdroit;
@@ -20,19 +18,8 @@ public class deplacement : MonoBehaviour
     public float moveSpeed;
     public float turnSpeed;
 
-    public AudioSource _audiosource;
+    private AudioSource _audiosource;
     public AudioClip TutoCombat;
-
-
-
-
-    /*public deplacement (int posx, int posy, int posz)
-    {
-      this.x = posx;
-        y = posy;
-        z = posz;
-
-    }*/
 
     // Start is called before the first frame update
     void Start()
@@ -41,8 +28,6 @@ public class deplacement : MonoBehaviour
         intputavant = KeyCode.UpArrow;
         intputdroit = KeyCode.RightArrow;
         intputgauche = KeyCode.LeftArrow;
-        
-        playercollider = gameObject.GetComponent<CapsuleCollider>();
         
         if (!BlindCaptain_Stat.Tuto["Combat"])
         {
@@ -88,14 +73,5 @@ public class deplacement : MonoBehaviour
             transform.Translate(0,1,0);
         }
     }
-
-   /* bool ausol()
-    {
-      return    Physics.CheckCapsule(playercollider.bounds.center, new Vector3(playercollider.bounds.center.x, playercollider.bounds.center.y -0.1f, playercollider.bounds.center.z), radius )
-    }
-    //radius à ajouter*/
-
-    
-
     
 }

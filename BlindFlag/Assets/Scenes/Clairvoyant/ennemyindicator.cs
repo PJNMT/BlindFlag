@@ -27,6 +27,8 @@ public class ennemyindicator : MonoBehaviour
         //Récupère le controller de l'objet joueur
         // et la position du trésor dans UNITY
        
+        Thread.Sleep(2200);
+        
         transform.position = new Vector3(50f,2f,10f);
         x = 50f;
         z = 10f;
@@ -40,7 +42,7 @@ public class ennemyindicator : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         
-        if (other.gameObject.name == "tresor")
+        if (other.gameObject.name == "Ennemy")
         {
             sedeplacer = false;
         }

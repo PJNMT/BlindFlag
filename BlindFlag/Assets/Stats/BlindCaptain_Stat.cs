@@ -136,5 +136,6 @@ public class BlindCaptain_Stat : MonoBehaviour
     public static int nb_ennemy_defeated = 0;
     public static bool do_seabattle = false;
     public static bool in_clairvoyant = false;
+    public static bool start_clairvoyant = false;
 }
 

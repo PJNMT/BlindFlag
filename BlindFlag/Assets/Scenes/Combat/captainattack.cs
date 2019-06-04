@@ -27,6 +27,7 @@ public class captainattack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Thread.Sleep(2200);
         gun_atk = BlindCaptain_Stat.GunDamage; //initialise stats capitaine
         saber_atk = BlindCaptain_Stat.SwordDamage;
         lvl = BlindCaptain_Stat.Lvl;

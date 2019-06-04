@@ -226,7 +226,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 243489221794256468, guid: 7419e47b1fd3ddf4aa3df04c2d52a248,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: e826b6e7fba39be41aa7643306b6a804, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 65e4ec81e93ef38448df3481c5a0a21c, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -324,8 +324,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dd7b76c55e327a4aad5274930557cb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plancher: {fileID: 8300000, guid: f98c42c29ecf7a145a83c2cdec90cd28, type: 3}
-  grincement: {fileID: 8300000, guid: e4dfac6472fb6b241886616bd1a5ec95, type: 3}
+  plancher: {fileID: 8300000, guid: 24aadab3cf83f7f4b9abee5911111355, type: 3}
+  grincement: {fileID: 8300000, guid: 7a6f7ebe5a0695e47a74891001e09053, type: 3}
 --- !u!64 &204655032
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1571,9 +1571,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1799635428}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: effbbc18acdbc024b8b2d4b325989f36, type: 3}
+  m_Script: {fileID: 11500000, guid: fa074caa57ea2124bb50afc9f8357e7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FinJeu: {fileID: 0}
+  Mort1: {fileID: 0}
+  Mort2: {fileID: 0}
   death_ennemy: {fileID: 8300000, guid: 76bc0a745a14cc140ab23e069727db5c, type: 3}
 --- !u!114 &1799635432
 MonoBehaviour:
@@ -1589,6 +1592,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   turnSpeed: 200
+  TutoCombat: {fileID: 0}
 --- !u!82 &1799635433
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1598,7 +1602,8 @@ AudioSource:
   m_GameObject: {fileID: 1799635428}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243244932120075386, guid: 7419e47b1fd3ddf4aa3df04c2d52a248,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
