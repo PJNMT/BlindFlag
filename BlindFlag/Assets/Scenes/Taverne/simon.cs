@@ -32,6 +32,8 @@ public class     simon : MonoBehaviour
     public Music_Recognition _musicRecognition;
     
     
+    
+    
    
 
     // Start is called before the first frame update

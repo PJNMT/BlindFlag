@@ -1,12 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
+using System.Threading;
 using UnityEngine.EventSystems;
 
 public class Simon2 : MonoBehaviour
 {
-    //TODO
     
     public int[] SimonPad;
     public int[] PlayerPad;
@@ -42,6 +41,7 @@ public class Simon2 : MonoBehaviour
     public AudioClip êtes_le_meilleur;
 
 
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -72,6 +72,7 @@ public class Simon2 : MonoBehaviour
     {
         if (other.gameObject.name == "You")
         {
+            other.GetComponent<Tavern>().sedeplacer = false;
             table1.GetComponent<AudioSource>().Stop();
             table2.GetComponent<AudioSource>().Stop();
             bar.GetComponent<AudioSource>().Stop();
@@ -161,9 +162,12 @@ public class Simon2 : MonoBehaviour
             UnityMainThreadDispatcher.Instance().Enqueue(() => _AudioSource.PlayOneShot(faut_sameliorer));
             UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) faut_sameliorer.length * 1000 + 500));
             BlindShip_Stat.Money -= mise;
+            other.GetComponent<Tavern>().sedeplacer = true;
         }
 
-        other.gameObject.transform.position = new Vector3(7, 1, 7);
+       
+        UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep(3000));
+        UnityMainThreadDispatcher.Instance().Enqueue(() => other.GetComponent<Tavern>().LaunchTavern());
     }
 
 
@@ -203,11 +207,11 @@ public class Simon2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (activated)
+        /*if (activated)
         {
             Recognition.stop_recognition();
             activated = false;
-        }
+        }*/
     }
 
 
@@ -239,25 +243,28 @@ public class Simon2 : MonoBehaviour
     //Treat the event Key pressed
     void OnGUI()
     {
-        e = Event.current;
-        if (e.type.Equals(EventType.KeyDown) && !keydown)
+        if (!other.GetComponent<Tavern>().sedeplacer)
         {
-            if (e.keyCode == KeyCode.Space)
+            e = Event.current;
+            if (e.type.Equals(EventType.KeyDown) && !keydown)
             {
-                EnterPressed = true;
+                if (e.keyCode == KeyCode.Space)
+                {
+                    EnterPressed = true;
+                }
+                else
+                {
+                    LastKeyPressed = e.keyCode;
+                    Sound(LastKeyPressed);
+                    keydown = true;
+                }
             }
-            else
-            {
-                LastKeyPressed = e.keyCode;
-                Sound(LastKeyPressed);
-                keydown = true;
-            }
+
+            if (e.type.Equals(EventType.KeyUp))
+                keydown = false;
+
+
+            Debug.Log("Last Key Pressed - " + e.keyCode.ToString());
         }
-
-        if (e.type.Equals(EventType.KeyUp))
-            keydown = false;
-
-
-        Debug.Log("Last Key Pressed - " + e.keyCode.ToString());
     }
 }

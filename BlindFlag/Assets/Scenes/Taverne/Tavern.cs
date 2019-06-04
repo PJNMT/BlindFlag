@@ -24,10 +24,13 @@ public class Tavern : MonoBehaviour
     public AudioClip Drink; 
     public AudioClip Matelot;
     public AudioClip NotEnougthGold;
+
+    public bool sedeplacer;
     
     // Start is called before the first frame update
     void Start()
     {
+        
         Table1.GetComponent<AudioSource>().loop = true;
         Table1.GetComponent<AudioSource>().Play();
         
@@ -42,10 +45,11 @@ public class Tavern : MonoBehaviour
         UnityMainThreadDispatcher.Instance().Enqueue(() => LaunchTavern());
     }
 
-    private void LaunchTavern()
+    public void LaunchTavern()
     {
-       // UnityMainThreadDispatcher.Instance().Enqueue(() => transform.position = new Vector3(7.44f, 1f, 7f));
+        UnityMainThreadDispatcher.Instance().Enqueue(() => transform.position = new Vector3(7.44f, 1f, 7f));
         
+        sedeplacer = true;
         UnityMainThreadDispatcher.Instance().Enqueue(() => drunken.GetComponent<AudioSource>().PlayOneShot(D));
         UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) D.length * 1000 + 500));
         
