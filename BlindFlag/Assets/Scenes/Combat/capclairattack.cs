@@ -54,7 +54,7 @@ public class capclairattack : MonoBehaviour
 
     void Dead() //give money and xp to capitain
     {
-        BlindCaptain_Stat.nb_ennemy_defeated += 1;
+        BlindCaptain_Stat.nb_ennemy_defeated += 1; //augmente le nb d'ennemis defaits
         Thread.Sleep(1000);
         BlindCaptain_Stat.XP += XP;
         BlindShip_Stat.Money += Money;
@@ -66,7 +66,7 @@ public class capclairattack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (BlindCaptain_Stat.start_clairvoyant)
+        if (BlindCaptain_Stat.start_clairvoyant) //définit les variable du "big boss"
         {
             if (IA_HP<(IA_HP/2))
             {

@@ -13,11 +13,8 @@ public class StatClairvoyant : MonoBehaviour
     {
         
         Thread.Sleep(5000);
-        if (BlindCaptain_Stat.start_clairvoyant)
-        {
-            Clairvoyant_HP = 5500;
-            transform.position = new Vector3(0,0,0);
-        }
+        Clairvoyant_HP = 5500;
+        transform.position = new Vector3(0,0,0);
     }
 
 }

@@ -133,9 +133,9 @@ public class BlindCaptain_Stat : MonoBehaviour
     
     
     //information pr cbt contre clairvoyant
-    public static int nb_ennemy_defeated = 0;
-    public static bool do_seabattle = false;
-    public static bool in_clairvoyant = false;
-    public static bool start_clairvoyant = false;
+    public static int nb_ennemy_defeated = 0; //compteur pour lieutenants battus
+    public static bool do_seabattle = false; // est-ce que le joueur a fait la bataille navale (regarde aussi le script de la bataille navale qui est cense mettre à jour ce booléen)
+    public static bool in_clairvoyant = false; //determine si le joueur a déjà commencé le mini-jeu de fin
+    public static bool start_clairvoyant = false; //determine si le joueur a commencé le cbt contre clairvoyant
 }
 
