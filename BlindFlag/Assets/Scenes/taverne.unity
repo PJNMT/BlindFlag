@@ -1747,8 +1747,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SimonPad: 
   PlayerPad: 
-  SoundPad: []
-  _AudioSource: {fileID: 0}
+  SoundPad:
+  - {fileID: 8300000, guid: d197023fcfbb90345a504c4710e8b7e3, type: 3}
+  - {fileID: 8300000, guid: 24a0c8b21dcdc4e42a5f80651903fcdd, type: 3}
+  - {fileID: 8300000, guid: d8ae43b9ded2a424fb0da87f1bc6cf8b, type: 3}
+  - {fileID: 8300000, guid: aec78e0a9adec2b4384da13b3faa9a17, type: 3}
   Len: 3
   other: {fileID: 2069634251}
   time: 0
