@@ -3,7 +3,14 @@ guid: 94068fed75399514696260d4a2d68536
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - eventSystem: {instanceID: 0}
+  - selectedObject: {instanceID: 0}
+  - Continue: {fileID: 8300000, guid: a3b49059cfca8394c90a57ba05672ff6, type: 3}
+  - NewGame: {fileID: 8300000, guid: c279079dab7992f41b4a5ac1eeb77eb0, type: 3}
+  - Options: {fileID: 8300000, guid: e13f75f051771a34896f7f78076167a4, type: 3}
+  - Quit: {fileID: 8300000, guid: edf2caa90ee6741458454644be0bea13, type: 3}
+  - Back: {fileID: 8300000, guid: 200f465e0d986b44fb9dee74284e6e30, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
