@@ -1757,7 +1757,6 @@ MonoBehaviour:
   time: 0
   continuer: 0
   won: 0
-  TutoSimon: {fileID: 8300000, guid: 8a4f2eb62c942884a83a3e9de1c7c3cd, type: 3}
   vos_gains: {fileID: 8300000, guid: e19372d52c03fba4d8b9890d6da61341, type: 3}
   combien_miser: {fileID: 8300000, guid: 66c597fb03a68da4ebbfe5631bda5ad2, type: 3}
   faut_sameliorer: {fileID: 8300000, guid: 987d8fdcd71564643a79e9bda1ebe3d2, type: 3}
@@ -1992,8 +1991,9 @@ MonoBehaviour:
   R: {fileID: 8300000, guid: 6c0e50c3e443b214693bb49481897c42, type: 3}
   S: {fileID: 8300000, guid: 365b0dd6b0c5feb4da6c3147bfd4d257, type: 3}
   Simon: {fileID: 8300000, guid: 365b0dd6b0c5feb4da6c3147bfd4d257, type: 3}
-  Recrute: {fileID: 8300000, guid: 6c0e50c3e443b214693bb49481897c42, type: 3}
-  Drink: {fileID: 8300000, guid: 51422f579f35c5642afa798950b6a3b9, type: 3}
+  Recrute: {fileID: 8300000, guid: 74315e0d2b5bad446bb3829c8a760b01, type: 3}
+  Drink: {fileID: 8300000, guid: cf3774ddc0677fe4b97a0b9a81f4e293, type: 3}
+  Matelot: {fileID: 8300000, guid: 91b54b6197ee6ef4b8561ead90cc2586, type: 3}
   NotEnougthGold: {fileID: 8300000, guid: 85d40c40abf0fdd489d5308d39d8dee8, type: 3}
 --- !u!114 &2069634253
 MonoBehaviour:

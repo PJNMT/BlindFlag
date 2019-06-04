@@ -19,9 +19,10 @@ public class Tavern : MonoBehaviour
 
     private AudioSource Audio;
     
-    public AudioClip Simon; //TODO
-    public AudioClip Recrute; //TODO
-    public AudioClip Drink; //TODO
+    public AudioClip Simon; 
+    public AudioClip Recrute; 
+    public AudioClip Drink; 
+    public AudioClip Matelot;
     public AudioClip NotEnougthGold;
     
     // Start is called before the first frame update
@@ -108,8 +109,11 @@ public class Tavern : MonoBehaviour
         UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(Recrute));
         UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) Recrute.length * 1000 + 500));
         
-        UnityMainThreadDispatcher.Instance().Enqueue(() => Synthesis.synthesis(crew_members + " matelots."));
-        UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep(2000));
+        UnityMainThreadDispatcher.Instance().Enqueue(() => Synthesis.synthesis(crew_members + ""));
+        UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep(1300));
+        
+        UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(Matelot));
+        UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) Matelot.length * 1000 + 500));
             
         UnityMainThreadDispatcher.Instance().Enqueue(() => LaunchTavern());
     }
