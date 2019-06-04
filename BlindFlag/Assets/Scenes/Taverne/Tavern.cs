@@ -44,7 +44,7 @@ public class Tavern : MonoBehaviour
 
     private void LaunchTavern()
     {
-        UnityMainThreadDispatcher.Instance().Enqueue(() => transform.position = new Vector3(7.44f, 1f, 7f));
+       // UnityMainThreadDispatcher.Instance().Enqueue(() => transform.position = new Vector3(7.44f, 1f, 7f));
         
         UnityMainThreadDispatcher.Instance().Enqueue(() => drunken.GetComponent<AudioSource>().PlayOneShot(D));
         UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) D.length * 1000 + 500));
@@ -91,9 +91,6 @@ public class Tavern : MonoBehaviour
 
     private void Sing()
     {
-        UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(Simon));
-        UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) Simon.length * 1000 + 500));
-        
         UnityMainThreadDispatcher.Instance().Enqueue(() => transform.position = new Vector3(3.64f, 1f, 3.65f));
     }
 

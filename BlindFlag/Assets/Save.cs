@@ -141,7 +141,7 @@ public class Save : MonoBehaviour
 
     public static void LoadGame()
     {
-        if (IsThereASave())
+        if ( IsThereASave())
         {
             using (StreamReader MyReader = new StreamReader(SavePath))
             {
@@ -193,7 +193,7 @@ public class Save : MonoBehaviour
     {
         try
         {
-            using (StreamReader MyReader = new StreamReader(SavePath))
+            using (StreamReader MyReader = new StreamReader( SavePath))
             {
                 List<string> save = MyReader.ReadToEnd().Split(' ', '\t', '\r', '\n').Where(e => e != "").ToList();
                 return save.Count == 19;

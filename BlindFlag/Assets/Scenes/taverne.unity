@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1068,7 +1068,7 @@ PrefabInstance:
     - target: {fileID: 3273055287566686424, guid: 536548e4e904b8d4596f690b5da6065d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.44
+      value: 1.39
       objectReference: {fileID: 0}
     - target: {fileID: 3273055287566686424, guid: 536548e4e904b8d4596f690b5da6065d,
         type: 3}
@@ -1088,7 +1088,7 @@ PrefabInstance:
     - target: {fileID: 3273055287566686424, guid: 536548e4e904b8d4596f690b5da6065d,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.38268343
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3273055287566686424, guid: 536548e4e904b8d4596f690b5da6065d,
         type: 3}
@@ -1098,7 +1098,7 @@ PrefabInstance:
     - target: {fileID: 3273055287566686424, guid: 536548e4e904b8d4596f690b5da6065d,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.92387956
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3273055287566686424, guid: 536548e4e904b8d4596f690b5da6065d,
         type: 3}
@@ -1113,7 +1113,7 @@ PrefabInstance:
     - target: {fileID: 3273055287566686424, guid: 536548e4e904b8d4596f690b5da6065d,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -45
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3273055287566686424, guid: 536548e4e904b8d4596f690b5da6065d,
         type: 3}
@@ -1154,7 +1154,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1118835834}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 243244932120075386, guid: 7419e47b1fd3ddf4aa3df04c2d52a248,
     type: 2}
@@ -1748,15 +1748,18 @@ MonoBehaviour:
   SimonPad: 
   PlayerPad: 
   SoundPad:
+  - {fileID: 0}
   - {fileID: 8300000, guid: d197023fcfbb90345a504c4710e8b7e3, type: 3}
   - {fileID: 8300000, guid: 24a0c8b21dcdc4e42a5f80651903fcdd, type: 3}
   - {fileID: 8300000, guid: d8ae43b9ded2a424fb0da87f1bc6cf8b, type: 3}
   - {fileID: 8300000, guid: aec78e0a9adec2b4384da13b3faa9a17, type: 3}
-  Len: 3
   other: {fileID: 2069634251}
   time: 0
   continuer: 0
   won: 0
+  table1: {fileID: 2066121395}
+  table2: {fileID: 1118835834}
+  bar: {fileID: 478245351}
   vos_gains: {fileID: 8300000, guid: e19372d52c03fba4d8b9890d6da61341, type: 3}
   combien_miser: {fileID: 8300000, guid: 66c597fb03a68da4ebbfe5631bda5ad2, type: 3}
   faut_sameliorer: {fileID: 8300000, guid: 987d8fdcd71564643a79e9bda1ebe3d2, type: 3}
@@ -1801,7 +1804,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2066121395}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 243244932120075386, guid: 7419e47b1fd3ddf4aa3df04c2d52a248,
     type: 2}
@@ -1976,7 +1979,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2069634251}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 96d134f9bee792749b791f6d31c116f8, type: 3}
   m_Name: 
@@ -2133,7 +2136,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2140891040
 MonoBehaviour:
   m_ObjectHideFlags: 0

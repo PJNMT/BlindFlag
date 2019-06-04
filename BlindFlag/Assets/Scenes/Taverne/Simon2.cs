@@ -12,7 +12,7 @@ public class Simon2 : MonoBehaviour
     public int[] PlayerPad;
     public AudioClip[] SoundPad;
     private AudioSource _AudioSource;
-    public int Len;
+    private int Len;
 
     public GameObject other;
 
@@ -24,6 +24,10 @@ public class Simon2 : MonoBehaviour
     public bool won;
 
     public Dictionary<int, KeyCode> IntToKey;
+    
+    public GameObject table1;
+    public GameObject table2;
+    public GameObject bar;
 
 
     Event e;
@@ -66,8 +70,12 @@ public class Simon2 : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "You" || other.gameObject.name == "Sphere")
+        if (other.gameObject.name == "You")
         {
+            table1.GetComponent<AudioSource>().Stop();
+            table2.GetComponent<AudioSource>().Stop();
+            bar.GetComponent<AudioSource>().Stop();
+            
             UnityMainThreadDispatcher.Instance().Enqueue(() => _AudioSource.PlayOneShot(combien_miser));
             UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) combien_miser.length * 1000 + 500));
             UnityMainThreadDispatcher.Instance().Enqueue(() => Recognition.start_recognition(Traitement, "trente cinquante cent vingt", 30));
@@ -93,6 +101,7 @@ public class Simon2 : MonoBehaviour
         while (continuer && i < Len)
         {
             Debug.Log(i);
+            
             //Choose ramdomly the key added
             rnd = Random.Range(1, 5);
             SimonPad[i] = rnd;

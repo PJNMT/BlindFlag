@@ -105,8 +105,8 @@ public class shipcontroller : MonoBehaviour
 			
 			//todo capitaine clairvoyant te voila
 
-			ClairVoyant = false;
-			LoadScene.Load(LoadScene.Scene.END,LoadScene.Scene.Navigation);
+		    ClairVoyant = false;
+		    LoadScene.Load(LoadScene.Scene.END,LoadScene.Scene.Navigation);
 
 		}
 		
