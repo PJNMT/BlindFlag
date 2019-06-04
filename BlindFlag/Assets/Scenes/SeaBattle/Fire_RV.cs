@@ -94,12 +94,12 @@ public class Fire_RV : MonoBehaviour
 
     void Start()
     {
-        if (!BlindCaptain_Stat.Tuto["Bataille Navale"])
+        if (!BlindCaptain_Stat.Tuto["SeaBattle"])
         {
             UnityMainThreadDispatcher.Instance().Enqueue(() => _audiosource.PlayOneShot(TutoBattleSea));
             UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) TutoBattleSea.length * 1000 + 500));
 
-            BlindCaptain_Stat.Tuto["Bataille Navale"] = true;
+            BlindCaptain_Stat.Tuto["SeaBattle"] = true;
         }
         
         

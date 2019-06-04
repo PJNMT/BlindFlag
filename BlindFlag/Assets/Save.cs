@@ -175,9 +175,8 @@ public class Save : MonoBehaviour
                 {
                     {"SeaBattle", (S[0] == "0" ? false : true)},
                     {"ChasseAuTresor", (S[1] == "0" ? false : true)},
-                    {"Simon", (S[2] == "0" ? false : true)},
-                    {"Combat", (S[3] == "0" ? false : true)},
-                    {"Coco", (S[4] == "0" ? false : true)},
+                    {"Combat", (S[2] == "0" ? false : true)},
+                    {"Coco", (S[3] == "0" ? false : true)},
                 };
                 
                 SceneManager.LoadScene(BlindShip_Stat.SceneLoad);
@@ -192,7 +191,7 @@ public class Save : MonoBehaviour
             using (StreamReader MyReader = new StreamReader(SavePath))
             {
                 List<string> save = MyReader.ReadToEnd().Split(' ', '\t', '\r', '\n').Where(e => e != "").ToList();
-                return save.Count == 20;
+                return save.Count == 19;
             }
         }
         catch

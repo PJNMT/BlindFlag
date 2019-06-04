@@ -43,7 +43,6 @@ public class BlindCaptain_Stat : MonoBehaviour
     {
         {"SeaBattle", false},
         {"ChasseAuTresor", false},
-        {"Simon", false},
         {"Combat", false},
         {"Coco", false},
     };

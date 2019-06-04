@@ -70,7 +70,7 @@ public class Simon2 : MonoBehaviour
         {
             UnityMainThreadDispatcher.Instance().Enqueue(() => _AudioSource.PlayOneShot(combien_miser));
             UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) combien_miser.length * 1000 + 500));
-            UnityMainThreadDispatcher.Instance().Enqueue(() => Recognition.start_recognition(Traitement, "trente cinquante cent vinGt", 30));
+            UnityMainThreadDispatcher.Instance().Enqueue(() => Recognition.start_recognition(Traitement, "trente cinquante cent vingt", 30));
 
             Debug.Log("début");
 

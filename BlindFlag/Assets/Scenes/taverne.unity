@@ -1757,6 +1757,7 @@ MonoBehaviour:
   time: 0
   continuer: 0
   won: 0
+  TutoSimon: {fileID: 8300000, guid: 8a4f2eb62c942884a83a3e9de1c7c3cd, type: 3}
   vos_gains: {fileID: 8300000, guid: e19372d52c03fba4d8b9890d6da61341, type: 3}
   combien_miser: {fileID: 8300000, guid: 66c597fb03a68da4ebbfe5631bda5ad2, type: 3}
   faut_sameliorer: {fileID: 8300000, guid: 987d8fdcd71564643a79e9bda1ebe3d2, type: 3}

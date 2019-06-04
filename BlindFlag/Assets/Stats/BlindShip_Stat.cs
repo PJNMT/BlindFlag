@@ -8,7 +8,7 @@ public class BlindShip_Stat : MonoBehaviour
     public static int Lvl = 1;
     private static int Max_Lvl = 50;
     
-    public static int Money = 0;
+    public static int Money = 5000000;
     public static int Max_Money = Lvl * 1000;
 
     public static int HP = Lvl * 100;

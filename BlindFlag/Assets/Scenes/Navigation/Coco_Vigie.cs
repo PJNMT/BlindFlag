@@ -16,8 +16,10 @@ public class Coco_Vigie : MonoBehaviour
     public AudioClip Galion;
     public AudioClip Military;
     public AudioClip EnVue;
-    
-    public AudioClip TutoCoco; //Coco
+
+    public AudioClip TutoCoco;
+    public AudioClip TutoCoco1;
+    public AudioClip TutoCoco2;//Coco
     public AudioClip CocoOn;
     public AudioClip Cocococo;
     public AudioClip Enfin;
@@ -83,6 +85,12 @@ public class Coco_Vigie : MonoBehaviour
         {
             UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(TutoCoco));
             UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) TutoCoco.length * 1000 + 500));
+            
+            UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(TutoCoco1));
+            UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) TutoCoco1.length * 1000 + 500));
+            
+            UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(TutoCoco2));
+            UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) TutoCoco2.length * 1000 + 500));
 
             BlindCaptain_Stat.Tuto["Coco"] = true;
         }

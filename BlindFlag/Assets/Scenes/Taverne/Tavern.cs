@@ -22,7 +22,7 @@ public class Tavern : MonoBehaviour
     public AudioClip Simon; //TODO
     public AudioClip Recrute; //TODO
     public AudioClip Drink; //TODO
-    public AudioClip NotEnougthGold; //TODO
+    public AudioClip NotEnougthGold;
     
     // Start is called before the first frame update
     void Start()

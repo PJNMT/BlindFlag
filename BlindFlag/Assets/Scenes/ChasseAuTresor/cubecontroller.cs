@@ -43,12 +43,12 @@ public class cubecontroller : MonoBehaviour
 		_audioSource = this.GetComponent<AudioSource>();
 		Touches();
 		
-		if (!BlindCaptain_Stat.Tuto["Chasse au trésor"])
+		if (!BlindCaptain_Stat.Tuto["ChasseAuTresor"])
 		{
 			UnityMainThreadDispatcher.Instance().Enqueue(() => _audioSource.PlayOneShot(TutoChasse));
 			UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) TutoChasse.length * 1000 + 500));
 
-			BlindCaptain_Stat.Tuto["Chasse au trésor"] = true;
+			BlindCaptain_Stat.Tuto["ChasseAuTresor"] = true;
 		}
 		
 	}
