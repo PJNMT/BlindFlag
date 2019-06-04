@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class shipcontroller : MonoBehaviour
 {
+	public bool ClairVoyant = true;
 	public int TailleMap = 1000;
 	public float moveSpeed = 10f;
 	public float turnSpeed = 50f;
@@ -98,6 +99,20 @@ public class shipcontroller : MonoBehaviour
 		{
 			SEA = other.gameObject;
 		}*/
+
+		if (BlindCaptain_Stat.Lvl >= 50 && ClairVoyant && other.name == "island")
+		{
+			
+			//todo capitaine clairvoyant te voila
+
+			ClairVoyant = false;
+			LoadScene.Load(LoadScene.Scene.END,LoadScene.Scene.Navigation);
+
+		}
+		
+		
+		
+		
 		if (other.gameObject.name == "island" && 30>Distance(other.gameObject))
 		{
             

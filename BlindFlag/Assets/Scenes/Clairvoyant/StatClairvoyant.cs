@@ -8,7 +8,6 @@ public class StatClairvoyant : MonoBehaviour
 {
     public static float Clairvoyant_HP;
 
-    public static int nb_death=0; 
     // Start is called before the first frame update
     void Start()
     {

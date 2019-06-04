@@ -54,6 +54,7 @@ public class capclairattack : MonoBehaviour
 
     void Dead() //give money and xp to capitain
     {
+        BlindCaptain_Stat.nb_ennemy_defeated += 1;
         Thread.Sleep(1000);
         BlindCaptain_Stat.XP += XP;
         BlindShip_Stat.Money += Money;
@@ -67,36 +68,12 @@ public class capclairattack : MonoBehaviour
     {
         if (BlindCaptain_Stat.start_clairvoyant)
         {
-            StatClairvoyant.nb_death += 1;
-            Death();
+            if (IA_HP<(IA_HP/2))
+            {
+                IA_atk *= 2;
+            }
         }
+        
         if (IA_HP <= 0) Dead(); //check if IA dead or no
-    }
-    
-    void Death()
-    {
-        if (StatClairvoyant.nb_death == 3)
-        {
-            Audio.PlayOneShot(FinJeu);
-            Thread.Sleep(2000);
-            LoadScene.Load(LoadScene.Scene.Navigation, LoadScene.Scene.END);
-        }
-        else
-        {
-            if (StatClairvoyant.nb_death == 1)
-            {
-                Audio.PlayOneShot(Mort1);
-            }
-            else
-            {
-                Audio.PlayOneShot(Mort2);
-            }
-            
-            Thread.Sleep(2000);
-            float ClaiHP = StatClairvoyant.Clairvoyant_HP;
-            StatClairvoyant.Clairvoyant_HP = ClaiHP * 0.9f;
-            Thread.Sleep(2000);
-            LoadScene.Load(LoadScene.Scene.ENDCOMBAT, LoadScene.Scene.ENDCOMBAT);
-        }
     }
 }

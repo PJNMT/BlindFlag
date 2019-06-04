@@ -15,5 +15,10 @@ public class main : MonoBehaviour
         {
             LoadScene.Load(LoadScene.Scene.SeaBattle, LoadScene.Scene.ENDCOMBAT);
         }
+
+        if (BlindCaptain_Stat.nb_ennemy_defeated == 2)
+        {
+            BlindCaptain_Stat.start_clairvoyant = true;
+        }
     }
 }
