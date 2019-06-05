@@ -13,12 +13,16 @@ public class Main : MonoBehaviour
     public AudioClip Hello;
     public AudioClip GoodBye;
     public AudioClip NoSave;
+    public static AudioClip NoSave1;
+    public static AudioClip GoodBye1;
 
-    private AudioSource Audio;
+    private static AudioSource Audio;
 
     public GameObject Canvas;
 
     public static bool relaunch;
+
+    private bool start;
     
     // Start is called before the first frame update
     void Start()
@@ -28,17 +32,26 @@ public class Main : MonoBehaviour
         bool isFullScreen = true; // should be windowed to run in arbitrary resolution
         int desiredFPS = 60; // or something else
  
-        Screen.SetResolution (width , height, isFullScreen, desiredFPS );
+        UnityMainThreadDispatcher.Instance().Enqueue(() => Screen.SetResolution (width , height, isFullScreen, desiredFPS));
+
+        start = true;
+        relaunch = false;
         
-        
-        Canvas.GetComponent<AudioSource>().loop = true;
-        Canvas.GetComponent<AudioSource>().Play();
-        Launch();
+        UnityMainThreadDispatcher.Instance().Enqueue(() => Canvas.GetComponent<AudioSource>().loop = true);
+        UnityMainThreadDispatcher.Instance().Enqueue(() => Canvas.GetComponent<AudioSource>().Play());
+
+        NoSave1 = NoSave;
+        GoodBye1 = GoodBye;
     }
 
     private void Update()
     {
         if (relaunch) Launch();
+        if (start)
+        {
+            start = false;
+            Launch();
+        }
     }
 
     public void Launch()
@@ -53,7 +66,7 @@ public class Main : MonoBehaviour
         UnityMainThreadDispatcher.Instance().Enqueue(() => Recognition.start_recognition(Func, "continuer commencer option quitter paramaitre"));
     }
 
-    void NewGame()
+    public static void NewGame()
     {
         if (Save.IsThereASave()) Save.DeleteSave();
         Start_CaptainStats.Start();
@@ -69,11 +82,10 @@ public class Main : MonoBehaviour
         {
             case "continuer":
                 if (Save.IsThereASave()) Save.LoadGame();
-                else
-                {
+                else {
                     UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(NoSave));
                     UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) NoSave.length * 1000 + 500));
-                }
+                    }
                 break;
 
             case "commencer":
@@ -88,19 +100,26 @@ public class Main : MonoBehaviour
                 break;
 
             case "quitter":
-                UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(GoodBye));
-                UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) GoodBye.length * 1000 + 500));
-                Quit();
+                UnityMainThreadDispatcher.Instance().Enqueue(() => Quit());
                 break;
         }
     }
 
-    public void Quit()
+    public static void NS()
     {
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#else
-                Application.Quit ();
-#endif
+        UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(NoSave1));
+        UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) NoSave1.length * 1000 + 500));
+    }
+
+    public static void Quit()
+    {
+        UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(GoodBye1));
+        UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) GoodBye1.length * 1000 + 500));
+        
+        #if UNITY_EDITOR
+                UnityEditor.EditorApplication.isPlaying = false;
+        #else
+                Application.Quit();
+        #endif
     }
 }

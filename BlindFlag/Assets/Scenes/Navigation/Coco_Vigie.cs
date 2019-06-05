@@ -16,6 +16,8 @@ public class Coco_Vigie : MonoBehaviour
     public AudioClip Galion;
     public AudioClip Military;
     public AudioClip EnVue;
+    
+    public AudioClip START;
 
     public AudioClip TutoCoco;
     public AudioClip TutoCoco1;
@@ -81,6 +83,14 @@ public class Coco_Vigie : MonoBehaviour
         Audio = GetComponent<AudioSource>();
         baba = FindObjectOfType<Vigie>();
 
+        if (!BlindCaptain_Stat.Tuto["START"])
+        {
+            UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(START));
+            UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) START.length * 1000 + 500));
+
+            BlindCaptain_Stat.Tuto["START"] = true;
+        }
+        
         if (!BlindCaptain_Stat.Tuto["Coco"])
         {
             UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(TutoCoco));

@@ -1398,6 +1398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9bfd0b5c6e9436408ab14f503f2bba7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ClairVoyant: 1
   TailleMap: 1000
   moveSpeed: 40
   turnSpeed: 100
@@ -1541,6 +1542,7 @@ MonoBehaviour:
   Galion: {fileID: 8300000, guid: 122df027ce6a92548a8d4879a183997a, type: 3}
   Military: {fileID: 8300000, guid: 2fa0db5d272ad9b4e8485cefee146bb9, type: 3}
   EnVue: {fileID: 8300000, guid: c4aeb488430510240b3f4a8880643ee5, type: 3}
+  START: {fileID: 8300000, guid: b2cf20832df8bf7488f35a1ecd8fcb0a, type: 3}
   TutoCoco: {fileID: 8300000, guid: e0e69da9188809642a8f0b86570eb1a1, type: 3}
   TutoCoco1: {fileID: 8300000, guid: a37c9dcc89041d248bd4c27e0fb1418c, type: 3}
   TutoCoco2: {fileID: 8300000, guid: 8a4f2eb62c942884a83a3e9de1c7c3cd, type: 3}

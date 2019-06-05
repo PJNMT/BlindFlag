@@ -71,18 +71,18 @@ public class Option : MonoBehaviour
             switch (speech)
             {
                 case "son":
-                    barremixer = "SoundVol";
+                    barremixer = "Sounds";
                     break;
 
                 case "musique":
-                    barremixer = "MusicVol";
+                    barremixer = "Music";
                     break;
 
                 case "voix":
-                    barremixer = "VoicesVol";
+                    barremixer = "Voices";
                     break;
                 case "effets":
-                    barremixer = "EffetsVol";
+                    barremixer = "Effets";
                     break;
             }
             
@@ -107,14 +107,14 @@ public class Option : MonoBehaviour
                 case "plus":
                 case "augmenter":
                     UnityMainThreadDispatcher.Instance().Enqueue(() => audioMixer.GetFloat(barremixer, out setlvl));
-                    UnityMainThreadDispatcher.Instance().Enqueue(() => audioMixer.SetFloat(barremixer, setlvl + 0.1f));
+                    UnityMainThreadDispatcher.Instance().Enqueue(() => audioMixer.SetFloat(barremixer, setlvl + 0.2f));
                     break;
 
                 case "baisser":
                 case "moins":
                 case "diminuer":
                     UnityMainThreadDispatcher.Instance().Enqueue(() => audioMixer.GetFloat(barremixer, out setlvl));
-                    UnityMainThreadDispatcher.Instance().Enqueue(() => audioMixer.SetFloat(barremixer, setlvl + 0.1f));
+                    UnityMainThreadDispatcher.Instance().Enqueue(() => audioMixer.SetFloat(barremixer, setlvl - 0.2f));
                     break;
             }
         }

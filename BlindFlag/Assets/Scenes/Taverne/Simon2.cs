@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Threading;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class Simon2 : MonoBehaviour
 {
@@ -27,6 +28,7 @@ public class Simon2 : MonoBehaviour
     public GameObject table1;
     public GameObject table2;
     public GameObject bar;
+    public GameObject Sol;
 
 
     Event e;
@@ -39,6 +41,11 @@ public class Simon2 : MonoBehaviour
     public AudioClip combien_miser;
     public AudioClip faut_sameliorer;
     public AudioClip êtes_le_meilleur;
+
+    public AudioClip T1;
+    public AudioClip T2;
+    public AudioClip S1;
+    public AudioClip B1;
 
 
     
@@ -65,6 +72,10 @@ public class Simon2 : MonoBehaviour
         _AudioSource = other.GetComponent<AudioSource>();
 
         mise = 0;
+
+        activated = true;
+        
+        SceneManager.MoveGameObjectToScene(gameObject, SceneManager.GetSceneByBuildIndex((int) LoadScene.Scene.Taverne));
     }
 
 
@@ -76,14 +87,11 @@ public class Simon2 : MonoBehaviour
             table1.GetComponent<AudioSource>().Stop();
             table2.GetComponent<AudioSource>().Stop();
             bar.GetComponent<AudioSource>().Stop();
+            Sol.GetComponent<AudioSource>().Stop();
             
             UnityMainThreadDispatcher.Instance().Enqueue(() => _AudioSource.PlayOneShot(combien_miser));
             UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) combien_miser.length * 1000 + 500));
-            UnityMainThreadDispatcher.Instance().Enqueue(() => Recognition.start_recognition(Traitement, "trente cinquante cent vingt", 30));
-
-            Debug.Log("début");
-
-            SimonGame();
+            UnityMainThreadDispatcher.Instance().Enqueue(() => Recognition.start_recognition(Traitement, "trente cinquante cent vingt"));
         }
     }
 
@@ -104,7 +112,7 @@ public class Simon2 : MonoBehaviour
             Debug.Log(i);
             
             //Choose ramdomly the key added
-            rnd = Random.Range(1, 5);
+            rnd = Random.Range(0, 4);
             SimonPad[i] = rnd;
             Debug.Log(i + "Input :" + rnd);
 
@@ -167,6 +175,23 @@ public class Simon2 : MonoBehaviour
 
        
         UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep(3000));
+
+        UnityMainThreadDispatcher.Instance().Enqueue(() => table1.GetComponent<AudioSource>().clip = T1);
+        UnityMainThreadDispatcher.Instance().Enqueue(() => table1.GetComponent<AudioSource>().loop = true);
+        UnityMainThreadDispatcher.Instance().Enqueue(() => table1.GetComponent<AudioSource>().Play());
+        
+        UnityMainThreadDispatcher.Instance().Enqueue(() => table2.GetComponent<AudioSource>().clip = T2);
+        UnityMainThreadDispatcher.Instance().Enqueue(() => table2.GetComponent<AudioSource>().loop = true);
+        UnityMainThreadDispatcher.Instance().Enqueue(() => table2.GetComponent<AudioSource>().Play());
+        
+        UnityMainThreadDispatcher.Instance().Enqueue(() => Sol.GetComponent<AudioSource>().clip = S1);
+        UnityMainThreadDispatcher.Instance().Enqueue(() => Sol.GetComponent<AudioSource>().loop = true);
+        UnityMainThreadDispatcher.Instance().Enqueue(() => Sol.GetComponent<AudioSource>().Play());
+        
+        UnityMainThreadDispatcher.Instance().Enqueue(() => bar.GetComponent<AudioSource>().clip = B1);
+        UnityMainThreadDispatcher.Instance().Enqueue(() => bar.GetComponent<AudioSource>().loop = true);
+        UnityMainThreadDispatcher.Instance().Enqueue(() => bar.GetComponent<AudioSource>().Play());
+        
         UnityMainThreadDispatcher.Instance().Enqueue(() => other.GetComponent<Tavern>().LaunchTavern());
     }
 
@@ -183,35 +208,28 @@ public class Simon2 : MonoBehaviour
 
     void Traitement(string chiffre)
     {
-        Debug.Log(chiffre);
-        switch (chiffre)
+        if (activated)
         {
-            case "trente":
-                mise = 30;
-                break;
-            case "vinGt":
-                mise = 20;
-                break;
-            case "cent":
-                mise = 100;
-                break;
-            case "cinquante":
-                mise = 50;
-                break;
-        }
+            Debug.Log(chiffre);
+            switch (chiffre)
+            {
+                case "trente":
+                    mise = 30;
+                    break;
+                case "vingt":
+                    mise = 20;
+                    break;
+                case "cent":
+                    mise = 100;
+                    break;
+                case "cinquante":
+                    mise = 50;
+                    break;
+            }
 
-        activated = true;
-    }
-
-
-    // Update is called once per frame
-    void Update()
-    {
-        /*if (activated)
-        {
-            Recognition.stop_recognition();
+            UnityMainThreadDispatcher.Instance().Enqueue(() => SimonGame());
             activated = false;
-        }*/
+        }
     }
 
 
@@ -220,22 +238,22 @@ public class Simon2 : MonoBehaviour
     {
         if (keyCode == KeyCode.UpArrow)
         {
-            _AudioSource.PlayOneShot(SoundPad[1]);
+            _AudioSource.PlayOneShot(SoundPad[0]);
         }
 
         if (keyCode == KeyCode.DownArrow)
         {
-            _AudioSource.PlayOneShot(SoundPad[3]);
+            _AudioSource.PlayOneShot(SoundPad[2]);
         }
 
         if (keyCode == KeyCode.LeftArrow)
         {
-            _AudioSource.PlayOneShot(SoundPad[2]);
+            _AudioSource.PlayOneShot(SoundPad[1]);
         }
 
         if (keyCode == KeyCode.RightArrow)
         {
-            _AudioSource.PlayOneShot(SoundPad[4]);
+            _AudioSource.PlayOneShot(SoundPad[3]);
         }
     }
 

@@ -178,7 +178,7 @@ public class AI_enemy : MonoBehaviour
     {
         Vector3 direction = (BlindShip.position - transform.position).normalized;
         Quaternion Rotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
-        transform.rotation = Quaternion.Slerp(transform.rotation, Rotation, Time.deltaTime * 50f);
+        transform.rotation = Quaternion.Slerp(transform.rotation, Rotation, Time.deltaTime * 5f);
     }
 
     void Dead()

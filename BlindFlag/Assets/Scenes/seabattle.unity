@@ -641,6 +641,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9bfd0b5c6e9436408ab14f503f2bba7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ClairVoyant: 1
   TailleMap: 400
   moveSpeed: 15
   turnSpeed: 50
@@ -659,6 +660,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Cannonball: {fileID: 2467059016201137446, guid: a5b3e391c0a670d4ab5809c4ac56862a,
     type: 3}
+  _audiosource: {fileID: 0}
+  TutoBattleSea: {fileID: 0}
 --- !u!114 &1083053676
 MonoBehaviour:
   m_ObjectHideFlags: 0

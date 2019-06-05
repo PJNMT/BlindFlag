@@ -45,6 +45,7 @@ public class BlindCaptain_Stat : MonoBehaviour
         {"ChasseAuTresor", false},
         {"Combat", false},
         {"Coco", false},
+        {"START", false},
     };
 
     private void Start()

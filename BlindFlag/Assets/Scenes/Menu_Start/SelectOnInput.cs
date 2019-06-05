@@ -17,7 +17,6 @@ public class SelectOnInput : MonoBehaviour {
         {
             eventSystem.SetSelectedGameObject(selectedObject);
             buttonSelected = true;
-            
         }
     }
 

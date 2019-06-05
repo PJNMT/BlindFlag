@@ -177,6 +177,7 @@ public class Save : MonoBehaviour
                     {"ChasseAuTresor", (S[1] == "0" ? false : true)},
                     {"Combat", (S[2] == "0" ? false : true)},
                     {"Coco", (S[3] == "0" ? false : true)},
+                    {"START", (S[3] == "0" ? false : true)},
                 };
                 
                 SceneManager.LoadScene(BlindShip_Stat.SceneLoad);
@@ -186,7 +187,7 @@ public class Save : MonoBehaviour
 
     public void LoadGamenotStatic()
     {
-        LoadGame();
+        UnityMainThreadDispatcher.Instance().Enqueue(() => Main.NS());
     }
 
     public static bool IsThereASave()
@@ -196,7 +197,7 @@ public class Save : MonoBehaviour
             using (StreamReader MyReader = new StreamReader( SavePath))
             {
                 List<string> save = MyReader.ReadToEnd().Split(' ', '\t', '\r', '\n').Where(e => e != "").ToList();
-                return save.Count == 19;
+                return save.Count == 20;
             }
         }
         catch

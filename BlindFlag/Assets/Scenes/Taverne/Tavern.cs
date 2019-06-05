@@ -8,6 +8,7 @@ public class Tavern : MonoBehaviour
     public GameObject Bar;
     public GameObject Table1;
     public GameObject Table2;
+    public GameObject Sol;
     
     public GameObject drunken;
     public GameObject recrutes;
@@ -24,21 +25,32 @@ public class Tavern : MonoBehaviour
     public AudioClip Drink; 
     public AudioClip Matelot;
     public AudioClip NotEnougthGold;
+    
+    public AudioClip T1;
+    public AudioClip T2;
+    public AudioClip S1;
+    public AudioClip B1;
 
     public bool sedeplacer;
     
     // Start is called before the first frame update
     void Start()
     {
+        UnityMainThreadDispatcher.Instance().Enqueue(() => Table1.GetComponent<AudioSource>().clip = T1);
+        UnityMainThreadDispatcher.Instance().Enqueue(() => Table1.GetComponent<AudioSource>().loop = true);
+        UnityMainThreadDispatcher.Instance().Enqueue(() => Table1.GetComponent<AudioSource>().Play());
         
-        Table1.GetComponent<AudioSource>().loop = true;
-        Table1.GetComponent<AudioSource>().Play();
+        UnityMainThreadDispatcher.Instance().Enqueue(() => Table2.GetComponent<AudioSource>().clip = T2);
+        UnityMainThreadDispatcher.Instance().Enqueue(() => Table2.GetComponent<AudioSource>().loop = true);
+        UnityMainThreadDispatcher.Instance().Enqueue(() => Table2.GetComponent<AudioSource>().Play());
         
-        Table2.GetComponent<AudioSource>().loop = true;
-        Table2.GetComponent<AudioSource>().Play();
+        UnityMainThreadDispatcher.Instance().Enqueue(() => Sol.GetComponent<AudioSource>().clip = S1);
+        UnityMainThreadDispatcher.Instance().Enqueue(() => Sol.GetComponent<AudioSource>().loop = true);
+        UnityMainThreadDispatcher.Instance().Enqueue(() => Sol.GetComponent<AudioSource>().Play());
         
-        Bar.GetComponent<AudioSource>().loop = true;
-        Bar.GetComponent<AudioSource>().Play();
+        UnityMainThreadDispatcher.Instance().Enqueue(() => Bar.GetComponent<AudioSource>().clip = B1);
+        UnityMainThreadDispatcher.Instance().Enqueue(() => Bar.GetComponent<AudioSource>().loop = true);
+        UnityMainThreadDispatcher.Instance().Enqueue(() => Bar.GetComponent<AudioSource>().Play());
         
         Audio = GetComponent<AudioSource>();
         
@@ -90,7 +102,7 @@ public class Tavern : MonoBehaviour
                     break;
             }
         }
-        else LoadScene.Load(LoadScene.Scene.Port, LoadScene.Scene.Taverne);
+        else UnityMainThreadDispatcher.Instance().Enqueue(() => LoadScene.Load(LoadScene.Scene.Port, LoadScene.Scene.Taverne));
     }
 
     private void Sing()
@@ -115,7 +127,7 @@ public class Tavern : MonoBehaviour
         
         UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(Matelot));
         UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) Matelot.length * 1000 + 500));
-            
+                    
         UnityMainThreadDispatcher.Instance().Enqueue(() => LaunchTavern());
     }
     

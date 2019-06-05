@@ -6,6 +6,6 @@ public class LoadOnclick : MonoBehaviour
 {
     public void LoadStartScene()
     {
-        LoadScene.Load(LoadScene.Scene.Navigation,LoadScene.Scene.START);
+        Main.NewGame();
     }
 }
