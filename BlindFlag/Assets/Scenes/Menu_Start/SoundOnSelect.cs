@@ -15,7 +15,7 @@ public class SoundOnSelect : MonoBehaviour
 
     public void HoverSound()
     {
-        Audio.PlayOneShot(SoundHover);
-        UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) Audio.clip.length * 1000 + 200));
+        //UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(SoundHover));
+        //UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) Audio.clip.length * 1000 + 200));
     }
 }
