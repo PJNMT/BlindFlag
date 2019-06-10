@@ -63,21 +63,22 @@ public class Main : MonoBehaviour
         UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) Hello.length * 1000 + 500));
         
         Recognition.Function Func = Traitement;
-        UnityMainThreadDispatcher.Instance().Enqueue(() => Recognition.start_recognition(Func, "continuer commencer option quitter paramaitre"));
+        UnityMainThreadDispatcher.Instance().Enqueue(() => Recognition.start_recognition(Func, "continuer commencer nouvelle option quitter paramaitre"));
     }
 
     public static void NewGame()
     {
-        if (Save.IsThereASave()) Save.DeleteSave();
+        if (Save.IsThereASave()) {Save.DeleteSave();}
         Start_CaptainStats.Start();
         Start_ShipStats.Start();
         BlindShip_Stat.SceneLoad = (int) LoadScene.Scene.Navigation;
         UnityMainThreadDispatcher.Instance().Enqueue(() => SceneManager.LoadScene((int) LoadScene.Scene.Navigation));
-        UnityMainThreadDispatcher.Instance().Enqueue(() => SceneManager.UnloadSceneAsync((int) LoadScene.Scene.START));
+        //UnityMainThreadDispatcher.Instance().Enqueue(() => SceneManager.UnloadScene((int) LoadScene.Scene.START));
     }
 
     void Traitement(string input)
     {
+        Debug.Log(input);
         switch (input)
         {
             case "continuer":
@@ -89,6 +90,7 @@ public class Main : MonoBehaviour
                 break;
 
             case "commencer":
+            case "nouvelle":
                 NewGame();
                 break;
 

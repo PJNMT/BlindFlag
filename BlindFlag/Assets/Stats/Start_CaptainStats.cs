@@ -13,8 +13,8 @@ public class Start_CaptainStats : MonoBehaviour
         BlindCaptain_Stat.SwordDamage = 0;
         BlindCaptain_Stat.GetLVL();
         BlindCaptain_Stat.NbEnigme = 1;
-        
-        BlindCaptain_Stat.Tuto = new Dictionary<string, bool>()
+
+        BlindCaptain_Stat.Tuto = new Dictionary<string, bool>
         {
             {"SeaBattle", false},
             {"ChasseAuTresor", false},
