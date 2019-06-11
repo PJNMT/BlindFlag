@@ -30,7 +30,12 @@ public class Option : MonoBehaviour
         OptionLaunch();
     }
 
-    void OptionLaunch()
+    public void RL()
+    {
+        relaunch = true;
+    }
+    
+    public void OptionLaunch()
     {
         Audio = GetComponent<AudioSource>();
         relaunch = false;
@@ -90,10 +95,9 @@ public class Option : MonoBehaviour
         }
         else
         {
-            UnityMainThreadDispatcher.Instance().Enqueue(() => OptionMenu.SetActive(false));
-            UnityMainThreadDispatcher.Instance().Enqueue(() => MainMenu.SetActive(true));
-
             UnityMainThreadDispatcher.Instance().Enqueue(() => Main.relaunch = true);
+            UnityMainThreadDispatcher.Instance().Enqueue(() => MainMenu.SetActive(true));
+            UnityMainThreadDispatcher.Instance().Enqueue(() => OptionMenu.SetActive(false));
         }
     }
 

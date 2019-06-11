@@ -43,6 +43,11 @@ public class Main : MonoBehaviour
         NoSave1 = NoSave;
         GoodBye1 = GoodBye;
     }
+    
+    public void RL()
+    {
+        relaunch = true;
+    }
 
     private void Update()
     {
@@ -71,9 +76,7 @@ public class Main : MonoBehaviour
         if (Save.IsThereASave()) {Save.DeleteSave();}
         Start_CaptainStats.Start();
         Start_ShipStats.Start();
-        BlindShip_Stat.SceneLoad = (int) LoadScene.Scene.Navigation;
-        UnityMainThreadDispatcher.Instance().Enqueue(() => SceneManager.LoadScene((int) LoadScene.Scene.Navigation));
-        //UnityMainThreadDispatcher.Instance().Enqueue(() => SceneManager.UnloadScene((int) LoadScene.Scene.START));
+        UnityMainThreadDispatcher.Instance().Enqueue(() => LoadScene.Load(LoadScene.Scene.Navigation, LoadScene.Scene.START));
     }
 
     void Traitement(string input)
@@ -84,8 +87,8 @@ public class Main : MonoBehaviour
             case "continuer":
                 if (Save.IsThereASave()) Save.LoadGame();
                 else {
-                    UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(NoSave));
-                    UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) NoSave.length * 1000 + 500));
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(NoSave));
+                        UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) NoSave.length * 1000 + 500));
                     }
                 break;
 
@@ -96,9 +99,9 @@ public class Main : MonoBehaviour
 
             case "option":
             case "paramaitre":
-                UnityMainThreadDispatcher.Instance().Enqueue(() => MainMenu.SetActive(false));
-                UnityMainThreadDispatcher.Instance().Enqueue(() => OptionMenu.SetActive(true));
                 UnityMainThreadDispatcher.Instance().Enqueue(() => Option.relaunch = true);
+                UnityMainThreadDispatcher.Instance().Enqueue(() => OptionMenu.SetActive(true));
+                UnityMainThreadDispatcher.Instance().Enqueue(() => MainMenu.SetActive(false));
                 break;
 
             case "quitter":

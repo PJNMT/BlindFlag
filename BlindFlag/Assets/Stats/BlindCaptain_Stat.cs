@@ -39,7 +39,7 @@ public class BlindCaptain_Stat : MonoBehaviour
     private static AudioClip G;
     private static AudioClip S;
     
-    public static Dictionary<string, bool> Tuto = new Dictionary<string, bool>
+    public static Dictionary<string, bool> Tuto = new Dictionary<string, bool>()
     {
         {"SeaBattle", false},
         {"ChasseAuTresor", false},

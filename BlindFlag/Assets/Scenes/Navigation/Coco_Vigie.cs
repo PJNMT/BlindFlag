@@ -83,15 +83,15 @@ public class Coco_Vigie : MonoBehaviour
         Audio = GetComponent<AudioSource>();
         baba = FindObjectOfType<Vigie>();
 
-       //if (!BlindCaptain_Stat.Tuto["START"])
+       if (!BlindCaptain_Stat.Tuto["START"])
         {
             UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(START));
             UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) START.length * 1000 + 500));
 
-           // BlindCaptain_Stat.Tuto["START"] = true;
+            BlindCaptain_Stat.Tuto["START"] = true;
         }
         
-        //if (!BlindCaptain_Stat.Tuto["Coco"])
+        if (!BlindCaptain_Stat.Tuto["Coco"])
         {
             UnityMainThreadDispatcher.Instance().Enqueue(() => Audio.PlayOneShot(TutoCoco));
             UnityMainThreadDispatcher.Instance().Enqueue(() => Thread.Sleep((int) TutoCoco.length * 1000 + 500));
