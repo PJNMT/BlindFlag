@@ -99,9 +99,9 @@ public class Main : MonoBehaviour
 
             case "option":
             case "paramaitre":
-                UnityMainThreadDispatcher.Instance().Enqueue(() => Option.relaunch = true);
-                UnityMainThreadDispatcher.Instance().Enqueue(() => OptionMenu.SetActive(true));
                 UnityMainThreadDispatcher.Instance().Enqueue(() => MainMenu.SetActive(false));
+                UnityMainThreadDispatcher.Instance().Enqueue(() => OptionMenu.SetActive(true));
+                UnityMainThreadDispatcher.Instance().Enqueue(() => Option.relaunch = true);
                 break;
 
             case "quitter":

@@ -95,9 +95,9 @@ public class Option : MonoBehaviour
         }
         else
         {
-            UnityMainThreadDispatcher.Instance().Enqueue(() => Main.relaunch = true);
-            UnityMainThreadDispatcher.Instance().Enqueue(() => MainMenu.SetActive(true));
             UnityMainThreadDispatcher.Instance().Enqueue(() => OptionMenu.SetActive(false));
+            UnityMainThreadDispatcher.Instance().Enqueue(() => MainMenu.SetActive(true));
+            UnityMainThreadDispatcher.Instance().Enqueue(() => Main.relaunch = true);
         }
     }
 
